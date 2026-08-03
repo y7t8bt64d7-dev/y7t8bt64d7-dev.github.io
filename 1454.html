@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>为什么两点之间线段最短｜阿贝尔的数学之旅</title>
+  <meta name="description" content="如何让 MathTeX 支持中文 标签和坐标轴重合时可以背景虚化 如何使用中文和 … 继续阅读 →">
+  <link rel="canonical" href="https://www.abelmath.fun/1454.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="阿贝尔的数学之旅">
+  <meta property="og:title" content="为什么两点之间线段最短｜阿贝尔的数学之旅">
+  <meta property="og:description" content="如何让 MathTeX 支持中文 标签和坐标轴重合时可以背景虚化 如何使用中文和 … 继续阅读 →">
+  <meta property="og:url" content="https://www.abelmath.fun/1454.html">
+  <meta property="og:image" content="https://www.abelmath.fun/assets/og.png">
+  <meta property="og:image:width" content="1731">
+  <meta property="og:image:height" content="909">
+  <meta property="og:image:alt" content="阿贝尔的数学之旅：数学笔记与思考">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="为什么两点之间线段最短｜阿贝尔的数学之旅">
+  <meta name="twitter:description" content="如何让 MathTeX 支持中文 标签和坐标轴重合时可以背景虚化 如何使用中文和 … 继续阅读 →">
+  <meta name="twitter:image" content="https://www.abelmath.fun/assets/og.png">
+  <link rel="stylesheet" href="/assets/site.css">
+  <link rel="alternate" type="application/rss+xml" title="阿贝尔的数学之旅" href="/feed.xml">
+</head>
+<body class="article-page">
+  <a class="skip-link" href="#main">跳到正文</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="/" aria-label="阿贝尔的数学之旅首页">
+        <span class="brand-mark" aria-hidden="true">∫</span>
+        <span><strong>阿贝尔的数学之旅</strong><small>ABEL'S MATHEMATICAL JOURNEY</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">目录</button>
+      <nav id="site-nav" class="site-nav" aria-label="主要导航"><a href="/">首页</a><a href="/category/%e8%ae%ba%e6%96%87/">论文</a><a href="/category/ode/">ODE</a><a href="/category/pde/">PDE</a><a href="/category/analysis/">分析</a><a href="/category/analysis/%e6%b5%8b%e5%ba%a6/">测度</a><a href="/category/%e8%bf%91%e4%b8%96%e4%bb%a3%e6%95%b0/">抽代</a><a href="/category/%e5%9f%ba%e4%bb%a3/">基代</a><a href="/category/%e7%a7%91%e6%99%ae/">科普</a><a href="/category/manim/">manim</a><a href="/category/%e6%8e%a2%e8%ae%a8/">探讨</a><a href="/category/%e8%ae%b0%e5%bd%95/">记录</a></nav>
+    </div>
+  </header>
+  <main id="main">
+<article class="article-shell">
+  <header class="article-header">
+    <a class="back-link" href="/">← 返回首页</a>
+    <div class="post-meta"><time datetime="2025-03-12T13:05:36+00:00">2025-03-12</time><a class="chip" href="/category/manim/">manim</a></div>
+    <h1>为什么两点之间线段最短</h1>
+    <p>如何让 MathTeX 支持中文 标签和坐标轴重合时可以背景虚化 如何使用中文和 … 继续阅读 →</p>
+  </header>
+  <div class="article-layout">
+    <aside class="article-rail"><p>NOTE 1454</p><span></span><p>2025 · 03 · 12</p></aside>
+    <div class="article-content"><p class="wp-block-paragraph">如何让 MathTeX 支持中文</p>
+
+
+
+<pre class="EnlighterJSRAW" data-enlighter-language="generic" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">from manim import *
+from manim.utils.tex_templates import TexTemplateLibrary
+
+# 设置 Tex 和 MathTex 的默认模板为 ctex
+Tex.set_default(tex_template=TexTemplateLibrary.ctex)
+MathTex.set_default(tex_template=TexTemplateLibrary.ctex)
+
+class ChineseExample(Scene):
+    def construct(self):
+        # 现在可以直接使用中文，无需指定 tex_template
+        title = MathTex(r'\text{曲线长度的定义——化曲为直}', font_size=70)
+        self.play(Write(title))
+        self.wait()</pre>
+
+
+
+<p class="wp-block-paragraph">标签和坐标轴重合时可以背景虚化</p>
+
+
+
+<pre class="EnlighterJSRAW" data-enlighter-language="generic" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">        varied_label = MathTex(r'f(x)+\varepsilon\eta(x)',
+                             color=RED).next_to(axes.c2p(1.9, 2.8), LEFT).set_z_index(3)
+        
+        # 创建背景虚化效果
+        background = BackgroundRectangle(varied_label, fill_opacity=0.8, color=BLACK).set_z_index(2)
+        
+        self.play(FadeIn(background),Create(varied_curve),Write(varied_label))
+        self.wait()</pre>
+
+
+
+<p class="wp-block-paragraph">如何使用中文和宏包</p>
+
+
+
+<pre class="EnlighterJSRAW" data-enlighter-language="generic" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">from manim import *
+import numpy as np
+from manim.utils.tex_templates import TexTemplateLibrary
+
+my_template = TexTemplateLibrary.ctex
+my_template.add_to_preamble(r"")
+
+# 设置 Tex 和 MathTex 的默认模板为自定义模板
+Tex.set_default(tex_template=my_template)
+MathTex.set_default(tex_template=my_template)</pre>
+</div>
+  </div>
+  <nav class="post-navigation" aria-label="文章前后导航"><a href="/1444.html"><span>上一篇</span><strong>LaTeX 经验贴</strong></a><a href="/1470.html"><span>下一篇</span><strong>向量场的流</strong></a></nav>
+</article>
+</main>
+  <footer class="site-footer">
+    <p>阿贝尔的数学之旅 · 数学笔记与思考</p>
+    <p><a href="/feed.xml">RSS</a><span aria-hidden="true"> · </span><a href="/sitemap.xml">站点地图</a></p>
+  </footer>
+  <script src="/assets/site.js"></script>
+  
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ["\\(","\\)"]],
+    displayMath: [['$$', '$$'], ["\\[", "\\]"]],
+    processEscapes: true
+  },
+  TeX: {
+    equationNumbers: {autoNumber: "AMS",
+    useLabelIds: true}
+  },
+});
+MathJax.Hub.Config({TeX: {Macros: {"mr": ["\\mathrm{#1}", 1], "mb": ["\\mathbb{#1}", 1], "ee": "\\exists\\,", "ff": "\\forall\\,", "les": "\\leqslant", "ges": "\\geqslant", "sse": "\\subset", "sbs": "\\subset", "sps": "\\supset", "ve": "\\varepsilon", "mbr": "\\mathbb{R}", "mbn": "\\mathbb{N}", "mbz": "\\mathbb{Z}", "mbq": "\\mathbb{Q}", "mbc": "\\mathbb{C}", "mbh": "\\mathbb{H}", "vp": "\\varphi", "nti": "n\\to\\infty", "md": "\\mathrm{d}", "mre": "\\mathrm{e}", "mri": "\\mathrm{i}", "lra": ["\\langle #1\\rangle", 1], "Ker": "\\mathrm{Ker}\\,", "Im": "\\mathrm{Im}\\,", "tl": "\\triangleleft", "set": ["\\left\\{#1\\,\\left|\\,#2\\right. \\right\\}", 2], "mod": ["\\ (\\mr{mod}\\ #1)", 1], "pp": "\\partial", "Gal": ["\\mathrm{Gal}\\left(#1\\right)", 1], "Inv": ["\\mathrm{Inv}\\left(#1\\right)", 1], "End": ["\\mathrm{End}_{#1}\\!\\left(#2\\right)", 2], "Hom": ["\\mathrm{Hom}_{#1}\\!\\left(#2\\right)", 2], "ca": "\\mathcal{A}", "cb": "\\mathcal{B}", "cc": "\\mathcal{C}", "cd": "\\mathcal{D}", "ce": "\\mathcal{E}", "cf": "\\mathcal{F}", "cg": "\\mathcal{G}", "cl": "\\mathcal{L}", "cs": "\\mathcal{S}", "Ext": "\\mathrm{Ext}", "Tor": "\\mathrm{Tor}", "mc": ["\\mathcal{#1}", 1], "ot": "\\otimes"}}});
+</script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_SVG.js"></script>
+</body>
+</html>

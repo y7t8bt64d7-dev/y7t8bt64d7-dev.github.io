@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>近世代数序言｜阿贝尔的数学之旅</title>
+  <meta name="description" content="[latexpage] 求解欧拉函数的近世代数视角 剩余类环 定义.(零因子) … 继续阅读 →">
+  <link rel="canonical" href="https://www.abelmath.fun/81.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="阿贝尔的数学之旅">
+  <meta property="og:title" content="近世代数序言｜阿贝尔的数学之旅">
+  <meta property="og:description" content="[latexpage] 求解欧拉函数的近世代数视角 剩余类环 定义.(零因子) … 继续阅读 →">
+  <meta property="og:url" content="https://www.abelmath.fun/81.html">
+  <meta property="og:image" content="https://www.abelmath.fun/assets/og.png">
+  <meta property="og:image:width" content="1731">
+  <meta property="og:image:height" content="909">
+  <meta property="og:image:alt" content="阿贝尔的数学之旅：数学笔记与思考">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="近世代数序言｜阿贝尔的数学之旅">
+  <meta name="twitter:description" content="[latexpage] 求解欧拉函数的近世代数视角 剩余类环 定义.(零因子) … 继续阅读 →">
+  <meta name="twitter:image" content="https://www.abelmath.fun/assets/og.png">
+  <link rel="stylesheet" href="/assets/site.css">
+  <link rel="alternate" type="application/rss+xml" title="阿贝尔的数学之旅" href="/feed.xml">
+</head>
+<body class="article-page">
+  <a class="skip-link" href="#main">跳到正文</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="/" aria-label="阿贝尔的数学之旅首页">
+        <span class="brand-mark" aria-hidden="true">∫</span>
+        <span><strong>阿贝尔的数学之旅</strong><small>ABEL'S MATHEMATICAL JOURNEY</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">目录</button>
+      <nav id="site-nav" class="site-nav" aria-label="主要导航"><a href="/">首页</a><a href="/category/%e8%ae%ba%e6%96%87/">论文</a><a href="/category/ode/">ODE</a><a href="/category/pde/">PDE</a><a href="/category/analysis/">分析</a><a href="/category/analysis/%e6%b5%8b%e5%ba%a6/">测度</a><a href="/category/%e8%bf%91%e4%b8%96%e4%bb%a3%e6%95%b0/">抽代</a><a href="/category/%e5%9f%ba%e4%bb%a3/">基代</a><a href="/category/%e7%a7%91%e6%99%ae/">科普</a><a href="/category/manim/">manim</a><a href="/category/%e6%8e%a2%e8%ae%a8/">探讨</a><a href="/category/%e8%ae%b0%e5%bd%95/">记录</a></nav>
+    </div>
+  </header>
+  <main id="main">
+<article class="article-shell">
+  <header class="article-header">
+    <a class="back-link" href="/">← 返回首页</a>
+    <div class="post-meta"><time datetime="2024-08-17T13:19:47+00:00">2024-08-17</time><a class="chip" href="/category/blog/">博客</a></div>
+    <h1>近世代数序言</h1>
+    <p>[latexpage] 求解欧拉函数的近世代数视角 剩余类环 定义.(零因子) … 继续阅读 →</p>
+  </header>
+  <div class="article-layout">
+    <aside class="article-rail"><p>NOTE 81</p><span></span><p>2024 · 08 · 17</p></aside>
+    <div class="article-content"><p>[latexpage]</p>
+<h1>求解欧拉函数的近世代数视角</h1>
+<h2>剩余类环</h2>
+<p><strong>定义.(零因子)</strong> 设 $latex R$ 是一个环. 对于 $latex a\in R$, 如果存在 $latex c\in R$ 且 $latex c\ne0$, 使得 $latex ac=0$ 或 $latex ca=0$, 则称 $latex a$ 是一个左零因子或右零因子. 左、右零因子统称为零因子.</p>
+<p><strong>命题</strong> 设  $latex R$ 是有非零单位元的环, 则 $latex R$ 的零因子不是可逆元.</p>
+<p><strong>注</strong> 常用上述命题的逆否命题：设  $latex R$ 是有非零单位元的环, 则 $latex R$ 的可逆元不是零因子.</p>
+<p>如果一个域中的元素都属于复数集, 那么称这个域是数域. 例如有理数域 $latex \mathbb{Q}$, 实数域 $latex \mathbb{R}$, 复数域 $latex \mathbb{C}$.</p>
+<p><strong>命题</strong> 若 $latex m$ 是合数, 则 $latex \mathbb{Z}_m$ 不是域.</p>
+<p><strong>简证</strong> 设 $latex m=m_1m_2$ 是合数, 则 $latex \bar{m}_1$ 为零因子.</p>
+<p><strong>定理</strong> 在 $latex \mathbb{Z}_m$ 中, $latex \bar{a}$ 是可逆元当且仅当 $latex a$ 与 $latex m$ 互素.</p>
+<p><strong>证明</strong> 充分性. 设 $latex a$ 与 $latex m$ 互素, 则存在 $latex u,v\in\mathbb{Z}$, 使得<br>
+$$ ua+vm=1 \ \Rightarrow \bar{1}=\bar{u}\bar{a}+\bar{v}\bar{m}=\bar{u}\bar{a}.$$这说明 $latex \bar{a}$ 是可逆元.</p>
+<p>必要性. 设$latex \bar{a}$ 是可逆元. 若 $latex a$ 与 $latex m$ 不互素, 即 $latex (a,m)=d\ne1$. 则 $latex a=a_1d, m=m_1d$, 从而<br>
+$$<br>
+\bar{a}\bar{m}_1=\bar{a}_1\bar{m}=\bar{0}.<br>
+$$由于 $latex \bar{m}_1\ne\bar{0}$, 所以 $latex \bar{a}$ 是左零因子, 不可逆. 矛盾!</p>
+<p><strong>推论</strong> $latex \mathbb{Z}_m$ 的每个元素或者是可逆元, 或者是零因子.</p>
+<p><strong>定理</strong> 若 $latex p$ 是素数 , 则 $latex \mathbb{Z}_p$ 是一个域.</p>
+<p>含有有限多个元素的域称为有限域.</p>
+<p>$latex \mathbb{Z}_m$ 的所有可逆元组成的集合记作 $latex \mathbb{Z}^*_m$.</p>
+<p><strong>命题</strong> $latex \mathbb{Z}^*_m$ 是一个群, 称它为 $latex \mathbb{Z}_m$ 的单位群.</p>
+<h2>欧拉函数</h2>
+<p><strong>定义</strong> 设 $latex m$ 是大于 $latex 1$ 的整数, 集合 $latex {1,2,\cdots,m}$ 中与 $latex m$ 互素的整数的个数记作 $latex \varphi(m)$, 称 $latex \varphi(m)$ 为欧拉函数.</p>
+<p><strong>命题</strong> $latex \varphi(m)$ 等于 $latex \mathbb{Z}_m$ 中可逆元的个数, 即 $latex \varphi(m)=|\mathbb{Z}_m^*|$.</p>
+<p>如何计算 $latex \varphi(m)$ 的值?</p>
+<p><strong>命题</strong> 设 $latex p$ 是素数, 则 $latex \varphi(p)=p-1$.<br>
+<strong>简证</strong> 当 $latex p$ 为素数时, $latex \mathbb{Z}_p$ 是域.</p>
+<p><strong>命题</strong> 设 $latex p$ 是素数, 则对任意正整数 $latex r$ 有<br>
+$$ \varphi(p^r)=p^{r-1}(p-1).$$</p>
+<p>通过计算猜测有下面的结论<br>
+设 $latex m=m_1m_2$, 且 $latex (m_1,m_2)=1$, 则 $latex \varphi(m)=\varphi(m_1)\varphi(m_2)$.</p>
+<p>上式左边的 $ \varphi(m)$ 是 $ \mathbb{Z}_m$ 的可逆元个数. 上式右边的 $latex \varphi(m<em>1)$ 是 $ \mathbb{Z}</em>{m_1}$ 的可逆元个数, $latex \varphi(m<em>2)$ 是 $ \mathbb{Z}</em> {m _ 2}$ 的可逆元个数, 那么 $latex \varphi(m_1)\varphi(m<em>2)$ 有没有可能是某一个环的可逆元个数呢? 考虑 $ \mathbb{Z}</em> {m<em> 1}$ 与 $ \mathbb{Z}</em> {m<em> 2}$ 的笛卡尔积 $ \mathbb{Z}</em>{m<em>1}\times \mathbb{Z}</em>{m_2}$, 在其中规定加法和乘法如下<br>
+$$<br>
+\begin{aligned}<br>
+(a_1,b_1)+(a_2,b_2)&amp;:=(a_1+a_2,b_1+b_2)\\<br>
+(a_1,b_1)(a_2,b_2)&amp;:=(a_1a_2,b_1b_2)<br>
+\end{aligned}<br>
+$$</p>
+<p>容易验证 $ \mathbb{Z}_{m<em>1}\times \mathbb{Z}</em>{m<em>2}$ 成为一个有单位元 $latex (1,1)$ 的交换环, 把这个环叫做环 $ \mathbb{Z}</em> {m<em> 1}$ 与 $ \mathbb{Z}</em> {m<em> 2}$ 的直和, 记作 $ \mathbb{Z}</em>{m<em>1}\oplus \mathbb{Z}</em>{m_2}$.</p>
+<p>容易验证 $latex (a,b)$ 为 $ \mathbb{Z}_{m<em>1}\oplus \mathbb{Z}</em>{m<em>2}$ 的可逆元当仅当 $latex a$ 为 $ \mathbb{Z}</em> {m<em> 1}$ 的可逆元且 $latex b$ 为 $ \mathbb{Z}</em> {m_ 2}$ 的可逆元. 那么</p>
+<p><strong>命题</strong> $ \mathbb{Z}_{m<em>1}\oplus \mathbb{Z}</em>{m_2}$ 的可逆元个数等于 $latex \varphi(m_1)\varphi(m_2)$.</p>
+<p>这个命题给出了 $latex \varphi(m)=\varphi(m_1)\varphi(m_2)$ 的一个结构性的解释</p>
+<h2>域的特征</h2>
+<p>模 $latex p$ 剩余类域 $latex \mathbb{Z}_p$ 与数域 $latex K$ 有什么不同点呢？在 $latex \mathbb{Z}_p$ 中有<br>
+$$<br>
+\begin{aligned}<br>
+p\bar{1}&amp;=\bar{p}=\bar{0}\\<br>
+l\bar{1}&amp;=\bar{l}\ne\bar{0},\ \forall 0&lt; l&lt; p.<br>
+\end{aligned}<br>
+$$在数域 $latex K$ 中,<br>
+$$<br>
+n1=n\ne0,\  \forall n\in \mathbb{N}^*.<br>
+$$对任一域 $latex F$, 它的单位元 $latex e$ 的正整数倍有什么规律？我们有如下结论：</p>
+<p><strong>定理</strong> 设域 $latex F$ 的单位元为 $latex e$, 则或者 $latex ne\ne0, \forall n\in \mathbb{N}^*$, 或者存在素数 $latex p$ 使得 $latex pe=0$, 而 $latex le\ne0, \forall 0&lt; l&lt; p.$</p>
+<p><strong>证明</strong> Case1. $latex ne\ne0, \forall n\in \mathbb{N}^*$<br>
+Case2. 存在正整数 $latex n$ 使得 $latex ne=0$. 设 $latex n$ 是使 $latex ne=0$ 成立的最小正整数. 若 $latex n$ 不是素数, 则<br>
+$$ n=n_1n_2,\ 1&lt; n_1 &lt; n,\ 1&lt; n_2&lt; n.$$ 那么<br>
+$$ (n_1e)(n_2e)=\cdots=ne=0.$$ 由 $latex n$ 的定义得 $latex n_1e\ne0, n_2e\ne0$. 于是 $latex n_1e$ 为零因子, 进而为不可逆元. 又 $latex n_1e\ne0$, 这与 $latex F$ 是域矛盾, 因此 $latex n$ 是素数.</p>
+<p><strong>定义</strong> 设域 $latex F$ 的单位元是 $latex e$. 如果 $latex ne\ne0, \forall n\in \mathbb{N}^*$, 则称域 $latex F$ 的特征为 $latex 0$; 如果存在素数 $latex p$, 使得 $latex pe=0$, 而 $latex le\ne0, \forall 0&lt; l&lt; p,$ 则称域 $latex F$ 的特征为 $latex p$. 域 $latex F$ 的特征记作 $latex \mathrm{char}\ F$.</p>
+<p>模 $latex p$ 剩余类域 $latex \mathbb{Z}_p$ 的特征为 $latex p$; 任意数域的特征为 $latex 0$. 这就是 $latex \mathbb{Z}_p$ 与数域的本质区别.</p>
+<p><strong>命题</strong> 设域 $latex F$ 的特征为素数 $latex p$, 则 $latex pa=0,\forall a\in F$.<br>
+<strong>证明</strong> 只需注意到 $latex pa=p(ea)$.</p>
+</div>
+  </div>
+  <nav class="post-navigation" aria-label="文章前后导航"><a href="/67.html"><span>上一篇</span><strong>拉普拉斯算子</strong></a><a href="/131.html"><span>下一篇</span><strong>测试代码</strong></a></nav>
+</article>
+</main>
+  <footer class="site-footer">
+    <p>阿贝尔的数学之旅 · 数学笔记与思考</p>
+    <p><a href="/feed.xml">RSS</a><span aria-hidden="true"> · </span><a href="/sitemap.xml">站点地图</a></p>
+  </footer>
+  <script src="/assets/site.js"></script>
+  
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ["\\(","\\)"]],
+    displayMath: [['$$', '$$'], ["\\[", "\\]"]],
+    processEscapes: true
+  },
+  TeX: {
+    equationNumbers: {autoNumber: "AMS",
+    useLabelIds: true}
+  },
+});
+MathJax.Hub.Config({TeX: {Macros: {"mr": ["\\mathrm{#1}", 1], "mb": ["\\mathbb{#1}", 1], "ee": "\\exists\\,", "ff": "\\forall\\,", "les": "\\leqslant", "ges": "\\geqslant", "sse": "\\subset", "sbs": "\\subset", "sps": "\\supset", "ve": "\\varepsilon", "mbr": "\\mathbb{R}", "mbn": "\\mathbb{N}", "mbz": "\\mathbb{Z}", "mbq": "\\mathbb{Q}", "mbc": "\\mathbb{C}", "mbh": "\\mathbb{H}", "vp": "\\varphi", "nti": "n\\to\\infty", "md": "\\mathrm{d}", "mre": "\\mathrm{e}", "mri": "\\mathrm{i}", "lra": ["\\langle #1\\rangle", 1], "Ker": "\\mathrm{Ker}\\,", "Im": "\\mathrm{Im}\\,", "tl": "\\triangleleft", "set": ["\\left\\{#1\\,\\left|\\,#2\\right. \\right\\}", 2], "mod": ["\\ (\\mr{mod}\\ #1)", 1], "pp": "\\partial", "Gal": ["\\mathrm{Gal}\\left(#1\\right)", 1], "Inv": ["\\mathrm{Inv}\\left(#1\\right)", 1], "End": ["\\mathrm{End}_{#1}\\!\\left(#2\\right)", 2], "Hom": ["\\mathrm{Hom}_{#1}\\!\\left(#2\\right)", 2], "ca": "\\mathcal{A}", "cb": "\\mathcal{B}", "cc": "\\mathcal{C}", "cd": "\\mathcal{D}", "ce": "\\mathcal{E}", "cf": "\\mathcal{F}", "cg": "\\mathcal{G}", "cl": "\\mathcal{L}", "cs": "\\mathcal{S}", "Ext": "\\mathrm{Ext}", "Tor": "\\mathrm{Tor}", "mc": ["\\mathcal{#1}", 1], "ot": "\\otimes"}}});
+</script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_SVG.js"></script>
+</body>
+</html>

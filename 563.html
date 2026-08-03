@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>模论1｜阿贝尔的数学之旅</title>
+  <meta name="description" content="目录 目录 1. 备忘录 … 继续阅读 →">
+  <link rel="canonical" href="https://www.abelmath.fun/563.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="阿贝尔的数学之旅">
+  <meta property="og:title" content="模论1｜阿贝尔的数学之旅">
+  <meta property="og:description" content="目录 目录 1. 备忘录 … 继续阅读 →">
+  <meta property="og:url" content="https://www.abelmath.fun/563.html">
+  <meta property="og:image" content="https://www.abelmath.fun/assets/og.png">
+  <meta property="og:image:width" content="1731">
+  <meta property="og:image:height" content="909">
+  <meta property="og:image:alt" content="阿贝尔的数学之旅：数学笔记与思考">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="模论1｜阿贝尔的数学之旅">
+  <meta name="twitter:description" content="目录 目录 1. 备忘录 … 继续阅读 →">
+  <meta name="twitter:image" content="https://www.abelmath.fun/assets/og.png">
+  <link rel="stylesheet" href="/assets/site.css">
+  <link rel="alternate" type="application/rss+xml" title="阿贝尔的数学之旅" href="/feed.xml">
+</head>
+<body class="article-page">
+  <a class="skip-link" href="#main">跳到正文</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="/" aria-label="阿贝尔的数学之旅首页">
+        <span class="brand-mark" aria-hidden="true">∫</span>
+        <span><strong>阿贝尔的数学之旅</strong><small>ABEL'S MATHEMATICAL JOURNEY</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">目录</button>
+      <nav id="site-nav" class="site-nav" aria-label="主要导航"><a href="/">首页</a><a href="/category/%e8%ae%ba%e6%96%87/">论文</a><a href="/category/ode/">ODE</a><a href="/category/pde/">PDE</a><a href="/category/analysis/">分析</a><a href="/category/analysis/%e6%b5%8b%e5%ba%a6/">测度</a><a href="/category/%e8%bf%91%e4%b8%96%e4%bb%a3%e6%95%b0/">抽代</a><a href="/category/%e5%9f%ba%e4%bb%a3/">基代</a><a href="/category/%e7%a7%91%e6%99%ae/">科普</a><a href="/category/manim/">manim</a><a href="/category/%e6%8e%a2%e8%ae%a8/">探讨</a><a href="/category/%e8%ae%b0%e5%bd%95/">记录</a></nav>
+    </div>
+  </header>
+  <main id="main">
+<article class="article-shell">
+  <header class="article-header">
+    <a class="back-link" href="/">← 返回首页</a>
+    <div class="post-meta"><time datetime="2024-09-03T10:05:20+00:00">2024-09-03</time><a class="chip" href="/category/%E5%9F%BA%E4%BB%A3/">基代</a></div>
+    <h1>模论1</h1>
+    <p>目录 目录 1. 备忘录 … 继续阅读 →</p>
+  </header>
+  <div class="article-layout">
+    <aside class="article-rail"><p>NOTE 563</p><span></span><p>2024 · 09 · 03</p></aside>
+    <div class="article-content"><span id="contents" style="text-align:center; font-size:18px; font-variant:small-caps;display:block;">目录</span><br>
+          <span id="sec:content"><a href="#contents">目录</a></span><br><span> 1.  <a href="#sec:1">备忘录</a></span><br><span> 2.  <a href="#sec:2">环与代数上的模</a></span><br><span>   2.1.  <a href="#sec:2.1">域上的代数</a></span><br><span>   2.2.  <a href="#sec:2.2">环与代数上的模</a></span><br><span> 3.  <a href="#sec:3">零化子</a></span><br><span> 4.  <a href="#sec:4">模的构造</a></span><br><span>   4.1.  <a href="#sec:4.1">模同态的矩阵表达</a></span><br><span>   4.2.  <a href="#sec:4.2">模的直和的自同态环</a></span><br><span>   4.3.  <a href="#sec:4.3">双模</a></span><br><span> 5.  <a href="#sec:5">单模与半单模</a></span><br><span>   5.1.  <a href="#sec:5.1">半单模的刻画</a></span><br><span> 6.  <a href="#sec:6">Wedderburn-Artin定理</a></span><br><span> 7.  <a href="#sec:7">范畴与函子</a></span><br><span>   7.1.  <a href="#sec:7.1">范畴</a></span><br><span>   7.2.  <a href="#sec:7.2">函子</a></span><br><span>   7.3.  <a href="#sec:7.3">自然变换</a></span><br> <span class="latex_section">1. 备忘录<a id="sec:1"></a></span>
+“环与代数上的模”和“群在集合上的作用”有点像. <br> 
+环 $R$ 上的模 = 加群 + $R$-作用  <br>
+   代数 $A$ 上的模 = $k$-线性空间 + $A$-作用   <br>
+  模同态 = 群同态 + 保持模结构 单模是不可分解模, 但不可分解模未必是单模.    <br>
+ 整环 = 无零因子的交换(幺)环 (integral domain).    <br>
+ 无零因子环 domain    <br>
+ $\mathbb{K}$-线性空间是半单 $\mathbb{K}$-模.  <br>
+  在涉及交换图的证明中, 补箭头的常用技巧, 看上去是必要条件, 但可以利用交换图得出新的结论. <br>
+研究一个模可以从直和分解(如果可分解), 也可以从单模扩张(如果有合成列)的角度出发.<br>
+半单模有单模的直和分解(定义), 有合成列的模可以"唯一"分解成有限个不可分解模的直和(引理+ K-S-R 定理). 特别地, 代数上的有限维模可以"唯一"分解成有限个不可分解模的直和.
+<div class="latex_examp"><span class="latex_examp_h">例子 1</span><span class="latex_examp_h">.</span> 内直和与外直和示例
+$$ \mbz_6=\underbrace{(3\mbz/6\mbz)\oplus (2\mbz/6\mbz)}_{\text{内直和}}\cong \underbrace{\mbz_2\oplus \mbz_3}_{\text{外直和}}.$$
+</div>
+<div class="latex_examp"><span class="latex_examp_h">例子 2</span> (<span class="latex_examp_name">函子诱导出的映射</span>)<span class="latex_examp_h">.</span> 设 $R$ 是环, $M$ 是左 $R$-模. 模同态 $f\in\mr{Hom}_R(X,Y)$ 诱导出群同态
+$$\mr{Hom}_R(M,f):\mr{Hom}_R(M,X)\to \mr{Hom}_R(M,Y),\ g\mapsto fg,\ \ \ff g\in\mr{Hom}_R(M,X).$$
+</div>
+<div class="latex_examp"><span class="latex_examp_h">例子 3</span> (<span class="latex_examp_name">映射的"直和"、张量积</span>)<span class="latex_examp_h">.</span> 对序列 $X\xrightarrow[]{f}Y$ 作用函子 $M\ot_R-$ 得到
+$$ M\ot_R X\xrightarrow[]{\ 1_M\ot_R f\ } M\ot_R Y.$$
+映射的张量积作用于元素是按分量作用,即
+$$ (1_M\ot_R f)(m\ot x)=m\ot f(x).$$
+</div>
+
+<div class="latex_defn"><span class="latex_defn_h">定义 1</span> (<span class="latex_defn_name">单、半单</span>)<span class="latex_defn_h">.</span> <ol>
+<li>单模：子模只有 $0$ 和本身的非零模
+</li><li>半单模：单模的直和
+</li><li>单环：理想只有 $0$ 和本身的非零环
+</li><li>半单环：如果环 $R$ 作为 (左) 正则模 $ _RR$ 是半单 (左) 模 (可以证明半单左模等价于半单右模)
+</li><li>单代数：理想只有 $0$ 和本身的非零代数
+</li><li>半单代数：若代数 $A$ 作为左正则模 $ _AA$ 是半单模
+</li></ol>
+章老师的书只考虑有限维代数.
+</div>
+
+<div class="latex_examp"><span class="latex_examp_h">例子 4</span> (<span class="latex_examp_name">两个伴随对, 四个结论</span>)<span class="latex_examp_h">.</span> 给定双模 $ _RM_S, _SN_T.$
+\begin{align*}
+ _RL_U:\ \mr{Hom}_R(M\ot_S N,L)\cong \mr{Hom}_S(N,\mr{Hom}_R(M,L)),\ \big( M\ot_S-,\mr{Hom}_R(M,-)\big)\\
+ _UL_T:\ \mr{Hom}_T(M\ot_S N,L)\cong \mr{Hom}_S(M,\mr{Hom}_T(N,L)),\ \big( -\ot_SN,\mr{Hom}_T(N,-)\big)\
+\end{align*}
+我们有如下结论
+<ol>
+<li>$ _SN, _RM$ 均为投射模, 则 $M\ot_S N  $ 是投射左 $R$-模, 因为
+$$\mr{Hom}_R(M\ot_S N,-)\cong \mr{Hom}_S(N,\mr{Hom}_R(M,-)).$$
+</li><li>$N_T,M_S$ 均为投射模, 则 $M\ot_S N $ 是投射右 $T$-模, 因为
+$$\mr{Hom}_T(M\ot_S N,-)\cong \mr{Hom}_S(M,\mr{Hom}_T(N,-)).$$
+</li><li>$M_S$ 为平坦模, $ _RL$ 是内射模, 则 $\mr{Hom}_R(M,L)$ 是内射左 $S$-模, 因为
+$$\mr{Hom}_R(M\ot_S -,L)\cong \mr{Hom}_S(-,\mr{Hom}_R(M,L)).$$
+</li><li>$ _SN$ 为平坦模, $ L_T$ 是内射模, 则 $\mr{Hom}_T(N,L)$ 是内射右 $S$-模, 因为
+$$\mr{Hom}_T(-\ot_S N,L)\cong \mr{Hom}_S(-,\mr{Hom}_T(N,L)).$$
+</li></ol>
+</div>
+
+<div class="latex_examp"><span class="latex_examp_h">例子 5</span><span class="latex_examp_h">.</span> 考虑 $\mbz_4$. 因为 $2\mbz_4$ 为其子群, 故 $\mbz_4$ 不是单群. 下面我们说明 $\mbz_4$ 是不可分解群. 由 Lagrange 定理, $\mbz_4$ 的子群只能是 $4,2,1$ 阶的, 若 $\mbz_4$ 可分解, 则只能是两个二阶子群的直和： $$ \mbz_4=2\mbz_4\oplus 2\mbz_4.$$ 但是根据内直和的定义 $$ 2\mbz_4\oplus 2\mbz_4= 2\mbz_4\ne\mbz_4.$$ </div> <span class="latex_section">2. 环与代数上的模<a id="sec:2"></a></span>
+<span class="latex_subsection">2.1. 域上的代数<a id="sec:2.1"></a></span>
+<div class="latex_defn"><span class="latex_defn_h">定义 2</span> (<span class="latex_defn_name">代数</span>)<span class="latex_defn_h">.</span> 设 $A$ 是一个环. 若 <ol> <li>$A$ 上的加法满足 $k$-线性空间的结构; </li><li>乘法和数乘相容 $$\lambda(ab)=(\lambda a)b=a(\lambda b),\ \ff \lambda\in k,\ff a,b\in k.$$ </li></ol> 域 $k$ 上的代数 $A$ 简称为 $k$-代数, 或代数 $A$. 简言之, <b> 代数 = 环 + 线性空间 </b>. </div> 若代数 $A$ 作为环是交换环, 则称 $A$ 是交换代数; 若 $A$ 作为环是可除环(每个非零元有乘法逆), 则称 $A$ 是可除代数.    如果代数 $A$ 作为 $k$-线性空间是有限维的, 则称 $A$ 是有限维 $k$-代数, 其维数记为 $\dim_k A$.    定义代数同态需要兼顾代数的环结构和线性空间结构: $k$-代数 $A$ 到 $k$-代数 $B$ 的代数同态, 指环同态 $f:A\to B$, 并且 $f$ 也是 $k$-线性映射. <div class="latex_examp"><span class="latex_examp_h">例子 6</span><span class="latex_examp_h">.</span> 代数的一些例子: <ol> <li>域 $k$ 上的多项式环 $k[x]$ 做成无限维 $k$-代数; </li><li>$k$-代数 $A$ 上的 $n$ 阶全矩阵环 $M_n(A)$ (环 $R$ 上 $n$ 阶矩阵的集合对矩阵加法和乘法作成的环, 称为 $R$ 上的全矩阵环, 记作 $M_n(R)$); </li><li>$k$-代数 $A$ 上 $n$ 阶上三角矩阵的集合也作成 $k$-代数, 它是 $M_n(A)$ 的子代数; </li><li>$n$ 维 $k$-向量空间 $V$ 的自同态环 $$ \mr{End}_k(V)=\set{f}{f:V\to V\ \text{是}\ k-\text{线性映射}}$$ 作成 $n^2$ 维 $k$-代数, 它同构于 $M_n(k)$. </li></ol> </div> <div class="latex_thm"><span class="latex_thm_h">定理 3</span><span class="latex_thm_h">.</span> <ol> <li><b>代数同态基本定理</b>： 设 $f: A \to B$ 是代数同态. 则 $\operatorname{Ker} f$ 是 $A$ 的理想且有典范代数同构 $A / \operatorname{Ker} f \cong \operatorname{Im} f, a+\operatorname{Ker} f \mapsto f(a)$ . </li><li><b>子代数对应定理</b>：设 $I$ 是 $k$-代数 $A$ 的理想, $\Gamma$ 是 $A$ 的包含 $I$ 的子代数的集合, $\Omega$ 是商代数 $A / I$ 的子代数的集合. 则存在双射 $\psi: \Gamma \to \Omega$ ，其中 $\psi(B)=B / I, \forall B \in \Gamma$ ；并且 $B$ 是 $A$ 的包含 $I$ 的理想当且仅当 $\psi(B)=B / I$ 是 $A / I$ 的理想. </li><li><b>第一同构定理</b>：设 $I$ 是 $k$-代数 $A$ 的理想, $B$ 是 $A$ 的子代数. 则 $I$ 是代数 $B+I$ 的理想, $B \cap I$ 是 $B$ 的理想, 且有典范代数同构 $(B+I) / I \cong B /(B \cap I)$. </li><li><b>第二同构定理</b>：设 $B$ 和 $C$ 均为 $k$-代数 $A$ 的理想, 且 $C$ 是 $B$ 的理想. 则有典范代数同构 $$ (A / C) /(B / C) \cong A / B $$ </li></ol> </div> <span class="latex_subsection">2.2. 环与代数上的模<a id="sec:2.2"></a></span>
+<div class="latex_defn"><span class="latex_defn_h">定义 4</span> (<span class="latex_defn_name">环上的模</span>)<span class="latex_defn_h">.</span> 设 $R$ 是环. 左 $R$-模 $M$ 是指加群 $M$ 连同一个左 $R$-作用, 即映射(体现封闭性) $$R\times M\ni(r,m)\mapsto r.m$$ 满足 <ol> <li>单位元：$1m=m$; </li><li>分配律1：$a(m_1+m_2)=am_1+am_2$; </li><li>分配律2：$(a+b)m=am+bm$; </li><li>结合律：$(ab)m=a(bm)$, </li></ol> 其中 $1$ 为 $R$ 的单位元,$a,b\in R, m,m_1,m_2\in M$, 也将左 $R$-模 $M$ 简记为 $ _RM$. </div> $r.m$ 称为 $r$ 在 $m$ 上的作用, 通常将作用的符号"."省略. <div class="latex_defn"><span class="latex_defn_h">定义 5</span> (<span class="latex_defn_name">自同态环</span>)<span class="latex_defn_h">.</span> 加群 $M$ 的全体自同态集合 $$ \mr{End}_k(V)=\set{f}{f:M\to M\ \text{是}\ k-\text{群同态}}$$ 作成环, 称为加群 $M$ 的自同态环, 其加法和乘法分别定义为 $$ (f+g)(m):=f(m)+g(m),\ f(g(m)):=f(g(m)),\ \ff f,g\in\mr{End}(M), \ff m\in M.$$ </div> 左 $R$-模有如下的等价定义： <div class="latex_defn"><span class="latex_defn_h">定义 6</span> (<span class="latex_defn_name">环上模的表示论定义</span>)<span class="latex_defn_h">.</span> 设 $M$ 是加群. 若存在环同态 $\rho: R\to \mr{End}(M)$, 则称 $(M,\rho)$ 是左 $R$-模, 或简称 $M$ 是左 $R$-模. 又称 $(M,\rho)$ 是环 $R$ 的表示. </div> 模是“环在加群上的作用”, 是一种特殊的“群在集合上的作用”. 上述两种左 $R$-模的定义是等价的, 只需定义 $\rho(r)(m):=rm$. 事实上, 环同态 $\rho$ 把第一个定义中的 $4$ 个条件打包成了同态. <div class="latex_defn"><span class="latex_defn_h">定义 7</span> (<span class="latex_defn_name">代数上的模</span>)<span class="latex_defn_h">.</span> 设 $A$ 是 $k$-代数. 左 $A$-模 $M$ 是指 $k$-线性空间 $M$ 连同一个左 $A$-作用,即映射 $$ A\times M\ni (r,m)\mapsto rm\in M$$ 满足 <ol> <li>单位元：$ 1m=m$; </li><li>分配律1：$a(m_1+m_2)=am_1+am_2$; </li><li>分配律2：$(a+b)m=am+bm$; </li><li>结合律：$(ab)m=a(bm)$; </li><li>相容性：$\lambda (am)=a(\lambda m)=(\lambda a)m$. </li></ol> 其中 $1$ 为 $A$ 的单位元, $a,b\in A,m,m_1,m_2\in M,\lambda\in k.$ </div> <div class="latex_defn"><span class="latex_defn_h">定义 8</span> (<span class="latex_defn_name">代数上模的表示论定义</span>)<span class="latex_defn_h">.</span> 设 $A$ 是域 $k$ 上的代数, $M$ 是 $k$-线性空间. 若存在同态 $\rho:A\to\End{k}{M}$, 则称 $(M,\rho)$ 是左 $A$-模, 或简称 $M$ 是左 $A$-模. 又称 $(M,\rho)$ 是 $A$ 的表示. </div> 一般地, $M$ 是左 $R$-模当仅当 $M$ 是右 $R^{\mr{OP}}$-模, 其中 $R^{\mr{OP}}$ 是 $R$ 的反环. <div class="latex_examp"><span class="latex_examp_h">例子 7</span><span class="latex_examp_h">.</span> <ol> <li>环 $R$ 可以看作其自身上的左模 ${ }_R R$ (左 $R$-作用即为环 $R$ 的乘法), 称之为正则左 $R$-模. 类似地, 有正则右 $R$-模 $R_R$. </li><li>设 $\mathbb{Z}$ 是整数环. 则 $\mathbb{Z}$-模恰是 Abel 群. </li><li>设 $k$ 是域. 则 $k$-模恰是 $k$-向量空间. </li><li>设 $k[x]$ 是域 $k$ 上的一元多项式环, $T$ 是 $k$-线性空间 $V$ 的线性变换. 对于 $f(x)=a_0+a_1 x+\cdots+a_n x^n \in k[x]$ ，定义 $f(x)$ 在 $V$ 中元素 $v$ 上的作用为 $$ f(x) v:=a_0 v+a_1 T(v)+\cdots+a_n T^n(v) $$ 则 $V$ 作成 $k[x]$-模. </li></ol> </div> <div class="latex_defn"><span class="latex_defn_h">定义 9</span> (<span class="latex_defn_name">子模</span>)<span class="latex_defn_h">.</span> 设 $M$ 为左 $R$-模, 若 $N$ 是 $M$ 的子群且对 $R$-作用封闭, 则 $N$ 作成左 $R$-模, 称为 $M$ 的子模. </div> <div class="latex_defn"><span class="latex_defn_h">定义 10</span> (<span class="latex_defn_name">商模</span>)<span class="latex_defn_h">.</span> 左 $R$-模 $M$ 关于子模 $N$ 的商模 $M/N$ 是指商群 $M/N$, $R$-作用定义为 $$ r(m+N):=rm+N,\ \ \ff m\in M,\ff r\in R,$$ 可以验证 $M/N$ 的确作成左 $R$-模. </div> <div class="latex_defn"><span class="latex_defn_h">定义 11</span> (<span class="latex_defn_name">模同态</span>)<span class="latex_defn_h">.</span> 设 $M,N$ 为左 $R$-模, 称 $f:M\to N$ 为模同态, 若 $f$ 为加群 $M$ 到 $N$ 的群同态, 且保持模结构 $$f(rm)=rf(m),\ \ \ff r\in R, \ff m\in M.$$ </div> 我们把 $M$ 到 $N$ 的模同态全体记作 $\Hom{R}{M,N}$, 它有自然的 Abel 群结构. 进一步, Abel 群 $\End{R}{M}:=\Hom{R}{M,M}$ 对模同态的复合运算作成环, 称为模 $M$ 的自同态环. <div class="latex_defn"><span class="latex_defn_h">定义 12</span> (<span class="latex_defn_name">有限生成模, 循环模</span>)<span class="latex_defn_h">.</span> <ol> <li>称 $M$ 是有限生成模, 如果存在 $M$ 的有限子集 $X$ 使得 $$ M=\lra{X}:=RX:=\set{rx}{r\in R, x\in X}.$$ 若 $X=\{x_1,x_2,\cdots,x_s\}$, 则 $$ M=\lra{x_1,x_2,\cdots,x_s}=Rx_1+Rx_2+\cdots+Rx_s.$$ </li><li>称 $M$ 是由 $m$ 生成的循环模, 如果存在 $m\in M$ 使得 $M=Rm$. </li></ol> </div> <div class="latex_thm"><span class="latex_thm_h">定理 13</span><span class="latex_thm_h">.</span> <ol> <li><b>模同态基本定理</b>: 设 $f: M \rightarrow M^{\prime}$ 是模同态. 则有典范模同构 $M / \operatorname{Ker} f \cong \operatorname{Im} f, m+\operatorname{Ker} f \mapsto f(m)$. </li><li><b>子模对应定理</b>: 设 $N$ 是模 $M$ 的子模, $\Gamma$ 是 $M$ 的包含 $N$ 的子模的集合, $\Omega$ 是商模 $M / N$ 的子模的集合. 则存在双射 $\psi: \Gamma \rightarrow \Omega$, 其中 $\psi(L)=L / N, \forall L \in \Gamma$. </li><li><b>第一同构定理</b>:设 $L$ 和 $N$ 均是模 $M$ 的子模. 则 $L+N:=\{n+l \mid n \in$ $N, l \in L\}$ 和 $L \cap N$ 也是 $M$ 的子模, 且有典范模同构 $(L+N) / L \cong N /(L \cap N)$. </li><li><b>第二同构定理</b>: 设 $L$ 是模 $M$ 的子模, $N$ 是 $L$ 的子模. 则有典范模同构 $(M / N) /(L / N) \cong M / L$. </li></ol> </div> <div class="latex_examp"><span class="latex_examp_h">例子 8</span><span class="latex_examp_h">.</span> <ol> <li>对于任意环 $R$, 有环同构 $\operatorname{End}_R\left(R_R\right) \cong R, f \mapsto f(1)$. </li><li>对于任意左 $R$-模 $M, \operatorname{Hom}_R\left({ }_R R,{ }_R M\right)$ 有自然的左 $R$-模结构, 且有左 $R$-模同构 $\operatorname{Hom}_R(R, M) \cong M, f \mapsto f(1)$. </li></ol> </div>
+<span class="latex_section">3. 零化子<a id="sec:3"></a></span>
+<div class="latex_defn"><span class="latex_defn_h">定义 14</span> (<span class="latex_defn_name">零化子</span>)<span class="latex_defn_h">.</span> 设 $M$ 为 $R$-模.
+<ol>
+<li>元素 $x\in M$ 的零化子定义为
+$$\mr{Ann}_R(x)=\set{a\in R}{ax=0},$$
+它是 $R$ 的一个理想.
+</li><li>模 $M$ 的零化子定义为
+$$\mr{Ann}_R(M)=\set{a\in R}{ax=0, \ff x\in M}.$$
+显然 $\mr{Ann}_R(M)=\cap_{x\in M} \mr{Ann}_R(x)$. 理想之交还是理想, 故 $\mr{Ann}_R(M)$ 为 $R$ 的理想.
+</li></ol>
+</div>
+<div class="latex_examp"><span class="latex_examp_h">例子 9</span> (<span class="latex_examp_name">线性变换的零化理想</span>)<span class="latex_examp_h">.</span> 设 $V$ 是域 $\mathbb{F}$ 上的线性空间, $A\in\mr{End}(V)$ 为 $V$ 上的线性变换. 在作用 $f(\lambda)\circ x=f(A)(x)$ 下, $V$ 成为 $\mathbb{F}$-模. 则 $V$ 的零化子为
+\begin{align*}
+\mr{Ann}(V)&amp;=\set{f\in\mathbb{F}[\lambda]}{f(A)(x)=0,\ff x\in V}\\
+&amp;=\set{f\in\mathbb{F}[\lambda]}{f(A)=0}
+\end{align*}
+即 $V$ 的零化子是 $A$ 的零化多项式全体. 因为 $\mathbb{F}[\lambda]$ 为主理想整环, 则 $\mr{Ann}(V)=\big(m(x)\big)$, 与高等代数中的概念相同, $m(x)$ 正是 $A$ 的极小多项式.
+</div>
+ <span class="latex_section">4. 模的构造<a id="sec:4"></a></span>
+<div class="latex_defn"><span class="latex_defn_h">定义 15</span> (<span class="latex_defn_name">提升</span>)<span class="latex_defn_h">.</span> 设 $R, S$ 是环, $f: R \rightarrow S$ 是环同态, $M$ 是左 $S$-模. 则 $f$ 诱导出 $M$ 上的一个左 $R$-模结构, 其中的 $R$-作用规定为 $$ r m:=f(r) m, \quad \forall r \in R, \quad \forall m \in M, $$ 此时称 ${ }_R M$ 是 ${ }_S M$ 关于 $f: R \rightarrow S$ 的提升. 特别地, 若 $R$ 是 $S$ 的子环, $f: R \rightarrow S$ 为嵌入同态, $M$ 是左 $S$-模, 则 $ _RM$ 称为 $ _SM$ 在 $R$ 上的限制. </div> <div class="latex_examp"><span class="latex_examp_h">例子 10</span><span class="latex_examp_h">.</span> 设 $R$ 是环, $I$ 是 $R$ 的理想, $\pi: R \rightarrow R / I$ 为典范满同态. 则左 $(R / I)$-模恰是那些能被 $I$ 零化的左 $R$-模. </div> <div class="latex_defn"><span class="latex_defn_h">定义 16</span> (<span class="latex_defn_name">定义</span>)<span class="latex_defn_h">.</span> 设 $M_\alpha(\alpha \in I)$ 是一簇左 $R$-模, 其中 $I$ 为指标集, $I$ 可以为无限集.在集合 $$ \bigoplus_{\alpha \in I} M_\alpha=\left\{\left(m_\alpha\right)_{\alpha \in I} \mid m_\alpha \in M_\alpha, \forall \alpha \in I \text {, 并且只有有限多个 } m_\alpha \text { 不为 } 0\right\} $$ 上按分量定义加法和左 $R$-作用，即 $$ \left(m_\alpha\right)_{\alpha \in I}+\left(m_i^{\prime}\right)_{\alpha \in I}=\left(m_\alpha+m_\alpha^{\prime}\right)_{\alpha \in I}, \quad r\left(m_\alpha\right)_{\alpha \in I}=\left(r m_\alpha\right)_{\alpha \in I}, $$ 则 $\bigoplus_{\alpha \in I} M_\alpha$ 作成左 $R$-模, 称为 $M_\alpha(\alpha \in I)$ 的直和. </div> <div class="latex_prop"><span class="latex_prop_h">命题 17</span><span class="latex_prop_h">.</span> 设 $M$ 是左 $R$-模, $M_\alpha(\alpha \in I)$ 是一簇左 $R$-模. 则下述等价. <ol> <li>有模同构 $M \cong \bigoplus_{\alpha \in I} M_\alpha$. </li><li>存在 $M$ 的子模 $M_\alpha^{\prime}(\alpha \in I)$ ，使得 $M_\alpha^{\prime} \cong M_\alpha, \forall \alpha \in I$ ，并且 $M$ 中的每个元素 $m$ 均可唯一地表为有限和 $m=\sum_{\alpha \in I} m_\alpha$ 的形式, 其中 $m_\alpha \in M_\alpha^{\prime}$. </li><li>存在 $M$ 的子模 $M_\alpha^{\prime}(\alpha \in I)$ ，使得 $M_\alpha^{\prime} \cong M_\alpha, \forall \alpha \in I, M$ 中的每个元素 $m$ 均可表为有限和 $m=\sum_{\alpha \in I} m_\alpha$ 的形式, 其中 $m_\alpha \in M_\alpha^{\prime}$, 并且 $M_\alpha^{\prime} \cap \sum_{\beta \neq \alpha} M_\beta^{\prime}=\{0\}$, $\forall \alpha \in I$. </li></ol> </div> <div class="latex_defn"><span class="latex_defn_h">定义 18</span> (<span class="latex_defn_name">直积</span>)<span class="latex_defn_h">.</span> 设 $M_\alpha(\alpha \in I)$ 是一簇左 $R$-模, 其中 $I$ 为指标集, $I$ 可以为无限集. 在集合 $$ \prod_{\alpha \in I} M_\alpha=\left\{\left(m_\alpha\right)_{\alpha \in I} \mid m_\alpha \in M_\alpha, \forall \alpha \in I\right\} $$ 上按分量定义加法和左 $R$-作用. 则 $\prod_{\alpha \in I} M_\alpha$ 作成左 $R$-模, 称为 $M_\alpha(\alpha \in I)$ 的直积. </div> 显然, 直和 $\bigoplus_{\alpha \in I} M_\alpha$ 可以自然地嵌入到直积 $\prod_{\alpha \in I} M_\alpha$; 这个嵌入是同构当且仅当 $I$ 是有限集. <div class="latex_lem"><span class="latex_lem_h">引理 19</span><span class="latex_lem_h">.</span> 我们有如下 Abel 群的典范同构 (下面的 $e_i$ 均指相应的嵌入, $p_i$ 均指相应的投影): $$ \begin{aligned} \operatorname{Hom}_R\left(M, \bigoplus_{1 \les i \les n} N_i\right) &amp;\cong \bigoplus_{1 \les i \les n} \operatorname{Hom}_R\left(M, N_i\right),&amp;&amp; f \mapsto\left(p_1 f, \cdots, p_n f\right) \\ \operatorname{Hom}_R\left(\bigoplus_{1 \les i \les n} M_i, N\right) &amp;\cong \bigoplus_{1 \les i \les n} \operatorname{Hom}_R\left(M_i, N\right), &amp;&amp; f \mapsto\left(f e_1, \cdots, f e_n\right) \\ \operatorname{Hom}_R\left(\bigoplus_{i \in I} M_i, N\right) &amp;\cong \prod_{i \in I} \operatorname{Hom}_R\left(M_i, N\right), &amp;&amp; f \mapsto\left(f e_i\right)_{i \in I} \\ \operatorname{Hom}_R\left(M, \prod_{i \in I} N_i\right) &amp;\cong \prod_{i \in I} \operatorname{Hom}_R\left(M, N_i\right), &amp;&amp; f \mapsto\left(p_i f\right)_{i \in I} \end{aligned} $$ </div> <div class="latex_rem"><span class="latex_rem_h">注记 1</span><span class="latex_rem_h">.</span> 我们也有如下 Abel 群的典范同态: $$ \begin{aligned} \bigoplus_{i \in I} \operatorname{Hom}_R\left(M, N_i\right) &amp;\hookrightarrow \operatorname{Hom}_R\left(M, \bigoplus_{i \in I} N_i\right),&amp; \left(f_i\right)_{i \in I} &amp; \mapsto \sum_{i \in I} e_i f_i ; \\ \operatorname{Hom}_R\left(M, \bigoplus_{i \in I} N_i\right) &amp;\hookrightarrow \prod_{i \in I} \operatorname{Hom}_R\left(M, N_i\right), &amp; f &amp;\mapsto\left(p_i f\right)_{i \in I} ; \\ \operatorname{Hom}\left(\prod_{i \in I} M_i, N\right) &amp;\hookrightarrow \prod_{i \in I} \operatorname{Hom}_R\left(M_i, N\right),&amp; f &amp;\mapsto\left(f e_i\right)_{i \in I}\\ \bigoplus_{i \in I} \operatorname{Hom}_R\left(M_i, N\right) &amp;\hookrightarrow \operatorname{Hom}_R\left(\prod_{i \in I} M_i, N\right), &amp;\left(f_i\right)_{i \in I} &amp;\mapsto \sum_{i \in I} f_i p_i \end{aligned} $$ 但是, 当 $I$ 是无限集时, 这四个典范同态一般来说均非同构. </div> <span class="latex_subsection">4.1. 模同态的矩阵表达<a id="sec:4.1"></a></span>
+我们经常要用模同态的矩阵表达: 其好处就是同态的合成与矩阵的运算法则完全一致.    设有模同态 $f: X \rightarrow U$ 和 $g: X \rightarrow V$. 记 $\binom{f}{g}: X \rightarrow U \oplus V$ 是模同态 $e_1 f+e_2 g$, 其中 $e_1: U \rightarrow U \oplus V$ 和 $e_2: V \rightarrow U \oplus V$ 均为嵌入, 即 $e_1(u)=(u, 0), e_2(v)=(0, v)$ . 任意模同态 $h: X \rightarrow U \oplus V$ 均可唯一地写成 $\binom{f}{g}$这种形式, 其中 $f=p_1 h, g=p_2 h$, 这里 $p_1: U \oplus V \rightarrow U$ 和 $p_2: U \oplus V \rightarrow V$是投影，即 $p_1(u, v)=u, p_2(u, v)=v$ .   设有模同态 $a: U \rightarrow Y$ 和 $b: V \rightarrow Y$. 记 $(a, b): U \oplus V \rightarrow Y$ 是模同态 $a p_1+b p_2$. 任意同态 $h: U \oplus V \rightarrow Y$ 均可唯一地写成 $(a, b)$ 这种形式, 其中 $$a:=h e_1: U \rightarrow Y, b:=h e_2: V \rightarrow Y.$$ 设有模同态 $\binom{f}{g}: X \rightarrow U \oplus V$ 和 $(a, b): U \oplus V \rightarrow Y$ . 则其合成恰为 $$(a, b)\binom{f}{g}=a f+b g$$. 设有模同态 $a: U \rightarrow X, b: U \rightarrow Y, c: V \rightarrow X, d: V \rightarrow Y$. 用 $$\left(\begin{array}{ll}a &amp; c \\ b &amp; d\end{array}\right): U \oplus V \rightarrow X \oplus Y$$ 记模同态 $$ \binom{(a, c)}{(b, d)}=\left(\binom{a}{b},\binom{c}{d}\right)=\binom{a}{b}\left(\operatorname{Id}_U, 0\right)+\binom{c}{d}\left(0, \operatorname{Id}_V\right)=\binom{\operatorname{Id}_X}{0}(a, c)+\binom{0}{\operatorname{Id}_Y}(b, d), $$ 即 $\left(\begin{array}{ll}a &amp; c \\ b &amp; d\end{array}\right)$ 将 $\binom{u}{v}$ 映到 $\left(\begin{array}{ll}a &amp; c \\ b &amp; d\end{array}\right)\binom{u}{v}=\binom{a(u)+c(v)}{b(u)+d(v)}$. 而且, 任意模同态 $U \oplus V \rightarrow X \oplus Y$均可唯一地写成 $\left(\begin{array}{ll}a &amp; c \\ b &amp; d\end{array}\right)$ 这种形式. 则其合成恰为 $$ \left(\begin{array}{ll} a^{\prime} &amp; c^{\prime} \\ b^{\prime} &amp; d^{\prime} \end{array}\right)\left(\begin{array}{ll} a &amp; c \\ b &amp; d \end{array}\right)=\left(\begin{array}{lll} a^{\prime} a+c^{\prime} b &amp; a^{\prime} c+c^{\prime} d \\ b^{\prime} a+d^{\prime} b &amp; b^{\prime} c+d^{\prime} d \end{array}\right): U \oplus V \rightarrow W \oplus Z .$$ 设有模同态 $\left(\begin{array}{ll}a &amp; c \\ b &amp; d\end{array}\right): U \oplus V \rightarrow X \oplus Y$ 和 $\left(\begin{array}{cc}a^{\prime} &amp; c^{\prime} \\ b^{\prime} &amp; d^{\prime}\end{array}\right): U \oplus V \rightarrow X \oplus Y$. 则 $$ \left(\begin{array}{ll} a &amp; c \\ b &amp; d \end{array}\right)+\left(\begin{array}{cc} a^{\prime} &amp; c^{\prime} \\ b^{\prime} &amp; d^{\prime} \end{array}\right)=\left(\begin{array}{cc} a+a^{\prime} &amp; c+c^{\prime} \\ b+b^{\prime} &amp; d+d^{\prime} \end{array}\right): U \oplus V \rightarrow X \oplus Y $$ 验证均留作习题. 这里仅是对两个模的直和表述模同态的矩阵表达. 对于有限个模的直和，模同态也有类似的矩阵表达. <span class="latex_subsection">4.2. 模的直和的自同态环<a id="sec:4.2"></a></span>
+设左 $R$-模 $M$ 有直和分解 $M=M_1 \oplus \cdots \oplus M_n$.按照上述记法，任意 $f \in \operatorname{End}_R(M)$ 均可唯一地写成 $$ f=\left(\begin{array}{ccc} f_{11} &amp; \cdots &amp; f_{1 n} \\ \vdots &amp; &amp; \vdots \\ f_{n 1} &amp; \cdots &amp; f_{n n} \end{array}\right) $$ 的形式，其中 <ol> <li>$f_{j i}:=p_j f e_i: M_i \rightarrow M_j$ 为左 $R$-模同态 </li><li>$e_i: M_i \rightarrow M$ 是嵌入 </li><li>$p_j: M \rightarrow M_j$ 是投影 </li></ol> 于是我们得到 <div class="latex_lem"><span class="latex_lem_h">引理 20</span><span class="latex_lem_h">.</span> 我们有环同构 \begin{align*} &amp;\operatorname{End}_R\left(M_1 \oplus \cdots \oplus M_n\right)\\ \cong&amp;\left\{\left.\left(\begin{array}{ccc}f_{11} &amp; \cdots &amp; f_{1 n} \\ \vdots &amp; &amp; \vdots \\ f_{n 1} &amp; \cdots &amp; f_{n n}\end{array}\right) \right\rvert\, f_{i j} \in \operatorname{Hom}_R\left(M_j, M_i\right), \ 1 \les i, j \les n\right\}, \end{align*} 其中右边集合的代数运算按矩阵运算法则进行.  特别地, 若 $\operatorname{Hom}_R\left(M_i, M_j\right)=0,1 \les i \neq j \les n$, 则 $$\operatorname{End}_R\left(M_1 \oplus \cdots \oplus M_n\right) \cong \operatorname{End}_R\left(M_1\right) \times \cdots \times \operatorname{End}_R\left(M_n\right).$$ </div> 在上述引理中取 $M_1 \cong \cdots \cong M_n \cong L$, 即 $M \cong n L$, 则得到 <div class="latex_cor"><span class="latex_cor_h">推论 21</span><span class="latex_cor_h">.</span> 我们有环同构 $\operatorname{End}_R(n L) \cong M_n(B)$, 其中 $B:=\operatorname{End}_R(L), M_n(B)$ 是环 $B$ 上的 $n$ 阶全矩阵环. </div> <div class="latex_defn"><span class="latex_defn_h">定义 22</span> (<span class="latex_defn_name">不可分解模</span>)<span class="latex_defn_h">.</span> 称非零左 $R$-模 $M$ 不可分解,如果由 $M \cong M_1 \oplus M_2$ 可推出 $M_1=0$ 或 $M_2=0$. </div> <div class="latex_examp"><span class="latex_examp_h">例子 11</span> (<span class="latex_examp_name">有限维不可分解模的分类</span>)<span class="latex_examp_h">.</span> 设 $k$-代数 $A=k[x] /\left\langle x^n\right\rangle$. 下面确定所有有限维不可分解 $A$-模. 令 $M_m:=\left\langle x^{n-m}\right\rangle /\left\langle x^n\right\rangle, m=1, \cdots, n$. 则 $M_m$ 均是 $A$-模且 $\operatorname{dim}_k M_m=m$, $m=1, \cdots, n$. 令 $e_i:=\overline{x^{n-m+i-1}} \in M_m, i=1, \cdots, m$. 则 $e_1=\overline{x^{n-m}}, \cdots, e_m=$ $\overline{x^{n-1}}$ 是 $M_m$ 的一组基, 且有 $$ \bar{x} e_1=e_2, \bar{x} e_2=e_3, \cdots, \bar{x} e_{m-1}=e_m, \bar{x} e_m=0 $$ 首先, 我们断言每个 $M_m$ 都是不可分解 $A$-模. 事实上, 若 $N$ 是 $M_m$ 的非零子模,则存在 $t, 1 \les t \les m$, 使得 $N$ 含有非零元 $n:=\lambda_t e_t+\cdots+\lambda_m e_m$, 其中 $\lambda_t \neq 0$.不妨设 $\lambda_t=1$. 则 $e_m=x^{m-t} n \in N$. 这就证明了 $M_m$ 是不可分解 $A$-模. 其次，我们断言 $M_1, \cdots, M_n$ 就是所有两两互不同构的有限维不可分解 $A$-模. 事实上, 因为 $\operatorname{dim}_k M_m=m$, 所以 $M_1, \cdots, M_n$ 是两两互不同构的有限维不可分解 $A$-模. 假设 $V$ 是 $s$ 维不可分解 $A$-模. 则有线性变换 $\bar{x}: V \longrightarrow V, v \longmapsto \bar{x} v$, 且 $\bar{x}^n=0$ . 根据线性变换的 Jordan 标准形的理论，存在 $V$ 的一组基，使得 $\bar{x}$ 在这组基下的矩阵是若干个 Jordan 块的直和. 因为 $V$ 是不可分解 $A$-模，从而 $\bar{x}$ 在这组基下的矩阵只能是一个 Jordan 块. 又因为 $\bar{x}^n=0$, 故 $s \les n$. 即有 $V$ 的一组基 $\left\{e_1, \cdots, e_s\right\}$, 使得 $\bar{x}$ 在这组基下的矩阵是 Jordan 块 $$ \left(\begin{array}{ccccc} 0 &amp; 1 &amp; &amp; &amp; \\ &amp; 0 &amp; 1 &amp; &amp; \\ &amp; &amp; \ddots &amp; \ddots &amp; \\ &amp; &amp; &amp; &amp; \\ &amp; &amp; &amp; \ddots &amp; \\ &amp; &amp; &amp; &amp; 0 \end{array}\right)_{s \times s} $$ 从而 $$ \bar{x} e_1=e_2, \bar{x} e_2=e_3, \cdots, \bar{x} e_{s-1}=e_s, \bar{x} e_s=0 $$ 于是 $V \cong M_s$. 综上所述， $M_1, \cdots, M_n$ 是所有两两互不同构的有限维不可分解 $A$-模，且有子模链 $M_1 \subseteq M_2 \subseteq \cdots \subseteq M_n$, 使得 $M_{i+1} / M_i \cong M_1, 1 \les i \les n-1$. </div> <span class="latex_subsection">4.3. 双模<a id="sec:4.3"></a></span>
+<div class="latex_defn"><span class="latex_defn_h">定义 23</span> (<span class="latex_defn_name">双模</span>)<span class="latex_defn_h">.</span> 设 $R$ 和 $S$ 是环. 如果 $M$ 既是左 $R$-模, 也是右 $S$-模, 并且 $$ (r m) s=r(m s), \quad \forall r \in R, s \in S, m \in M $$ 则称 $M$ 是 $R$ - $S$-双模. 记为 ${ }_R M_S$. 如果 $f:{ }_R M_S \longrightarrow{ }_R M_S^{\prime}$ 既是左 $R$-模同态, 也是右 $S$-模同态, 则称 $f$ 是 $R$ - $S$-双模同态. </div> <div class="latex_examp"><span class="latex_examp_h">例子 12</span><span class="latex_examp_h">.</span> <ol> <li>环 $R$ 作成 $R$ - $R$-双模, 作用均是 $R$ 的乘法. </li><li>任一左 $R$-模 $M$ 可视为 $R$ - $\mathbb{Z}$-双模. 任一 $k$-代数 $A$ 上的左模 $M$ 可视为 $A$ - $k$-双模. </li><li>设 $M$ 是右 $R$-模. 令 $S:=\operatorname{End}_R(M)$ . 则 $M$ 作成 $S$ - $R$-双模, 其中左 $S$-模的结构为 $f m:=f(m), \forall f \in \operatorname{End}_R(M), m \in M$ .  设 $M$ 是左 $R$-模. 令 $S:=\operatorname{End}_R(M)^{\text {op }}$ . 则 $M$ 作成 $R$ - $S$-双模, 其中右 $S$-模的结构为 $m f:=f(m), \forall f \in S, m \in M$ .  </li><li>设有双模 ${ }_R M_S$ 和左 $R$-模 ${ }_R N$. 则 $\operatorname{Hom}_R\left({ }_R M_S,{ }_R N\right)$ 作成左 $S$-模: $(s f)(m):=f(m s)$. 设有左 $R$-模 ${ }_R M$ 和双模 ${ }_R N_T$. 则 $\operatorname{Hom}_R\left({ }_R M,{ }_R N_T\right)$ 作成右 $T$-模: $(f t)(m):=$ $f(m) t$. 设有双模 ${ }_R M_S,{ }_R N_T$. 则 $\operatorname{Hom}_R\left({ }_R M_S,{ }_R N_T\right)$ 作成 $S$ - $T$-双模: $$ (s f)(m):=f(m s), \quad(f t)(m):=f(m) t $$ </li><li>设有双模 ${ }_S M_R$ 和右 $R$-模 $N_R$. 则 $\operatorname{Hom}_R\left({ }_S M_R, N_R\right)$ 作成右 $S$-模: $$ (f s) m:=f(s m) $$ 设有右 $R$-模 $M_R$ 和双模 ${ }_T N_R$. 则 $\operatorname{Hom}_R\left(M_R,{ }_T N_R\right)$ 作成左 $T$-模: $$ (t f)(m)=t(f m) $$ 设有双模 ${ }_S M_R$ 和 ${ }_T N_R$. 则 $\operatorname{Hom}_R\left({ }_S M_R,{ }_T N_R\right)$ 作成 $T$ - $S$-双模 $$ (t f)(m):=t(f m), \quad(f s) m=f(s m) $$ </li><li>设有双模 ${ }_R M_S$ 和 ${ }_T N_R$. 则有 $R$ - $S$-双模同构 $\operatorname{Hom}_R\left({ }_R R_R,{ }_R M_S\right) \cong{ }_R M_S$和 $T-R$ - 双模同构 $\operatorname{Hom}_R\left({ }_R R_R,{ }_T N_R\right) \cong{ }_T N_R$. </li></ol> </div> <span class="latex_section">5. 单模与半单模<a id="sec:5"></a></span>
+The most basic example of a semisimple module is a module over a field, i.e., a vector space. On the other hand, the ring $\mathbb{Z}$ of integers is not a semisimple module over itself, since the submodule $2\mathbb{Z}$ is not a direct summand. A ring is said to be (left)-semisimple if it is semisimple as a left module over itself. Surprisingly, a left-semisimple ring is also right-semisimple and vice versa. The left/right distinction is therefore unnecessary, and one can speak of semisimple rings without ambiguity. A semisimple ring may be characterized in terms of homological algebra: namely, a ring $R$ is semisimple iff any short exact sequence of left(or right) $R$-module splits. That is, for a short exact sequence $$0\to A\xrightarrow[]{f} B\xrightarrow[]{g} C\to 0,$$ there exists $s: C\to B$ s.t. $gs=\mr{Id}_C$. The map $s$ is known as a section. From this follows that $$B\cong A\oplus C,\ or \ B\cong f(A)\oplus s(C).$$ In particular, any module over a semisimple ring is injective and projective. <div class="latex_defn"><span class="latex_defn_h">定义 24</span> (<span class="latex_defn_name">单模</span>)<span class="latex_defn_h">.</span> 非零左 $R$-模 $M$ 称为单模, 如果它的子模只有零模和 $M$ 本身. </div> 单模和不可分解模的关系 单模在模论中具有重要的地位. 代数的单模又称为代数的不可约表示. 自然的问题是：对于给定环 $R$ ，单 $R$-模是否存在？对于有限维代数，肯定的答案是显然的. 但对于一般的环, 要讲清这个问题, 需要 Zorn 引理. <div class="latex_defn"><span class="latex_defn_h">定义 25</span> (<span class="latex_defn_name">链、上界、极小元</span>)<span class="latex_defn_h">.</span> 设 $(S,\les )$ 为偏序集, $T\subset S$. <ol> <li>$T$ 称为 $S$ 的链, 如果 $T$ 中任意两个元 $a,b$ 均可比较, 即 $a\les b$ 或 $b\les a$. </li><li>$a\in S$ 称为 $T$ 的上界, 若 $x\les a, \ \ff x\in T$. </li><li>$m\in S$ 称为 $S$ 的极大元, 若 $x\in S$ 使 $m\les x$, 则 $m=x$. </li></ol> </div> <div class="latex_thm"><span class="latex_thm_h">定理 26</span> (<span class="latex_thm_name">Zorn 引理</span>)<span class="latex_thm_h">.</span> 下述两个命题是等价的, 都称为 Zorn 引理. <ol> <li>如果偏序集 $S$ 的任一链均有上界, 则 $S$ 中必有极大元. </li><li>设 $S$ 是集合, $\mathcal{T}$ 是 $S$ 的一些子集对于包含关系作成的偏序集. 若 $\mathcal{T}$的任一链均有上界, 则 $\mathcal{T}$ 必含有极大元. </li></ol> </div> 数学中通常将 Zorn 引理作为公理. 在实际应用中, 我们经常使用 Zorn 引理的如下特殊形式. <div class="latex_thm"><span class="latex_thm_h">定理 27</span> (<span class="latex_thm_name">Zorn 引理</span>)<span class="latex_thm_h">.</span> 设 $S$ 是集合, $\mathcal{T}$ 是 $S$ 的一些子集作成的非空集合.如果对于任意的升链 $A_1 \subseteq A_2 \subseteq \cdots$, 其中每个 $A_i \in \mathcal{T}$, 均有 $\bigcup_{i \ges 1} A_i \in \mathcal{T}$, 则 $\mathcal{T}$ 必含有极大元. </div> <div class="latex_lem"><span class="latex_lem_h">引理 28</span><span class="latex_lem_h">.</span> 任一环 $R$ 上均有单模. </div>
+
+
+
+<details class="wp-block-details is-layout-flow wp-block-details-is-layout-flow"><summary>证明</summary>
+<div class="latex_proof"><span class="latex_proof_h">证明</span><span class="latex_proof_h">.</span> 设 $\mathcal{T}:=\set{I\subset R}{I\tl R\ \text{且}\ 1\notin I}$, 则 $0\in\mathcal{T}$ 且 $\mathcal{T}$ 对于理想的包含关系作成偏序集. 设 $I_1\subset I_2\subset \cdots$ 是 $\mathcal{T}$ 中任一链, 则可以证明 $\bigcup_{i\ges1} I_i\tl R$ 且 $1\notin R$, 即 $\bigcup_{i\ges1} I_i\in \mathcal{T}$. 根据 Zorn 引理, $\mathcal{T}$ 有极大元, 记为 $I$ (为 $R$ 的极大理想). 断言 $R/I$ 是单模. 事实上, 若 $R/I$ 不是单模, 则根据子模对应定理, $R/I$ 有真子模 $L/I$, 其中 $L$ 为 $R$ 的包含 $I$ 的真左理想. 但这与 $I$ 是 $\mathcal{T}$ 的极大元相矛盾. </div>
+</details>
+
+
+
+<div class="latex_rem"><span class="latex_rem_h">注记 2</span><span class="latex_rem_h">.</span> $R/I$ 为域, 没有非平凡理想. </div> <div class="latex_lem"><span class="latex_lem_h">引理 29</span> (<span class="latex_lem_name">Schur 引理</span>)<span class="latex_lem_h">.</span> <ol> <li>设 $M, N$ 均为单 $R$-模, $f: M \rightarrow N$ 为非零 $R$-模同态. 则 $f$ 是 $R$-模同构. 从而 $\operatorname{End}_R(M)$ 是可除环. </li><li>设 $A$ 是有限维 $k$-代数, $k$ 是代数闭域, $M$ 是单 $A$-模. 则 $\operatorname{End}_A(M) \cong k$;并且对于 $f \in \operatorname{End}_A(M)$ ，存在 $c \in k$ 使得 $f=c \operatorname{Id}_M$. </li></ol> </div>
+
+
+
+<details class="wp-block-details is-layout-flow wp-block-details-is-layout-flow"><summary>证明</summary>
+<div class="latex_proof"><span class="latex_proof_h">证明</span><span class="latex_proof_h">.</span> <ol> <li>因为 $f$ 非零, 所以 $\operatorname{Im} f$ 是 $N$ 的非零子模, $\operatorname{Ker} f$ 是 $M$ 的真子模. 但 $M, N$均为单模, 因此 $\operatorname{Im} f=N, \operatorname{Ker} f=0$, 即 $f$ 为 $R$-模同构. </li><li>易知 $M$ 是有限维 $A$-模. 因为 $k$ 代数闭域, 对于 $f \in \operatorname{End}_A(M), f$ 作为 $k$-线性变换有特征值 $c \in k$. 设 $0 \neq m \in M, f(m)=c m$. 则 $M=A m$ 且 $f=c \operatorname{Id}_M$. 这也证明了 $\operatorname{End}_A(M) \cong k$. </li></ol> </div>
+</details>
+
+
+
+<span class="latex_subsection">5.1. 半单模的刻画<a id="sec:5.1"></a></span>
+<div class="latex_defn"><span class="latex_defn_h">定义 30</span> (<span class="latex_defn_name">半单模</span>)<span class="latex_defn_h">.</span> 模 $M$ 称为半单模, 如果 $M$ 是其一些单子模的直和. </div> <div class="latex_thm"><span class="latex_thm_h">定理 31</span><span class="latex_thm_h">.</span> 设 $R$ 是环, $M$ 是左 $R$-模. 则下述等价: <ol> <li>$M$ 是其单子模的和; </li><li>$M$ 是半单模; </li><li>$M \neq 0$, 并且 $M$ 的每个子模 $N$ 在 $M$ 中均有直和补, 即存在 $M$ 的子模 $L$ 使得 $N \oplus L=M$. </li></ol> </div> <div class="latex_lem"><span class="latex_lem_h">引理 32</span><span class="latex_lem_h">.</span> 设 $M=\sum_{\alpha \in I} M_\alpha$, 其中 $I$ 为指标集, $M_\alpha$ 是 $M$ 的单子模. 设 $N$ 是 $M$的子模. 则存在 $J \subseteq I$, 使得 $M=N \oplus\left(\bigoplus_{\beta \in J} M_\beta\right)$. </div>
+
+
+
+<details class="wp-block-details is-layout-flow wp-block-details-is-layout-flow"><summary>证明</summary>
+<div class="latex_proof"><span class="latex_proof_h">证明</span><span class="latex_proof_h">.</span> 令 $M_0:=N, S:=I \cup\{0\}$. 令 $\mathcal{T}$ 是 $S$ 的一些子集作成的集合: $\mathcal{T}=\left\{\Omega \subseteq S \mid\right.$ 其中 $0 \in \Omega$, 并且满足 $\left.\sum_{\alpha \in \Omega} M_\alpha=\bigoplus_{\alpha \in \Omega} M_\alpha\right\}$. 因为 $\{0\} \in \mathcal{T}$, 故 $\mathcal{T}$ 非空. 设 $\Omega_1 \subseteq \Omega_2 \subseteq \cdots$ 为 $\mathcal{T}$ 中任意一条链. 注意到 $$ \sum_{\alpha \in \bigcup_{i \ges 1} \Omega_i} M_\alpha=\bigoplus_{\alpha \in \bigcup_{i \ges 1} \Omega_i} M_\alpha $$ 即 $\bigcup_{i \ges 1} \Omega_i \in \mathcal{T}$. 由 Zorn 引理知 $\mathcal{T}$ 有极大元 $L$. 令 $J:=L-\{0\}, M^{\prime}:=\sum_{\alpha \in L} M_\alpha$.则 $$ M^{\prime}=N \oplus\left(\bigoplus_{\beta \in J} M_\beta\right) $$ \断言 $M^{\prime}=M$. 否则, $M^{\prime}$ 是 $M$ 的真子模, 从而存在 $M$ 的单子模 $M_i$ 使得 $M_i \cap M^{\prime}=\{0\}$ (注意 $M_i \cap M^{\prime}$ 同时为 $M_i$ 和 $M'$ 的子模). 因此 $$ M^{\prime}+M_i=M^{\prime} \oplus M_i=\bigoplus_{\alpha \in L \cup\{i\}} M_\alpha $$ 即 $L \cup\{i\} \in \mathcal{T}$. 这与 $L$ 是 $\mathcal{T}$ 的极大元相矛盾. </div>
+</details>
+
+
+
+<div class="latex_lem"><span class="latex_lem_h">引理 33</span><span class="latex_lem_h">.</span> 设模 $M$ 具有性质 $\mathbf{P}$. 则其子模和商模也具有性质 $\mathbf{P}$. </div>
+
+
+
+<details class="wp-block-details is-layout-flow wp-block-details-is-layout-flow"><summary>证明</summary>
+<div class="latex_proof"><span class="latex_proof_h">证明</span><span class="latex_proof_h">.</span> 设 $N$ 是 $M$ 的子模, $L$ 是 $N$ 的子模. 则 $L$ 也是 $M$ 的子模. 因此存在 $M$ 的子模 $L^{\prime}$ 使得 $M=L \oplus L^{\prime}$. 于是 $N=L \oplus\left(L^{\prime} \cap N\right)$. 即 $N$ 也具有性质 $\mathbf{P}$. 考虑商模 $M / N$, 其中 $N$ 是 $M$ 的子模. 则存在子模 $N^{\prime}$ 使得 $M=N \oplus N^{\prime}$.于是 $M / N \cong N^{\prime}$. 由于 $N^{\prime}$ 具有性质 $\mathbf{P}$, 因此 $M$ 的商模也具有性质 $\mathbf{P}$. </div>
+</details>
+
+
+
+<div class="latex_lem"><span class="latex_lem_h">引理 34</span><span class="latex_lem_h">.</span> 若非零模 $M$ 的任一子模均有直和补, 则 $M$ 有单子模. </div>
+
+
+
+<details class="wp-block-details is-layout-flow wp-block-details-is-layout-flow"><summary>证明</summary>
+<div class="latex_proof"><span class="latex_proof_h">证明</span><span class="latex_proof_h">.</span> 取 $M$ 中非零元 $x$, 作 $M$ 的一些子模作成的集合: $$ \mathcal{T}_x=\{N \mid N \text { 是 } M \text { 的子模, 并且 } x \notin N\} \text {. } $$ 显然 $\{0\} \in \mathcal{T}_x$. 易见 $\mathcal{T}_x$ 中的任一链的并也在 $\mathcal{T}_x$ 中. 由 Zorn 引理知 $\mathcal{T}_x$ 有极大元 $P$. 从而存在 $M$ 的子模 $P^{\prime}$ 使得 $M=P \oplus P^{\prime}$. 显然 $P^{\prime} \neq 0$. 我们断言 $P^{\prime}$ 是单模. 否则, 设 $Q$ 是 $P^{\prime}$ 的一个非零子模且 $Q \neq P^{\prime}$ . 由于 $P^{\prime} \cong M / P$, 根据子模对应定理知存在 $M$ 的含 $P$ 的子模 $M_1$ 使得 $Q \cong M_1 / P$. 由 $P$ 的极大性知 $x \in M_1$. 另一方面, 根据引理 1.3.5, 存在 $M / P$ 的子模 $M_2 / P$, 使得 $M / P=M_1 / P \oplus M_2 / P$.由于 $M_2 / P \neq\{0\}$, 由 $P$ 的极大性知 $x \in M_2$. 从而 $x \in M_1 \cap M_2=P$, 这与 $x \notin P$ 相矛盾. </div>
+</details>
+
+
+
+<p class="wp-block-paragraph"><span class="latex_section">6. Wedderburn-Artin定理<a id="sec:6"></a></span>
+In algebra, the Wedderburn-Artin theorem is classification theorem for semisimple rings and semisimple algebras. The theorem states that an (Artinian) semisimple ring $R$ is isomorphic to a product of finitely many $n_i\times n_i$ matrix rings over division rings $D_i$, for some integers $n_i$, both of which are uniquely determined up to a permutation of index $i$. In particular, any simple left or right Artinian ring is isomorphic to an $n\times n$ matrix over a division ring $D$, where both $n$ and $D$ are uniquely determined.
+
+For $k$-algebras: If $R$ is finite-dimensional semisimple $k$-algebras, then $R$ is isomorphic to a product of finitely many $n_i\times n_i$ matrix rings $M_{n_i}(D_i)$ over finite-dimensional division algebra over $k$. The center of each $D_i$ need not be $k$, it could be a finite extension of $k$.
+
+ <span class="latex_section">7. 范畴与函子<a id="sec:7"></a></span>
+<span class="latex_subsection">7.1. 范畴<a id="sec:7.1"></a></span>
+</p><div class="latex_defn"><span class="latex_defn_h">定义 35</span> (<span class="latex_defn_name">范畴</span>)<span class="latex_defn_h">.</span> 范畴 $\mc{C}$ 由以下要素组成： <ol> <li>一些对象构成的一个族 $\mr{Ob}\mc{C}$. </li><li>由所有的集合 $\mr{Hom}_\mc{C}(A,B)$ 组成的族, 这里的 $A,B$ 取遍 $\mr{Ob}\mc{C}$ 中所有对象. $\mr{Hom}_\mc{C}(A,B)$ 中的元素称为态射, 也用 $f:A\to B$ 表示. </li><li>对任意三个对象 $A,B,C$, 存在映射 \begin{align*} \mr{Hom}(B,C)\times \mr{Hom}(A,B)&amp;\longrightarrow \mr{Hom}(A,C)\\ (g,f)&amp;\mapsto gf. \end{align*} $gf$ 称为 $f$ 与 $g$ 的合成态射. </li></ol> 这些要素必须满足以下公理 <ol> <li>当 $(A,B)\ne (A',B')$ 时, $\mr{Hom}(A,B)\cap \mr{Hom}(A',B')=\varnothing.$ </li><li>结合律：$(hg)f=h(gf)$. </li><li>单位态射：对任意 $A\in \mr{Ob}\mc{C}$, 存在态射 $1_A\in\mr{Hom}(A,A)$ 使得 \begin{align*} \ff f\in \mr{Hom}(A,B)&amp;,\ f1_A=f\\ \ff g\in \mr{Hom}(B,A)&amp;,\ 1_Ag=g. \end{align*} </li></ol> </div> <div class="latex_defn"><span class="latex_defn_h">定义 36</span> (<span class="latex_defn_name">同构</span>)<span class="latex_defn_h">.</span> 范畴 $\mc{C}$ 中的态射 $f\in\mr{Hom}(X,Y)$ 称为同构, 若存在 $g\in\mr{Hom}(Y,X)$ 使得 $gf=1_X$ 且 $fg=1_Y$. 对象 $X$ 和 $Y$ 称为同构的, 记为 $X\cong Y$, 如果存在同构 $f\in\mr{Hom}(X,Y)$. </div> <div class="latex_defn"><span class="latex_defn_h">定义 37</span><span class="latex_defn_h">.</span> 范畴 $\mc{C}$ 中, <ol> <li>单态射：$f:X\to Y$ 称为单态射, 若 $fg=fh$, 则 $g=h$. </li><li>满态射：$f:X\to Y$ 称为满态射, 若 $gf=hf$, 则 $g=h$. </li></ol> </div>
+
+
+
+<p class="wp-block-paragraph"><span class="latex_subsection">7.2. 函子<a id="sec:7.2"></a></span>
+在同一个范畴里, 对象之间通过态射相联系; 而在不同的范畴之间通过函子相联系: 函子把一个范畴中的对象映到另一个范畴中的对象, 同时把对象间的态射映到相应对象间的态射. 所以函子实际上就是范畴间的映射, 自然变换则是函子间的映射. </p><div class="latex_defn"><span class="latex_defn_h">定义 38</span> (<span class="latex_defn_name">函子</span>)<span class="latex_defn_h">.</span> 范畴 $\mc{C}$ 和范畴 $\mc{D}$ 的共变函子 $F:\mc{C}\to\mc{D}$ 由下列要素组成 <ol> <li>$F$ 是 $\mr{Ob}\mc{C}$ 到 $\mr{Ob}\mc{D}$ 的映射. </li><li>对任意有序对 $(X,Y)$, 定义了集合之间的映射, 仍记为 $F$: $$F:\mr{Hom}_{\mc{C}}(X,Y)\longrightarrow \mr{Hom}_{\mc{D}}(FX,FY),\ \ f\mapsto Ff.$$ 这些映射满足 <ol> <li>$F(1_A)=1_{F(A)},\ \ff A\in\mr{Ob}\mc{C}.$ </li><li>$F(gf)=F(g)F(f)$.
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img loading="eager" decoding="async" width="173" height="55" src="/wp-content/uploads/2024/09/P21_1.svg" alt="" class="wp-image-871" style="width:285px;height:auto" fetchpriority="high"></figure>
+</div>
+
+
+<p class="wp-block-paragraph"></p></li></ol> </li></ol> </div>
+
+
+
+<p class="wp-block-paragraph"></p><div class="latex_defn"><span class="latex_defn_h">定义 39</span> (<span class="latex_defn_name">反变函子</span>)<span class="latex_defn_h">.</span> 范畴 $\mc{C}$ 和范畴 $\mc{D}$ 的反变函子 $F:\mc{C}\to\mc{D}$ 由下列要素组成 <ol> <li>$F$ 是 $\mr{Ob}\mc{C}$ 到 $\mr{Ob}\mc{D}$ 的映射. </li><li>对任意有序对 $(X,Y)$, 定义了集合之间的映射, 仍记为 $F$: $$F:\mr{Hom}_{\mc{C}}(X,Y)\longrightarrow \mr{Hom}_{\mc{D}}(FY,FX),\ \ f\mapsto Ff.$$ 这些映射满足 <ol> <li>$F(1_A)=1_{F(A)},\ \ff A\in\mr{Ob}\mc{C}.$ </li><li>$F(gf)=F(f)F(g)$.
+
+
+<figure class="wp-block-image"></figure>
+<p>     </p></li></ol></li></ol></div><br>
+  <span class="latex_subsection">7.3. 自然变换<a id="sec:7.3"></a></span>
+<div class="latex_defn"><span class="latex_defn_h">定义 40</span> (<span class="latex_defn_name">自然变换</span>)<span class="latex_defn_h">.</span> 设 $\mc{C},\mc{D}$ 为范畴, $F:\mc{C}\to\mc{D}$ 和 $G:\mc{C}\to\mc{D}$ 为共变函子.<br><ol><li>函子 $F$ 到函子 $G$ 的自然变换 $\eta$ 是指, 对任意 $X\in\mr{Ob}\mc{C}$, 定义了态射 $\eta_X:FX\to GX$, 使得对任意 $f\in\mr{Hom}_\mc{C}(X,Y)$ 有交换图
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img loading="lazy" decoding="async" width="119" height="84" src="/wp-content/uploads/2024/09/P26.svg" alt="" class="wp-image-876" style="width:210px;height:auto"></figure>
+</div>
+
+
+<p class="wp-block-paragraph">并将此自然变换记为 $\eta=(\eta_X)_{X\in\mc{C}}$.  </p></li><li>$F$ 到 $G$ 的一个自然变换 $\eta:F\to G$ 称为自然同构, 如果每个 $\eta_X:FX\to GX$ 均为同构. 此时称函子 $F$ 与函子 $G$ 自然同构, 记为 $F\cong G$.  </li><li>类似地可以定义反变函子直接的自然变换和自然同构.  </li></ol>  </div>
+
+
+
+<p class="wp-block-paragraph"></p><div class="latex_defn"><span class="latex_defn_h">定义 41</span><span class="latex_defn_h">.</span> 设 $\mc{C},\mc{D}$ 为范畴,  <ol>  <li>函子的等价、拟逆：函子 $F:\mc{C}\to\mc{D}$ 称为等价, 记为 $\mc{C}\cong\mc{D}$, 如果存在函子 $G:\mc{D}\to\mr{C}$ 使得  $$ GF\cong \mr{Id}_\mc{C},\ \ FG\cong \mr{Id}_\mc{D}.$$  其中 $\mr{Id}_\mc{C}$ 是恒等函子, 此时称 $G$ 为 $F$ 的一个拟逆.  </li><li>函子的同构、逆：函子 $F:\mc{C}\to\mc{D}$ 称为同构, 如果存在函子 $G:\mc{D}\to\mc{C}$ 使得  $$ GF=\mr{Id}_\mc{C},\ \ FG= \mr{Id}_\mc{D}.$$  此时称 $G$ 为 $F$ 的一个逆.  </li><li>范畴的等价、同构：$\mc{C}$ 与 $\mc{D}$ 称为等价的, 如果存在等价 $F:\mc{C}\to\mc{D}$ . $\mc{C}$ 与 $\mc{D}$ 称为同构的, 如果存在同构 $F:\mc{C}\to\mc{D}$ .  </li><li>反变函子的对偶：反变函子 $F:\mc{C}\to\mc{D}$ 称为对偶, 如果相应的函子 $F:\mc{C}\to\mc{D}^\mr{OP}$ 是等价. $\mc{C}$ 与 $\mc{D}$ 称为对偶的, 如果存在对偶 $F:\mc{C}\to\mc{D}$ .  </li></ol>  </div>  <div class="latex_defn"><span class="latex_defn_h">定义 42</span><span class="latex_defn_h">.</span> 设 $F:\mc{C}\to\mc{D}$ 是函子.  <ol>  <li>满：称 $F$ 为满的, 如果对任意对象 $X,Y\in\mr{Ob}\mc{C}$, 映射  $$ F: \mr{Hom}_\mc{C}(X,Y)\longrightarrow \mr{Hom}_\mc{D}(FX,FY),\ f\mapsto Ff,$$  是满射.  </li><li>忠实：称 $F$ 为忠实的, 如果对任意对象 $X,Y\in\mr{Ob}\mc{C}$, 映射  $$ F: \mr{Hom}_\mc{C}(X,Y)\longrightarrow \mr{Hom}_\mc{D}(FX,FY),\ f\mapsto Ff,$$  是单射.  </li><li>满忠实：如果 $F$ 既是满的, 又是忠实的, 则称 $F$ 为满忠实的.  </li><li>稠密：称 $F$ 是稠密的, 若对任意 $Z\in \mc{D}$, 存在 $X\in\mc{C}$ 使得在 $\mc{D}$ 中有同构 $Z\cong FX$.  </li></ol>  </div>
+
+
+
+<p class="wp-block-paragraph"></p><div class="latex_prop"><span class="latex_prop_h">命题 43</span><span class="latex_prop_h">.</span> 范畴 $\mc{C}$ 与范畴 $\mc{D}$ 等价当仅当存在函子 $F:\mc{C}\to\mc{D}$, 使得 $F$ 是满、忠实且稠密的.  </div>
+
+
+</div>
+  </div>
+  <nav class="post-navigation" aria-label="文章前后导航"><a href="/446.html"><span>上一篇</span><strong>The Laplace Equation as the Prototype of an Elliptic Partial Differential Equation of Second Order</strong></a><a href="/574.html"><span>下一篇</span><strong>环的理想, 域的构造</strong></a></nav>
+</article>
+</main>
+  <footer class="site-footer">
+    <p>阿贝尔的数学之旅 · 数学笔记与思考</p>
+    <p><a href="/feed.xml">RSS</a><span aria-hidden="true"> · </span><a href="/sitemap.xml">站点地图</a></p>
+  </footer>
+  <script src="/assets/site.js"></script>
+  
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ["\\(","\\)"]],
+    displayMath: [['$$', '$$'], ["\\[", "\\]"]],
+    processEscapes: true
+  },
+  TeX: {
+    equationNumbers: {autoNumber: "AMS",
+    useLabelIds: true}
+  },
+});
+MathJax.Hub.Config({TeX: {Macros: {"mr": ["\\mathrm{#1}", 1], "mb": ["\\mathbb{#1}", 1], "ee": "\\exists\\,", "ff": "\\forall\\,", "les": "\\leqslant", "ges": "\\geqslant", "sse": "\\subset", "sbs": "\\subset", "sps": "\\supset", "ve": "\\varepsilon", "mbr": "\\mathbb{R}", "mbn": "\\mathbb{N}", "mbz": "\\mathbb{Z}", "mbq": "\\mathbb{Q}", "mbc": "\\mathbb{C}", "mbh": "\\mathbb{H}", "vp": "\\varphi", "nti": "n\\to\\infty", "md": "\\mathrm{d}", "mre": "\\mathrm{e}", "mri": "\\mathrm{i}", "lra": ["\\langle #1\\rangle", 1], "Ker": "\\mathrm{Ker}\\,", "Im": "\\mathrm{Im}\\,", "tl": "\\triangleleft", "set": ["\\left\\{#1\\,\\left|\\,#2\\right. \\right\\}", 2], "mod": ["\\ (\\mr{mod}\\ #1)", 1], "pp": "\\partial", "Gal": ["\\mathrm{Gal}\\left(#1\\right)", 1], "Inv": ["\\mathrm{Inv}\\left(#1\\right)", 1], "End": ["\\mathrm{End}_{#1}\\!\\left(#2\\right)", 2], "Hom": ["\\mathrm{Hom}_{#1}\\!\\left(#2\\right)", 2], "ca": "\\mathcal{A}", "cb": "\\mathcal{B}", "cc": "\\mathcal{C}", "cd": "\\mathcal{D}", "ce": "\\mathcal{E}", "cf": "\\mathcal{F}", "cg": "\\mathcal{G}", "cl": "\\mathcal{L}", "cs": "\\mathcal{S}", "Ext": "\\mathrm{Ext}", "Tor": "\\mathrm{Tor}", "mc": ["\\mathcal{#1}", 1], "ot": "\\otimes"}}});
+</script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_SVG.js"></script>
+</body>
+</html>

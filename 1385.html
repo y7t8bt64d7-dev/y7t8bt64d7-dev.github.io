@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Poincaré-Bendixson 定理｜阿贝尔的数学之旅</title>
+  <meta name="description" content="目录 目录 1. 一些定义 1.&amp;# … 继续阅读 →">
+  <link rel="canonical" href="https://www.abelmath.fun/1385.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="阿贝尔的数学之旅">
+  <meta property="og:title" content="Poincaré-Bendixson 定理｜阿贝尔的数学之旅">
+  <meta property="og:description" content="目录 目录 1. 一些定义 1.&amp;# … 继续阅读 →">
+  <meta property="og:url" content="https://www.abelmath.fun/1385.html">
+  <meta property="og:image" content="https://www.abelmath.fun/assets/og.png">
+  <meta property="og:image:width" content="1731">
+  <meta property="og:image:height" content="909">
+  <meta property="og:image:alt" content="阿贝尔的数学之旅：数学笔记与思考">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Poincaré-Bendixson 定理｜阿贝尔的数学之旅">
+  <meta name="twitter:description" content="目录 目录 1. 一些定义 1.&amp;# … 继续阅读 →">
+  <meta name="twitter:image" content="https://www.abelmath.fun/assets/og.png">
+  <link rel="stylesheet" href="/assets/site.css">
+  <link rel="alternate" type="application/rss+xml" title="阿贝尔的数学之旅" href="/feed.xml">
+</head>
+<body class="article-page">
+  <a class="skip-link" href="#main">跳到正文</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="/" aria-label="阿贝尔的数学之旅首页">
+        <span class="brand-mark" aria-hidden="true">∫</span>
+        <span><strong>阿贝尔的数学之旅</strong><small>ABEL'S MATHEMATICAL JOURNEY</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">目录</button>
+      <nav id="site-nav" class="site-nav" aria-label="主要导航"><a href="/">首页</a><a href="/category/%e8%ae%ba%e6%96%87/">论文</a><a href="/category/ode/">ODE</a><a href="/category/pde/">PDE</a><a href="/category/analysis/">分析</a><a href="/category/analysis/%e6%b5%8b%e5%ba%a6/">测度</a><a href="/category/%e8%bf%91%e4%b8%96%e4%bb%a3%e6%95%b0/">抽代</a><a href="/category/%e5%9f%ba%e4%bb%a3/">基代</a><a href="/category/%e7%a7%91%e6%99%ae/">科普</a><a href="/category/manim/">manim</a><a href="/category/%e6%8e%a2%e8%ae%a8/">探讨</a><a href="/category/%e8%ae%b0%e5%bd%95/">记录</a></nav>
+    </div>
+  </header>
+  <main id="main">
+<article class="article-shell">
+  <header class="article-header">
+    <a class="back-link" href="/">← 返回首页</a>
+    <div class="post-meta"><time datetime="2024-11-01T11:59:14+00:00">2024-11-01</time><a class="chip" href="/category/%E8%AE%B0%E5%BD%95/">记录</a></div>
+    <h1>Poincaré-Bendixson 定理</h1>
+    <p>目录 目录 1. 一些定义 1.&amp;# … 继续阅读 →</p>
+  </header>
+  <div class="article-layout">
+    <aside class="article-rail"><p>NOTE 1385</p><span></span><p>2024 · 11 · 01</p></aside>
+    <div class="article-content"><p class="wp-block-paragraph"><span id="contents" style="text-align:center; font-size:18px; font-variant:small-caps;display:block;">目录</span><br>
+          <span id="sec:content"><a href="#contents">目录</a></span><br><span> 1.  <a href="#sec:1">一些定义</a></span><br></p>
+
+
+
+<p class="wp-block-paragraph"><span class="latex_section">1. 一些定义<a id="sec:1"></a></span>
+</p><div class="latex_defn"><span class="latex_defn_h">定义 1</span> (<span class="latex_defn_name">orbit</span>)<span class="latex_defn_h">.</span> A closed orbit, or cycle, is the image of a closed trajectory. A limit cycle is a cycle which is the limit set of some other trajectory.<br></div>
+
+
+
+<div class="latex_defn"><span class="latex_defn_h">定义 2</span> (<span class="latex_defn_name">Heteroclinic/Homoclinic orbit</span>)<span class="latex_defn_h">.</span> A heteroclinic orbit is a path in phase space which joins two different equilibrium points. If the equilibrium points at the start and end of the orbit are the same, the orbit is a homoclinic orbit. Consider the continuou dynamical system $\dot{x}=f(x)$. Suppose there are equilibrium orbit from $x_0$ to $x_1$ if $$\lim_{t\to-\infty}\phi(t)=x_0,\ \ \lim_{t\to+\infty}\phi(t)=x_1.$$ This implies that the orbit is contained in the stable manifold of $x_1$ and the unstable manifold of $x_0$.<br>For homo case, a homoclinic orbits lies in the intersection of the stable manifold and the unstable manifold of an equilibrium. (A homoclinic orbit is a path through phase space which joins a saddle equilibrium points to itself.)
+<div class="wp-block-image">
+<figure class="aligncenter size-full is-resized"><img loading="eager" decoding="async" width="1227" height="455" src="/wp-content/uploads/2024/11/homoclinic-web.webp" alt="" class="wp-image-1394" style="width:402px;height:auto" fetchpriority="high"></figure>
+</div>
+<div class="wp-block-image">
+<figure class="aligncenter size-full is-resized"><img loading="lazy" decoding="async" width="1017" height="529" src="/wp-content/uploads/2024/11/Heteroclinic_orbit_in_pendulum_phaseportrait-web.webp" alt="" class="wp-image-1390" style="width:307px;height:auto"><figcaption class="wp-element-caption">The phase portrait of the pendulum equation $x^{\prime \prime}+\sin x=0$. The highlighted curve shows the heteroclinic orbit from $\left(x, x^{\prime}\right)=(-\pi, 0)$ to $\left(x, x^{\prime}\right)=(\pi, 0)$. This orbit corresponds with the (rigid) pendulum starting upright, making one revolution through its lowest position, and ending upright again.</figcaption></figure>
+</div>
+</div>
+
+
+
+<p class="wp-block-paragraph"></p><div class="latex_defn"><span class="latex_defn_h">定义 3</span> (<span class="latex_defn_name">Hyperbolic equilibrium point</span>)<span class="latex_defn_h">.</span> Hyperbolic equilibrium point or hyperbolic fixed point is a fixed point that does not have any center manifolds.<br></div>
+
+
+
+<p class="wp-block-paragraph">P-B theorem and $\omega$-limit set: The $\omega$-limit set of a planar dynamical system is classified by Poincaré-Bendixson theorem when it is <b>compact</b>, namely into three categories--</p><ol>
+<li>an equilibrium point;
+</li><li>a closed orbit and
+</li><li>finitely many equilibrium points with homoclinic and heteroclinic orbits between them.
+</li></ol>
+
+
+
+<p class="wp-block-paragraph"></p><div class="latex_thm"><span class="latex_thm_h">定理 4</span> (<span class="latex_thm_name">Poincaré-Bendixson theorem</span>)<span class="latex_thm_h">.</span> Given a differentiable real dynamical system defined on an open subset of the plane, every non-empty compact $\omega$-limit set of an orbit, which contains only finitely many fixed points, is either
+<ol>
+<li>a fixed point
+</li><li>a periodic orbit or
+</li><li>a connected set composed of a finite number of fixed point together with homoclinic and heteroclinic orbits connecting them.
+</li></ol>
+</div>
+
+
+
+<p class="wp-block-paragraph">Continuous dynamical systems that are defined on two-dimensional manifolds other than the plane (or cylinder or two-sphere), as well as those defined on higher-dimensional manifolds, many exhibit $\omega$-limit sets that defy the three possible cases under the Poincaré-Bendixson theorem. On a torus, for example, it is possible to have a recurrent non-periodic orbit, and three-dimensional systems may have strange attractors. Nevertheless, it is possible to classify the minimal sets of continuous dynamical systems on any two-dimensional compact and connected manifold due to a generalization of Arthur J. Schwartz.</p>
+
+
+
+<p class="wp-block-paragraph">Moreover, there is at most one orbit connecting different fixed points in the same direction. However, there could be countably many homoclinic orbits connecting one fixed point. One important implication is that a two-dimensional continuous dynamical system cannot give rise to a strange attractor.</p>
+
+
+
+<p class="wp-block-paragraph">P-B 定理意味着混沌现象不会在相平面发生.</p>
+
+
+
+<p class="wp-block-paragraph">P-B 定理主要依赖于平面的二维性, 在高维 ($n\ges3$) 系统中, P-B 定理不再适用, 会产生一些新的现象, 即轨迹可能永远在一个有界区域内, 不会停滞在一个不动点或一条闭轨上. 在某些情况下, 轨迹被一个称为奇怪吸引子的复杂几何图形所吸引——在一个分形集上, 运动是非周期的, 对初始条件具有敏感依赖性. 这种敏感依赖性使得长期性的运动是不可预测的. 这就是我们所讨论的混沌现象.</p>
+</div>
+  </div>
+  <nav class="post-navigation" aria-label="文章前后导航"><a href="/1382.html"><span>上一篇</span><strong>Helmholtz 分解</strong></a><a href="/1401.html"><span>下一篇</span><strong>若当标准型</strong></a></nav>
+</article>
+</main>
+  <footer class="site-footer">
+    <p>阿贝尔的数学之旅 · 数学笔记与思考</p>
+    <p><a href="/feed.xml">RSS</a><span aria-hidden="true"> · </span><a href="/sitemap.xml">站点地图</a></p>
+  </footer>
+  <script src="/assets/site.js"></script>
+  
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ["\\(","\\)"]],
+    displayMath: [['$$', '$$'], ["\\[", "\\]"]],
+    processEscapes: true
+  },
+  TeX: {
+    equationNumbers: {autoNumber: "AMS",
+    useLabelIds: true}
+  },
+});
+MathJax.Hub.Config({TeX: {Macros: {"mr": ["\\mathrm{#1}", 1], "mb": ["\\mathbb{#1}", 1], "ee": "\\exists\\,", "ff": "\\forall\\,", "les": "\\leqslant", "ges": "\\geqslant", "sse": "\\subset", "sbs": "\\subset", "sps": "\\supset", "ve": "\\varepsilon", "mbr": "\\mathbb{R}", "mbn": "\\mathbb{N}", "mbz": "\\mathbb{Z}", "mbq": "\\mathbb{Q}", "mbc": "\\mathbb{C}", "mbh": "\\mathbb{H}", "vp": "\\varphi", "nti": "n\\to\\infty", "md": "\\mathrm{d}", "mre": "\\mathrm{e}", "mri": "\\mathrm{i}", "lra": ["\\langle #1\\rangle", 1], "Ker": "\\mathrm{Ker}\\,", "Im": "\\mathrm{Im}\\,", "tl": "\\triangleleft", "set": ["\\left\\{#1\\,\\left|\\,#2\\right. \\right\\}", 2], "mod": ["\\ (\\mr{mod}\\ #1)", 1], "pp": "\\partial", "Gal": ["\\mathrm{Gal}\\left(#1\\right)", 1], "Inv": ["\\mathrm{Inv}\\left(#1\\right)", 1], "End": ["\\mathrm{End}_{#1}\\!\\left(#2\\right)", 2], "Hom": ["\\mathrm{Hom}_{#1}\\!\\left(#2\\right)", 2], "ca": "\\mathcal{A}", "cb": "\\mathcal{B}", "cc": "\\mathcal{C}", "cd": "\\mathcal{D}", "ce": "\\mathcal{E}", "cf": "\\mathcal{F}", "cg": "\\mathcal{G}", "cl": "\\mathcal{L}", "cs": "\\mathcal{S}", "Ext": "\\mathrm{Ext}", "Tor": "\\mathrm{Tor}", "mc": ["\\mathcal{#1}", 1], "ot": "\\otimes"}}});
+</script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_SVG.js"></script>
+</body>
+</html>

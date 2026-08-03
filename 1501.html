@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Lyapunov 稳定性理论｜阿贝尔的数学之旅</title>
+  <meta name="description" content="目录 目录 1. Lyapunov … 继续阅读 →">
+  <link rel="canonical" href="https://www.abelmath.fun/1501.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="阿贝尔的数学之旅">
+  <meta property="og:title" content="Lyapunov 稳定性理论｜阿贝尔的数学之旅">
+  <meta property="og:description" content="目录 目录 1. Lyapunov … 继续阅读 →">
+  <meta property="og:url" content="https://www.abelmath.fun/1501.html">
+  <meta property="og:image" content="https://www.abelmath.fun/assets/og.png">
+  <meta property="og:image:width" content="1731">
+  <meta property="og:image:height" content="909">
+  <meta property="og:image:alt" content="阿贝尔的数学之旅：数学笔记与思考">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Lyapunov 稳定性理论｜阿贝尔的数学之旅">
+  <meta name="twitter:description" content="目录 目录 1. Lyapunov … 继续阅读 →">
+  <meta name="twitter:image" content="https://www.abelmath.fun/assets/og.png">
+  <link rel="stylesheet" href="/assets/site.css">
+  <link rel="alternate" type="application/rss+xml" title="阿贝尔的数学之旅" href="/feed.xml">
+</head>
+<body class="article-page">
+  <a class="skip-link" href="#main">跳到正文</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="/" aria-label="阿贝尔的数学之旅首页">
+        <span class="brand-mark" aria-hidden="true">∫</span>
+        <span><strong>阿贝尔的数学之旅</strong><small>ABEL'S MATHEMATICAL JOURNEY</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">目录</button>
+      <nav id="site-nav" class="site-nav" aria-label="主要导航"><a href="/">首页</a><a href="/category/%e8%ae%ba%e6%96%87/">论文</a><a href="/category/ode/">ODE</a><a href="/category/pde/">PDE</a><a href="/category/analysis/">分析</a><a href="/category/analysis/%e6%b5%8b%e5%ba%a6/">测度</a><a href="/category/%e8%bf%91%e4%b8%96%e4%bb%a3%e6%95%b0/">抽代</a><a href="/category/%e5%9f%ba%e4%bb%a3/">基代</a><a href="/category/%e7%a7%91%e6%99%ae/">科普</a><a href="/category/manim/">manim</a><a href="/category/%e6%8e%a2%e8%ae%a8/">探讨</a><a href="/category/%e8%ae%b0%e5%bd%95/">记录</a></nav>
+    </div>
+  </header>
+  <main id="main">
+<article class="article-shell">
+  <header class="article-header">
+    <a class="back-link" href="/">← 返回首页</a>
+    <div class="post-meta"><time datetime="2025-08-20T12:00:52+00:00">2025-08-20</time><a class="chip" href="/category/ode/">ODE</a><a class="chip" href="/category/blog/">博客</a></div>
+    <h1>Lyapunov 稳定性理论</h1>
+    <p>目录 目录 1. Lyapunov … 继续阅读 →</p>
+  </header>
+  <div class="article-layout">
+    <aside class="article-rail"><p>NOTE 1501</p><span></span><p>2025 · 08 · 20</p></aside>
+    <div class="article-content"><p><span id="contents" style="text-align:center; font-size:18px; font-variant:small-caps;display:block;">目录</span><br>
+          <span id="sec:content"><a href="#contents">目录</a></span><br><span> 1.  <a href="#sec:1">Lyapunov 稳定性理论</a></span><br><span> 2.  <a href="#sec:2">LaSalle 不变性原理</a></span><br></p>
+<p>本文考虑自治系统<br>
+$$ \dot{x}=f(x),x\in\mathbb{R}^{n}$$其中 $x_0$ 为 $f$ 的不动点, $f:D\rightarrow\mathbb{R}^{n}$ 是局部 Lipschitz 连续函数, $D\subset\mathbb{R}^{n}$ 是包含原点的定义域.</p>
+<p><span class="latex_section">1. Lyapunov 稳定性理论<a id="sec:1"></a></span>
+</p>
+<div class="latex_defn"><span class="latex_defn_h">定义 1</span> (<span class="latex_defn_name">稳定</span>)<span class="latex_defn_h">.</span> 称不动点 $x_{0}$ 稳定, 若对任意邻域 $U(x_{0})$ 存在另一个邻域 $V(x_{0})\subset U(x_{0})$ 使<br>
+$$ \Phi(t,x)\subset U(x_{0}), \forall x\in V(x_{0}), \forall t\geqslant 0 $$即从 $V(x_{0})$ 出发的点始终留在 $U(x_{0})$ 中.<br>
+</div>
+<div class="latex_defn"><span class="latex_defn_h">定义 2</span> (<span class="latex_defn_name">渐近稳定/吸引</span>)<span class="latex_defn_h">.</span> 称不动点 $x_{0}$ 渐近稳定, 若 $x_{0}$ 稳定且存在邻域 $U(x_{0})$ 使<br>
+$$ \lim_{t\rightarrow+\infty}|\Phi(t,x)-x_{0}|=0, \forall x\in U(x_{0}). $$<br>
+</div>
+<div class="latex_thm"><span class="latex_thm_h">定理 3</span> (<span class="latex_thm_name">稳定</span>)<span class="latex_thm_h">.</span> 若存在函数 $V:D\rightarrow\mathbb{R}$ 满足<br>
+<ol><li>正定性: $V(0)=0$ 且 $V(x)&gt;0, \forall x\in D\setminus\{0\}$</li><li>半负定性: $\dot{V}(x)=\nabla V\cdot f\leqslant 0, \forall x\in D$</li></ol>则平衡点 $x=0$ 稳定.<br>
+则平衡点 \(x=0\) 稳定.<br>
+</div>
+<details class="wp-block-details">
+<summary>证明</summary>
+<div class="latex_proof"><span class="latex_proof_h">证明</span><span class="latex_proof_h">.</span> 任取 $\varepsilon&gt;0$, 记 $B_{\varepsilon}=\{x\in\mathbb{R}\mid \|x\|\leqslant\varepsilon\}$, 再记 $V(x)$ 在 $\partial B_{\varepsilon}$ 上的最小值为 $\alpha$, $V$ 正定, 所以 $\alpha&gt;0$. 因为 $V(0)=0$, 由连续性得存在 $\delta&gt;0$, 当 $\|x_{0}\|&lt;\delta$ 时, $V(x)&lt;\alpha$. 取 $x_{0}\in B_{\delta}$, 断言 $\Phi(t,x_{0})\subset B_{\varepsilon}$. 若不成立, 则存在 $t_{1}&gt;0$ 使 $\|\Phi(t_{1},x_{0})\|&gt;\varepsilon$. 因 $\|\Phi(0,x_{0})\|&lt;\varepsilon$, 故由正值性得存在 $t_{2}\in(0,t)$ 使 $\|\Phi(t_{2},x_{0})\|=\varepsilon$, 但 $V(x(t_{2}))&lt;\alpha$, 矛盾. </div>
+</details>
+<div class="latex_thm"><span class="latex_thm_h">定理 4</span> (<span class="latex_thm_name">渐近稳定, Lyapunov 1892</span>)<span class="latex_thm_h">.</span> 若存在函数 $V:D\rightarrow\mathbb{R}$ 满足<br>
+<ol><li>正定性: $V(0)=0$ 且 $V(x)&gt;0, \forall x\in D\setminus\{0\}$</li><li>负定性: $\dot{V}(x)=\nabla V\cdot f&lt;0, \forall x\in D\setminus\{0\}$ </li></ol>则平衡点 $x=0$ 是渐近稳定的. </div>
+<details class="wp-block-details">
+<summary>证明</summary>
+<div class="latex_proof"><span class="latex_proof_h">证明</span><span class="latex_proof_h">.</span> 反证法. 设 $\lim_{t\rightarrow+\infty}x(t)=a&gt;0$, 记 $\lim_{k\rightarrow\infty}x(t_{k})=a$, $t_{k}\rightarrow+\infty$. 由 $V$ 的正定性得<br>
+$$ A=\lim_{t\rightarrow+\infty}V(x(t))=\lim_{k\rightarrow+\infty}V(x(t_{k}))=V(a)&gt;0 $$(第一个等号是因为 $V(x(t))$ 单减有下界). 记<br>
+$$D_{0}=\{x\in D\mid A\leqslant V(x)\leqslant V(x(0))\}$$ $D_{0}$ 紧, 因为其有界闭. 设 $\dot{V}(x)$ 在 $D_{0}$ 上的最大值为 $b&lt;0$, 则 $$ V(x(t))=V(x(0))+\int_{0}^{t}\dot{V}(x(s))\mathrm{d}s\leqslant V(x(0))+bt\rightarrow-\infty, t\rightarrow+\infty $$ 矛盾! </div>
+</details>
+<p><span class="latex_section">2. LaSalle 不变性原理<a id="sec:2"></a></span>
+</p>
+<p>LaSalle 不变性原理是 Lyapunov 稳定性理论的补充, 它适合处理一些 Lyapunov 直接法（第二法）难以严格判断渐近稳定性的情况, 尤其当 $ \dot{V}$ 仅为半负定时: 即使 Lyapunov 函数 $ V$ 的导数 $ \dot{V}$ 沿系统轨迹只是半负定, 即 $ \dot{V} \leqslant 0$ 且在某些点为零, 也能证明系统轨迹收敛到某个特定的不变集内, 而非始终停滞在 $ \dot{V} = 0$ 的点上.</p>
+<p>假设存在 $ V \in C^1(D, \mathbb{R})$ 满足:</p>
+<ol><li>$ V$ 正定: $ V(0)=0$ 且 $ V(x)&gt;0$, $ \forall x \in D \setminus \{0\}$</li><li>$ \dot{V}$ 半负定: $ \dot{V}(x)=\nabla V \cdot f \leqslant 0$, $ \forall x \in D$ . 这意味着 $ V$ 沿系统轨迹是非增的.</li></ol>
+<div class="latex_cor"><span class="latex_cor_h">推论 5</span><span class="latex_cor_h">.</span> 若 $ \gamma_+(x_0)$ 为自治系统 $ \dot{x} = f(x)$, $ x(0)=x_0$ 的有界轨道, 那么 $ \omega(x_0) \subset M$ 即<br>
+$$ \lim_{t \to +\infty} \mathrm{dist}(\varphi_t(x_0), M) = 0$$<br>
+</div>
+<p>要检查集合 $ \Omega$ 是否为不变集, 只需要看向量场在 $ \Omega$ 上的行为（是否指向内部）, 也就是切触条件.</p>
+<p>用 Lyapunov 函数能轻松地构造不变集. 断言<br>
+$$ \Omega = \{x \in D \mid V(x) \leqslant c\}$$为系统的不变集, "曲线" $ V(x)=c$ 的法向量为 $ \nabla V$, 那么 $$ \mathbf{n} \cdot f = \nabla V \cdot f \leqslant 0,\quad \forall x \in \Omega.$$</p>
+
+<figure class="wp-block-image size-full"><img loading="eager" decoding="async" class="wp-image-1547 aligncenter" src="/wp-content/uploads/2025/08/%E6%88%AA%E5%B1%8F2025-08-29-10.39.34-web.webp" alt="" width="336" height="261" fetchpriority="high"></figure>
+
+<figure class="wp-block-image size-full"></figure>
+
+<div class="latex_thm"><span class="latex_thm_h">定理 6</span> (<span class="latex_thm_name">LaSalle 不变性原理, LaSalle 1960</span>)<span class="latex_thm_h">.</span> 设 $ \Omega \subset D$ 为紧致的正不变集, $ V \in C^1(D, \mathbb{R})$ 在 $ \Omega$ 上满足 $ \dot{V}(x)=\nabla V \cdot f \leqslant 0$. 令<br>$$ E = \{x \in \Omega \mid \dot{V}(x)=0\}$$ $ M$ 是 $ E$ 中的最大正不变集, 则所有从 $ \Omega$ 出发的轨道都收敛到 $ M$, 即<br>$$ \omega(x_0) \subset M \quad \text{也就是} \quad \lim_{t \to +\infty} \mathrm{dist}(\varphi_t(x_0), M) = 0$$<br></div>
+<div class="latex_rem"><span class="latex_rem_h">注记 1</span><span class="latex_rem_h">.</span> 注意, 从证明中可以看到我们不需要 $V$ 是正定的.<br></div>
+<details class="wp-block-details">
+<summary>证明</summary>
+<div class="latex_proof"><span class="latex_proof_h">证明</span><span class="latex_proof_h">.</span> 任取 $ x_0 \in \Omega$, 只需证 $ \omega(x_0) \subset E$. 因 $ V$ 在紧集 $ \Omega$ 上连续, 故 $ V$ 在 $ \Omega$ 有下界, 又 $ V(\varphi_t(x_0))$ 单减, 故下面的极限存在<br>$$ a = \lim_{t \to +\infty} V(\varphi_t(x_0))$$任取 $ y \in \omega(x_0)$, 则 $ \exists t_n \to +\infty$ 使 $ y = \lim\limits_{n \to +\infty} \varphi_{t_n}(x_0)$, 我们有<br>$$ V(y) = \lim_{n \to +\infty} V(\varphi_{t_n}(x_0)) = a$$这说明 $ V(\omega(x_0)) \equiv a$. 因为 $ \omega(x_0)$ 为不变集, $ \forall t&gt;0$ 有 $ \varphi_t(y),\omega(y) \in \omega(x_0)$, 故<br>$$ a = V(y) \geqslant V(\varphi_t(y))=\lim_{n \to +\infty} V(\varphi_{t+t_n}(x_0)) \downarrow a$$从而 $ \frac{\mathrm{d}}{\mathrm{d}t} V(\varphi_t(y)) \equiv 0$, 故 $ \dot{V}(y) = 0$. 即 $ \omega(x_0) \subset E$.<br></div>
+</details>
+<p>下面举一个例子, 单摆系统稳定性分析.</p>
+<div class="latex_examp"><span class="latex_examp_h">例子 1</span><span class="latex_examp_h">.</span> 单摆的牛顿力学模型为：<br>$$ \ddot{\theta}+\frac{k}{m}\dot{\theta}+\frac{g}{l}\sin\theta=0 $$其中 $ m $ 为小球的质量, $ l $ 为绳子长度, $ k $ 为摩擦系数. 令 $ x_{1}=\theta $ , $ x_{2}=\dot{x}_{1} $ , 则<br>$$<br>\begin{cases}<br>\dot{x}_{1}=x_{2} \\<br>\dot{x}_{2}=-\frac{g}{l}\sin x_{1}-\frac{k}{m}x_{2}<br>\end{cases}<br>$$当 $ k=0 $ 时, 系统为无阻碍的理想单摆系统. 试证明 $ k&gt;0 $ 时 $ (x_{1},x_{2})=(0,0) $ 的渐近稳定性.
+ 
+<figure class="wp-block-image size-large"><img loading="lazy" decoding="async" class="wp-image-1557 aligncenter" src="/wp-content/uploads/2025/08/%E6%88%AA%E5%B1%8F2025-08-29-11.03.36-1-web.webp" alt="" width="297" height="212"></figure>
+ 
+ 
+<p></p></div>
+<details class="wp-block-details" open="open">
+<summary>证明</summary>
+<div class="latex_proof"><span class="latex_proof_h">证明</span><span class="latex_proof_h">.</span> 状态空间一般取为 Lyapunov 函数的某个水平集, 在这里取为 $ X= \left\{x \in \mathbb{R}^2: V(x) \leqslant 0.5\right\} $ .
+ 
+<figure class="wp-block-image size-large">
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="1835" height="1103" class="wp-image-1566" src="/wp-content/uploads/2025/08/%E6%88%AA%E5%B1%8F2025-08-29-11.31.25-web.webp" alt=""></figure>
+</figure>
+<p> <br><u>局部方法.</u> 在 $ X $ 中不动点只有 $ (0,0) $ .</p>
+<p>将状态方程在 $ (0,0) $ 处线性化得<br>$$<br>\begin{bmatrix}<br>\dot{x}_{1} \\<br>\dot{x}_{2}<br>\end{bmatrix}<br>=<br>\begin{bmatrix}<br>0 &amp; 1 \\<br>-g/l &amp; -k/m<br>\end{bmatrix}<br>\begin{bmatrix}<br>x_1 \\<br>x_2<br>\end{bmatrix}<br>$$</p>
+<p>矩阵特征值为<br>$$<br>\lambda=\frac{1}{2}\left(-\frac{k}{m}\pm\sqrt{\frac{k^{2}}{m^{2}}-\frac{4g}{l}}\right)=:\frac{1}{2}\left(-\frac{k}{m}\pm\sqrt{\Delta}\right)<br>$$</p>
+<p>只要 $ k &gt; 0 $ , 系统在 $ (0,0) $ 处就是双曲的, 且 $ \Delta\geqslant0 $ 时不动点为稳定结点, $ \Delta &lt; 0 $ 时为稳定焦点. 不论参数如何, $ (0,0) $ 点总是稳定的（Hartman-Grobman定理）. <br><u>全局方法.</u> 取Lyapunov函数<br>$$<br>V(x_{1},x_{2})=\frac{1}{2}mv^{2}+mg l(1-\cos x)=\frac{1}{2}ml^{2}x_{2}^{2}+mgl(1-\cos x_{1})<br>$$<br>显然 $ V $ 正定. 计算Lie导数<br>$$<br>\dot{V}(x_{1},x_{2})=-kl^{2}x_{1}x_{2}.<br>$$</p>
+<p>当 $ k&gt;0 $ 时, $ \dot{V} $ 半负定. 考察集合<br>$$<br>E=\{\dot{V}=0\}=\{x_{2}=0\}<br>$$<br>向量场 $ f $ 在 $ E $ 上除了 $ (0,0) $ 外, 其余都非零且方向与 $ x $ 平行, 这说明 $ M=\{(0,0)\} $ , 因此 $ \omega(x_{0})=M $ , 即原点是全局渐近稳定的.</p>
+ 
+<figure class="wp-block-image size-large"><img loading="lazy" decoding="async" class="wp-image-1560 aligncenter" src="/wp-content/uploads/2025/08/%E6%88%AA%E5%B1%8F2025-08-18-12.36.40-scaled-web.webp" alt="" width="651" height="210"></figure>
+<p><br></p></div>
+</details>
+
+
+<figure class="wp-block-gallery has-nested-images columns-default is-cropped wp-block-gallery-1 is-layout-flex wp-block-gallery-is-layout-flex"></figure>
+</div>
+  </div>
+  <nav class="post-navigation" aria-label="文章前后导航"><a href="/1482.html"><span>上一篇</span><strong>Hartman-Grobman定理</strong></a><a href="/1516.html"><span>下一篇</span><strong>一些ODE模型</strong></a></nav>
+</article>
+</main>
+  <footer class="site-footer">
+    <p>阿贝尔的数学之旅 · 数学笔记与思考</p>
+    <p><a href="/feed.xml">RSS</a><span aria-hidden="true"> · </span><a href="/sitemap.xml">站点地图</a></p>
+  </footer>
+  <script src="/assets/site.js"></script>
+  
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ["\\(","\\)"]],
+    displayMath: [['$$', '$$'], ["\\[", "\\]"]],
+    processEscapes: true
+  },
+  TeX: {
+    equationNumbers: {autoNumber: "AMS",
+    useLabelIds: true}
+  },
+});
+MathJax.Hub.Config({TeX: {Macros: {"mr": ["\\mathrm{#1}", 1], "mb": ["\\mathbb{#1}", 1], "ee": "\\exists\\,", "ff": "\\forall\\,", "les": "\\leqslant", "ges": "\\geqslant", "sse": "\\subset", "sbs": "\\subset", "sps": "\\supset", "ve": "\\varepsilon", "mbr": "\\mathbb{R}", "mbn": "\\mathbb{N}", "mbz": "\\mathbb{Z}", "mbq": "\\mathbb{Q}", "mbc": "\\mathbb{C}", "mbh": "\\mathbb{H}", "vp": "\\varphi", "nti": "n\\to\\infty", "md": "\\mathrm{d}", "mre": "\\mathrm{e}", "mri": "\\mathrm{i}", "lra": ["\\langle #1\\rangle", 1], "Ker": "\\mathrm{Ker}\\,", "Im": "\\mathrm{Im}\\,", "tl": "\\triangleleft", "set": ["\\left\\{#1\\,\\left|\\,#2\\right. \\right\\}", 2], "mod": ["\\ (\\mr{mod}\\ #1)", 1], "pp": "\\partial", "Gal": ["\\mathrm{Gal}\\left(#1\\right)", 1], "Inv": ["\\mathrm{Inv}\\left(#1\\right)", 1], "End": ["\\mathrm{End}_{#1}\\!\\left(#2\\right)", 2], "Hom": ["\\mathrm{Hom}_{#1}\\!\\left(#2\\right)", 2], "ca": "\\mathcal{A}", "cb": "\\mathcal{B}", "cc": "\\mathcal{C}", "cd": "\\mathcal{D}", "ce": "\\mathcal{E}", "cf": "\\mathcal{F}", "cg": "\\mathcal{G}", "cl": "\\mathcal{L}", "cs": "\\mathcal{S}", "Ext": "\\mathrm{Ext}", "Tor": "\\mathrm{Tor}", "mc": ["\\mathcal{#1}", 1], "ot": "\\otimes"}}});
+</script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_SVG.js"></script>
+</body>
+</html>

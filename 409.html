@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>惊人的答案！取几个随机小数，和能大于 1 ？｜阿贝尔的数学之旅</title>
+  <meta name="description" content="&lt;code&gt;fd &lt;code class=&quot;lang … 继续阅读 →">
+  <link rel="canonical" href="https://www.abelmath.fun/409.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="阿贝尔的数学之旅">
+  <meta property="og:title" content="惊人的答案！取几个随机小数，和能大于 1 ？｜阿贝尔的数学之旅">
+  <meta property="og:description" content="&lt;code&gt;fd &lt;code class=&quot;lang … 继续阅读 →">
+  <meta property="og:url" content="https://www.abelmath.fun/409.html">
+  <meta property="og:image" content="https://www.abelmath.fun/assets/og.png">
+  <meta property="og:image:width" content="1731">
+  <meta property="og:image:height" content="909">
+  <meta property="og:image:alt" content="阿贝尔的数学之旅：数学笔记与思考">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="惊人的答案！取几个随机小数，和能大于 1 ？｜阿贝尔的数学之旅">
+  <meta name="twitter:description" content="&lt;code&gt;fd &lt;code class=&quot;lang … 继续阅读 →">
+  <meta name="twitter:image" content="https://www.abelmath.fun/assets/og.png">
+  <link rel="stylesheet" href="/assets/site.css">
+  <link rel="alternate" type="application/rss+xml" title="阿贝尔的数学之旅" href="/feed.xml">
+</head>
+<body class="article-page">
+  <a class="skip-link" href="#main">跳到正文</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="/" aria-label="阿贝尔的数学之旅首页">
+        <span class="brand-mark" aria-hidden="true">∫</span>
+        <span><strong>阿贝尔的数学之旅</strong><small>ABEL'S MATHEMATICAL JOURNEY</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">目录</button>
+      <nav id="site-nav" class="site-nav" aria-label="主要导航"><a href="/">首页</a><a href="/category/%e8%ae%ba%e6%96%87/">论文</a><a href="/category/ode/">ODE</a><a href="/category/pde/">PDE</a><a href="/category/analysis/">分析</a><a href="/category/analysis/%e6%b5%8b%e5%ba%a6/">测度</a><a href="/category/%e8%bf%91%e4%b8%96%e4%bb%a3%e6%95%b0/">抽代</a><a href="/category/%e5%9f%ba%e4%bb%a3/">基代</a><a href="/category/%e7%a7%91%e6%99%ae/">科普</a><a href="/category/manim/">manim</a><a href="/category/%e6%8e%a2%e8%ae%a8/">探讨</a><a href="/category/%e8%ae%b0%e5%bd%95/">记录</a></nav>
+    </div>
+  </header>
+  <main id="main">
+<article class="article-shell">
+  <header class="article-header">
+    <a class="back-link" href="/">← 返回首页</a>
+    <div class="post-meta"><time datetime="2024-08-28T15:27:43+00:00">2024-08-28</time><a class="chip" href="/category/manim/">manim</a></div>
+    <h1>惊人的答案！取几个随机小数，和能大于 1 ？</h1>
+    <p>&lt;code&gt;fd &lt;code class=&quot;lang … 继续阅读 →</p>
+  </header>
+  <div class="article-layout">
+    <aside class="article-rail"><p>NOTE 409</p><span></span><p>2024 · 08 · 28</p></aside>
+    <div class="article-content"><figure class="wp-block-video"><video height="1080" style="aspect-ratio: 1920 / 1080;" width="1920" controls src="/wp-content/uploads/2024/08/MonsterBattle.mp4"></video></figure>
+
+<p><code><code>fd</code></code></p>
+<pre><code class="language-python">from manim import *
+
+class MonsterBattle(Scene):
+    def construct(self):
+
+        title = Text("第一次实验").to_edge(UP).set_color(YELLOW)
+
+        self.play(Write(title))
+
+        # Create a Triangle (as a person) and a Circle (as a monster)
+        person = Circle(color=BLUE).scale(0.5).to_edge(LEFT).shift(RIGHT*2)  # Using a Circle as a person
+        monster = Triangle().scale(1).rotate(PI).to_edge(RIGHT).shift(LEFT*3)  # Using a Downward Triangle as a monster
+
+        # Add labels for the person and the monster, and move them below the objects
+        person_label = Text("英雄").next_to(person, DOWN*2)
+        monster_label = Text("怪兽").next_to(monster, DOWN*2)
+
+        # Create a health bar above the monster
+        health_bar_background = Rectangle(width=2.5, height=0.3, color=WHITE, fill_opacity=0).next_to(monster, UP*2)
+        health_bar = Rectangle(width=2.5, height=0.21, color=RED, fill_opacity=1).next_to(monster, UP*2).shift(0.045*UP)
+
+        # Initial health value
+        initial_health = 1.0
+        health_text = Text(f"{initial_health:.2f}", font_size=36).next_to(health_bar_background, RIGHT)
+
+        # Add them to the scene
+        self.play(FadeIn(person), FadeIn(monster))
+        self.play(Write(person_label), Write(monster_label))
+        self.play(FadeIn(health_bar_background), FadeIn(health_bar), Write(health_text))
+
+        # Define the attack sequence
+        attacks = [0.3, 0.4, 0.5]
+        current_health = initial_health
+        bullet_records = VGroup()  # Group to hold bullet record dots
+
+        for i, damage in enumerate(attacks):
+            # Bullet attack animation
+            bullet = Dot(color=RED).move_to(person.get_center())
+            target_point = monster.get_center()
+            damage_text = Text(f"-{damage:.2f}", font_size=36).next_to(health_text, RIGHT, buff=0.1)
+
+            # 子弹移动到目标位置，使用平滑的速度函数
+            self.play(
+                bullet.animate.move_to(target_point).set_rate_func(smooth),
+                FadeIn(damage_text),
+                run_time=0.3
+            )
+
+            # 短暂延迟以平滑过渡
+            self.wait(0.05)
+
+            # 怪兽缩放动画，加速进入
+            self.play(
+                monster.animate.scale(0.7).set_rate_func(rush_into),
+                FadeOut(damage_text),
+                run_time=0.2
+            )
+
+            # 子弹淡出，平滑过渡
+            self.play(
+                FadeOut(bullet),
+                run_time=0.05
+            )
+
+            # 更新血量和血条宽度
+            current_health = max(0, current_health - damage)
+            new_width = 3 * current_health
+            self.remove(health_text)  # 移除旧的血量文本
+            health_text = Text(f"{current_health:.2f}", font_size=36).next_to(health_bar_background, RIGHT)  # 创建新的血量文本
+            self.add(health_text)  # 添加新的血量文本到场景
+
+            self.play(
+                health_bar.animate.stretch_to_fit_width(new_width).align_to(health_bar_background, LEFT).set_rate_func(smooth),
+                run_time=0.25
+            )
+
+            # 怪兽恢复原始大小，加速退出
+            self.play(
+                monster.animate.scale(1.0 / 0.7).set_rate_func(rush_from),
+                run_time=0.2
+            )
+
+            # 在屏幕下方记录子弹的图形和伤害值，放置在屏幕中间偏下的地方
+            bullet_record = Dot(color=RED).move_to(DOWN * 2 + RIGHT * (i - len(attacks) / 2) * 1.0)  # 调整间隔
+            bullet_damage_text = Text(f"{abs(damage):.2f}", font_size=24).next_to(bullet_record, DOWN, buff=0.1)  # 使用绝对值显示伤害
+            bullet_records.add(VGroup(bullet_record, bullet_damage_text))  # 将子弹图形和伤害文本作为一个组添加
+
+            self.play(FadeIn(bullet_record), FadeIn(bullet_damage_text), run_time=0.2)
+
+            self.wait(0.5)
+
+        # Transform monster into a line after the last attack
+        self.play(Transform(monster, Line(monster.get_left(), monster.get_right()).set_color(RED)), run_time=1)
+
+        self.play(
+            bullet_records.animate.scale(1.5).set_rate_func(rush_into),
+            run_time=0.7
+        )
+        self.play(
+            bullet_records.animate.scale(1/1.5).set_rate_func(rush_from),
+            run_time=0.7
+        )
+
+        self.play(
+        bullet_records.animate.set_color(YELLOW),
+        run_time=0.5
+         )
+
+        # End scene
+        self.wait(2)
+</code></pre></div>
+  </div>
+  <nav class="post-navigation" aria-label="文章前后导航"><a href="/329.html"><span>上一篇</span><strong>manim</strong></a><a href="/419.html"><span>下一篇</span><strong>楼老师论文汇总</strong></a></nav>
+</article>
+</main>
+  <footer class="site-footer">
+    <p>阿贝尔的数学之旅 · 数学笔记与思考</p>
+    <p><a href="/feed.xml">RSS</a><span aria-hidden="true"> · </span><a href="/sitemap.xml">站点地图</a></p>
+  </footer>
+  <script src="/assets/site.js"></script>
+  
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ["\\(","\\)"]],
+    displayMath: [['$$', '$$'], ["\\[", "\\]"]],
+    processEscapes: true
+  },
+  TeX: {
+    equationNumbers: {autoNumber: "AMS",
+    useLabelIds: true}
+  },
+});
+MathJax.Hub.Config({TeX: {Macros: {"mr": ["\\mathrm{#1}", 1], "mb": ["\\mathbb{#1}", 1], "ee": "\\exists\\,", "ff": "\\forall\\,", "les": "\\leqslant", "ges": "\\geqslant", "sse": "\\subset", "sbs": "\\subset", "sps": "\\supset", "ve": "\\varepsilon", "mbr": "\\mathbb{R}", "mbn": "\\mathbb{N}", "mbz": "\\mathbb{Z}", "mbq": "\\mathbb{Q}", "mbc": "\\mathbb{C}", "mbh": "\\mathbb{H}", "vp": "\\varphi", "nti": "n\\to\\infty", "md": "\\mathrm{d}", "mre": "\\mathrm{e}", "mri": "\\mathrm{i}", "lra": ["\\langle #1\\rangle", 1], "Ker": "\\mathrm{Ker}\\,", "Im": "\\mathrm{Im}\\,", "tl": "\\triangleleft", "set": ["\\left\\{#1\\,\\left|\\,#2\\right. \\right\\}", 2], "mod": ["\\ (\\mr{mod}\\ #1)", 1], "pp": "\\partial", "Gal": ["\\mathrm{Gal}\\left(#1\\right)", 1], "Inv": ["\\mathrm{Inv}\\left(#1\\right)", 1], "End": ["\\mathrm{End}_{#1}\\!\\left(#2\\right)", 2], "Hom": ["\\mathrm{Hom}_{#1}\\!\\left(#2\\right)", 2], "ca": "\\mathcal{A}", "cb": "\\mathcal{B}", "cc": "\\mathcal{C}", "cd": "\\mathcal{D}", "ce": "\\mathcal{E}", "cf": "\\mathcal{F}", "cg": "\\mathcal{G}", "cl": "\\mathcal{L}", "cs": "\\mathcal{S}", "Ext": "\\mathrm{Ext}", "Tor": "\\mathrm{Tor}", "mc": ["\\mathcal{#1}", 1], "ot": "\\otimes"}}});
+</script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_SVG.js"></script>
+</body>
+</html>

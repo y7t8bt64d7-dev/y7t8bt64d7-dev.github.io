@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Lotka-Volterra 模型｜阿贝尔的数学之旅</title>
+  <meta name="description" content="目录 目录 1. ODE 模型&amp;#x … 继续阅读 →">
+  <link rel="canonical" href="https://www.abelmath.fun/1571.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="阿贝尔的数学之旅">
+  <meta property="og:title" content="Lotka-Volterra 模型｜阿贝尔的数学之旅">
+  <meta property="og:description" content="目录 目录 1. ODE 模型&amp;#x … 继续阅读 →">
+  <meta property="og:url" content="https://www.abelmath.fun/1571.html">
+  <meta property="og:image" content="https://www.abelmath.fun/assets/og.png">
+  <meta property="og:image:width" content="1731">
+  <meta property="og:image:height" content="909">
+  <meta property="og:image:alt" content="阿贝尔的数学之旅：数学笔记与思考">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Lotka-Volterra 模型｜阿贝尔的数学之旅">
+  <meta name="twitter:description" content="目录 目录 1. ODE 模型&amp;#x … 继续阅读 →">
+  <meta name="twitter:image" content="https://www.abelmath.fun/assets/og.png">
+  <link rel="stylesheet" href="/assets/site.css">
+  <link rel="alternate" type="application/rss+xml" title="阿贝尔的数学之旅" href="/feed.xml">
+</head>
+<body class="article-page">
+  <a class="skip-link" href="#main">跳到正文</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="/" aria-label="阿贝尔的数学之旅首页">
+        <span class="brand-mark" aria-hidden="true">∫</span>
+        <span><strong>阿贝尔的数学之旅</strong><small>ABEL'S MATHEMATICAL JOURNEY</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">目录</button>
+      <nav id="site-nav" class="site-nav" aria-label="主要导航"><a href="/">首页</a><a href="/category/%e8%ae%ba%e6%96%87/">论文</a><a href="/category/ode/">ODE</a><a href="/category/pde/">PDE</a><a href="/category/analysis/">分析</a><a href="/category/analysis/%e6%b5%8b%e5%ba%a6/">测度</a><a href="/category/%e8%bf%91%e4%b8%96%e4%bb%a3%e6%95%b0/">抽代</a><a href="/category/%e5%9f%ba%e4%bb%a3/">基代</a><a href="/category/%e7%a7%91%e6%99%ae/">科普</a><a href="/category/manim/">manim</a><a href="/category/%e6%8e%a2%e8%ae%a8/">探讨</a><a href="/category/%e8%ae%b0%e5%bd%95/">记录</a></nav>
+    </div>
+  </header>
+  <main id="main">
+<article class="article-shell">
+  <header class="article-header">
+    <a class="back-link" href="/">← 返回首页</a>
+    <div class="post-meta"><time datetime="2025-08-29T13:12:52+00:00">2025-08-29</time><a class="chip" href="/category/ode/">ODE</a></div>
+    <h1>Lotka-Volterra 模型</h1>
+    <p>目录 目录 1. ODE 模型&amp;#x … 继续阅读 →</p>
+  </header>
+  <div class="article-layout">
+    <aside class="article-rail"><p>NOTE 1571</p><span></span><p>2025 · 08 · 29</p></aside>
+    <div class="article-content"><p><span id="contents" style="text-align:center; font-size:18px; font-variant:small-caps;display:block;">目录</span><br>
+          <span id="sec:content"><a href="#contents">目录</a></span><br><span> 1.  <a href="#sec:1">ODE 模型</a></span><br><span> 2.  <a href="#sec:2">PDE 模型</a></span><br><span>   2.1.  <a href="#sec:2.1">均质环境中的洛特卡-沃尔泰拉竞争-扩散系统</a></span><br></p>
+<p><span class="latex_section">1. ODE 模型<a id="sec:1"></a></span>
+</p>
+<p><span class="latex_section">2. PDE 模型<a id="sec:2"></a></span>
+</p>
+<p><span class="latex_subsection">2.1. 均质环境中的洛特卡-沃尔泰拉竞争-扩散系统<a id="sec:2.1"></a></span>
+</p>
+<p>为了提供背景知识, 我们首先简要总结具有常系数(即均匀环境)的洛特卡-沃尔泰拉竞争-扩散系统.</p>
+<p>\begin{equation}<br>
+\begin{cases}<br>
+\begin{array}{ll}<br>
+U_{t} = d_{1}\Delta U + U(a_{1} - b_{1}U - c_{1}V) &amp; \text{在}\ \Omega\times(0,\infty),\\<br>
+V_{t} = d_{2}\Delta V + V(a_{2} - b_{2}U - c_{2}V) &amp; \text{在}\ \Omega\times(0,\infty),\\<br>
+\partial_{v} U = 0 = \partial_{v} V &amp; \text{在}\ \partial\Omega\times(0,\infty),<br>
+\end{array}<br>
+\end{cases}<br>
+\tag{4.10}<br>
+\end{equation}</p>
+<p>其中 $ U$, $ V$ 再次表示两个竞争物种的种群密度, 常数 $ a_{1}$, $ a_{2}$ 反映了栖息地 $ \Omega$ 的承载能力, $ b_{1}$, $ c_{2}$ 是种内竞争系数, 而 $ b_{2}$, $ c_{1}$ 是种间竞争系数, 它们都是正数. 我们将只考虑非负解, 并且方便地记</p>
+<p>$$<br>
+A = \frac{a_{1}}{a_{2}},\quad B = \frac{b_{1}}{b_{2}},\quad  \quad C = \frac{c_{1}}{c_{2}}.<br>
+$$</p>
+<p>对于(4.10), 弱竞争情况 $ B &gt; A &gt; C$ 的动力学特性特别简单且完全被理解: 在这种情况下(4.10)有一个共存(即正)稳态</p>
+<p>$$<br>
+(U_{*}, V_{*}) = \left( \frac{a_{1}c_{2} - a_{2}c_{1}}{b_{1}c_{2} - b_{2}c_{1}},\ \frac{b_{1}a_{2} - b_{2}a_{1}}{b_{1}c_{2} - b_{2}c_{1}} \right)<br>
+\tag{4.11}<br>
+$$</p>
+<p>该稳态是全局渐近稳定的, 即, 无论初始值 $ U(x,0)$, $ V(x,0)$ 如何(只要 $ U(x,0) \not\equiv 0$, 且 $ V(x,0) \not\equiv 0$), (4.10)的解总是随着 $ t \rightarrow \infty$ 收敛到 $ (U_{*}, V_{*})$, 对于任何扩散率 $ d_{1}$, $ d_{2}$ 都成立.</p>
+<div class="latex_prop"><span class="latex_prop_h">命题 1</span><span class="latex_prop_h">.</span> 对于 $ B &gt; A &gt; C$, 由(4.11)给出的共存常数稳态 $ (U_{*}, V_{*})$ 是全局渐近稳定的.<br>
+</div>
+
+<details class="wp-block-details">
+<summary>证明</summary>
+<p></p><div class="latex_proof"><span class="latex_proof_h">证明</span><span class="latex_proof_h">.</span> 对于 $ U(x,0) \geqslant 0$, $ \not\equiv 0$ 和 $ V(x,0) \geqslant 0$, $ \not\equiv 0$, 根据最大值原理立即得出, 对于所有 $ t &gt; 0$, 在 $ \overline{\Omega}$ 上有 $ U(x,t) &gt; 0$, 在 $ \overline{\Omega}$ 上有 $ V(x,t) &gt; 0$.
+<p>令<br>
+$$<br>
+E[U,V](t) = \int_{\Omega} \left( b_{2} \left[ U - U_{*} - U_{*} \log \frac{U}{U_{*}} \right] + c_{1} \left[ V - V_{*} - V_{*} \log \frac{V}{V_{*}} \right] \right) \mathrm{d}x,$$</p>
+<p>求导得<br>
+$$<br>
+\begin{aligned}<br>
+\frac{\mathrm{d}}{\mathrm{d}t} E[U,V](t) =&amp; \int_{\Omega} \left[ b_2 \frac{U - U_*}{U} U_t + c_1 \frac{V - V_*}{V} V_t \right] \mathrm{d}x\\<br>
+=&amp; \int_{\Omega} b_2 (U - U_*)\left(d_1 \frac{\Delta U}{U} + a_1 - b_1 U - c_1 V\right)\\<br>
+ &amp;+ c_1 (V - V_*)\left(d_2 \frac{\Delta V}{V}+ a_2 - b_2 U - c_2 V\right) \, \mathrm{d}x\\<br>
+=&amp;I_1+I_2<br>
+\end{aligned}<br>
+$$</p>
+<p>将导数分解为扩散项 $I_1$ 和反应项 $I_2$, 其中扩散项积分为:<br>
+$$<br>
+\begin{aligned}<br>
+I_1 =&amp; \int_{\Omega} \left[ b_2 d_1 (U - U_*) \frac{\Delta U}{U} + c_1 d_2 (V - V_*) \frac{\Delta V}{V} \right] \mathrm{d}x\\<br>
+=&amp; -\int_{\Omega} \left[ b_2 d_1 U \frac{|\nabla U|^2}{U^2} + c_1 d_2 V \frac{|\nabla V|^2}{V^2} \right] \mathrm{d}x<br>
+\end{aligned}<br>
+$$</p>
+<p>反应项积分为:<br>
+$$<br>
+\begin{aligned}<br>
+I_2 &amp;= \int_{\Omega} \left[ b_2 \hat{U}(-b_1 \hat{U} - c_1 \hat{V}) + c_1 \hat{V}(-b_2 \hat{U} - c_2 \hat{V}) \right] \mathrm{d}x\\<br>
+&amp; = -\int_{\Omega} \left[ b_1 b_2 \hat{U}^2 + 2b_2c_1 \hat{U} \hat{V} + c_1 c_2 \hat{V}^2 \right] \mathrm{d}x\\<br>
+ &amp;\leqslant -\left(1 - \sqrt{\frac{c_1b_2}{c_2b_1}}\right) b_1b_2 \int_{\Omega} \hat{U}^2 \, \mathrm{d}x - \left(1 - \sqrt{\frac{c_1b_2}{c_2b_1}}\right) c_1 c_2 \int_{\Omega} \hat{V}^2 \, \mathrm{d}x<br>
+\end{aligned}<br>
+$$</p>
+<p>其中 $ \widehat{U} = U - U_{*}$, $ \widehat{V} = V - V_{*}$, 且 $ M = \max\left\{ \|U(x,0)\|_{L^{\infty}},\ \|V(x,0)\|_{L^{\infty}} \right\}$. 由于 $ B &gt; A &gt; C$, 可得 $ b_{1}b_{2}c_{1}c_{2} &gt; b_{2}^{2}c_{1}^{2}$, 于是我们得到<br>
+$$<br>
+\frac{\mathrm{d}}{\mathrm{d}t} E[U,V](t) \leqslant -\delta \left( \|\widehat{U}\|_{H^{1}(\Omega)}^{2} + \|\widehat{V}\|_{H^{1}(\Omega)}^{2} \right),<br>
+\tag{4.12}<br>
+$$</p>
+<p>其中<br>
+$$<br>
+\delta = \min\left\{ \left(1-\sqrt{\frac{c_1b_2}{c_2b_1}}\right)b_1b_2,\ \left(1-\sqrt{\frac{c_1b_2}{c_2b_1}}\right)c_1c_2,\ \frac{d_{1}b_{2}U_{*}}{M^{2}},\ \frac{d_{2}c_{1}V_{*}}{M^{2}} \right\}.<br>
+$$</p>
+<p>从(4.12)不难看出, 当 $ t \rightarrow \infty$ 时, $ (U(\cdot, t), V(\cdot, t)) \rightarrow (U_{*}, V_{*})$, 因为 $ (U_{*}, V_{*})$ 是 $ E$ 的唯一全局极小点.<br>
+</p></div><br>
+</details>
+<p>强竞争情形, 即 $ B &lt; A &lt; C$, 的情况要复杂得多. 首先, 由(4.11)给出的常数稳态 $ (U_{*}, V_{*})$ 仍然是(4.10)的一个共存稳态. 然而, 它现在是不稳定的, 即使在ODE意义下也是如此. 此外, (4.10)现在可以有许多非常数共存稳态, 参见, 例如, [GL].
+
+在 $ d_{1}$, $ d_{2}$ 都很大的情况下, 根据第二章定理2.12, (4.10)没有非常数稳态. 实际上, 只要扩散率 $ d_{1}$ 或 $ d_{2}$ 中有一个很大, 这种不存在性事实就成立. 这在[LN1, 推论3.2]中得到了证明.
+
+然而, 当 $ d_{1}$, $ d_{2}$ 都不大时的情况还没有得到很好的理解. 例如, 即使(4.10)的周期解的存在性或不存在性也是一个未解决的问题.
+</p>
+</div>
+  </div>
+  <nav class="post-navigation" aria-label="文章前后导航"><a href="/1569.html"><span>上一篇</span><strong>拉普拉斯方程</strong></a></nav>
+</article>
+</main>
+  <footer class="site-footer">
+    <p>阿贝尔的数学之旅 · 数学笔记与思考</p>
+    <p><a href="/feed.xml">RSS</a><span aria-hidden="true"> · </span><a href="/sitemap.xml">站点地图</a></p>
+  </footer>
+  <script src="/assets/site.js"></script>
+  
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ["\\(","\\)"]],
+    displayMath: [['$$', '$$'], ["\\[", "\\]"]],
+    processEscapes: true
+  },
+  TeX: {
+    equationNumbers: {autoNumber: "AMS",
+    useLabelIds: true}
+  },
+});
+MathJax.Hub.Config({TeX: {Macros: {"mr": ["\\mathrm{#1}", 1], "mb": ["\\mathbb{#1}", 1], "ee": "\\exists\\,", "ff": "\\forall\\,", "les": "\\leqslant", "ges": "\\geqslant", "sse": "\\subset", "sbs": "\\subset", "sps": "\\supset", "ve": "\\varepsilon", "mbr": "\\mathbb{R}", "mbn": "\\mathbb{N}", "mbz": "\\mathbb{Z}", "mbq": "\\mathbb{Q}", "mbc": "\\mathbb{C}", "mbh": "\\mathbb{H}", "vp": "\\varphi", "nti": "n\\to\\infty", "md": "\\mathrm{d}", "mre": "\\mathrm{e}", "mri": "\\mathrm{i}", "lra": ["\\langle #1\\rangle", 1], "Ker": "\\mathrm{Ker}\\,", "Im": "\\mathrm{Im}\\,", "tl": "\\triangleleft", "set": ["\\left\\{#1\\,\\left|\\,#2\\right. \\right\\}", 2], "mod": ["\\ (\\mr{mod}\\ #1)", 1], "pp": "\\partial", "Gal": ["\\mathrm{Gal}\\left(#1\\right)", 1], "Inv": ["\\mathrm{Inv}\\left(#1\\right)", 1], "End": ["\\mathrm{End}_{#1}\\!\\left(#2\\right)", 2], "Hom": ["\\mathrm{Hom}_{#1}\\!\\left(#2\\right)", 2], "ca": "\\mathcal{A}", "cb": "\\mathcal{B}", "cc": "\\mathcal{C}", "cd": "\\mathcal{D}", "ce": "\\mathcal{E}", "cf": "\\mathcal{F}", "cg": "\\mathcal{G}", "cl": "\\mathcal{L}", "cs": "\\mathcal{S}", "Ext": "\\mathrm{Ext}", "Tor": "\\mathrm{Tor}", "mc": ["\\mathcal{#1}", 1], "ot": "\\otimes"}}});
+</script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_SVG.js"></script>
+</body>
+</html>

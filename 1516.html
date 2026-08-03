@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>一些ODE模型｜阿贝尔的数学之旅</title>
+  <meta name="description" content="目录 目录 1. Rosenzwei … 继续阅读 →">
+  <link rel="canonical" href="https://www.abelmath.fun/1516.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="阿贝尔的数学之旅">
+  <meta property="og:title" content="一些ODE模型｜阿贝尔的数学之旅">
+  <meta property="og:description" content="目录 目录 1. Rosenzwei … 继续阅读 →">
+  <meta property="og:url" content="https://www.abelmath.fun/1516.html">
+  <meta property="og:image" content="https://www.abelmath.fun/assets/og.png">
+  <meta property="og:image:width" content="1731">
+  <meta property="og:image:height" content="909">
+  <meta property="og:image:alt" content="阿贝尔的数学之旅：数学笔记与思考">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="一些ODE模型｜阿贝尔的数学之旅">
+  <meta name="twitter:description" content="目录 目录 1. Rosenzwei … 继续阅读 →">
+  <meta name="twitter:image" content="https://www.abelmath.fun/assets/og.png">
+  <link rel="stylesheet" href="/assets/site.css">
+  <link rel="alternate" type="application/rss+xml" title="阿贝尔的数学之旅" href="/feed.xml">
+</head>
+<body class="article-page">
+  <a class="skip-link" href="#main">跳到正文</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="/" aria-label="阿贝尔的数学之旅首页">
+        <span class="brand-mark" aria-hidden="true">∫</span>
+        <span><strong>阿贝尔的数学之旅</strong><small>ABEL'S MATHEMATICAL JOURNEY</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">目录</button>
+      <nav id="site-nav" class="site-nav" aria-label="主要导航"><a href="/">首页</a><a href="/category/%e8%ae%ba%e6%96%87/">论文</a><a href="/category/ode/">ODE</a><a href="/category/pde/">PDE</a><a href="/category/analysis/">分析</a><a href="/category/analysis/%e6%b5%8b%e5%ba%a6/">测度</a><a href="/category/%e8%bf%91%e4%b8%96%e4%bb%a3%e6%95%b0/">抽代</a><a href="/category/%e5%9f%ba%e4%bb%a3/">基代</a><a href="/category/%e7%a7%91%e6%99%ae/">科普</a><a href="/category/manim/">manim</a><a href="/category/%e6%8e%a2%e8%ae%a8/">探讨</a><a href="/category/%e8%ae%b0%e5%bd%95/">记录</a></nav>
+    </div>
+  </header>
+  <main id="main">
+<article class="article-shell">
+  <header class="article-header">
+    <a class="back-link" href="/">← 返回首页</a>
+    <div class="post-meta"><time datetime="2025-08-25T03:40:27+00:00">2025-08-25</time><a class="chip" href="/category/ode/">ODE</a><a class="chip" href="/category/blog/">博客</a></div>
+    <h1>一些ODE模型</h1>
+    <p>目录 目录 1. Rosenzwei … 继续阅读 →</p>
+  </header>
+  <div class="article-layout">
+    <aside class="article-rail"><p>NOTE 1516</p><span></span><p>2025 · 08 · 25</p></aside>
+    <div class="article-content"><p><span id="contents" style="text-align:center; font-size:18px; font-variant:small-caps;display:block;">目录</span><br>
+          <span id="sec:content"><a href="#contents">目录</a></span><br><span> 1.  <a href="#sec:1">Rosenzweig-MacArthur 捕食模型</a></span><br></p>
+<p><span class="latex_section">1. Rosenzweig-MacArthur 捕食模型<a id="sec:1"></a></span>
+</p>
+<p>考虑如下非量纲化后的 Rosenzweig-MacArthur 捕食模型：<br>
+\begin{equation}\label{Simple Rosenzweig-MacArthur}<br>
+\left\{\begin{array}{l}<br>
+x^{\prime}=x\left(1-\frac{x}{K}\right)-\frac{m x y}{1+x}, \\<br>
+y^{\prime}=-\theta y+\frac{m x y}{1+x},<br>
+\end{array}\right.<br>
+\end{equation}</p>
+<p>我们只考虑 $ x \geqslant 0 $ , $ y \geqslant 0 $ . 平衡解有 $(0,0)$, $(K,0)$, $(\lambda, V_{\lambda})$, 其中<br>
+$$<br>
+\lambda=\frac{\theta}{m-\theta}, \quad V_{\lambda}=\frac{(K-\lambda)(1+\lambda)}{K m},<br>
+$$</p>
+<p>那么共存解 $ (\lambda, V_{\lambda}) $ 在第一象限的条件是 $ 0 \leqslant \lambda \leqslant K $ . 当 $ \lambda \geqslant K $ 时, $(K,0)$是全局稳定的, 即对任何 $ (x_{0},y_{0})\in \mathbb{R}_{+}^{2} $ , $ \lim\limits_{t\rightarrow \infty}(x(t),y(t))=(K,0) $ . 对于 $ 0&lt; \lambda&lt; K $ , 容易算出
+$$
+J(\lambda, V_{\lambda})=\left(\begin{array}{cc}
+\frac{\lambda(K-1-2 \lambda)}{K(1+\lambda)} &amp; -\theta \\
+\frac{K-\lambda}{K(1+\lambda)} &amp; 0
+\end{array}\right).
+$$
+
+</p><div class="latex_prop"><span class="latex_prop_h">命题 1</span><span class="latex_prop_h">.</span> 若 $ 0&lt; \lambda &lt; K $ , $ \operatorname{Det}(J)=\frac{\theta(K-\lambda)}{K(1+\lambda)} &gt; 0 $ , 而 $ \operatorname{Tr}(J)=\frac{\lambda(K-1-2\lambda)}{K(1+\lambda)} $ , 因此 $ (\lambda, V_{\lambda}) $ 在 $ 0&lt; \lambda&lt; \frac{K-1}{2} $ 时是不稳定的, 在 $ \frac{K-1}{2}&lt; \lambda&lt; K $ 时是稳定的.
+</div>
+
+<div class="latex_thm"><span class="latex_thm_h">定理 2</span><span class="latex_thm_h">.</span> 系统 \eqref{Simple Rosenzweig-MacArthur} 是耗散的, 或者说是最终有界的. 因为 $ \{(x, y):x&gt;0,y&gt;0\} $ 是不变的, 所以  \eqref{Simple Rosenzweig-MacArthur}  满足 $ x(0)&gt;0 $ , $ y(0)&gt;0 $ 的解都是正的. 若 $ x(0)&gt;K $ , 那么当 $ x&gt;K $ 时, $ x^{\prime}=x\left(1-\frac{x}{K}\right)-\frac{m x y}{1+x}&lt;0 $ ; 而 $ x=K $ 时, $ x^{\prime}=-\frac{m K y}{1+K}&lt;0 $ . 又因为区域 $ \{(x, y):x&gt;K,y\geqslant0\} $ 内没有平衡点, 所以当 $ t\geqslant0 $ 时,  \eqref{Simple Rosenzweig-MacArthur} 的所有正解都满足 $ x(t)\leqslant\max\{x(0), K\} $ . 将  \eqref{Simple Rosenzweig-MacArthur}  的两个方程相加得 $ (x+y)^{\prime}=x\left(1-\frac{x}{K}\right)-\theta y $ , 令<br>
+$$<br>
+\eta=\max _{x \geqslant0}\left(x\left(1-\frac{x}{K}\right)+\theta x\right),<br>
+$$<br>
+则 $ (x+y)^{\prime}\leqslant\eta-\theta(x+y) $ . 因此由Gronwall不等式可得<br>
+$$<br>
+x(t)+y(t)\leqslant(x(0)+y(0)) \mathrm{e}^{-\theta t}+\frac{\eta}{\theta}\left(1-\mathrm{e}^{-\theta t}\right),<br>
+$$<br>
+因此 $ y(t) $ 也是有界的.<br>
+</div>
+<div class="latex_lem"><span class="latex_lem_h">引理 3</span><span class="latex_lem_h">.</span> 我们用Dulac准则证明当 $ \frac{K-1}{2}&lt; \lambda &lt; K $ 时,  \eqref{Simple Rosenzweig-MacArthur}  在第一象限没有周期轨道(Hsu et al., 1978). 令 $ h(x,y)=\left(\frac{mx}{1+x}\right)^{\alpha}y^{\beta} $ , 其中 $ \alpha, \beta \in \mathbb{R} $ 待定.
+</div>
+
+$$
+D = \{x \geqslant 0, y \geqslant 0\}
+$$
+
+我们想证明(*)在 $ D $ 上没有周期解, $ \frac{k-1}{2} &lt; \lambda &lt; k $.
+
+采用Dulac法则, 令 $ h(x,y) = \left(\frac{mx}{1+x}\right)^{\alpha}y^{\beta} $, 其中 $ \alpha, \beta $ 待定, 则
+
+$$
+\frac{\mathrm{div}(F \cdot h)}{h} = \frac{\alpha}{1+x}\left(1-\frac{x}{k}\right) + \left(1-\frac{2x}{k}\right) - (\alpha+1)\frac{m}{(1+x)^{2}}y + (\beta+1)\left(\frac{mx}{1+x}-d\right).
+$$
+
+令 $ \alpha = -1 $, 则
+
+$$
+\frac{\mathrm{div}(F \cdot h)}{h} \cdot (1+x) = \frac{x}{k}(k-1-2x) + (\beta+1)[mx-d(x+1)] =: G(x).
+$$
+
+计算
+
+$$
+G(\lambda) = \frac{\lambda}{k}(-2\lambda + k - 1) &lt; 0.
+$$
+
+令 $ G'(\lambda) = 0 $ 能保证 $ G $ 在 $ [0,+\infty) $ 上几乎处处大于0:
+
+$$
+G'(1) = \frac{k-1-4\lambda}{k} + (\beta+1)(m-d) = 0.
+$$
+
+$$
+\Rightarrow \beta = \frac{k-1-4\lambda}{k(m-d)} - 1.
+$$
+
+这样便保证了 $ \mathrm{div}(F \cdot h) &lt; 0 $ a.e.
+
+<div class="latex_lem"><span class="latex_lem_h">引理 4</span><span class="latex_lem_h">.</span> 设 $ f(u) $ 关于 $ u $ 单减, $ \lim\limits_{t \to +\infty} \alpha(t) = A &gt; 0 $, 自治方程<br>
+$$<br>
+\frac{d\tilde{x}}{dt} = f(\tilde{x}), \quad \tilde{x} \geqslant 0<br>
+\tag{1}<br>
+$$<br>
+有全局吸引子 $ x^{*} &gt; 0 $, 则 $ \frac{x^{*}}{A} $ 为如下非自治方程的全局吸引子<br>
+$$<br>
+\frac{dx}{dt}(t) = f(\alpha(t)x(t)).<br>
+\tag{2}<br>
+$$<br>
+</div>
+
+<details class="wp-block-details">
+<summary>证明</summary>
+<p></p><div class="latex_proof"><span class="latex_proof_h">证明</span><span class="latex_proof_h">.</span> 设(1), (2)取相同初值 $ x_{0} $.
+<p>任取 $ \varepsilon &gt; 0 $, 存在 $ T &gt; 0 $ 使 $ A - \varepsilon \leqslant \alpha(t) \leqslant A + \varepsilon $, $ \forall t \geqslant T $, 这样有<br>
+$$<br>
+f((A+\varepsilon)x(t)) \leqslant \dot{x}(t) = f(\alpha(t)x(t)) \leqslant f((A-\varepsilon)x(t)).<br>
+$$</p>
+<p>考虑 IVP<br>
+$$<br>
+\dot{x_{1}} = f((A-\varepsilon)x_{1}), \quad x_{1}(T) = x(T),<br>
+\tag{3}<br>
+$$<br>
+$$<br>
+\dot{x_{2}} = f((A+\varepsilon)x_{2}), \quad x_{2}(T) = x(T).<br>
+\tag{4}<br>
+$$</p>
+<p>易知 $ x_{1}(t) \to \frac{x^{*}}{A-\varepsilon} $, $ x_{2}(t) \to \frac{x^{*}}{A+\varepsilon} $, $ t \to +\infty $. 由比较原理得<br>
+$$<br>
+x_{2}(t) \leqslant x(t) \leqslant x_{1}(t), \quad \forall t \geqslant T.<br>
+$$</p>
+<p>那么<br>
+$$<br>
+\frac{x^{*}}{A+\varepsilon} \leqslant \liminf\limits_{t\rightarrow+\infty}x(t) \leqslant \limsup\limits_{t\rightarrow+\infty}x(t) \leqslant \frac{x^{*}}{A-\varepsilon}.<br>
+$$</p>
+<p>由 $ \varepsilon $ 的任意性即得结论.<br>
+</p></div><br>
+</details>
+</div>
+  </div>
+  <nav class="post-navigation" aria-label="文章前后导航"><a href="/1501.html"><span>上一篇</span><strong>Lyapunov 稳定性理论</strong></a><a href="/1523.html"><span>下一篇</span><strong>用 Fourier 变换证明 Leibniz 法则</strong></a></nav>
+</article>
+</main>
+  <footer class="site-footer">
+    <p>阿贝尔的数学之旅 · 数学笔记与思考</p>
+    <p><a href="/feed.xml">RSS</a><span aria-hidden="true"> · </span><a href="/sitemap.xml">站点地图</a></p>
+  </footer>
+  <script src="/assets/site.js"></script>
+  
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ["\\(","\\)"]],
+    displayMath: [['$$', '$$'], ["\\[", "\\]"]],
+    processEscapes: true
+  },
+  TeX: {
+    equationNumbers: {autoNumber: "AMS",
+    useLabelIds: true}
+  },
+});
+MathJax.Hub.Config({TeX: {Macros: {"mr": ["\\mathrm{#1}", 1], "mb": ["\\mathbb{#1}", 1], "ee": "\\exists\\,", "ff": "\\forall\\,", "les": "\\leqslant", "ges": "\\geqslant", "sse": "\\subset", "sbs": "\\subset", "sps": "\\supset", "ve": "\\varepsilon", "mbr": "\\mathbb{R}", "mbn": "\\mathbb{N}", "mbz": "\\mathbb{Z}", "mbq": "\\mathbb{Q}", "mbc": "\\mathbb{C}", "mbh": "\\mathbb{H}", "vp": "\\varphi", "nti": "n\\to\\infty", "md": "\\mathrm{d}", "mre": "\\mathrm{e}", "mri": "\\mathrm{i}", "lra": ["\\langle #1\\rangle", 1], "Ker": "\\mathrm{Ker}\\,", "Im": "\\mathrm{Im}\\,", "tl": "\\triangleleft", "set": ["\\left\\{#1\\,\\left|\\,#2\\right. \\right\\}", 2], "mod": ["\\ (\\mr{mod}\\ #1)", 1], "pp": "\\partial", "Gal": ["\\mathrm{Gal}\\left(#1\\right)", 1], "Inv": ["\\mathrm{Inv}\\left(#1\\right)", 1], "End": ["\\mathrm{End}_{#1}\\!\\left(#2\\right)", 2], "Hom": ["\\mathrm{Hom}_{#1}\\!\\left(#2\\right)", 2], "ca": "\\mathcal{A}", "cb": "\\mathcal{B}", "cc": "\\mathcal{C}", "cd": "\\mathcal{D}", "ce": "\\mathcal{E}", "cf": "\\mathcal{F}", "cg": "\\mathcal{G}", "cl": "\\mathcal{L}", "cs": "\\mathcal{S}", "Ext": "\\mathrm{Ext}", "Tor": "\\mathrm{Tor}", "mc": ["\\mathcal{#1}", 1], "ot": "\\otimes"}}});
+</script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_SVG.js"></script>
+</body>
+</html>

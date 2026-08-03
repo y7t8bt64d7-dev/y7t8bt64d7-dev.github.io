@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>The Laplace Equation as the Prototype of an Elliptic Partial Differential Equation of Second Order｜阿贝尔的数学之旅</title>
+  <meta name="description" content="目录 目录 1. Summary&amp;# … 继续阅读 →">
+  <link rel="canonical" href="https://www.abelmath.fun/446.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="阿贝尔的数学之旅">
+  <meta property="og:title" content="The Laplace Equation as the Prototype of an Elliptic Partial Differential Equation of Second Order｜阿贝尔的数学之旅">
+  <meta property="og:description" content="目录 目录 1. Summary&amp;# … 继续阅读 →">
+  <meta property="og:url" content="https://www.abelmath.fun/446.html">
+  <meta property="og:image" content="https://www.abelmath.fun/assets/og.png">
+  <meta property="og:image:width" content="1731">
+  <meta property="og:image:height" content="909">
+  <meta property="og:image:alt" content="阿贝尔的数学之旅：数学笔记与思考">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="The Laplace Equation as the Prototype of an Elliptic Partial Differential Equation of Second Order｜阿贝尔的数学之旅">
+  <meta name="twitter:description" content="目录 目录 1. Summary&amp;# … 继续阅读 →">
+  <meta name="twitter:image" content="https://www.abelmath.fun/assets/og.png">
+  <link rel="stylesheet" href="/assets/site.css">
+  <link rel="alternate" type="application/rss+xml" title="阿贝尔的数学之旅" href="/feed.xml">
+</head>
+<body class="article-page">
+  <a class="skip-link" href="#main">跳到正文</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="/" aria-label="阿贝尔的数学之旅首页">
+        <span class="brand-mark" aria-hidden="true">∫</span>
+        <span><strong>阿贝尔的数学之旅</strong><small>ABEL'S MATHEMATICAL JOURNEY</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">目录</button>
+      <nav id="site-nav" class="site-nav" aria-label="主要导航"><a href="/">首页</a><a href="/category/%e8%ae%ba%e6%96%87/">论文</a><a href="/category/ode/">ODE</a><a href="/category/pde/">PDE</a><a href="/category/analysis/">分析</a><a href="/category/analysis/%e6%b5%8b%e5%ba%a6/">测度</a><a href="/category/%e8%bf%91%e4%b8%96%e4%bb%a3%e6%95%b0/">抽代</a><a href="/category/%e5%9f%ba%e4%bb%a3/">基代</a><a href="/category/%e7%a7%91%e6%99%ae/">科普</a><a href="/category/manim/">manim</a><a href="/category/%e6%8e%a2%e8%ae%a8/">探讨</a><a href="/category/%e8%ae%b0%e5%bd%95/">记录</a></nav>
+    </div>
+  </header>
+  <main id="main">
+<article class="article-shell">
+  <header class="article-header">
+    <a class="back-link" href="/">← 返回首页</a>
+    <div class="post-meta"><time datetime="2024-08-30T14:50:54+00:00">2024-08-30</time><a class="chip" href="/category/pde/">PDE</a></div>
+    <h1>The Laplace Equation as the Prototype of an Elliptic Partial Differential Equation of Second Order</h1>
+    <p>目录 目录 1. Summary&amp;# … 继续阅读 →</p>
+  </header>
+  <div class="article-layout">
+    <aside class="article-rail"><p>NOTE 446</p><span></span><p>2024 · 08 · 30</p></aside>
+    <div class="article-content"><p><span id="contents" style="text-align:center; font-size:18px; font-variant:small-caps;display:block;">目录</span><br>
+          <span id="sec:content"><a href="#contents">目录</a></span><br><span> 1.  <a href="#sec:1">Summary</a></span><br><span> 2.  <a href="#sec:2">Harmonic Functions</a></span><br><span> 3.  <a href="#sec:3">Mean Value Properties of Harmonic Functions</a></span><br></p>
+<p><span class="latex_section">1. Summary<a id="sec:1"></a></span>
+
+In this chapter we encountered some basic properties of harmonic functions, i.e., of solutions of the Laplace equation<br>
+$$<br>
+\Delta u=0 \text { in } \Omega<br>
+$$<br>
+and also of solutions of the Poisson equation<br>
+$$<br>
+\Delta u=f \quad \text { in } \Omega<br>
+$$<br>
+with given $f$.<br>
+We found the unique solution of the Dirichlet problem on the ball (Theorem 1.1.2), and we saw that solutions are smooth (Corollary 1.1.2) and even satisfy explicit estimates (Corollary 1.2 .7 ) and in particular the maximum principle (Corollary 1.2.3, Corollary 1.2.4), which actually already holds for subharmonic functions (Lemma 1.2.1). All these results are typical and characteristic for solutions of elliptic PDEs. The methods presented in this chapter, however, mostly do not readily generalize, since they have used heavily the rotational symmetry of the Laplace operator. In subsequent chapters we thus need to develop different and more general methods in order to show analogues of these results for larger classes of elliptic PDEs.</p>
+<p><span class="latex_section">2. Harmonic Functions<a id="sec:2"></a></span>
+</p>
+<p>In this section $\Omega$ is a bounded domain in $\mbr^d$ for which the divergence theorem holds; this means that for any vector field $V$ of class $C^1(\Omega)\cap C^0(\bar{\Omega})$ $$ \int_\Omega \mr{div} V(x)\md x=\int_{\pp \Omega} V(x)\cdot n\, \md S.$$</p>
+<div class="latex_lem"><span class="latex_lem_h">引理 1</span><span class="latex_lem_h">.</span> Let $u,v\in C^2(\bar{\Omega})$. Then we have Green's First formula \begin{equation}\label{Green1} \int_\Omega v\Delta u\md x+\int_\Omega\nabla u\cdot \nabla v\md x= \int_{\pp \Omega} v\frac{\pp u}{\pp n}\md S. \end{equation} and Green's Second formula \begin{equation}\label{Green2} \int_\Omega v\Delta u-u\Delta v\md x=\int_{\pp \Omega} v\frac{\pp u}{\pp n}-u \frac{\pp v}{\pp n} \md S. \end{equation} </div>
+<p>In the sequel we shall empoly the following notation:</p><ol> <li>closed ball : $B(x,r):=\set{y\in\mbr^d}{|x-y|\les r}$ </li><li>open ball : $\overset{\circ}{B}(x,r):=\set{y\in\mbr^d}{|x-y|&lt; r}$ </li></ol> for $r &gt; o, x\in\mbr^d$.
+<div class="latex_defn"><span class="latex_defn_h">定义 2</span><span class="latex_defn_h">.</span> A function $u\in C^2(\Omega)$ is called harmonic in $\Omega$ if $$\Delta u=0\ \text{in}\ \Omega.$$</div>
+<p></p><div class="latex_lem"><span class="latex_lem_h">引理 3</span><span class="latex_lem_h">.</span> The harmonic functions in $\Omega$ form a vector space. </div> <div class="latex_proof"><span class="latex_proof_h">证明</span><span class="latex_proof_h">.</span> This follows because $\Delta$ is a linear differential operator. </div>
+<div class="latex_examp"><span class="latex_examp_h">例子 1</span><span class="latex_examp_h">.</span> Examples of harmonic functions: <ol> <li>In $\mbr^d$, all constant functions and, more generally, all affine linear functions are harmonic. </li><li>There also exist harmonic polynomials of higher order, e.g. $$u(x)=(x^1)^2-(x^2)^2$$for $x=(x^1,\cdots,x^3)\in\mbr^d$. </li><li>For $x, y \in \mathbb{R}^d$ with $x \neq y$, we put \begin{equation}\label{fundamental solution} \Gamma(x, y):=\Gamma(|x-y|):= \begin{cases}\frac{1}{2 \pi} \log |x-y| &amp; \text { for } d=2 \\ \frac{1}{d(2-d) \omega_d}|x-y|^{2-d} &amp; \text { for } d&gt;2\end{cases} \end{equation}where $\omega_d$ is the volume of the $d$-dimensional unit ball $B(0,1) \subset \mathbb{R}^d$. We have $$ \begin{aligned} \frac{\partial}{\partial x^i} \Gamma(x, y) &amp; =\frac{1}{d \omega_d}\left(x^i-y^i\right)|x-y|^{-d} \\ \frac{\partial^2}{\partial x^i \partial x^j} \Gamma(x, y) &amp; =\frac{1}{d \omega_d}\left\{|x-y|^2 \delta_{i j}-d\left(x^i-y^i\right)\left(x^j-y^j\right)\right\}|x-y|^{-d-2} \end{aligned} $$Thus, as a function of $x, \Gamma$ is harmonic in $\mathbb{R}^d \backslash\{y\}$. Since $\Gamma$ is symmetric in $x$ and $y$, it is then also harmonic as a function of $y$ in $\mathbb{R}^d \backslash\{x\}$. The reason for the choice of the constants employed in \eqref{fundamental solution} will become apparent after (1.1.8) below. </li></ol> </div>
+<div class="latex_defn"><span class="latex_defn_h">定义 4</span><span class="latex_defn_h">.</span> $\Gamma$ from \eqref{fundamental solution} is called the fundamental solution of the Laplace equation. </div> What is the reason for this particular solution $\Gamma$ of the Laplace equation in $\mathbb{R}^d \backslash\{y\}$? The answer comes from the rotational symmetry of the Laplace operator. The equation $$\Delta u=0$$ is invariant under rotations about an arbitrary center $y$. If $A\in O(d)$, orthogonal group, and $y\in\mbr^d$, then for a harmonic $u(x)$, $u(A(x-y)+y)$ is likewise harmonic. Because of this invariance of the operator, one then also searches for invariant solutions, i.e., solutions of the form $$u(x)=\vp(r)\ \ \text{with}\ \ r=|x-y|.$$ The Laplace equation then is transformed into the following equation for $y$ as a function of $r$, with $'$ denoting a derivative w.r.t. $r$, $$\vp''(r)+\frac{d-1}{r}\vp'(r)=0.$$ Solutions have to satisfy$$\vp'(r)=cr^{1-d}$$with constant $c$. Fixing this constant plus one further additive constant leads to the fundamental solution $\Gamma(r)$.
+<p><span id="GreenRep"></span></p><div class="latex_thm"><span class="latex_thm_h">定理 5</span> (<span class="latex_thm_name">Green representation formula</span>)<span class="latex_thm_h">.</span> If $u\in C^2(\bar{\Omega})$, we have for $y\in\Omega$ $$ u(y)=\int_{\partial \Omega}\left\{u(x) \frac{\partial \Gamma}{\partial n}(x, y)-\Gamma(x, y) \frac{\partial u}{\partial n}(x)\right\} \md S+\int_{\Omega} \Gamma(x, y) \Delta u(x) \md x $$ </div> <div class="latex_rem"><span class="latex_rem_h">注记 1</span><span class="latex_rem_h">.</span> Applying the Green representation formula for test function $\vp\in C_0^\infty(\Omega)$, we obtain $$ \varphi(y)=\int_{\Omega} \Gamma(x, y) \Delta \varphi(x) \md x $$ </div>
+<p>We may draw the following consequence from the Green representation formula: If one knows $\Delta u$, then $u$ is completely determined by its values and those of its normal derivative on $\pp\Omega$. In particular, a harmonic function on $\Omega$ can be reconstructed from its boundary data. One may then ask conversely whether one can construct a harmonic function for arbitary given values on $\pp\Omega$ for the function and its normal derivative. Even ignoring the issue that one might have to impose certain regularity conditions like continuity on such data, we shall find that this is not possible in general, but that one can prescribe essentially only one of these two data. In any case, the divergence theorem for $V=\nabla u$ implies that a harmonic $u$ has to satisfy $$ \int_{\partial \Omega} \frac{\partial u}{\partial n} \md S=\int_{\Omega} \Delta u(x) \md x=0, $$ so that the normal derivative cannot be prescribed completely arbitrarily. </p><div class="latex_defn"><span class="latex_defn_h">定义 6</span><span class="latex_defn_h">.</span> A function $G(x,y)$, defined for $x,y\in\bar{\Omega}, x\ne y$, is called a Green function for $\Omega$ if <ol> <li>$G(x,y)=0$ for $x\in\pp\Omega$; </li><li>$h(x,y)=G(x,y)-\Gamma(x,y)$ is harmonic in $x\in\Omega$, thus in particular also at the point $x=y$. </li></ol> </div> We now assume that a Green function $G(x,y)$ exists, which indeed is ture for all $\Omega$ under consideration here, and put $v(x)=h(x,y)$ in \eqref{Green2} and add the result to Green representation formula <a class="latex_ref" href="#GreenRep">定理 5</a>, obtaining \begin{equation}\label{u_with_Green_function}<br>
+u(y)=\int_{\partial \Omega} u(x) \frac{\partial G(x, y)}{\partial n_x} \md S+\int_{\Omega} G(x, y) \Delta u(x) \md x<br>
+\end{equation} The above equation in particular implies that a harmonic $u$ is already determined by its boundary values $u_{\mid \partial \Omega}$. This construction now raises the converse question: If we are given functions $\varphi: \partial \Omega \rightarrow \mathbb{R}, f: \Omega \rightarrow \mathbb{R}$, can we obtain a solution of the Dirichlet problem for the Poisson equation \begin{equation}\begin{aligned} \Delta u(x)&amp;=f(x) \text { for } x \in \Omega \\ u(x)&amp;=\varphi(x) \text { for } x \in \partial \Omega \end{aligned} \label{Poisson Equation} \end{equation} by the representation formula \begin{equation}\label{representation_formula_of_Poisson_equation} u(y)=\int_{\partial \Omega} \varphi(x) \frac{\partial G(x, y)}{\partial n_x} \md S+\int_{\Omega} f(x) G(x, y) \md x ? \end{equation} After all, if $u$ is a solution, it does satisfy this formula by \eqref{Poisson Equation}.
+<p>Essentially, the answer is yes; to make it really work, however, we need to impose some conditions on $\vp$ and $f$. A natural condition should be the requirement that they be continuou.</p>
+<p>For $\vp$, this condition turns out to be sufficient, provided that the boundary of $\Omega$ satisfies some mild regularity requirements. If $\Omega$ is a ball, we shall verify this in <a class="latex_ref" href="#Poisson_representation_formula">定理 7</a> for the case $f=0$.</p>
+<p><b> For $f$, the situation is slightly more subtle. </b> It turns out that even if $f$ is continuous, the function $u$ defined by \eqref{representation_formula_of_Poisson_equation} need not be twice differentiable, and so one has to exercise some care in assigning a meaning to the equation $\Delta u=f$.</p>
+<p>We shall return to this issue in Sections 10.1 and 11.1 below. In particular, we shall show that if we require a little more about $f$, namely, <b>that it be Hölder continuous</b>, then the function $u$ given by \eqref{representation_formula_of_Poisson_equation} is twice continuously differentiable and satisfies $\Delta u=f$.</p>
+<p>Analogously, if $H(x,y)$ for $x, y \in \bar{\Omega}, x \neq y$ is defined with<br>
+$$<br>
+\frac{\partial}{\partial \nu_x} H(x, y)=\frac{-1}{\|\partial \Omega\|} \quad \text { for } x \in \partial \Omega<br>
+$$<br>
+and a harmonic difference $H(x,y)-\Gamma(x,y)$ as before, we obtain<br>
+\begin{equation}<br>
+\begin{aligned}<br>
+u(y)=&amp;\frac{1}{\|\partial \Omega\|} \int_{\partial \Omega} u(x) \md S-\int_{\partial \Omega} H(x, y) &amp; \frac{\partial u}{\partial \nu}(x) \md S \\<br>
+&amp; +\int_{\Omega} H(x, y) \Delta u(x) \md x<br>
+\end{aligned}\label{Poisson_rep_for_neumann}<br>
+\end{equation}<br>
+If now $u_1$ and $u_2$ are two harmonic functions with<br>
+$$<br>
+\frac{\partial u_1}{\partial \nu}=\frac{\partial u_2}{\partial \nu} \text { on } \partial \Omega<br>
+$$<br>
+applying \eqref{Poisson_rep_for_neumann} to the difference $u=u_1-u_2$ yields<br>
+$$<br>
+u_1(y)-u_2(y)=\frac{1}{\|\partial \Omega\|} \int_{\partial \Omega}\left(u_1(x)-u_2(x)\right) \md S<br>
+$$<br>
+Since the right-hand side of the above is independent of $y$, $u_1-u_2$ must be constant in $\Omega$. In other words, a solution of the Neumann boundary value problem<br>
+\begin{equation}<br>
+\begin{aligned}<br>
+\Delta u(x) &amp; =0 &amp; &amp; \text { for } x \in \Omega \\<br>
+\frac{\partial u}{\partial \nu} &amp; =g(x) &amp; &amp; \text { for } x \in \partial \Omega<br>
+\end{aligned}\label{Neumann_boundary_value_problem}<br>
+\end{equation}<br>
+is determined only up to a constant, and , conversely, by $\int_{\partial \Omega} \frac{\partial u}{\partial \nu} \md S=\int_{\Omega} \Delta u(x) \md x=0$, a necessary condition for the existence of a solution is<br>
+$$\int_{\pp\Omega} g(x)\md S=0.$$</p>
+<p><b>Boundary conditions tend to makr the theory of PDEs difficult.</b> Actually, in many contexts, the Neumann condition is <b>more natural and easier to handle</b> that the Dirichlet condition, even thouth we mainly study Dirichlet boundary conditions in this book as those occur more frequently.</p>
+<p>There is in fact another, even easier, boundary condition, which actually is not a boundary condition at all, the so-called <b> periodic boundary condition.</b> This means the following. We consider a domain of the form $\Omega=\left(0, L_1\right) \times \cdots \times\left(0, L_d\right) \subset \mathbb{R}^d$ and require for $u:\bar{\Omega}\to\mbr$ that<br>
+$$<br>
+u\left(x_1, \ldots, x_{i-1}, L_i, x_{i+1}, \ldots, x_d\right)=u\left(x_1, \ldots, x_{i-1}, 0, x_{i+1}, \ldots, x_d\right)<br>
+$$<br>
+for all $x=\left(x_1, \ldots, x_d\right) \in \Omega, i=1, \ldots, d$. This means that $u$ can be periodicall extended from $\Omega$ to all of $\mbr^d$. A reader familiar with basic geometric concepts will view such a $u$ as a function on the torus obtained by identifying opposite sides in $\Omega$. More generally, one may then consider solutions of PDEs on compact manifolds.</p>
+<p>Anyway, we now turn to the Dirichlet problem on a ball. As a preparation, we compute the Green function $G$ for such a ball $B(0,R)$. For $y\in\mbr^d$, we put<br>
+$$<br>
+\bar{y}:= \begin{cases}\frac{R^2}{|y|^2} y &amp; \text { for } y \neq 0 \\ \infty &amp; \text { for } y=0\end{cases}<br>
+$$<br>
+$\bar{y}$ is the point obtained from $y$ by reflection across $\partial B(0, R)$. We then put<br>
+\begin{equation}\label{Green_function_for_Dirichlet_problem_on_a_ball}<br>
+G(x, y):= \begin{cases}\Gamma(|x-y|)-\Gamma\left(\frac{|y|}{R}|x-\bar{y}|\right) &amp; \text { for } y \neq 0 \\ \Gamma(|x|)-\Gamma(R) &amp; \text { for } y=0\end{cases}<br>
+\end{equation}<br>
+For $x\ne y$, $G(x,y)$ is harmonic in $x$, since for $y\in\overset{\circ}{B}(0,R)$, the point $\bar{y}$ lies in the exterior of $B(0,R)$. The function $G(x,y)$ has only one singularity in $B(0,R)$, namely at $x=y$, and this sigularity is the same as that of $\Gamma(x,y)$. The formula<br>
+\begin{equation}\label{expanded_Green_function_for_Dirichlet_problem_on_a_ball}<br>
+G(x, y)=\Gamma\left(\left(|x|^2+|y|^2-2 x \cdot y\right)^{1 / 2}\right)-\Gamma\left(\left(\frac{|x|^2|y|^2}{R^2}+R^2-2 x \cdot y\right)^{1 / 2}\right)<br>
+\end{equation}<br>
+then shows that for $x\in\pp B(0,R)$, i.e., $|x|=R$, we have indeed $G(x,y)=0$. </p>
+<p>Therefore, $G(x,y)$ defined by \eqref{Green_function_for_Dirichlet_problem_on_a_ball} is the Green function of $B(0,R)$. And \eqref{expanded_Green_function_for_Dirichlet_problem_on_a_ball} also implies the symmetry<br>
+$$G(x,y)=G(y,x).$$<br>
+Furthermore, since $\Gamma(|x-y|)$ is monotonic in $|x-y|$, we conclude from \eqref{expanded_Green_function_for_Dirichlet_problem_on_a_ball} that<br>
+$$<br>
+G(x, y) \les 0 \quad \text { for } x, y \in B(0, R).<br>
+$$<br>
+Since for $x \in \partial B(0, R)$<br>
+$$<br>
+|x|^2+|y|^2-2 x \cdot y=\frac{|x|^2|y|^2}{R^2}+R^2-2 x \cdot y,<br>
+$$<br>
+\eqref{expanded_Green_function_for_Dirichlet_problem_on_a_ball} furthermore implies for $x \in \partial B(0, R)$ that<br>
+$$<br>
+\begin{aligned}<br>
+\frac{\partial}{\partial \nu_x} G(x, y) &amp; =\frac{\partial}{\partial|x|} G(x, y)=\frac{1}{d \omega_d} \frac{|x|}{|x-y|^d}-\frac{1}{d \omega_d} \frac{|x|}{|x-y|^d} \frac{|y|^2}{R^2} \\<br>
+&amp; =\frac{R^2-|y|^2}{d \omega_d R} \frac{1}{|x-y|^d} .<br>
+\end{aligned}<br>
+$$<br>
+Inserting this result into \eqref{u_with_Green_function}, we obtain a representation formula for a harmonic $u\in C^2(B(0,R))$ in terms of its boundary values on $\pp B(0,R)$:<br>
+$$<br>
+u(y)=\frac{R^2-|y|^2}{d \omega_d R} \int_{\partial B(0, R)} \frac{u(x)}{|x-y|^d} d o(x) .<br>
+$$<br>
+The regularity condition here can be weakened; in fact, we have the following theorem:</p>
+<p><span id="Poisson_representation_formula"></span></p><div class="latex_thm"><span class="latex_thm_h">定理 7</span> (<span class="latex_thm_name">Poisson representation formula; solution of Dirichlet problem on the ball</span>)<span class="latex_thm_h">.</span> Let $\varphi: \partial B(0, R) \rightarrow \mathbb{R}$ be continuous. Then $u\in H(\overset{\circ}{B}(0,R))\cap C(B(0,R))$, which is defined by<br>
+$$<br>
+u(y):= \begin{cases}\frac{R^2-|y|^2}{d \omega_d R} \int_{\partial B(0, R)} \frac{\varphi(x)}{|x-y|^d} d o(x) &amp; \text { for } y \in \stackrel{\circ}{B}(0, R) \\ \varphi(y) &amp; \text { for } y \in \partial B(0, R)\end{cases}.<br>
+$$<br>
+</div><br>
+<div class="latex_cor"><span class="latex_cor_h">推论 8</span><span class="latex_cor_h">.</span> For $\varphi \in C^0(\partial B(0, R))$, there exists a unique solution $u \in C^2(\overset{\circ}{B}(0, R)) \cap C^0(\overset{\circ}{B}(0, R))$ of the Dirichlet problem<br>
+$$<br>
+\begin{aligned}<br>
+\Delta u(x) &amp; =0 &amp; &amp; \text { for } x \in \overset{\circ}{B}(0, R) \\<br>
+u(x) &amp; =\varphi(x) &amp; &amp; \text { for } x \in \partial B(0, R)<br>
+\end{aligned}<br>
+$$<br>
+</div>
+<p></p><div class="latex_cor"><span class="latex_cor_h">推论 9</span><span class="latex_cor_h">.</span> Any harmonic function $u:\Omega\to\mbr$ is real analytic in $\Omega$.<br>
+</div>
+<p><span class="latex_section">3. Mean Value Properties of Harmonic Functions<a id="sec:3"></a></span>
+</p>
+<p></p><div class="latex_thm"><span class="latex_thm_h">定理 10</span> (<span class="latex_thm_name">Mean value formulae</span>)<span class="latex_thm_h">.</span> A continuous $u:\Omega\to\mbr$ is harmonic iff for any ball $B(x_0,r)\subset \Omega$,<br>
+$$<br>
+u\left(x_0\right)=S\left(u, x_0, r\right):=\frac{1}{d \omega_d r^{d-1}} \int_{\partial B\left(x_0, r\right)} u(x) \md S \quad \text { (spherical mean) } \text {, }<br>
+$$<br>
+$$<br>
+\begin{aligned}<br>
+&amp;\text { or equivalently, if for any such ball }\\<br>
+&amp;u\left(x_0\right)=K\left(u, x_0, r\right):=\frac{1}{\omega_d r^d} \int_{B\left(x_0, r\right)} u(x) \md x \quad \text { (ball mean). }<br>
+\end{aligned}<br>
+$$<br>
+</div>
+<p>Instead of requiring that $u$ be continuous, it suffices to require that $u$ be measurable and locally integrable in $\Omega$. The preceding theorem and its proof then remain valid since in the second part we have not used the continuity of $u$.</p>
+<p>With this observation, we easily obtain the following corollary<br>
+</p><div class="latex_cor"><span class="latex_cor_h">推论 11</span> (<span class="latex_cor_name">Weyl's lemma</span>)<span class="latex_cor_h">.</span> Let $u:\Omega\to\mbr$ be measurable and locally integrable in $\Omega$. Suppose that for all $\vp\in C_0^\infty(\Omega)$,<br>
+$$ \int_{\Omega}u\Delta \vp \md x=0.$$<br>
+Then $u$ is harmonic and, in particular, smooth.<br>
+</div>
+<p></p><div class="latex_defn"><span class="latex_defn_h">定义 12</span> (<span class="latex_defn_name">subharmonic</span>)<span class="latex_defn_h">.</span> 
+<p></p></div>
+<span id="subharmonic_iff_mean_value_inequality"></span><div class="latex_thm"><span class="latex_thm_h">定理 13</span><span class="latex_thm_h">.</span> A function $v: \Omega \rightarrow[-\infty, \infty$ ) (upper semicontinuous, $\not \equiv -\infty$) is subharmonic iff for every ball $B\left(x_0, r\right) \subset \Omega$,<br>
+$$<br>
+v\left(x_0\right) \les S\left(v, x_0, r\right)<br>
+$$<br>
+or, equivalently, if for every such ball<br>
+$$<br>
+v\left(x_0\right) \les K\left(v, x_0, r\right)<br>
+$$<br>
+</div>
+<p><span id="mean_value_inequality_implies_maximum_principle"></span></p><div class="latex_lem"><span class="latex_lem_h">引理 14</span><span class="latex_lem_h">.</span> Suppose $v$ satisfies the mean value inequality (sphere or ball version) for all $B\left(x_0, r\right) \subset \Omega$. Then $v$ also satisfies the maximum principle, meaning that if there exists some $x_0 \in \Omega$ with<br>
+$$<br>
+v\left(x_0\right)=\sup _{x \in \Omega} v(x)<br>
+$$<br>
+then $v$ is constant. In particular, if $\Omega$ is bounded and $v \in C^0(\bar{\Omega})$, then<br>
+$$<br>
+v(x) \les \max _{y \in \partial \Omega} v(y) \quad \text { for all } x \in \Omega<br>
+$$<br>
+</div><br>
+<div class="latex_rem"><span class="latex_rem_h">注记 2</span><span class="latex_rem_h">.</span> We shall soon see that the assumption of the lemma is equivalent to $v$ being subharmonic, and therefore, the lemma will hold for subharmonic functions.<br>
+</div>
+<div class="latex_cor"><span class="latex_cor_h">推论 15</span><span class="latex_cor_h">.</span> $v\in C^2(\Omega)$ is subharmonic iff $\Delta v\ges0$ in $\Omega$.<br>
+</div>
+<div class="latex_examp"><span class="latex_examp_h">例子 2</span><span class="latex_examp_h">.</span> <ol><li>Let $d \ges 2$. We compute<br>
+$$<br>
+\Delta|x|^\alpha=(d \alpha+\alpha(\alpha-2))|x|^{\alpha-2} .<br>
+$$<br>
+Thus $|x|^\alpha$ is subharmonic for $\alpha \geq 2-d$. (This is not unexpected because $|x|^{2-d}$ is harmonic.)</li><li>Let $u: \Omega \rightarrow \mathbb{R}$ be harmonic and positive, $\beta \ges 1$. Then<br>
+$$<br>
+\begin{aligned}<br>
+\Delta u^\beta &amp; =\sum_{i=1}^d\left(\beta u^{\beta-1} u_{x^i x^i}+\beta(\beta-1) u^{\beta-2} u_{x^i} u_{x^i}\right) \\<br>
+&amp; =\sum_{i=1}^d \beta(\beta-1) u^{\beta-2} u_{x^i} u_{x^i}<br>
+\end{aligned}<br>
+$$<br>
+since $u$ is harmonic. Since $u$ is assumed to be positive and $\beta \ges 1$, this implies that $u^\beta$ is subharmonic.</li><li>Let $u: \Omega \rightarrow \mathbb{R}$ again be harmonic and positive. Then<br>
+$$<br>
+\Delta \log u=\sum_{i=1}^d\left(\frac{u_{x^i x^i}}{u}-\frac{u_{x^i} u_{x^i}}{u^2}\right)=-\sum_{i=1}^d \frac{u_{x^i} u_{x^i}}{u^2}<br>
+$$<br>
+since $u$ is harmonic. Thus, $\log u$ is superharmonic, and $-\log u$ then is subharmonic.</li><li>The preceding examples can be generalized as follows:<br>
+Let $u: \Omega \rightarrow \mathbb{R}$ be harmonic, $f: u(\Omega) \rightarrow \mathbb{R}$ convex. Then $f \circ u$ is subharmonic. To see this, we first assume $f \in C^2$. Then
+<p>$$<br>
+\begin{aligned}<br>
+\Delta f(u(x)) &amp; =\sum_{i=1}^d\left(f^{\prime}(u(x)) u_{x^i x^i}+f^{\prime \prime}(u(x)) u_{x^i} u_{x^i}\right) \\<br>
+&amp; =\sum_{i=1}^d f^{\prime \prime}(u(x))\left(u_{x^i}\right)^2 \quad(\text { since } u \text { is harmonic) } \\<br>
+&amp; \geq 0<br>
+\end{aligned}<br>
+$$<br>
+since for a convex $C^2$-function $f^{\prime \prime} \geq 0$. If the convex function $f$ is not of class $C^2$, there exists a sequence $\left(f_n\right)_{n \in \mathbb{N}}$ of convex $C^2$-functions converging to $f$ locally uniformly. By the preceding, $f_n \circ u$ is subharmonic, and hence satisfies the mean value inequality. Since $f_n \circ u$ converges to $f \circ u$ locally uniformly, $f \circ u$ satisfies the mean value inequality as well and so is subharmonic by <a class="latex_ref" href="#subharmonic_iff_mean_value_inequality">定理 13</a>.</p></li></ol></div>
+<p>We now return to studying harmonic functions.  If $u$ is harmonic, $u$ and $-u$ both are subharmonic, and we obtain from <a class="latex_ref" href="#mean_value_inequality_implies_maximum_principle">引理 14</a> the following result<br>
+</p><div class="latex_cor"><span class="latex_cor_h">推论 16</span> (<span class="latex_cor_name">Strong maximum principle</span>)<span class="latex_cor_h">.</span> Let $u$ be harmonic in $\Omega$. If there exists $x_0\in\Omega$ with<br>
+$$<br>
+u\left(x_0\right)=\sup _{x \in \Omega} u(x) \quad \text { or } \quad u\left(x_0\right)=\inf _{x \in \Omega} u(x),<br>
+$$<br>
+then $u$ is constant in $\Omega$.<br>
+</div>
+<p>A weaker version of the above corollary is<br>
+<span id="Weak_maximum_principle"></span></p><div class="latex_cor"><span class="latex_cor_h">推论 17</span> (<span class="latex_cor_name">Weak maximum principle</span>)<span class="latex_cor_h">.</span> Let $\Omega$ be bounded and $u\in C^0(\bar{\Omega})$ harmonic. Then for all $x\in\Omega$,<br>
+$$<br>
+\min _{y \in \partial \Omega} u(y) \les u(x) \les \max _{y \in \partial \Omega} u(y).<br>
+$$<br>
+</div>
+<span id="Uniqueness_of_solutions_of_the_Poisson_equation"></span><div class="latex_cor"><span class="latex_cor_h">推论 18</span> (<span class="latex_cor_name">Uniqueness of solutions of thePoisson equation</span>)<span class="latex_cor_h">.</span> Let $f \in C^0(\Omega), \Omega$ bounded, $u_1, u_2 \in C^0(\bar{\Omega}) \cap C^2(\Omega)$ solutions of the Poisson equation<br>
+$$<br>
+\Delta u_i(x)=f(x) \quad \text { for } x \in \Omega \quad(i=1,2)<br>
+$$<br>
+If $u_1(z) \les u_2(z)$ for all $z \in \partial \Omega$, then also<br>
+$$<br>
+u_1(x) \les u_2(x) \quad \text { for all } x \in \Omega<br>
+$$<br>
+In particular, if<br>
+$$<br>
+\left.u_1\right|_{\partial \Omega}=\left.u_2\right|_{\partial \Omega}<br>
+$$<br>
+then $u_1=u_2$.<br>
+</div><br>
+<div class="latex_proof"><span class="latex_proof_h">证明</span><span class="latex_proof_h">.</span> We apply the maximum principle to the harmonic function $u_1-u_2$.<br>
+</div><br>
+<div class="latex_rem"><span class="latex_rem_h">注记 3</span><span class="latex_rem_h">.</span> The reverse implication in <a class="latex_ref" href="#subharmonic_iff_mean_value_inequality">定理 13</a> can also be seen as follows: We observe the maximum principle needs only the mean value inequalities. Thus, the uniqueness of <a class="latex_ref" href="#Uniqueness_of_solutions_of_the_Poisson_equation">推论 18</a> holds for functions that satisfy the mean value formulae. On the other hand, by Poisson representation formula <a class="latex_ref" href="#Poisson_representation_formula">定理 7</a>, for continuous boundary values there exists a harmonic extension on the ball, and this harmonic extension also satisfies the mean value fomulae by the first implication of <a class="latex_ref" href="#subharmonic_iff_mean_value_inequality">定理 13</a>. By uniqueness, therefore, any continuous functino satisfying the mean value property must be harmonic on every ball in its domain of definition of $\Omega$, hence on all of $\Omega$.<br>
+</div>
+<p>As an application of the weak maximum principle we shall show the removability of isolated singularities of harmonic function:</p>
+<p><span id="removability_of_isolated_singularities_of_harmonic_function"></span></p><div class="latex_cor"><span class="latex_cor_h">推论 19</span><span class="latex_cor_h">.</span> Let $x_0 \in \Omega \subset \mathbb{R}^d(d \geq 2), u: \Omega \backslash\left\{x_0\right\} \rightarrow \mathbb{R}$ harmonic and bounded. Then $u$ can be extended as a harmonic function on all of $\Omega$; i.e., there exists a harmonic function<br>
+$$<br>
+\tilde{u}: \Omega \rightarrow \mathbb{R}<br>
+$$<br>
+that coincides with $u$ on $\Omega \backslash\left\{x_0\right\}$.<br>
+</div>
+<p>From the corollary we see that not every Dirichlet problem for a harmonic function is solvable. For example, there is no solution of<br>
+$$<br>
+\begin{aligned}<br>
+\Delta u(x) &amp; =0 \quad \text { in } \overset{\circ}{B}(0,1)\backslash\{0\}\\<br>
+u(x) &amp; =0 \quad \text { for } \quad|x|=1 \\<br>
+u(0) &amp; =1<br>
+\end{aligned}<br>
+$$<br>
+Namely, by the corollary, any solution $u$ could be extended to a harmonic function on the entire ball $\overset{\circ}{B}(0,1)$, but such a harmonic function would have to vanish identically by <a class="latex_ref" href="#Weak_maximum_principle">推论 17</a> , since its boundary values on $\pp B(0,1)$ vanish, and so it could not assume the prescribed value $1$ at $x=0$. </p>
+<p>Another consequence of the maximum principle for subharmonic functions is a gradient estimate for solutions of the Poisson equation:<br>
+<span id="Gradient_estimate"></span></p><div class="latex_cor"><span class="latex_cor_h">推论 20</span> (<span class="latex_cor_name">Gradient estimate</span>)<span class="latex_cor_h">.</span> Suppose that in $\Omega$,<br>
+$$<br>
+\Delta u(x)=f(x)<br>
+$$<br>
+with a bounded function $f$. Let $x_0 \in \Omega$ and $R:=\operatorname{dist}\left(x_0, \partial \Omega\right)$. Then<br>
+$$<br>
+\left|u_{x^i}\left(x_0\right)\right| \leq \frac{d}{R} \sup _{\partial B\left(x_0, R\right)}|u|+\frac{R}{2} \sup _{B\left(x_0, R\right)}|f| \quad \text { for } i=1, \ldots, d.<br>
+$$<br>
+</div><br>
+<div class="latex_cor"><span class="latex_cor_h">推论 21</span><span class="latex_cor_h">.</span> {Liouville theorem]\label{Liouville_theorem}<br>
+Let $u:\mbr^d\to\mbr$ be harmonic and bounded. Then $u$ is constant.<br>
+</div>
+<span id="Harnack_inequality"></span><div class="latex_cor"><span class="latex_cor_h">推论 22</span> (<span class="latex_cor_name">Harnack inequality</span>)<span class="latex_cor_h">.</span> Let $u: \Omega \rightarrow \mathbb{R}$ be harmonic and nonnegative. Then for every subdomain $\Omega^{\prime} \subset \subset \Omega$ there exists a constant $c=c\left(d, \Omega, \Omega^{\prime}\right)$ with<br>
+$$<br>
+\sup _{\Omega^{\prime}} u \leq c \inf _{\Omega^{\prime}} u<br>
+$$<br>
+</div><br>
+<div class="latex_cor"><span class="latex_cor_h">推论 23</span> (<span class="latex_cor_name">Harnack convergence theorem</span>)<span class="latex_cor_h">.</span> {Harnack_convergence_theorem}<br>
+Let $u_n: \Omega \rightarrow \mathbb{R}$ be a monotonically increasing sequence of harmonic functions. If there exists $y \in \Omega$ for which the sequence $\left(u_n(y)\right)_{n \in \mathbb{N}}$ is bounded, then $u_n$ converges on any subdomain $\Omega^{\prime} \subset \subset \Omega$ uniformly towards a harmonic function.<br>
+</div>
+</div>
+  </div>
+  <nav class="post-navigation" aria-label="文章前后导航"><a href="/419.html"><span>上一篇</span><strong>楼老师论文汇总</strong></a><a href="/563.html"><span>下一篇</span><strong>模论1</strong></a></nav>
+</article>
+</main>
+  <footer class="site-footer">
+    <p>阿贝尔的数学之旅 · 数学笔记与思考</p>
+    <p><a href="/feed.xml">RSS</a><span aria-hidden="true"> · </span><a href="/sitemap.xml">站点地图</a></p>
+  </footer>
+  <script src="/assets/site.js"></script>
+  
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ["\\(","\\)"]],
+    displayMath: [['$$', '$$'], ["\\[", "\\]"]],
+    processEscapes: true
+  },
+  TeX: {
+    equationNumbers: {autoNumber: "AMS",
+    useLabelIds: true}
+  },
+});
+MathJax.Hub.Config({TeX: {Macros: {"mr": ["\\mathrm{#1}", 1], "mb": ["\\mathbb{#1}", 1], "ee": "\\exists\\,", "ff": "\\forall\\,", "les": "\\leqslant", "ges": "\\geqslant", "sse": "\\subset", "sbs": "\\subset", "sps": "\\supset", "ve": "\\varepsilon", "mbr": "\\mathbb{R}", "mbn": "\\mathbb{N}", "mbz": "\\mathbb{Z}", "mbq": "\\mathbb{Q}", "mbc": "\\mathbb{C}", "mbh": "\\mathbb{H}", "vp": "\\varphi", "nti": "n\\to\\infty", "md": "\\mathrm{d}", "mre": "\\mathrm{e}", "mri": "\\mathrm{i}", "lra": ["\\langle #1\\rangle", 1], "Ker": "\\mathrm{Ker}\\,", "Im": "\\mathrm{Im}\\,", "tl": "\\triangleleft", "set": ["\\left\\{#1\\,\\left|\\,#2\\right. \\right\\}", 2], "mod": ["\\ (\\mr{mod}\\ #1)", 1], "pp": "\\partial", "Gal": ["\\mathrm{Gal}\\left(#1\\right)", 1], "Inv": ["\\mathrm{Inv}\\left(#1\\right)", 1], "End": ["\\mathrm{End}_{#1}\\!\\left(#2\\right)", 2], "Hom": ["\\mathrm{Hom}_{#1}\\!\\left(#2\\right)", 2], "ca": "\\mathcal{A}", "cb": "\\mathcal{B}", "cc": "\\mathcal{C}", "cd": "\\mathcal{D}", "ce": "\\mathcal{E}", "cf": "\\mathcal{F}", "cg": "\\mathcal{G}", "cl": "\\mathcal{L}", "cs": "\\mathcal{S}", "Ext": "\\mathrm{Ext}", "Tor": "\\mathrm{Tor}", "mc": ["\\mathcal{#1}", 1], "ot": "\\otimes"}}});
+</script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_SVG.js"></script>
+</body>
+</html>

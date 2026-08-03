@@ -1,0 +1,903 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>第三章 积分和空间 $L^p$｜阿贝尔的数学之旅</title>
+  <meta name="description" content="目录 目录 1. 积分的基本性质&amp;# … 继续阅读 →">
+  <link rel="canonical" href="https://www.abelmath.fun/1350.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="阿贝尔的数学之旅">
+  <meta property="og:title" content="第三章 积分和空间 $L^p$｜阿贝尔的数学之旅">
+  <meta property="og:description" content="目录 目录 1. 积分的基本性质&amp;# … 继续阅读 →">
+  <meta property="og:url" content="https://www.abelmath.fun/1350.html">
+  <meta property="og:image" content="https://www.abelmath.fun/assets/og.png">
+  <meta property="og:image:width" content="1731">
+  <meta property="og:image:height" content="909">
+  <meta property="og:image:alt" content="阿贝尔的数学之旅：数学笔记与思考">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="第三章 积分和空间 $L^p$｜阿贝尔的数学之旅">
+  <meta name="twitter:description" content="目录 目录 1. 积分的基本性质&amp;# … 继续阅读 →">
+  <meta name="twitter:image" content="https://www.abelmath.fun/assets/og.png">
+  <link rel="stylesheet" href="/assets/site.css">
+  <link rel="alternate" type="application/rss+xml" title="阿贝尔的数学之旅" href="/feed.xml">
+</head>
+<body class="article-page">
+  <a class="skip-link" href="#main">跳到正文</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="/" aria-label="阿贝尔的数学之旅首页">
+        <span class="brand-mark" aria-hidden="true">∫</span>
+        <span><strong>阿贝尔的数学之旅</strong><small>ABEL'S MATHEMATICAL JOURNEY</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">目录</button>
+      <nav id="site-nav" class="site-nav" aria-label="主要导航"><a href="/">首页</a><a href="/category/%e8%ae%ba%e6%96%87/">论文</a><a href="/category/ode/">ODE</a><a href="/category/pde/">PDE</a><a href="/category/analysis/">分析</a><a href="/category/analysis/%e6%b5%8b%e5%ba%a6/">测度</a><a href="/category/%e8%bf%91%e4%b8%96%e4%bb%a3%e6%95%b0/">抽代</a><a href="/category/%e5%9f%ba%e4%bb%a3/">基代</a><a href="/category/%e7%a7%91%e6%99%ae/">科普</a><a href="/category/manim/">manim</a><a href="/category/%e6%8e%a2%e8%ae%a8/">探讨</a><a href="/category/%e8%ae%b0%e5%bd%95/">记录</a></nav>
+    </div>
+  </header>
+  <main id="main">
+<article class="article-shell">
+  <header class="article-header">
+    <a class="back-link" href="/">← 返回首页</a>
+    <div class="post-meta"><time datetime="2024-10-29T06:56:04+00:00">2024-10-29</time><a class="chip" href="/category/%E6%B5%8B%E5%BA%A6/">测度</a></div>
+    <h1>第三章 积分和空间 $L^p$</h1>
+    <p>目录 目录 1. 积分的基本性质&amp;# … 继续阅读 →</p>
+  </header>
+  <div class="article-layout">
+    <aside class="article-rail"><p>NOTE 1350</p><span></span><p>2024 · 10 · 29</p></aside>
+    <div class="article-content"><p class="wp-block-paragraph"><span id="contents" style="text-align:center; font-size:18px; font-variant:small-caps;display:block;">目录</span><br>
+          <span id="sec:content"><a href="#contents">目录</a></span><br><span> 1.  <a href="#sec:1">积分的基本性质</a></span><br><span> 2.  <a href="#sec:2">积分号下取极限</a></span><br><span> 3.  <a href="#sec:3">不定积分和符号测度</a></span><br><span> 4.  <a href="#sec:4">空间 $L^p$ 及其对偶</a></span><br></p>
+
+
+
+<p class="wp-block-paragraph"><span class="latex_section">1. 积分的基本性质<a id="sec:1"></a></span>
+</p>
+
+
+积分的定义
+     <ol>
+        <li>对于 $f\in\mathcal{S}^+, f=\sum_{i=1}^{n}a_i1_{A_i}$, 定义
+        \[
+        \mu(f)=\sum_{i=1}^{n}a_i\mu(A_i).
+        \]
+        </li><li>对于 $f\in \bar{\mathcal{L}}^+$, 存在 $f_n\in\mathcal{S}^+$ 使得 $f_n\uparrow f$, 定义
+        \[
+        \mu(f)=\lim_n \mu(f_n).
+        \]
+        </li><li>对于 $f\in \bar{\mathcal{L}} $, 若 $\mu(f_+)&lt;\infty$ 或 $\mu(f_-)&lt;\infty$, 则称 $\mu(f)$ 存在, 定义
+        \[
+        \mu(f)=\mu(f_+)-\mu(f_-).
+        \]
+     </li></ol>
+
+     <div class="latex_defn"><span class="latex_defn_h">定义 1</span> (<span class="latex_defn_name">可积</span>)<span class="latex_defn_h">.</span> 若 $\mu(f_+)&lt;\infty$ 且 $\mu(f_-)&lt;\infty$, 则称 $\mu(f)$ 可积. 这时
+        \[
+        \mu(|f|)=\mu(f_+)+\mu(f_-).
+        \]
+     </div>
+     <div class="latex_rem"><span class="latex_rem_h">注记 1</span><span class="latex_rem_h">.</span> 对于上面的积分定义方式 $f$ 可积等价于 $|f|$ 可积.
+     </div>
+
+     <div class="latex_thm"><span class="latex_thm_h">定理 2</span><span class="latex_thm_h">.</span> 设 $\mu(f),\mu(g)$ 存在
+        <ol>
+            <li>对任意 $\alpha\in\mbr$, $\alpha f$ 存在且 $\mu(\alpha f)=\alpha \mu(f)$.
+            </li><li>若 $\mu(f)+\mu(g)$ 有意义, 则 $\mu(f+g)$ 存在, 且 $\mu(f+g)=\mu(f)+\mu(g)$.
+        </li></ol>
+     </div>
+
+
+<details class="wp-block-details is-layout-flow wp-block-details-is-layout-flow"><summary>证明</summary>
+    <div class="latex_proof"><span class="latex_proof_h">证明</span><span class="latex_proof_h">.</span> <ol>
+            <li>只证明 $\alpha&lt;0$ 的情况, 其余情形类似. 因为 $\mu(f)$ 存在, 不妨设 $\mu(f_+)&lt;\infty$. 则存在 $\mathcal{S}^+\ni f_n\uparrow f$, 那么 $(-\alpha)f_n\in \mathcal{S}^+$ 且 $(-\alpha) f_n\uparrow (-\alpha)f$ . 由定义以及非负简单函数的性质得
+            \[
+            \mu\big((-\alpha)f_+\big)=\lim_n \mu\big((-\alpha)f_n\big)=\lim_n(-\alpha)\mu\big(f_n\big)=(-\alpha)\mu(f_+).
+            \]
+            同理可证 $\mu\big((-\alpha)f_-\big)=(-\alpha)\mu(f_-)$. 又由于 $\alpha&lt;0$, 
+            \[
+            (\alpha f)_+=(-\alpha)f_-,\ (\alpha f)_-=(-\alpha)f_+.
+            \]
+            那么
+            \[
+            \mu\big((\alpha f)_-\big)=\mu\big((-\alpha)f_+\big)=(-\alpha)\mu(f_+)&lt;\infty,
+            \]
+            同理 \(\mu\big((\alpha)_+\big)=(-\alpha)\mu(f_-)\), 因此 $\mu(\alpha f)$ 存在且
+            \begin{align*}
+                \mu(\alpha f)&amp;=\mu\big((\alpha f)_+\big)-\mu\big((\alpha f)_-\big)=(-\alpha) \mu(f_-)-(-\alpha)\mu(f_+)\\
+                &amp;=\alpha \big(\mu(f_+)-\mu(f_-)\big)=\alpha \mu(f).
+            \end{align*}
+         </li><li>证明分两步走
+           <ol>
+             <li>先设 $f\ges0, g\ges0$, 则存在 $f_n,g_n\in\mathcal{S}^+$ 使得 $f_n\uparrow f,g_n\uparrow g$ 且 $f_n+g_n\in\mathcal{S}^+, (f_n+g_n)\uparrow f+g$. 由定义以及非负简单函数的性质得
+             \begin{align*}
+                \mu(f+g)&amp;=\lim_n\mu(f_n+g_n)=\lim_n\big(\mu(f_n)+\mu(g_n)\big)\\
+                &amp;=\lim_n \mu(f_n)+\lim_n\mu(g_n)=\mu(f)+\mu(g).
+             \end{align*}
+             </li><li>再考虑一般情况. 因为
+             \[
+             \mu(f)+\mu(g)=\big(\mu(f_+)+\mu(g_+)\big)-\big(\mu(f_-)+\mu(g_-)\big).
+             \]
+              所以 $\mu(f)+\mu(g)$ 等价于 $\mu(f_+)+\mu(g_+)&lt;\infty$ 或$\mu(f_-)+\mu(g_-)&lt;\infty$. 不妨设 $\mu(f_+)+\mu(g_+)&lt;\infty$. 因为
+              \[
+              (f+g)_+=\max\{f+g,0\}\les \max\{f,0\}+\max\{g,0\}=f_++g_+.
+              \]
+              由 $\mu$ 对非负可测函数的单调性以及第一步得
+              \[
+              \mu\big((f+g)_+\big)\les \mu(f_++g_+)=\mu(f_+)+\mu(g_+)&lt;\infty
+              \]
+              这说明 \(f_+,g_+&lt;\infty\), a.e., 那么 
+              \[
+              (f+g)_+\les f_++g_+&lt;+\infty,\ \mr{a.e.}
+              \]
+              即 $f+g$, a.e. 有意义, 不妨设 $f+g$ 处处有意义. 又已证 $\mu\big((f+g)_+\big)&lt;\infty$, 所以 $\mu(f+g)$ 存在. 由于
+              \[
+              f+g=(f+g)_+-(f+g)_-=f_+-f_-+g_+-g_-,
+              \]
+              因为 $f_+,g_+,(f+g)_+&lt;\infty$, 所以
+              \[
+              f_++g_++(f+g)_-=f_-+g_-+(f+g)_+,
+              \]
+              那么由第一步得
+              \[
+              \mu(f_+)+\mu(g_+)+\mu\big((f+g)_-\big)=\mu(f_-)+\mu(g_-)+\mu\big((f+g)_+\big).
+              \]
+              因为 $\mu\big( (f+g)_+\big),\mu(f_+),\mu(f_-)&lt;\infty$, 所以
+              \[
+              \mu\big((f+g)_-\big)-\mu\big((f+g)_+\big)=\mu(f_-)-\mu(f_+)+\mu(g_-)-\mu(g_+),
+              \]
+              即 $\mu(f+g)=\mu(f)+\mu(g)$.
+           </li></ol>
+                     </li><li>由下得
+       \[
+       |\mu(f)|=|\mu(f_+)-\mu(f_-)|\les \mu(f_+)+\mu(f_-)=\mu(|f|).
+       \]
+       </li><li>不妨设 $f\les g$ 处处成立<sup>[<a class="latex-footnote-index" href="#footnote-1">1</a>]</sup>\Big)\md \mu.
+     	\]
+     </li></ol></div>
+
+
+<p><span class="latex_section">4. 空间 $L^p$ 及其对偶<a id="sec:4"></a></span>
+</p>
+
+
+
+
+
+
+
+<div class="latex-footnote">
+	<hr>
+	<ol>
+		<li id="footnote-1">事实上也可以取截断逼近来证明}. 下面分两步成立.
+       		<ol>
+       			<li>先设 $0\les f\les g$, 则存在 $f_n,g_n\in\mathcal{S}^+$ 使得 $f_n\uparrow f, g_n\uparrow g$. 令 $h_n=\min\{f_n,g_n\}$, 则 $h_n\in\mathcal{S}^+$ 且
+       			\[
+       			h_n\uparrow \min\left\{
+       			\lim_n f_n,\lim_n g_n
+       			\right\}=\min\{f,g\}=f.
+       			\]
+       			由积分的定义和$\mu$ 对非负可测函数的单调性得
+       			\[
+       			\mu(f)=\lim_n\mu(h_n)\les \lim_n\mu(g_n)=\mu(g).
+       			\]
+       			</li><li>再考虑一般得情况. 因为
+       			\begin{align*}
+       			f_+&amp;=\max\{f,0\}\les \max\{g,0\}=g_+\\
+       			f_-&amp;=\max\{-f,0\}\ges \max\{-g,0\}=g_-,
+       			\end{align*}
+       			由第一步得 $\mu(f_+)\les \mu(g_+), \mu(f_-)\ges \mu(g_-)$, 所以
+       			\[
+       			\mu(f)=\mu(f_+)-\mu(f_-)\les \mu(g_+)-\mu(g_-)=\mu(g).
+       			\]
+       		</li></ol>
+       	</li><li>下面分三步证明.
+       		<ol>
+       			<li>对于 $f\in\mathcal{S}^+, f=\sum_{i=1}^{n}a_i1_{A_i}$ 有
+       			\[
+       			f1_N=\sum_{i=1}^n a_11_{A_i\cap N}\in\mathcal{S}^+,
+       			\]
+       			那么
+       			\[
+       			\mu(f1_N)=\sum_{i=1}^n a_i\mu(A_i\cap N)=0.
+       			\]
+       			</li><li>对于 $f\in\bar{\mathcal{L}}^+$, 存在 $f_n\uparrow f$ 使得 $f_n1_N\uparrow f1_N$. 由积分的定义以及第一步得
+       			\[
+       			\mu(f1_N)=\lim_n \mu(f_n1_N)=0.
+       			\]
+       			</li><li>对于 $f\in\bar{\mathcal{L}}$, 因为
+       			\[
+       			(f1_N)_+=f_+1_N,\ (f1_N)_-=f_-1_N
+       			\]
+       			由第二步得
+       			\[
+       			\mu(f_+1_N)=0,\ \mu(f_-1_N)=0.
+       			\]
+       			因此
+       			\[
+       			\mu(f1_N)=\mu\big((f1_N)_+\big)-\mu\big((f1_N)_-\big)=0.
+       			\]
+       		</li></ol>
+       	</li><li>必要性由 (5) 立得. 充分性用反证法证明. 假设 $f=0$, a.e. 不成立, 则 $\mu\big([f&gt;0]\big)&gt;0$. 因为
+       	\[
+       	[f&gt;0]=\cup_{n=1}^\infty [f&gt;\frac1n], 
+       	\]
+       	所以
+       	\[
+       	\mu\big([f&gt;0]\big)=\mu\big(\cup_{n=1}^\infty [f&gt;\frac1n]\big)=\lim_n \mu\big([f&gt;\frac1n]\big)&gt;0,
+       	\]
+       	那么存在 $n_0\in\mbn_+$ 使得 $\mu\big([f&gt;\frac{1}{n_0}]\big)&gt;0$. 因为
+       	\[
+       	f\ges \frac{1}{n_0}1_{[f&gt;\frac{1}{n_0}]} \ \Rightarrow\ \frac{1}{n_0}\mu\big([f&gt;\frac{1}{n_0}]\big)&gt;0,
+       	\]
+       	这与 $\mu(f)=0$ 矛盾.
+       	</li><li>假设 $f&lt;+\infty$, a.e. 不成立, 则 $\mu([f=+\infty])&gt;0$, 那么 $f\ges n1_{f=+\infty}, \ff n\ges 0$
+       	\[
+       	\mu(f)\ges n\mu([f=+\infty]), \ff n\ges 1.
+       	\]
+       	由于 $\mu([f=+\infty])&gt;0$. 令 $n\to+\infty$ 得 $\mu(f)\ges +\infty$, 矛盾. 再证 $[f&gt;0]$ 为 $\sigma$ 有限. 因为
+       	       	\[f\ges 0,\ 
+       	[f&gt;0]=\cup_{n=1}^\infty [f&gt;\frac1n], 
+       	\]
+       	所以
+       	\[
+       	f\ges \frac{1}{n} 1_{[f&gt;\frac1n]}\ \Rightarrow\ \mu(f)\ges \frac1n\mu\big([f&gt;\frac1n]\big)\ \Rightarrow\ \mu\big([f&gt;\frac1n]\big)\les n\mu(f)&lt;+\infty 
+       	\]
+       	因此 $[f&gt;0]$ 为 $\sigma$ 有限.
+        </li></ol>
+    </div>
+</details>
+
+
+
+
+	<span id="integration_implies_function"></span><div class="latex_thm"><span class="latex_thm_h">定理 3</span><span class="latex_thm_h">.</span> 若 $\mu(f),\mu(g)$ 存在且对任意 $A\in\mathcal{F}$ 有 $\mu(f1_A)\les \mu(g1_A)$.
+		<ol>
+			<li>若 $f,g$ 可积, 则 $f\les g$, a.e.
+			</li><li>若 $\mu$ 为 $\sigma$ 有限,  则 $f\les g$, a.e.
+		</li></ol>
+	</div>
+
+
+<details class="wp-block-details is-layout-flow wp-block-details-is-layout-flow"><summary>证明</summary>
+	<div class="latex_proof"><span class="latex_proof_h">证明</span><span class="latex_proof_h">.</span> <ol>
+			<li>因为 $f,g$ 可积, 所以 $|f|,|g|$ 可积. 取 $A=[f&gt;g]$,  则 $\mu(f1_A)\les \mu(g1_A)$. 又
+			\[
+			|\mu(g1_A)|\les \mu(|g|)&lt;\infty,\ 	|\mu(f1_A)|\les \mu(|f|)&lt;\infty,
+			\]
+			所以
+			\[
+			\mu\big((g-f)1_A\big)=\mu(g1_A)-\mu(f1_A)\ges 0.
+			\]
+			同时 $(g-f)1_A\les 0$, 则 $\mu\big((g-f)1_A\big)\les 0$, 因此$\mu\big((g-f)1_A\big)= 0, (g-f)1_A=0$, a.e.. 进而只能为
+			 $\mu(A)$=0.
+			</li><li>因为 $\mu$ 是 $\sigma$ 有限的, 所以存在 $A_n\in\mathcal{F}$ 使得
+			\[
+			\Omega=\sum_{i=1}^\infty A_n,\ \ \mu(A_n)&lt;\infty.
+			\]
+			令 $\mu_n(A)=\mu(A\cap A_n)$, 容易验证 $\mu_n$ 为有限测度且 $\mu=\sum_{i=1}^\infty \mu_n$. 先考虑 $f,g$ 为实值函数的情况. 令
+			\[
+			B_m=[|f|\les m]\cap [|g|\les m]\uparrow \Omega,
+			\]
+			定义
+			\[
+			\mu_{m,n}(A)=\mu_n(A\cap B_m)=\mu(A\cap B_m\cap A_n).
+			\]
+			容易验证 $\mu_{m,n}$ 为有限测度且
+			\[
+			\mu_{m,n}(f1_A)=\mu(f1_{A\cap B_m\cap A_n}).
+			\]
+			那么对任意 $A\in\mathcal{F}$ 有
+			\[
+			\mu_{m,n}(f1_A)\les \mu_{m,n}(g1_A).
+			\]
+			因为
+			\[
+			\mu_{m,n}(|f|)=\mu(|f|1_{A_n\cap B_m})\les m\mu(A_n)&lt;\infty,
+			\]
+			同理有 $\mu_{m,n}(|g|)&lt;\infty$. 由(1)得 $\mu_{m,n}\big([f&gt;g]\big)=0$. 因为 $B_m\uparrow \Omega$, 所以
+			\[
+			\mu_n\big([f&gt;g]\big)=\lim_m\mu_{m,n}\big([f&gt;g]\big)=0,
+			\]
+			进而
+			\[
+			\mu\big([f&gt;g]\big)=\sum_{i=1}^\infty\mu_n\big([f&gt;g]\big)=0. 
+			\]
+		</li></ol>
+	</div>
+</details>
+
+
+	
+	 <span id="cor_integration_implies_function"></span><div class="latex_cor"><span class="latex_cor_h">推论 4</span><span class="latex_cor_h">.</span> 若 $\mu$ 为 $\sigma$ 有限测度, 且
+	 	\[
+	 	\int_A g_1\md \mu=\int_A g_2\md \mu,\ \ff A\in\cf,
+	 	\]
+	 	则 $g_1=g_2, \mu-a.e..$
+	 </div>
+
+
+
+<p class="wp-block-paragraph"><span class="latex_section">2. 积分号下取极限<a id="sec:2"></a></span>
+本节介绍几个经典的换序定理：单调收敛定理、 Fatou 引理和控制收敛定理.</p>
+
+
+
+<div class="latex_lem"><span class="latex_lem_h">引理 5</span><span class="latex_lem_h">.</span> 设 $f_n,f\in\bar{\mathcal{L}}^+$.
+<ol>
+<li>$f_n\uparrow f\,(\mr{a.e.})\ \Rightarrow\ \mu(f_n)\uparrow\mu(f).$
+</li><li>$f_n\downarrow f\,(\mr{a.e.})\,, \mu(f_1)&lt;\infty\ \Rightarrow\ \mu(f_n)\downarrow\mu(f).$ 
+</li></ol> 其中 $f_n\uparrow f\,(\mr{a.e.})$ 是指 $f_n\les f_{n+1},\mr{a.e.}$ 且 $f_n\xrightarrow[]{\mr{a.e.}\ }f.$ 
+</div>
+
+
+
+<details class="wp-block-details is-layout-flow wp-block-details-is-layout-flow"><summary>证明</summary>
+<div class="latex_proof"><span class="latex_proof_h">证明</span><span class="latex_proof_h">.</span> 为了简洁, 只证明去掉 $\mr{a.e.}$ 的情况.
+<ol>
+<li>任取 $n\in\mbn$. 取 $f_{nm}\in\cs^+$ 使得 $f_{nm}\uparrow f_n$. 令 $g_m=\max_{1\les i\les m} f_{im}$, 则 $g_m\in\cs^+$ 且 $g_m\les g_{m+1}, g_m\les f_m$. (断言 $g_m\to f$: 对任意 $N\in\mbn$, 当 $m\ges N$ 时有
+$$f_{im}\les g_m\les f_m,\ \ff 1\les i\les N.$$
+令 $m\to\infty$ 得 $f_m\les \lim_m g_m\les f$, 由 $N$ 的任意性即得结论.) 因 $g_m\in\cs^+$ 且 $g_m\uparrow f$, 由积分的定义得
+$$ \mu(f)=\lim_m\mu(g_m)\les \lim_m\mu(f_m).$$
+但另一方面 $\mu(f)\ges\lim_m \mu(f_m)$, 故 $\mu(f)=\lim_m \mu(f_m)$.
+</li><li> 由 $\mu(f_1)&lt;\infty)$ 得 $\mu\big([f_1=\infty]\big)=0$. 令 
+$$ \bar{f}_n=f_n1_{[|f_1|&lt;\infty]},\ \bar{f}=f1_{[|f_1|&lt;\infty]},$$
+则 $\bar{f}_n,\bar{f}\in\bar{\cl}^+$ 且 $\bar{f}_n\downarrow\bar{f}$. 令 $g_n=\bar{f}_1-\bar{f}_n(\ges0)$, 则 $g_n\uparrow (\bar{f}_1-\bar{f})$. 由 (1) 得 $\mu(f_n)=\mu(\bar{f}_n)\downarrow \mu(\bar{f}).$
+</li></ol>
+</div>
+</details>
+
+
+
+<div class="latex_cor"><span class="latex_cor_h">推论 6</span><span class="latex_cor_h">.</span> 设 $\{f_n\}\sbs\bar{\cl}^+$, 则
+$$ \mu\Big(\sum_{n=1}^\infty f_n\Big )=\sum_{n=1}^\infty\mu(f_n).$$
+</div>
+
+
+
+<details class="wp-block-details is-layout-flow wp-block-details-is-layout-flow"><summary>证明</summary>
+<div class="latex_proof"><span class="latex_proof_h">证明</span><span class="latex_proof_h">.</span> 取 $g_n=\sum_{i=1}^n f_i, \ g=\sum_{i=1}^\infty f_i$ 即可.
+</div>
+</details>
+
+
+
+
+分类讨论即可证明下面这个命题
+<div class="latex_lem"><span class="latex_lem_h">引理 7</span><span class="latex_lem_h">.</span> 设 $a,b\in\mbr$. 若 $a\ges b$, 则
+<ol>
+<li>$\max\{a,0\}\ges \max\{b,0\}$.
+</li><li> $\min\{a,0\}\ges \min\{b,0\}$.
+</li></ol>
+</div>
+
+
+
+<div class="latex_thm"><span class="latex_thm_h">定理 8</span> (<span class="latex_thm_name">单调收敛定理</span>)<span class="latex_thm_h">.</span> 设 $\{f_n\}\sbs\bar{\cl}$ 且每个 $f_n$ 的积分存在, 则
+<ol>
+<li>若 $f_n\uparrow f\,(\mr{a.e.})$ 且 $\mu(f_1)&gt;-\infty$, 则 $f$ 的积分存在且 $\mu(f_n)\uparrow \mu(f)$.
+</li><li> 若 $f_n\downarrow f\,(\mr{a.e.})$ 且 $\mu(f_1)&lt;+\infty$, 则 $f$ 的积分存在且 $\mu(f_n)\downarrow \mu(f)$.
+</li></ol>
+</div>
+
+
+<details class="wp-block-details"><summary>证明</summary>
+<div class="latex_proof"><span class="latex_proof_h">证明</span><span class="latex_proof_h">.</span> <ol>
+<li>因为 $f_n\uparrow$, 所以 $f_n^+\uparrow, f_n^-\downarrow$, 那么
+$$ f_n^+\xrightarrow[]{\mr{a.e.}} f^+,\ \ f_n^-\xrightarrow[]{\mr{a.e.}} f^-.$$
+进而 $\mu(f_n^+)\uparrow\mu(f^+),\mu(f_n^-)\downarrow\mu(f^-)$ . 只需保证 $f$ 的积分存在：因为 $f_n^-\downarrow f^-$, 故 $f_1^-\ges f^-$; 又 $f_1\in L(\Omega)$, 结合 $\mu(f_1)&gt;-\infty$, 分类讨论得 $\mu(f_1^-)&lt;\infty$, 故 $\mu(f^-)\les \mu(f_1^-)&lt;\infty.$
+</li><li>对 $\{-f_n\}$ 应用 (1).
+</li></ol>
+</div>
+</details>
+<!-- /wp:details -->
+
+
+
+<!-- wp:paragraph -->
+<div class="latex_thm"><span class="latex_thm_h">定理 9</span> (<span class="latex_thm_name">Fatou 引理</span>)<span class="latex_thm_h">.</span> 设 $\{f_n\}\sbs\bar{\cl}$ 且每个 $f_n$ 的积分都存在.
+<ol>
+<li>若存在 $g\in\bar{\cl},\mu(g)&gt;-\infty$ 使 $f_n\ges g\,(\mr{a.e.})$, 则 $\liminf_n f_n$ 的积分存在且
+$$\mu\big(\liminf_n f_n\big)\les \liminf_n \mu(f_n).$$
+</li><li> 若存在 $g\in\bar{\cl},\mu(g)&lt;+\infty$ 使 $f_n\les g\,(\mr{a.e.})$, 则 $\limsup_n f_n$ 的积分存在且
+$$\mu\big(\limsup_n f_n\big)\les \limsup_n \mu(f_n).$$
+</li></ol>
+</div>
+<!-- /wp:paragraph -->
+
+<details class="wp-block-details"><summary>证明</summary><!-- wp:paragraph {"placeholder":"键入 / 添加隐藏区块"} -->
+<div class="latex_proof"><span class="latex_proof_h">证明</span><span class="latex_proof_h">.</span> <ol>
+<li>令 $\vp_n=\inf_{k\ges n} f_k$, 则 $\vp_n\uparrow\liminf_n f_n$ 且 $\vp_1\ges g\,(\mr{a.e.})$. 于是 
+$$\mu(\vp_1)\ges \mu(g)&gt;-\infty,$$
+由单调收敛定理得 $\liminf_n f_n$ 积分存在. 又
+$$ \mu(\inf_{k\ges n} f_k)\les \inf_{k\ges n}\mu(f_k),$$
+令 $n\to\infty$ 得
+$$ \lim_n\mu(\vp_n)=\mu(\liminf_n f_n)\les \liminf_n \mu(f_n).$$
+</li><li>对 $\{-f_n\}$ 应用 (1).
+</li></ol>
+</div>
+<!-- /wp:paragraph --></details>
+<!-- /wp:details -->
+
+<!-- wp:paragraph -->
+<div class="latex_thm"><span class="latex_thm_h">定理 10</span> (<span class="latex_thm_name">控制收敛定理</span>)<span class="latex_thm_h">.</span> 设 
+<ol>
+<li>$f_n,f\in\cl, f_n\xrightarrow[]{\mr{a.e.}/\mu} f$;
+</li><li> 存在 $L(\Omega)\ni g\ges0$ 使 $|f_n|\les g\,(\mr{a.e.})$,
+</li></ol>
+则 $f\in L(\Omega)$ 且 $\lim_n \mu(f_n)=\mu(f).$
+</div>
+<!-- /wp:paragraph -->
+
+<details class="wp-block-details"><summary>证明</summary><!-- wp:paragraph {"placeholder":"键入 / 添加隐藏区块"} -->
+<div class="latex_proof"><span class="latex_proof_h">证明</span><span class="latex_proof_h">.</span> <ol>
+<li>设 $f_n\xrightarrow[]{\mr{a.e.}} f.$ 对 $g_n+f$ 和 $g_n-f$ 分别用 Fatou 引理即得结论：
+\begin{align*}
+\mu(g+f)&amp;\les \mu(g)+\liminf_n \mu(f_n)\ \Rightarrow\ \mu(f)\les \liminf_n \mu(f_n)\\
+\mu(g-f)&amp;\les \mu(g)+\liminf_n \mu(-f_n)\ \Rightarrow\ \mu(f)\ges \limsup_n \mu(f_n)\\
+\end{align*}
+</li><li>设 $f_n\xrightarrow[]{\mu} f.$ 若 $\mu(f_n)\not\to\mu(f)$, 则存在 $\ve_0&gt;0$ 以及 $\mu(f_{n_k})$ 使 $|\mu(f_{n_k})-\mu(f)|\ges\ve_0$. 但因 $f_n\xrightarrow[]{\mu} f,$ 则对于 $n_k$ 存在其子列 $n_{k_l}$ 使 $f_{n_{k_l}}\xrightarrow[]{\mr{a.e.}} f$, 由 (1) 得 $\mu(f_{n_{k_l}})\to\mu(f)$, 矛盾!
+</li></ol>
+</div>
+<!-- /wp:paragraph --></details>
+<!-- /wp:details -->
+
+<!-- wp:paragraph -->
+<div class="latex_thm"><span class="latex_thm_h">定理 11</span> (<span class="latex_thm_name">Fatou 引理的推广</span>)<span class="latex_thm_h">.</span> 设 $f_n\in L(\Omega) , f\in\cl, f_n\xrightarrow[]{\mr{a.e.}/\mu} f$.
+<ol>
+<li>若存在 $g\in\bar{\cl},\mu(g)&gt;-\infty$ 使得 $f_n\ges g\,(\mr{a.e.})$, 则 $f\in L(\Omega)$ 且
+$$\mu(f)\les \liminf_n\mu(f_n).$$
+</li><li> 若存在 $g\in\bar{\cl},\mu(g)&lt;+\infty$ 使得 $f_n\les g\,(\mr{a.e.})$, 则 $f\in L(\Omega)$ 且
+$$\mu(f)\ges \limsup_n\mu(f_n).$$
+</li></ol>
+</div>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<div class="latex_thm"><span class="latex_thm_h">定理 12</span> (<span class="latex_thm_name">控制收敛定理的推广</span>)<span class="latex_thm_h">.</span> 设
+<ol>
+<li>$f_n\in L(\Omega)$ 且  $f_n\xrightarrow[]{\mr{a.e.}/\mu} f$;
+</li><li>  $g_n,g\in\cl^+\cap L(\Omega)$ 且 $g_n\xrightarrow[]{\mr{a.e.}/\mu} g$ 满足 $\mu(g_n)\to \mu(g)$;
+</li><li>$|f_n|\les g\,(\mr{a.e.})$
+</li></ol>
+则 $f\in L(\Omega)$ 且 $\lim_n\mu(|f_n-f|)=0$. 特别有 $\lim_n\mu(f_n)=\mu(f)$.
+</div>
+<!-- /wp:paragraph -->
+
+<details class="wp-block-details"><summary>证明</summary><!-- wp:paragraph {"placeholder":"键入 / 添加隐藏区块"} -->
+<div class="latex_proof"><span class="latex_proof_h">证明</span><span class="latex_proof_h">.</span> <ol>
+<li>设 $f_n\xrightarrow[]{\mr{a.e.}} f, g_n\xrightarrow[]{\mr{a.e.}} g $ . 令
+$$h_n=g_n+g-|f_n-f| (\ges0),$$
+由 Fatou 引理得
+\begin{align*}
+2\mu(g)=&amp;\mu(\liminf_n h_n)\\
+\les&amp; \liminf_n\mu(h_n)=2\mu(g)-\limsup_n\mu(|f_n-f|)
+\end{align*}
+即 $\mu(|f_n-f|)\to0$.
+</li><li></ol>
+</div>
+<!-- /wp:paragraph --></details>
+<!-- /wp:details -->
+
+
+<!-- wp:paragraph -->
+<div class="latex_cor"><span class="latex_cor_h">推论 13</span> (<span class="latex_cor_name">Scheffe 引理</span>)<span class="latex_cor_h">.</span> 设 $f_n,f\in L(\Omega)$ 且 $ f_n\xrightarrow[]{\mr{a.e.}} f$, 则
+$$\mu(|f_n-f|)\to 0\ \Leftrightarrow\ \mu(|f_n|)\to \mu(|f|).$$
+</div>
+<!-- /wp:paragraph -->
+
+<!-- wp:details -->
+<details class="wp-block-details"><summary>证明</summary><!-- wp:paragraph {"placeholder":"键入 / 添加隐藏区块"} -->
+<div class="latex_proof"><span class="latex_proof_h">证明</span><span class="latex_proof_h">.</span> 充分性在上个定理中令 $g_n=|f_n|,g=|f|$ 即可. 必要性由三角不等式给出.
+</div>
+<!-- /wp:paragraph --></details>
+<!-- /wp:details -->
+
+<!-- wp:paragraph -->
+<div class="latex_thm"><span class="latex_thm_h">定理 14</span><span class="latex_thm_h">.</span> 设 $f_n,f\in L(\Omega)$, 则
+$$\mu(|f_n-f|)\to 0\ \Leftrightarrow\ f_n\xrightarrow[]{\mu} f \text{ 且 } \mu(|f_n|)\to \mu(|f|).$$
+</div>
+<!-- /wp:paragraph -->
+
+<!-- wp:details -->
+<details class="wp-block-details"><summary>证明</summary><!-- wp:paragraph {"placeholder":"键入 / 添加隐藏区块"} -->
+<div class="latex_proof"><span class="latex_proof_h">证明</span><span class="latex_proof_h">.</span> 充分性在上个定理中令 $g_n=|f_n|,g=|f|$ 即可. 必要性中 $ f_n\xrightarrow[]{\mu} f$ 由 Markov 不等式给出, $\mu(|f_n|)\to \mu(|f|)$ 由三角不等式给出.
+</div>
+<!-- /wp:paragraph --></details>
+<!-- /wp:details -->
+
+
+
+
+<p><span class="latex_section">3. 不定积分和符号测度<a id="sec:3"></a></span>
+</p>
+
+    <div class="latex_thm"><span class="latex_thm_h">定理 15</span> (<span class="latex_thm_name">Jordan-Hahn分解</span>)<span class="latex_thm_h">.</span> 设 $\nu$ 为 $(\Omega,\cf)$ 上的符号测度. 对任意 $A\in\cf$, 定义
+     	\begin{align*}
+     		\nu^+&amp;=\sup\set{\nu(B)}{B\sbs A, B\in \cf },\\
+     		\nu^-&amp;=\sup\set{-\nu(B)}{B\sbs A, B\in \cf }.
+     	\end{align*}
+     	则 
+     	<ol>
+     		<li>$\nu^+,\nu^-$ 为测度, 其中之一为有限测度, 且 $\nu=\nu^+-\nu^-$.
+     		</li><li>存在不依赖于 $A$ 的 $D\in\cf$ 使得
+     		\[
+     		\nu^+(A)=\nu(A\cap D),\ \ \nu^-(A)=-\nu(A\cap D^c).
+     		\]
+     	</li></ol>
+     </div>
+     
+<!-- wp:details -->
+<details class="wp-block-details"><summary>证明</summary><!-- wp:paragraph {"placeholder":"键入 / 添加隐藏区块"} -->
+     <div class="latex_proof"><span class="latex_proof_h">证明</span><span class="latex_proof_h">.</span> 不妨设对任意 $A\in\cf$ 有 $\nu(A)&gt;-\infty$.
+     	<ol>
+     		<li>首先证明存在 $D\in \cf$ 使得
+     		\begin{align}
+     			\ff A\in\cf, A\sbs D&amp;\ \Rightarrow\ \nu(A)\ges0   \label{D1}\\
+     			\ff A\in\cf, A\sbs D^c&amp;\ \Rightarrow\ \nu(A)\les0. \label{D2}
+     		\end{align}
+     		先证明\eqref{D2}. 为此, 令
+     		\[
+     		\cg=\set{B\in\cf}{\nu^+(B)=0},
+     		\]
+     		前面已经证明 $\cg$ 有等价表示
+     		\[
+     		\cg=\set{B\in\cf}{\ff C\in\cf, C\sbs B, \nu(C)\les 0}.
+     		\]
+     		思路：通过把 $\cg$ 中元素取并集得到 $D^c$. 已证通过 $\cg$ 的等价表示, 可以得到 
+     		<ul>
+     			<li>$\cg$ 对可列并封闭;
+     			</li><li>若 $B\in\cg, A\sbs B, A\in\cf$, 则 $A\in\cg$.
+     		</li></ul>
+     		令 $\beta=\inf _{B\in\cg}\nu(B)$,\footnote{虽然假设 $\nu(A)&gt;-\infty,\ff A\in\cf$, 但有可能 $\beta=-\infty$.} 由下确界的定义得存在 $B_n\in\cg$ 使 $\lim_n \nu(B_n)=\beta$. 令 $D^c=\cup_{n\ges 1} B_n$, 则 $D^c\in \cg$, 并且
+     		\[
+     		\beta\les \nu(D^c)=\nu(B_k)+\nu(D^c\backslash B_k)\les \nu(B_k).
+     		\]
+     		令 $n\to\infty$ 即得 $nu(D^c)=\beta&gt;-\infty$, 同时由 $\cg$ 的性质得对任意 $A\sbs D^c$, 有 $\nu(A)\les 0$.
+     		</li><li>下证 \eqref{D1}, 采用反证法. 假设存在 $A\sbs D, A\in\cf$ 使得 $\nu(A)&lt;0$. 这时一定有 $\nu_+(A)&gt;0$, 否则 $\nu_+(A)=0$, 那么 $A\in\cg$, 进而$D^c\sqcup A\in\cg$
+     		\[
+     		\nu(D^c\sqcup A)=\nu(D^c)+\nu(A)=\beta+\nu(A)&lt;\beta,\ (\beta&gt;-\infty)
+     		\]
+     		但这与 $\beta$ 的定义矛盾, 故一定有$\nu_+(A)&gt;0$. 由 $\nu^+$ 的定义得, 存在 $A_1\in\cf, A_1\sbs A$ 使得
+     		\[
+     		\nu(A_1)\ges \left\{
+     		\begin{array}{cc}
+     			\tfrac12 \nu^+(A), \ &amp; \nu^+&lt;\infty,\\
+     			\tfrac12,\ &amp;\nu^+=\infty.
+     		\end{array}
+     		\right.
+     		\]
+     		那么 $\nu(A_1)&gt;0$, 由 $\nu(A\backslash A_1)+\nu(A_1)=\nu(A), \nu(A)&lt;0$ 得到 $\nu(A\backslash A_1)&lt;0$. 重复对 $A$ 的上述步骤可得 
+     		\[
+     		\ee A_2\sbs A\backslash A_1,\ \nu(A_2)\ges \min\{\frac12\nu^+(A\backslash A_1),\frac12\}&gt;0.
+     		\]
+     		由归纳法可得两两不交的 $A_n\sbs D$ 使得 $A_n\sbs A\backslash \sum_{k=1}^{n-1} A_k$ 且
+     		\begin{equation}\label{A1}
+     			\nu(A_n)\ges  \min\{\frac12\nu^+(A\backslash \sum_{k=1}^{n-1} A_k),\frac12\}&gt;0.
+     		\end{equation}
+     		令 $\tilde{A}=\sum_{k=1}^\infty A_k\sbs A$  因为 $\nu(A)&lt;0, \nu(A\backslash \tilde{A})&gt;-\infty$, 那么
+     		\begin{equation}\label{A2}
+     			\nu(A)=\nu(A\backslash \tilde{A})+\sum_{k=1}^\infty \nu(A_k)
+     		\end{equation}
+     		故 $ \sum_{k=1}^\infty \nu(A_k)&lt;+\infty$, 特别地有 $\lim_k \nu(A_k)=0$. 在 \eqref{A1} 中令 $n\to\infty$ 得
+     		\[
+     		\lim_n \nu^+(A\backslash\sum_{k=1}^{n-1}A_k )=0.
+     		\]
+     		因为 $A\backslash \tilde{A}\sbs A\backslash\sum_{k=1}^{n-1}A_k$, 所以由上确界的定义得
+     		\[
+     		0\les \nu^+(A\backslash \tilde{A})\les \nu^+(A\backslash\sum_{k=1}^{n-1}A_k), \ff n\ges1.
+     		\]
+     		令 $n\to\infty$ 得 $\nu^+(A\backslash \tilde{A})=0.$ 那么 $\nu(A\backslash \tilde{A})\ges 0$. \footnote{否则 $\nu(A\backslash \tilde{A})&lt; 0$且 $A\backslash \tilde{A}\sbs D$ 得$\nu^+(A\backslash \tilde{A})&gt;0.$  } 由 \eqref{A2} 得 $\nu(A)&gt;0$, 矛盾! 故 \eqref{D1} 成立.
+     		</li><li>只证 $\nu^+ (A)=\nu(A\cap D)$. 一方面, 因为 $A\cap D\sbs A$,  由 $\nu^+$ 的上确界定义得 $\nu^+ (A)\ges \nu(A\cap D)$. 另一方面, 任取 $B\in\cf, B\sbs A$, 有
+     		\[
+     		\nu(B)+\nu\big((A\backslash B)\cap D\big)=\nu\big((A\cap D)\cup B\big)=\nu(A\cap D)+\nu(B\cap D^c).
+     		\]
+     		因为 $\nu\big((A\backslash B)\cap D\big)\ges 0, \nu(B\cap D^c)\les 0$, 所以 $\nu(B)\les \nu(A\cap D)$, 对 $B$ 取上确界得  $\nu^+(A)\les \nu(A\cap D)$, 故$\nu^+(A)=\nu(A\cap D)$. 因为
+     		\[
+     		\nu^-(\Omega)=-\nu(\Omega\cap D^c)=-\nu(D^c)&lt;+\infty,
+     		\]
+     		故 $\nu^-$ 为有限测度, $\nu=\nu^+-\nu^-$ 有意义.  
+     	</li></ol>
+     </div>
+<!-- /wp:paragraph --></details>
+<!-- /wp:details -->
+     
+     <div class="latex_rem"><span class="latex_rem_h">注记 2</span><span class="latex_rem_h">.</span> <ol>
+     		<li>我们称 $\nu$ 的分解 $\nu=\nu^+-\nu^-$ 为 $\nu$ 的 Jordan 分解, $\nu^+,\nu^-$ 分别称为 $\nu$ 的正部及负部; 称 $\Omega$ 的分解 $\Omega=D\sqcup D^c$ 为 $\nu$ 的 Hahn 分解, Hahn 分解在对称差意义下唯一.
+     		</li><li>设$\nu$ 为符号测度, $f\in\bar{\mathcal{L}}$. 若 $f$ 关于 $|\nu|$ 的积分存在, 则称 $f$ 关于 $\nu$ 的积分存在, 并令 $f.\nu=f.\nu^+-f.\nu^-$.
+     		</li><li>设$\nu$ 为符号测度, $\Omega=D\sqcup D^c$ 为 $\nu$ 的 Hahn 分解. 令 $h=1_D-1_{D^c}$, 则 $h$ 关于 $|\nu|$ 及 $\nu$ 的积分存在, 且 $\nu=h.|\nu|, |nu|=h.\nu$. 
+     	</li></ol>
+     </div>
+     
+     
+     <div class="latex_defn"><span class="latex_defn_h">定义 16</span><span class="latex_defn_h">.</span> 设 $\nu$ 为符号测度. 
+     	<ol>
+     		<li>称$|\nu|=\nu^++\nu^-$ 为 $\nu$ 的变差测度;
+     		</li><li>称$||\nu||_{var}=|\nu|(\Omega)$ 为 $\nu$ 的全变差;
+     		</li><li>若 $|\nu|$ 为 $\sigma$ 有限测度, 则称 $\nu$   $\sigma$ 有限的符号测度
+     	</li></ol>
+     </div>
+     
+     <div class="latex_prop"><span class="latex_prop_h">命题 17</span><span class="latex_prop_h">.</span> 设 $\nu$ 为 $(\Omega,\cf)$ 上的符号测度, 则 $\nu$ 在 $\cf$ 上达到其上、下确界. 确切得说, 设 $\Omega=D\sqcup D^c$ 为其 Hahn 分解, 则
+     	\[
+     	\nu(D)=\sup_{B\in\cf}\nu(B), \ \nu(D^c)=\inf_{B\in\cf} \nu(B).
+     	\]
+     </div>
+<!-- wp:details -->
+<details class="wp-block-details"><summary>证明</summary><!-- wp:paragraph {"placeholder":"键入 / 添加隐藏区块"} -->
+     <div class="latex_proof"><span class="latex_proof_h">证明</span><span class="latex_proof_h">.</span> 任取 $B\in\cf$, 有
+     	$$
+     	\begin{aligned}
+     		&amp; \nu(B)=\nu^{+}(B)-\nu^{-}(B) \leqslant \nu^{+}(B) \leqslant \nu^{+}(\Omega)=\nu(D), \\
+     		&amp; \nu(B)=\nu^{+}(B)-\nu^{-}(B) \geqslant-\nu^{-}(B) \geqslant-\nu^{-}(\Omega)=\nu\left(D^c\right) . 
+     	\end{aligned}
+     	$$
+     </div>
+<!-- /wp:paragraph --></details>
+<!-- /wp:details -->
+     
+     <div class="latex_defn"><span class="latex_defn_h">定义 18</span><span class="latex_defn_h">.</span> 设 $\nu_1,\nu_2$ 为 $(\Omega,\cf)$ 上的两个符号测度. 
+     	<ol>
+     		<li>若对任意 $A\in\cf$, 有 
+     		\begin{equation}\label{A5}
+     			\ff A\in\cf,|\nu_2|(A)=0\Rightarrow |\nu_1|(A)=0,
+     		\end{equation}
+     		 则称 $\nu_1$ 关于 $\nu_2$ 绝对连续, 记为 $\nu_1\ll\nu_2$.
+     		</li><li>若$\nu_1\ll\nu_2$且 $\nu_2\ll\nu_1$, 则称 $\nu_1$ 与 $\nu_2$ 相互等价, 记为 $\nu_1\sim\nu_2$.
+     		</li><li>若存在 $N\in\cf$, 使得 $|\nu_1|(N^c)=0, |\nu_2|(N)=0$, 则称 $\nu_1$ 与 $\nu_2$ 相互奇异, 记为 $\nu_1\perp \nu_2$.
+     	</li></ol>
+     </div>
+     
+     设 $\nu$ 为 $(\Omega, \mathcal{F})$ 上的一符号测度, 若 $N \in \mathcal{F}$, 使得 $|\nu|\left(N^c\right)=0$, 则称 $N$ 为 $\nu$ 的支撑.一般说来, 支撑并非唯一确定.
+     
+     由上述定义知, $\nu_1 \ll \nu_2 \Leftrightarrow$ 凡 $\nu_2$ 的支撑必为 $\nu_1$ 的支撑； $\nu_1 \perp \nu_2 \Leftrightarrow \nu_1$ 与 $\nu_2$ 有不相交的支撑.
+     
+     <div class="latex_rem"><span class="latex_rem_h">注记 3</span><span class="latex_rem_h">.</span> <ol>
+     		<li>由 $\nu^+,\nu^-$ 的定义得 \eqref{A5} 等价于
+     		\[
+     		\ff A\in\cf, |\nu_2|(A)=0\Rightarrow \nu_1(A)=0.
+     		\]
+     		</li><li>若 $\nu_1\ll\nu_2$ 且 $\nu_1\perp\nu_2$ , 则 $\nu_1=0$. 此外, 恒有 $\nu\perp 0$.
+     		</li><li>设 $\nu$ 为符号测度, $f\in\bar{\mathcal{L}}$. 若 $f$ 关于 $\nu$ 的积分存在, 则 $f.\nu\ll\nu.$     
+     	</li></ol>
+     </div>
+     
+     <div class="latex_lem"><span class="latex_lem_h">引理 19</span><span class="latex_lem_h">.</span> 设 $(\Omega,\cf,\mu)$ 为测度空间, $h\in\bar{\mathcal{L}}^+$. 令 $h.\mu$ 表示 $h$ 关于 $\mu$ 的不定积分, 从而 $h.\mu$ 为一测度. 设 $g\in\bar{\mathcal{L}}$, $g$ 关于 $h.\mu$ 积分存在, 当仅当 $gh$ 关于 $\mu$ 的积分存在, 且这时有
+        \begin{equation}\label{A3}
+        	\int_A g\md(h.\mu)=\int_A gh\md \mu,\quad \ff A\in\cf.
+        \end{equation}
+     </div>
+     
+<!-- wp:details -->
+<details class="wp-block-details"><summary>证明</summary><!-- wp:paragraph {"placeholder":"键入 / 添加隐藏区块"} -->
+     <div class="latex_proof"><span class="latex_proof_h">证明</span><span class="latex_proof_h">.</span> 非负简单函数 $\Rightarrow$ 非负可测函数 $\Rightarrow$ 可测函数.
+     	<ol>
+     		<li>设 $g\in\mathcal{S}^+, g=\sum_{i=1}^n a_i 1_{A_i} $, 其中 $A_i\in\cf,a_i\ges0$
+     		\begin{align*}
+     			\int_A g\md(h.\mu)&amp;=\sum_{i=1}^n a_i h.\mu(A\cap A_i)=\sum_{i=1}^n a_i \mu(h1_{A\cap A_i})\\
+     			\int_A gh\md \mu&amp;=\sum_{i=1}^na_i\int_A h1_{A_i}\md \mu=\sum_{i=1}^na_i \mu(h1_{A\cap A_i})
+     		\end{align*}
+     		因此 \eqref{A3} 成立.
+     		</li><li>设 $g\in\mathcal{L}^+$, 则存在 $g_n\in\mathcal{S}^+$ 使得 $g_n\uparrow g$. 因为 $h\ges0$, 所以 $g_nh1_A\uparrow gh1_A$ .由第一步得
+     		\[
+     		h.\mu(g_n1_A)=\mu(g_nh1_A), 
+     		\]
+     		令 $n\to\infty$, 由单调收敛定理即得 \eqref{A3}.
+     		</li><li>设 $g\in\bar{\mathcal{L}}$. 因为 $h\ges0$, 所以
+     		\[
+     		(gh)^+=g^+h,\ (gh)^-=g^-h.
+     		\]
+     		容易得到
+     		\begin{align*}
+     			h.\mu(g)\text{\ 存在\ }&amp;\ \Leftrightarrow\ h.\mu(g^+)&lt;+\infty \text{\ 或\ } h.\mu(g^-)&lt;+\infty\\
+     			&amp;\ \xLeftrightarrow[]{\text{第二步}}\ \mu(g^+h) &lt;+\infty  \text{\ 或\ }  \mu(g^-h) &lt;+\infty  \\
+     			&amp;\ \Leftrightarrow\  \mu\big((gh)^+\big) &lt;+\infty  \text{\ 或\ } \mu\big((gh)^-\big) &lt;+\infty  \\
+     			&amp;\ \Leftrightarrow\  \mu(gh)\text{\ 存在\ }.
+     		\end{align*}
+     		这时
+     		\begin{align*}
+     			h.\mu(g1_A)&amp;=h.\mu(g^+1_A)-h.\mu(g^-1_A)\\
+     			&amp;=\mu(g^+h1_A)-\mu(g^-h1_A)=\mu(gh1_A).  
+     		\end{align*}
+     	</li></ol>
+     </div>
+<!-- /wp:paragraph --></details>
+<!-- /wp:details -->
+     
+     我们知道不定积分可以诱导出符号测度, 那符号测度可以诱导出不定积分吗？
+     
+     <div class="latex_thm"><span class="latex_thm_h">定理 20</span> (<span class="latex_thm_name">Lebesgue 分解</span>)<span class="latex_thm_h">.</span> 设 $\mu,\nu$ 为 $(\Omega,\cf)$ 上\uline{$\sigma$ 有限}的符号测度, 则 
+     	<ol>
+     		<li>$\nu$ 关于 $\mu$ 有如下的唯一分解
+     		\[
+     		\nu=\nu_s+\nu_c,\ \ \nu_s\perp \mu, \nu_c\ll\mu,
+     		\]
+     		其中 $\nu_s,\nu_c$ 都是\uline{$\sigma$ 有限}的符号测度.
+     		</li><li>存在 $N\in\cf$ 使得
+     		\[
+     		|\mu|(N)=0,\ \nu_s(A)=\nu_s(A\cap N).
+     		\]     		
+     		</li><li>存在 $g\in\bar{\mathcal{L}}$ 使 $\nu_c=g.\mu$.
+     	</li></ol>
+     </div>
+     
+<!-- wp:details -->
+<details class="wp-block-details"><summary>证明</summary><!-- wp:paragraph {"placeholder":"键入 / 添加隐藏区块"} -->
+     <div class="latex_proof"><span class="latex_proof_h">证明</span><span class="latex_proof_h">.</span> <ol>
+     		<li>可以假设 $\mu$ 为有限测度.\\ 不妨设 $\mu$ 为测度, 否则用 $|\mu|$ 代替 $\mu$, 且 $\mu(\Omega)&gt;0$. 由于 $\mu$ 为 $\sigma$ 有限, 则存在 $\Omega$ 的可数划分 $\Omega=\sum_{n=1}^{\infty} A_n$ , 其中 $A_n\in\cf,0&lt;\mu(A_n)&lt;\infty$. 令
+     		\[
+     		h=\sum_{n=1}^{\infty} \frac{1}{2^n\mu(A_n)}1_{A_n},
+     		\]
+     		则 $h&gt;0$ 且 $\mu(h)=1$. 令 $\tilde{\mu}=h.\mu$, 则 $\tilde{\mu}$ 为概率测度. 由上个引理得
+     		\[
+     		h^{-1}\tilde{\mu}(g1_A)=\tilde{\mu}(h^{-1}g1_A)=h.\mu(h^{-1}g1_A)=\mu(hh^{-1}g1_A)=\mu(g1_A),
+     		\]
+     		故 $\mu=h^{-1}\tilde{\mu}$. 这说明 $\mu\sim\tilde{\mu}$, $\mu$ 与 $\tilde{\mu}$ 有同样的零测集,
+     		\[
+     		\nu_s\perp\mu\ \Leftrightarrow\ \nu_s\perp\tilde{\mu},\ \ \nu_c\ll\mu\ \Leftrightarrow\ \nu_c\ll\tilde{\mu},
+     		\]
+     		故不妨设 $\mu$ 有限, 否则用 $\tilde{\mu}$ 代替 $\mu$.
+     		</li><li>先考虑 $\mu$ 有限的情形. 令
+     		\[
+     		\mathcal{H}=\set{h\in\bar{\mathcal{L}}^+}{\int_Ah\md\mu\les \nu(A),\ff A\in\cf}.
+     		\]
+     		我们的思路是找到 $\mathcal{H}$ 中取值最大的 $g$, 然后令 $\nu_c=g.\mu, \nu_s=\nu-\nu_c$. 为此, 先证明$\mathcal{H}$对有限上端运算封闭: 设 $h_1,h_2\in\mathcal{H}$, 令 $h_0=\max\{h_1,h_2\}$, 则
+     		\[
+     		\begin{aligned}
+     			\int_A h_0 \md \mu &amp; =\int_{A \cap\left[h_1 \geqslant h_2\right]} h_1 d \mu+\int_{A \cap\left[h_1<h_2\right]} h_2 d \mu \\ & \leqslant \nu\left(a \cap\left[h_1 \geqslant h_2\right]\right)+\nu\left(a \cap\left[h_1<h_2\right]\right)="\nu(A)." \end{aligned} \] 因为对任意 $h\in \mathcal{h}$ 有 $\mu(h)\les \nu(\omega)<+\infty$, 那么 \[ \beta:="\sup_{h\in\mathcal{H}}" \mu(h)<+\infty. 由上确界定义得存在 $h_n\in\mathcal{h}$ 使 $ \beta\ges \mu(h_n)\ges \beta-\frac1n$. 令 $g_n:="\max_{1\les" i\les n}h_i\uparrow\in\mathcal{h}$, $g_n\uparrow g $. 由单调收敛定理得 \begin{align*} \mu(g)&="\lim_n\mu(g_n)\les" \beta,\\ \lim_n \big(\beta-\frac1n\big)="\beta," \end{align*} 故 $\mu(g)="\beta$," 同时也有 \mu(g1_a)="\lim_n\mu(g_n1_A)\les" \varlimsup_n\nu(a)="\nu(A)," 即 $g\in\mathcal{h}$. $\nu_c="g.\mu," \nu_s="\nu-\nu_c$," 下证 $\nu_s\perp\mu$. 因为 $g\in\mathcal{h}$, $\nu_c\les \nu,>0$, 从而 $\nu_s&lt;\nu$ 为测度. 令 $\Omega=D_n\sqcup D_n^c$ 为符号测度 $\nu_s-\frac1n\mu$ 的 Hahn 分解. 则对任意 $A\in\cf$ 有
+     		\[
+     		\nu_s(A\cap D_n)\ges \frac1n\mu(A\cap D_n)=\frac1n\int_A 1_{D_n}\md \mu,
+     		\]
+     		那么
+     		\[
+     		\int_A\left(g+\frac1n 1_{D_n}\right) \md \mu \leqslant \int_A g \md \mu+\nu_s\left(A \cap D_n\right) \leqslant \nu(A),
+     		\]
+     		这说明 $g+\frac1n1_{D_n}\in\mathcal{H}$. 但另一方面 $\mu(g)=\sup_{h\in\mathcal{H}}\mu(h)$, 故 $\mu(D_n)=0$. 令 $N=\cup_{n\ges 1} D_n$, 则 $\mu(N)=0$. 又 $\big(\nu_s-\frac1n\mu\big)(D_n^c)\les 0$, 故
+     		\[
+     		\nu_s\left(N^c\right) \leqslant \nu_s\left(D_n^c\right) \leqslant \frac1n \mu\left(D_n^c\right) \leqslant \frac1n \mu(\Omega) \rightarrow 0,
+     		\]
+     		这说明 $\nu_s\perp \mu$. 
+     		</h_2\right]}></li><li>现设 $\nu$ 为 $\sigma$ 有限符号测度. 为证定理结论, 不妨假定 $\nu$ 为 $\sigma$ 有限测度(否则分别考虑 $\nu^{+}$及 $\nu^{-}$. 取 $\Omega$ 的一个可数划分 $\Omega=\sum_n A_n$, 使得 $A_n \in \mathcal{F}, \nu\left(A_n\right)&lt;\infty, n \geqslant 1$ . 令 $\nu^n(A)=\nu\left(A \cap A_n\right)$, 则每个 $\nu^n$ 为有限测度, 故由上所证, $\nu^n$ 有如下分解:     		
+     		$$
+     		\nu^n=\nu_s^n+\nu_c^n, \quad n \geqslant 1,
+     		$$
+     		其中 $\nu_s^n \perp \mu, \nu_c^n \ll \mu$, 且存在非负实值可测函数 $g_n$, 使得 $\nu_c^n=g_n . \mu$. 显然, $g_n$ 在 $A_n^c$ 上可取为 0 , 令
+     		$$
+     		\nu_s=\sum_n \nu_s^n, \quad \nu_c=\sum_n \nu_c^n, \quad g=\sum_n g_n,
+     		$$
+     		则有 $\nu_s \perp \mu, \nu_c \ll \mu, \nu_c=g . \mu$, 且 $\nu=\nu_s+\nu_c$. 
+     		</li><li>下证分解的唯一性. 设存在符号测度 $\nu_s,\nu_s', \nu_c,\nu_c'$ 使
+     		\[
+     		\nu=\nu_s+\nu_c=\nu_s'+\nu_c'
+     		\]
+     		且
+     		\[
+     		\nu_s\perp\mu,\ \nu_s'\perp\mu,\ \nu_c\ll\mu,\  \nu_c'\ll\mu.
+     		\]
+     		那么存在 $N_1,N_2\in\cf$ 使
+     		\[
+     		\mu(N_1)=\nu(N_2)=0,\ |\nu_s|(N_1^c)=|\nu_s'|(N_2^c)=0.
+     		\]
+     		令 $N=N_1\cup N_2$, 则 $\mu(N)=0$ 且
+     		\begin{equation}\label{A4}
+     			|\nu_s| (N^c)\les |\nu_s|  (N_1^c)=0,\ |\nu_s'|  (N^c)\les |\nu_s'| (N_2^c)=0.
+     		\end{equation}
+     		设 $A\in\cf$ 且 $\nu(A)$ 有限, 则由
+     		\[
+     		\nu(A)=\nu_s(A)+\nu_c(A)=\nu_s'(A)+\nu_c'(A)
+     		\]
+     		得
+     		$\nu_s(A),\nu_s'(A), \nu_c(A),\nu_c(A)'$ 都有限, 那么
+     		\[
+     		\nu_s(A)-\nu_s'(A)=\nu_c'(A)-\nu_c(A).
+     		\]
+     		同时因为 $\nu(A)$ 有限, 则 $\nu^+(A),\nu^-(A)$ 有限, 进而 $\nu^+(A\cap N^c), \nu^-(A\cap N^c), \nu(A\cap N^c)$ 有限. 那么
+     		     		\[
+     		\nu_s(A\cap N^c)-\nu_s'(A\cap N^c)=\nu_c'(A\cap N^c)-\nu_c(A\cap N^c).
+     		\]
+     		因为 $\nu_c\ll\mu$, 所以
+     		\[
+     		\nu_c(A)=\nu_c(A\cap N^c)+\nu_c(A\cap N)=\nu_c(A\cap N^c).
+     		\]
+     		同理 $\nu_c'(A)=\nu_c'(A\cap N^c).$ 由 \eqref{A4} 得
+     		\[
+     		\nu_c(A)-\nu_c'(A)=\nu_c(A\cap N^c)-\nu_c'(A\cap N^c)=\nu_s'(A\cap N^c)-\nu_s(A\cap N^c)=0,
+     		\]
+     		从而 $\nu_c=\nu_c',\nu_s=\nu_s'$. 当 $\nu$ 为 $\sigma$ 有限符号测度时, 取划分 $\Omega=\sum_n A_n$, 其中 $|\nu|(A_n)&lt;\infty$. 那么对任意 $A\in\cf$ 有
+     		\[
+     		\nu_c(A)=\sum_{n=1}^\infty \nu_c(A\cap A_n)=\sum_{n=1}^\infty \nu_c'(A\cap A_n)=\nu_c'(A).
+     		\]
+     		同理可得 $\nu_s=\nu_s'$. 
+      	</li></ol>
+     </div>
+<!-- /wp:paragraph --></details>
+<!-- /wp:details --> 
+
+     
+     <div class="latex_thm"><span class="latex_thm_h">定理 21</span> (<span class="latex_thm_name">Radon-Nikodym定理</span>)<span class="latex_thm_h">.</span> 设 $(\Omega,\cf)$ 为可测空间, $\mu$ 为 $\sigma$  有限测度, $\nu$ 为符号测度(不必 $\sigma$ 有限). 若 $\nu\ll\mu$, 则
+     	<ol>
+     		<li>存在关于 $\mu$ 积分存在得可测函数 $g$ 使得 $\nu=g.\mu$;
+     		</li><li>$g$ 在 $\mu$- 等价\footnote{称 $g_1,g_2$ 为 $\mu$-等价的, 若 $\mu\big([g_1\ne g_2]\big)=0$, 即 $g_1$ 与 $g_2$ 几乎处处相等. }的意义下是唯一的;
+     		</li><li>$g$ 是几乎处处有限的当仅当 $\nu$ 是 $\sigma$ 有限的.
+     	</li></ol>
+     	此时用 $\frac{\md \nu}{\md \mu}$ 表示 $g$, 并称其为 $\nu$ 关于 $\mu$ 的 Radon-Nikodym 导数.
+     </div>
+    
+     <!-- wp:details -->
+<details class="wp-block-details"><summary>证明</summary><!-- wp:paragraph {"placeholder":"键入 / 添加隐藏区块"} -->
+ <div class="latex_proof"><span class="latex_proof_h">证明</span><span class="latex_proof_h">.</span> <ol>
+     		<li>若 $\nu$ 为 $\sigma$ 有限符号测度, 则由 $\nu$ 的 Lebesgue 分解得
+     		\[
+     		\nu=\nu_s+\nu_c,\ \nu_c=g.\mu,\nu_s\perp \mu.
+     		\]
+     		因为 $\nu,\nu_c\ll\mu$, 所以 $\nu_s=\nu-\nu_c\ll\mu$, 又 $\nu_s\perp \mu$, 所以 $\nu_s=0$. 那么 $\nu=\nu_c=g.\mu$.
+     		</li><li>下面考虑 $\nu$ 不是 $\sigma$ 有限的情况. 不妨设 $\nu$ 为测度, $\mu$ 为有限测度, 且 $\nu(\Omega)=+\infty$. 令
+     		\[
+     		\cg=\set{C\in\cf}{\nu(C)&lt;\infty}.
+     		\]
+     		显然 $\cg$ 对有限并封闭. 因此存在 $C_n\in\cg$ 使得 $ C_n\uparrow$ 且
+     		\[
+     		\lim_n\mu(C_n)=\sup _{A\in\cg}\mu(A)=:\alpha&lt;+\infty . 
+     		\]
+     		令 $C=C_n\uparrow$, 则由从下连续性得
+     		\[
+     		\mu(C)=\lim_n\mu(C_n)=\alpha.
+     		\]
+     		定义
+     		\[
+     		\nu'(A)=\nu(A\cap C),\ \nu''(A)=\nu(A\cap C^c),\ \ff A\in\cf.
+     		\] 
+     		由于 $\nu'(\Omega)=\nu(\cup_{n\ges 1}C_n)$ 且 $\nu(C_n)&lt;+\infty$, 则 $\nu'$ 为 $\sigma$ 有限测度. 由第一步的结论知, 存在 $g'\in\bar{\mathcal{L}}$ 使得 $\nu'=g'.\mu$. 另一方面, 若 $\mu(A\cap C^c)&gt;0$, 则必有 $\nu(A\cap C^c)=+\infty$. 否则 $\nu(A\cap C^c)&lt;+\infty$, 那么 $A\cap C^c\in\cg, C\cup (A\cap C^c)\in\cg$, 进而
+     		\[
+     		\mu\big(C\cup (A\cap C^c)\big)=\mu(C)+\mu(A\cap C^c)&gt;\alpha,
+     		\]
+     		矛盾! 此时有
+     		\[
+     		\nu''(A\cap C^c)=\left\{
+     		\begin{array}{cc}
+     		+\infty &amp; \mu(A\cap C^c)&gt;0\\
+     		0&amp; \mu(A\cap C^c)=0
+     		\end{array}
+     		\right.,
+     		\]
+     		那么
+     		\begin{align*}
+     			g.\mu(A)&amp;=g'.\mu(A\cap C)+(+\infty)\mu(A\cap C^c)\\
+     			&amp;=\nu'(A\cap C)+\nu''(A\cap C^c)\\
+     			&amp;=\nu(A\cap C)+\nu(A\cap C^c)=\nu(A),\ \ff A\in\cf.
+     		\end{align*}     		
+     		即 $\nu=g.\mu$. 由推论 <a href="#cor_integration_implies_function">cor_integration_implies_function</a> 得 $g$ 在 $\mu$-等价意义下唯一. 
+     		</li></ol>
+     </div>
+<!-- /wp:paragraph --></details>
+<!-- /wp:details -->
+     
+     <div class="latex_thm"><span class="latex_thm_h">定理 22</span><span class="latex_thm_h">.</span> 设 $(\Omega,\cf,\mu)$ 为 $\sigma$ 有限的测度空间, $\nu$ 为 $\cf$ 上的符号测度且 $\nu\ll\mu$. 对于 $g\in\bar{\mathcal{L}}$, $g$ 关于 $\nu$ 积分存在, 当仅当 $g\frac{\md \nu}{\md \mu}$ 关于 $\mu$ 积分存在, 并且这时有
+     	\[
+     	\int_A g\md \nu=\int_A\Big(g\frac{\md \nu}{\md \mu
+	
+</div></div>
+  </div>
+  <nav class="post-navigation" aria-label="文章前后导航"><a href="/1319.html"><span>上一篇</span><strong>从自然数求和谈起</strong></a><a href="/1372.html"><span>下一篇</span><strong>上下极限</strong></a></nav>
+</article>
+</main>
+  <footer class="site-footer">
+    <p>阿贝尔的数学之旅 · 数学笔记与思考</p>
+    <p><a href="/feed.xml">RSS</a><span aria-hidden="true"> · </span><a href="/sitemap.xml">站点地图</a></p>
+  </footer>
+  <script src="/assets/site.js"></script>
+  
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ["\\(","\\)"]],
+    displayMath: [['$$', '$$'], ["\\[", "\\]"]],
+    processEscapes: true
+  },
+  TeX: {
+    equationNumbers: {autoNumber: "AMS",
+    useLabelIds: true}
+  },
+});
+MathJax.Hub.Config({TeX: {Macros: {"mr": ["\\mathrm{#1}", 1], "mb": ["\\mathbb{#1}", 1], "ee": "\\exists\\,", "ff": "\\forall\\,", "les": "\\leqslant", "ges": "\\geqslant", "sse": "\\subset", "sbs": "\\subset", "sps": "\\supset", "ve": "\\varepsilon", "mbr": "\\mathbb{R}", "mbn": "\\mathbb{N}", "mbz": "\\mathbb{Z}", "mbq": "\\mathbb{Q}", "mbc": "\\mathbb{C}", "mbh": "\\mathbb{H}", "vp": "\\varphi", "nti": "n\\to\\infty", "md": "\\mathrm{d}", "mre": "\\mathrm{e}", "mri": "\\mathrm{i}", "lra": ["\\langle #1\\rangle", 1], "Ker": "\\mathrm{Ker}\\,", "Im": "\\mathrm{Im}\\,", "tl": "\\triangleleft", "set": ["\\left\\{#1\\,\\left|\\,#2\\right. \\right\\}", 2], "mod": ["\\ (\\mr{mod}\\ #1)", 1], "pp": "\\partial", "Gal": ["\\mathrm{Gal}\\left(#1\\right)", 1], "Inv": ["\\mathrm{Inv}\\left(#1\\right)", 1], "End": ["\\mathrm{End}_{#1}\\!\\left(#2\\right)", 2], "Hom": ["\\mathrm{Hom}_{#1}\\!\\left(#2\\right)", 2], "ca": "\\mathcal{A}", "cb": "\\mathcal{B}", "cc": "\\mathcal{C}", "cd": "\\mathcal{D}", "ce": "\\mathcal{E}", "cf": "\\mathcal{F}", "cg": "\\mathcal{G}", "cl": "\\mathcal{L}", "cs": "\\mathcal{S}", "Ext": "\\mathrm{Ext}", "Tor": "\\mathrm{Tor}", "mc": ["\\mathcal{#1}", 1], "ot": "\\otimes"}}});
+</script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_SVG.js"></script>
+</body>
+</html>

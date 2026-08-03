@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Hartman-Grobman定理｜阿贝尔的数学之旅</title>
+  <meta name="description" content="目录 目录 1. Hartman-G … 继续阅读 →">
+  <link rel="canonical" href="https://www.abelmath.fun/1482.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="阿贝尔的数学之旅">
+  <meta property="og:title" content="Hartman-Grobman定理｜阿贝尔的数学之旅">
+  <meta property="og:description" content="目录 目录 1. Hartman-G … 继续阅读 →">
+  <meta property="og:url" content="https://www.abelmath.fun/1482.html">
+  <meta property="og:image" content="https://www.abelmath.fun/assets/og.png">
+  <meta property="og:image:width" content="1731">
+  <meta property="og:image:height" content="909">
+  <meta property="og:image:alt" content="阿贝尔的数学之旅：数学笔记与思考">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Hartman-Grobman定理｜阿贝尔的数学之旅">
+  <meta name="twitter:description" content="目录 目录 1. Hartman-G … 继续阅读 →">
+  <meta name="twitter:image" content="https://www.abelmath.fun/assets/og.png">
+  <link rel="stylesheet" href="/assets/site.css">
+  <link rel="alternate" type="application/rss+xml" title="阿贝尔的数学之旅" href="/feed.xml">
+</head>
+<body class="article-page">
+  <a class="skip-link" href="#main">跳到正文</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="/" aria-label="阿贝尔的数学之旅首页">
+        <span class="brand-mark" aria-hidden="true">∫</span>
+        <span><strong>阿贝尔的数学之旅</strong><small>ABEL'S MATHEMATICAL JOURNEY</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">目录</button>
+      <nav id="site-nav" class="site-nav" aria-label="主要导航"><a href="/">首页</a><a href="/category/%e8%ae%ba%e6%96%87/">论文</a><a href="/category/ode/">ODE</a><a href="/category/pde/">PDE</a><a href="/category/analysis/">分析</a><a href="/category/analysis/%e6%b5%8b%e5%ba%a6/">测度</a><a href="/category/%e8%bf%91%e4%b8%96%e4%bb%a3%e6%95%b0/">抽代</a><a href="/category/%e5%9f%ba%e4%bb%a3/">基代</a><a href="/category/%e7%a7%91%e6%99%ae/">科普</a><a href="/category/manim/">manim</a><a href="/category/%e6%8e%a2%e8%ae%a8/">探讨</a><a href="/category/%e8%ae%b0%e5%bd%95/">记录</a></nav>
+    </div>
+  </header>
+  <main id="main">
+<article class="article-shell">
+  <header class="article-header">
+    <a class="back-link" href="/">← 返回首页</a>
+    <div class="post-meta"><time datetime="2025-08-16T12:01:40+00:00">2025-08-16</time><a class="chip" href="/category/ode/">ODE</a><a class="chip" href="/category/blog/">博客</a></div>
+    <h1>Hartman-Grobman定理</h1>
+    <p>目录 目录 1. Hartman-G … 继续阅读 →</p>
+  </header>
+  <div class="article-layout">
+    <aside class="article-rail"><p>NOTE 1482</p><span></span><p>2025 · 08 · 16</p></aside>
+    <div class="article-content"><p><span id="contents" style="text-align:center; font-size:18px; font-variant:small-caps;display:block;">目录</span><br>
+          <span id="sec:content"><a href="#contents">目录</a></span><br><span> 1.  <a href="#sec:1">Hartman-Grobman定理</a></span><br><span>   1.1.  <a href="#sec:1.1">线性系统的稳定性</a></span><br><span> 2.  <a href="#sec:2">稳定与不稳定流形</a></span><br><span>   2.1.  <a href="#sec:2.1">稳定与不稳定流形</a></span><br><span>   2.2.  <a href="#sec:2.2">等价性定理</a></span><br><span> 3.  <a href="#sec:3">Hartman-Grobman 定理</a></span><br></p>
+<p><span class="latex_section">1. Hartman-Grobman定理<a id="sec:1"></a></span>
+</p>
+<p><span class="latex_subsection">1.1. 线性系统的稳定性<a id="sec:1.1"></a></span>
+</p>
+<p>考虑如下系统的稳定性：<br>
+$$ \dot{x} = Ax $$</p>
+<p>因为稳定性的定义在线性变换下不变，所以不妨设 $ A $ 为 Jordan 标准型。</p>
+<p>由 Jordan 块指数的显式表达<br>
+$$ \mathrm{e}^{tJ} = \mathrm{e}^{(\operatorname{Re}\lambda)t}<br>
+\left[\begin{array}{ccccc}<br>
+1 &amp; t &amp; \frac{t^2}{2!} &amp; \cdots &amp; \frac{t^{n-1}}{(n-1)!} \\<br>
+&amp; 1 &amp; t &amp; \ddots &amp; \vdots \\<br>
+&amp; &amp; 1 &amp; \ddots &amp; \frac{t^2}{2!} \\<br>
+&amp; &amp; &amp; \ddots &amp; t \\<br>
+&amp; &amp; &amp; &amp; 1<br>
+\end{array}\right] $$</p>
+<p>得线性系统的长时间动力学行为由 $ \lambda $ 的特征值 $ \lambda $ 的实部决定。一般来说长时间动力学依赖于初始条件以及两个线性子流形 $ E^{+}(\mathrm{e}^{A}) $ 与 $ E^{-}(\mathrm{e}^{A}) $，其中<br>
+$$ \lim_{t\rightarrow+\infty}x(t) = 0,\ \forall x(0)\in E^{+}(\mathrm{e}^{A});\quad \lim_{t\rightarrow-\infty}x(t) = 0,\ \forall x(0)\in E^{-}(\mathrm{e}^{A}) $$</p>
+<p>这两个线性流形分别称为稳定流形与不稳定流形，分别由正、负实部的广义线性向量张成：<br>
+$$ E^{\pm}(\mathrm{e}^{A}) = \bigoplus_{\pm\operatorname{Re}(\lambda_j)&lt;0}\ker(A-\lambda_j I)^{a_j},\quad $$
+其中  $a_j $ 为 $ \lambda_j $ 的代数重数。
+
+
+类似地可以定义零实部特征值对应的特征向量张成的中心流形。一般来说中心流形在小扰动下是不稳定的，因此一般假设特征值实部都非零，这样的系统称为双曲系统。
+
+</p><div class="latex_thm"><span class="latex_thm_h">定理 1</span><span class="latex_thm_h">.</span> 设矩阵 $ A $ 的特征值为 $ \lambda_j $， $ 1\leqslant j\leqslant m $，并分别以 $ a_j $， $ g_j $ 表示 $ \lambda_j $ 的几何重数。那么
+<ol>
+<li>系统 $ \dot{x} = Ax $ 是全局稳定的(GS) $ \Leftrightarrow \operatorname{Re}(\lambda_j)\leqslant 0 $ 且 $ \operatorname{Re}(\lambda_j) = 0 $ 时 $ a_j = g_j $。
+</li><li>系统 $ \dot{x} = Ax $ 是全局渐近稳定的(GAS) $ \Leftrightarrow \operatorname{Re}(\lambda_j)&lt;0 $， $ \forall j $ 此时存在常数 $ C $ 使 $ \forall \lambda&lt;\min_{1\leqslant j\leqslant m}\{ -\operatorname{Re}\lambda_j\} $ 有 $$ \|\mathrm{e}^{tA}\|\leqslant C\mathrm{e}^{-\lambda t},\forall t\geqslant 0. $$
+</li></ol>
+</div>
+
+现在我们考察双曲情形。由上一定理以及事实"稳定与不稳定流形在流性变换 $ A $ 下不变(因此在 $ \mathrm{e}^{tA} $ 下也不变)"可以得到如下定理：
+
+<div class="latex_thm"><span class="latex_thm_h">定理 2</span><span class="latex_thm_h">.</span> 线性稳定与不稳定流形 $ E^{\pm} = E^{\pm}(\mathrm{e}^{A}) $ 在流下不变，并且从 $ E^{\pm} $ 出发的轨道指数收敛到 $ 0 $， $ t\rightarrow\pm\infty $。更进一步，
+\begin{equation}
+\|\mathrm{e}^{tA}x_\pm\|\leqslant C\mathrm{e}^{\pm\lambda t}\|x_\pm\|,\quad \pm t\geqslant 0,\quad x_\pm\in E^{\pm},
+\end{equation}
+
+其中
+$$ C = C(\alpha),\quad \alpha&lt;\min\{ \operatorname{Re}\lambda_j\mid \lambda_j\in \sigma(A),\ \pm\operatorname{Re}\lambda_j&lt;0\}. $$
+</div>
+
+<span class="latex_section">2. 稳定与不稳定流形<a id="sec:2"></a></span>
+引入如下空间是有用的：
+$$ E^{\pm,\lambda}(\mathrm{e}^{A}) = \bigoplus_{\mp\operatorname{Re}\lambda_j&gt;\lambda} \ker(A-\lambda_j I)^{a_j} = E^{\pm}(\mathrm{e}^{A\pm\lambda I}) $$
+<p><span class="latex_subsection">2.1. 稳定与不稳定流形<a id="sec:2.1"></a></span>
+</p>
+<p>这一节将之前的结果推广到非线性系统。我们定义一个不动点的稳定集与不稳定集：<br>
+$$ W^{\pm}(x_0) = \left\{x\in M\mid \lim_{t\rightarrow\pm\infty}|\Psi(t,x)-x_0| = 0\right\}. $$</p>
+<p>两个集合在流下显然是同时正、负不变的，下面考察这两个集合。</p>
+<p>设 $ f\in C $ 在 $ x_0\in M $ 处消失，那么<br>
+$$ f(x) = f'(x_0)(x-x_0)+g(x),\quad g(x) = o(|x-x_0|) $$</p>
+<p>在一维情况我们已经知道当 $ f'(x)\neq 0 $ 时可以得知原系统的稳定性，本节将这一结果推广到高维。</p>
+<p>称不动点 $ x_0 $ 是双曲的，若线性化系统是双曲的。固定邻域 $ U(x_0) $ 并定义：<br>
+$$ M^{\pm,\lambda}(x_0) = \left\{x\mid \Psi(t,x)\in U(x_0),\ \sup_{\pm t&gt;0}\mathrm{e}^{\pm\lambda t}|\Psi(t,x)-x_0|&lt;\infty\right\}. $$
+
+</p><div class="latex_defn"><span class="latex_defn_h">定义 3</span> (<span class="latex_defn_name">局部稳定流形</span>)<span class="latex_defn_h">.</span> 定义不动点 $ x_0 $ 处的局部稳定、不稳定流形为指数收敛到 $ x_0 $ 的点， $ t\rightarrow\pm\infty $，即
+$$ M^{\pm}(x_0) = \bigcup_{\lambda&gt;0}M^{\pm,\lambda}(x_0). $$两个集合分别是 $ \pm $ 不变的。<br>
+</div>
+<p>在线性系统中显然有 $ M^{\pm}(0) = E^{\pm} $，我们的目标是证明 $ M^{\pm}(x_0) $ 的确是流形并且 $ E^{\pm} $ 在 $ x_0 $ 处与 $ M^{\pm}(x_0) $ 相切，最后再证明在双曲系统中 $ M^{\pm}(x_0) = W^{\pm}(x_0) $。</p>
+<p>为了符号上的方便，设 $ x_0 = 0 $ 为双曲不动点。关键想法是将寻找稳定流形转化为积分方程，再用迭代的方法求解。</p>
+<p>由常数变易公式得：<br>
+$$ x(t) = \mathrm{e}^{tA}x(0)+\int_{0}^{t}\mathrm{e}^{(t-r)A}g(x(r))\mathrm{d}r $$</p>
+<p>记 $ P^{\pm} $ 为到稳定与不稳定子空间 $ E^{\pm}(\mathrm{e}^{A}) $ 的投影算子，<br>
+$$ x_{\pm} := P^{\pm}x(0),\quad g_{\pm}(x) = P^{\pm}g(x). $$</p>
+<p>现在的问题是对 $ x(0) = x_{+}+x_{-} $ 施加什么条件才能使 $ x(t) $ 有界。显然，当 $ g(x) = 0 $ 时，这个条件可以是 $ x_{-} = 0 $。从一些简单的例子中得到启示： $ x_{+} $ 与 $ x_{-} $ 一般满足一定关系。我们希望将 $ x_{-} $ 表示为 $ x_{+} $ 的函数： $ x_{-} = h^{+}(x_{+}) $。</p>
+<p>为此我们将上式投影到 $ E^{-} $ 上，并尝试解出 $ x_{-} $：<br>
+$$ x_{-} = \mathrm{e}^{-tA}x_{-}(t)-\int_{0}^{t}\mathrm{e}^{-rA}g_{-}(x(r))\mathrm{d}r. $$</p>
+<p>其中 $ x_{\pm}(t) = P^{\pm}x(t) $ 。如果考虑 $ |x(t)| $ 有界情形， $ t \geqslant 0 $ ，令 $ t \to +\infty $ 得</p>
+<p>\begin{equation*}<br>
+    x_{-} = -\int_{0}^{\infty} \mathrm{e}^{-rA}g_{-}(x(r))\, \mathrm{d}r<br>
+\end{equation*}回代到(2)中得</p>
+<p>$$x(t) = \mathrm{e}^{tA}x_{+} + \int_{0}^{t}\mathrm{e}^{(t-r)A}g_{+}(x(r))\mathrm{d}r - \int_{t}^{\infty}\mathrm{e}^{(t-r)A}g_{-}(x(r))\mathrm{d}r$$令<br>
+$$P(t) = \begin{cases}<br>
+P^{+}, &amp; t &gt; 0 \\<br>
+-P^{-}, &amp; t \leqslant 0<br>
+\end{cases}$$那么(3)式可写为<br>
+$$x(t) = K(x)(t)$$其中<br>
+$$K(x)(t) = \mathrm{e}^{tA}x_{+} + \int_{0}^{\infty}\mathrm{e}^{(t-r)A}P(t-r)g(x(r))\mathrm{d}r$$</p>
+<div class="latex_thm"><span class="latex_thm_h">定理 4</span> (<span class="latex_thm_name">稳定流形定理</span>)<span class="latex_thm_h">.</span> 设 $ f \in C^{k} $ ， $ k \geqslant 1 $ ， $ x_{0} $ 为不动点， $ A $ 为 $ x_{0} $ 处的 Jacobi 矩阵。若 $ \lambda &gt; 0 $ 使 $ A+\lambda\mathrm{I} $ 双曲，则存在领域 $ U(x_{0}) = x_{0} + U $ 和函数 $ h^{+,\lambda} \in C^{k}(E^{+,\lambda} \cap U, E^{-,\lambda}) $ 使得<br>
+$$M^{+,\lambda}(x_{0}) \cap U(x_{0}) = \{x_{0} + a + h^{+,\lambda}(a) \mid a \in E^{+,\lambda} \cap U\}$$且 $ M^{+,\lambda}(x_{0}) $ 与 $ E^{+,\lambda}(x_{0}) $ 在 $ x_{0} $ 处相切，即<br>
+$$h^{+,\lambda}(x_{0}) = 0, \quad Dh^{+,\lambda}(x_{0}) = 0$$另外还有<br>
+$$\begin{aligned}<br>
+&amp;M^{+,\lambda_{2}}(x_{0}) \subset M^{+,\lambda_{1}}(x_{0}), \text{若} \lambda_{1} \leqslant \lambda_{2}\\<br>
+&amp;M^{+,\lambda_{2}}(x_{0}) = M^{+,\lambda_{1}}(x_{0}), \text{若} E^{+,\lambda_{2}} = E^{+,\lambda_{1}}<br>
+\endj{aligned}$$<br>
+</div>
+<p>双曲性：一个不动点是双曲的，意味着在它附近，任一方向要么是明确地收缩（稳定），要么是明确地扩张，不存在任何中性或徘徊的方向（中心方向）。</p>
+<p>若从 $ x $ 出发的轨迹永远留在双曲不动点的邻域中，即 $ \gamma_+(x) \subset U(x_{0}) $ ，则轨道收敛到 $ x_{0} $ 。事实上，若轨道不收敛到 $ x_{0} $ ，则初始的不稳定分量 $ x_{-} = Px $ 不为零，但这意味着轨道会发散，从而不会有 $ \gamma_+(x) \subset U(x_{0}) $ 。</p>
+<p>下面我们证明，对于双曲不动点 $ x_{0} $ ，存在一个局部稳定流形 $ M^{+} $ ，这个流形是光滑的，与线性稳定子空间 $ E^{+} $ 相切，并且可以表示为函数 $ h^{+} $ 的图像。</p>
+<p><span class="latex_subsection">2.2. 等价性定理<a id="sec:2.2"></a></span>
+
+</p><div class="latex_thm"><span class="latex_thm_h">定理 5</span><span class="latex_thm_h">.</span> 设 $ f \in C^{k} $ ， $ k \geqslant 1 $ ， $ x_{0} $ 为其双曲不动点，那么存在邻域 $ U(x_{0}) $ 使 $ \gamma_{\pm}(x) \subset U(x_{0}) $ 当且仅当 $ x \in M^{\pm}(x_{0}) \cap U(x_{0}) $ ，特别地， $ W^{\pm}(x_{0}) = M^{\pm}(x_{0}) $ 。<br>
+</div>
+<details class="wp-block-details">
+<summary>证明</summary>
+<p></p><div class="latex_proof"><span class="latex_proof_h">证明</span><span class="latex_proof_h">.</span> 充分性显然，只需说明必要性。在稳定流形定理中已经证明与 $ x_{0} $ 接近的解满足(4)，由解的唯一性得这个解就是(4)的指数收敛解。<br>
+</div><br>
+</details>
+<p>这个定理建立了两种不同定义的等价性：<br>
+</p><ol><li>稳定集 $ W^{+}(x_{0}) $ ：这是最初的直观定义，它指的是所有在 $ t \to +\infty $ 时会趋于不动点 $ x_{0} $ 的点的集合，可以称之为拓扑定义。</li><li>稳定流形 $ M^{+}(x_{0}) $ ：这是我们通过积分方程和压缩映射构造出来的，具有良好几何性质（光滑、相切）的集合，可以称之为几何分析定义。</li></ol>
+<p><span class="latex_section">3. Hartman-Grobman 定理<a id="sec:3"></a></span>
+
+上一节的内容告诉了我们关于（不）稳定流形上的轨道的规律，本节我们证明一个更强的结果：双曲不动点附近的相图与其在这点的线性化系统是拓扑等价的。换句话说，我们可以通过连续的坐标变换，将非线性系统的相图变为其线性化系统的相图。</p>
+<p>直接证明满足如下条件的$\varphi$比较困难：<br>
+$$<br>
+\varphi \circ \mathrm{e}^{tA} = \Phi_t \circ \varphi, \quad \forall t \in \mathbb{R}<br>
+$$</p>
+<p>我们考虑将连续流转化为离散映射：先只看 $t=1$ 这个时刻，这样，连续的流 $\Phi_t(x)$ 变成了离散映射 $\Phi_1(x)$ ，同样，线性系统的流 $\mathrm{e}^{tA}x$ 变成了线性映射 $\mathrm{e}^A$。</p>
+<p>然后通过流的群性质结合连续性或者通过唯一性定理说明 $t=1$ 时得到的 $\varphi$ 实际上对 $\forall t \in \mathbb{R}$ 均成立。</p>
+<p>首先我们看一个引理：给定线性映射 $A$ 和非线性扰动 $g$，这样得到一个非线性映射 $f=A+g$，我们证明存在唯一的 $\varphi$ 使得<br>
+$$<br>
+\varphi \circ A = f \circ \varphi<br>
+$$<br>
+</p><div class="latex_lem"><span class="latex_lem_h">引理 6</span><span class="latex_lem_h">.</span> 设 $ A $ 是可逆矩阵且在单位圆周上没有特征值。利用分解 $ \mathbb{R}^{n} = E^{-}_{A} \oplus E^{+}_{A} $ 将 $ A $ 分解成压缩和扩张两部分 $ A = A_{-} \oplus A_{+} $ ，其中 $ A_{\pm} = A|_{E_{\pm}A} $ 。选择范数 $ \alpha = \max\{\|A^{-1}\|, \|A_{+}\|\} &lt; 1 $ （若 $ A $ 所有特征值都在单位圆周内，则 $ \|A^{-1}\| = 0 $ ）。则对任意有界函数 $ g $ 满足
+$$|g(x) - g(y)| \leqslant \varepsilon |x - y|, \quad \varepsilon &lt; \frac{1 - \alpha}{2}$$
+存在唯一连续函数 $ \varphi(x) = x + h(x) $ 使得
+$$\varphi \circ A = f \circ \varphi$$
+其中 $ h $ 有界， $ f = A + g $ 。若 $ f $ 可逆（即 $ \varepsilon\|A^{-1}\| &lt; 1 $ ），则 $ \varphi $ 是同胚；若 $ g(0) = 0 $ ，则 $ \varphi(0) = 0 $ 。
+</div>
+
+<div class="latex_cor"><span class="latex_cor_h">推论 7</span><span class="latex_cor_h">.</span> 设 $ A $ 可逆且在单位圆周上没有特征值， $ f \in C^{k} $ 。若存在同胚 $ \varphi(x) = x + h(x) $ ，其中 $ h $ 有界，使得
+$$\varphi \circ A = f \circ \varphi$$
+则 $ \varphi $ 是唯一的。
+</div>
+
+
+<details class="wp-block-details">
+<summary>证明</summary>
+<p></p><div class="latex_proof"><span class="latex_proof_h">证明</span><span class="latex_proof_h">.</span> 设存在 $ \varphi_{1}, \varphi_{2} $ 使<br>
+$$\varphi_{1} \circ A = f \circ \varphi_{1}, \quad i = 1,2$$<br>
+令 $ M = \{\varphi \in K \mid \varphi(x) = x + h(x)\} $ ，容易证明 $ M $ 对乘法（映射的复合）与取逆封闭，即 $ M $ 对复合作成一个群。由(2)式得<br>
+$$f = \varphi_{1} \circ A \circ \varphi_{1}^{-1} = \varphi_{2} \circ A \circ \varphi_{2}^{-1} \Rightarrow \varphi_{2}^{-1} \circ \varphi_{1} \circ A = A \circ \varphi_{1}^{-1} \circ \varphi_{1}$$<br>
+由引理1得 $ \varphi_{1}^{-1} \circ \varphi_{1} = \mathrm{I} $ ，此时 $ g = 0 $ 。<br>
+</div><br>
+</details>
+<div class="latex_thm"><span class="latex_thm_h">定理 8</span> (<span class="latex_thm_name">Hartman-Grobman</span>)<span class="latex_thm_h">.</span> 设 $ f $ 为可微向量场， $ 0 $ 为某双曲不动点。记 $ \theta(t,x) $ 为 $ f $ 的流， $ A $ 为 $ f $ 在 $ 0 $ 处的 Jacobi 矩阵。那么存在同胚 $ \varphi(x) = x + h(x) $ ， $ h $ 有界使得在 $ 0 $ 处的小邻域内<br>
+$$\varphi \circ \mathrm{e}^{tA} = \Phi_{t} \circ \varphi$$<br>
+</div>
+</div>
+  </div>
+  <nav class="post-navigation" aria-label="文章前后导航"><a href="/1470.html"><span>上一篇</span><strong>向量场的流</strong></a><a href="/1501.html"><span>下一篇</span><strong>Lyapunov 稳定性理论</strong></a></nav>
+</article>
+</main>
+  <footer class="site-footer">
+    <p>阿贝尔的数学之旅 · 数学笔记与思考</p>
+    <p><a href="/feed.xml">RSS</a><span aria-hidden="true"> · </span><a href="/sitemap.xml">站点地图</a></p>
+  </footer>
+  <script src="/assets/site.js"></script>
+  
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ["\\(","\\)"]],
+    displayMath: [['$$', '$$'], ["\\[", "\\]"]],
+    processEscapes: true
+  },
+  TeX: {
+    equationNumbers: {autoNumber: "AMS",
+    useLabelIds: true}
+  },
+});
+MathJax.Hub.Config({TeX: {Macros: {"mr": ["\\mathrm{#1}", 1], "mb": ["\\mathbb{#1}", 1], "ee": "\\exists\\,", "ff": "\\forall\\,", "les": "\\leqslant", "ges": "\\geqslant", "sse": "\\subset", "sbs": "\\subset", "sps": "\\supset", "ve": "\\varepsilon", "mbr": "\\mathbb{R}", "mbn": "\\mathbb{N}", "mbz": "\\mathbb{Z}", "mbq": "\\mathbb{Q}", "mbc": "\\mathbb{C}", "mbh": "\\mathbb{H}", "vp": "\\varphi", "nti": "n\\to\\infty", "md": "\\mathrm{d}", "mre": "\\mathrm{e}", "mri": "\\mathrm{i}", "lra": ["\\langle #1\\rangle", 1], "Ker": "\\mathrm{Ker}\\,", "Im": "\\mathrm{Im}\\,", "tl": "\\triangleleft", "set": ["\\left\\{#1\\,\\left|\\,#2\\right. \\right\\}", 2], "mod": ["\\ (\\mr{mod}\\ #1)", 1], "pp": "\\partial", "Gal": ["\\mathrm{Gal}\\left(#1\\right)", 1], "Inv": ["\\mathrm{Inv}\\left(#1\\right)", 1], "End": ["\\mathrm{End}_{#1}\\!\\left(#2\\right)", 2], "Hom": ["\\mathrm{Hom}_{#1}\\!\\left(#2\\right)", 2], "ca": "\\mathcal{A}", "cb": "\\mathcal{B}", "cc": "\\mathcal{C}", "cd": "\\mathcal{D}", "ce": "\\mathcal{E}", "cf": "\\mathcal{F}", "cg": "\\mathcal{G}", "cl": "\\mathcal{L}", "cs": "\\mathcal{S}", "Ext": "\\mathrm{Ext}", "Tor": "\\mathrm{Tor}", "mc": ["\\mathcal{#1}", 1], "ot": "\\otimes"}}});
+</script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_SVG.js"></script>
+</body>
+</html>

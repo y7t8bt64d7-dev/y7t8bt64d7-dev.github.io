@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Schauder 基与 Hamel 基｜阿贝尔的数学之旅</title>
+  <meta name="description" content="1. 引言 2. 向量空间与 Hamel 基 定义 … 继续阅读 →">
+  <link rel="canonical" href="https://www.abelmath.fun/994.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="阿贝尔的数学之旅">
+  <meta property="og:title" content="Schauder 基与 Hamel 基｜阿贝尔的数学之旅">
+  <meta property="og:description" content="1. 引言 2. 向量空间与 Hamel 基 定义 … 继续阅读 →">
+  <meta property="og:url" content="https://www.abelmath.fun/994.html">
+  <meta property="og:image" content="https://www.abelmath.fun/assets/og.png">
+  <meta property="og:image:width" content="1731">
+  <meta property="og:image:height" content="909">
+  <meta property="og:image:alt" content="阿贝尔的数学之旅：数学笔记与思考">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Schauder 基与 Hamel 基｜阿贝尔的数学之旅">
+  <meta name="twitter:description" content="1. 引言 2. 向量空间与 Hamel 基 定义 … 继续阅读 →">
+  <meta name="twitter:image" content="https://www.abelmath.fun/assets/og.png">
+  <link rel="stylesheet" href="/assets/site.css">
+  <link rel="alternate" type="application/rss+xml" title="阿贝尔的数学之旅" href="/feed.xml">
+</head>
+<body class="article-page">
+  <a class="skip-link" href="#main">跳到正文</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="/" aria-label="阿贝尔的数学之旅首页">
+        <span class="brand-mark" aria-hidden="true">∫</span>
+        <span><strong>阿贝尔的数学之旅</strong><small>ABEL'S MATHEMATICAL JOURNEY</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">目录</button>
+      <nav id="site-nav" class="site-nav" aria-label="主要导航"><a href="/">首页</a><a href="/category/%e8%ae%ba%e6%96%87/">论文</a><a href="/category/ode/">ODE</a><a href="/category/pde/">PDE</a><a href="/category/analysis/">分析</a><a href="/category/analysis/%e6%b5%8b%e5%ba%a6/">测度</a><a href="/category/%e8%bf%91%e4%b8%96%e4%bb%a3%e6%95%b0/">抽代</a><a href="/category/%e5%9f%ba%e4%bb%a3/">基代</a><a href="/category/%e7%a7%91%e6%99%ae/">科普</a><a href="/category/manim/">manim</a><a href="/category/%e6%8e%a2%e8%ae%a8/">探讨</a><a href="/category/%e8%ae%b0%e5%bd%95/">记录</a></nav>
+    </div>
+  </header>
+  <main id="main">
+<article class="article-shell">
+  <header class="article-header">
+    <a class="back-link" href="/">← 返回首页</a>
+    <div class="post-meta"><time datetime="2024-10-04T12:07:11+00:00">2024-10-04</time><a class="chip" href="/category/%E6%8E%A2%E8%AE%A8/">探讨</a></div>
+    <h1>Schauder 基与 Hamel 基</h1>
+    <p>1. 引言 2. 向量空间与 Hamel 基 定义 … 继续阅读 →</p>
+  </header>
+  <div class="article-layout">
+    <aside class="article-rail"><p>NOTE 994</p><span></span><p>2024 · 10 · 04</p></aside>
+    <div class="article-content"><p class="wp-block-paragraph"><span class="latex_section">1. 引言<a id="sec:1"></a></span>
+</p>
+
+
+
+<p class="wp-block-paragraph"><span class="latex_section">2. 向量空间与 Hamel 基<a id="sec:2"></a></span>
+</p>
+
+
+
+<p class="wp-block-paragraph"></p><div class="latex_defn"><span class="latex_defn_h">定义 1</span> (<span class="latex_defn_name">Hamel 基</span>)<span class="latex_defn_h">.</span> 设 $V$ 是 $\mathbb{K}$ 线性空间. 集合 $\mathscr{B}\subset V$ 称为 $V$ 的一组基如果<br><ol><br><li>$\mathscr{B}$ 是线性无关的: 对任意有限集合 $\{e_1,e_2,\cdots,e_n\}\subset \mathscr{B}$ 有<br>$$ \sum_{i=1}^n a_ie_i=0\ \ \Rightarrow \ \ a_i\equiv0.$$<br></li><li>$\mathscr{B}$ 生成全空间 $V$: 对任意 $v\in V$, 存在有限集合 $\{e_1,e_2,\cdots,e_n\}\subset \mathscr{B}$ 和有限数列 $a_1,a_2,\cdots,a_n$ 使得<br>$$ v=\sum_{i=1}^n a_ie_i.$$</li></ol></div>
+
+
+
+<p class="wp-block-paragraph"></p><div class="latex_rem"><span class="latex_rem_h">注记 1</span><span class="latex_rem_h">.</span> 用直和的语言, $\mathscr{B}$ 为 $V$ 的 Hamel 基当仅当<br>$$ V=\bigoplus_{e_i\in\mathscr{B}} \mathbb{K}e_i.$$</div>
+
+
+
+<div class="latex_thm"><span class="latex_thm_h">定理 2</span><span class="latex_thm_h">.</span> 每个向量空间都有一组 Hamel 基.<br></div> 在模论的语言下, 向量空间是半单模.<br>
+分析：有限个元素组成的基无法张成全空间. 可以一步一步扩充这组基, 但这样只能到任意有限步, 最多到可列步. 考虑用 Zorn 引理找出“最大
+的一组基, 即对包含关系找出极大线性无关集.
+
+
+
+<details class="wp-block-details is-layout-flow wp-block-details-is-layout-flow"><summary>证明</summary>
+<p class="wp-block-paragraph"></p><div class="latex_proof"><span class="latex_proof_h">证明</span><span class="latex_proof_h">.</span> 设 $V$ 是域上的线性空间, $V\ne\{0\}$. 令
+$$P=\set{S\sbs V}{S\ \text{是线性无关集}},$$
+则 $P$ 对于包含关系作成偏序集 $(P,\les)$. 因为任何单点集 $\{v\}$ 是线性无关的, 所以 $P$ 是非空的.<br>
+设 $\cc\sbs P$ 是一条链, 记 $\cc=\{S_\alpha\}_{\alpha\in I}$. 断言 $M=\cup_{\alpha\in I} S_\alpha$ 是 $\cc$ 的上界, 显然 $S_\alpha\sbs M,\ff \alpha\in I$, 只需说明 $M\in P$. 若 $M\notin P$, 则 $M$ 不是线性无关集, 即存在 $\{s_1,  s_2,\cdots, s_n\}\sbs M$ 线性相关. 设 $s_i\in S_i, 1\les i\les n$, 因为 $\cc$ 是全序集, 所以 $\{S_1,S_2,\cdots,S_n\}$ 中有极大元, 不妨设为 $S_1$, 则 $\{s_1,  s_2,\cdots, s_n\}\sbs S_1$ , 但 $S_1$ 是线性无关族, 矛盾! 故 $M$ 是 $\cc$ 的上界.<br>
+由 Zorn 引理得, $P$ 有极大元 $\cb$. 断言 $\cb$ 是 $V$ 得一组 Hamel 基. 因为 $\cb$ 是线性无关族, 故只需说明 $\mr{span} \cb=V.$ 若 $\mr{span}\cb\subsetneq V$, 则取 $v\in V\backslash \mr{span}\cb$, 则可以验证 $\cb\cup\{v\}$ 也是线性无关族, 这与 $\cb$ 为极大元矛盾. 故 $\cb$ 是 $V$ 的一组 Hamel 基.
+</div>
+</details>
+
+
+
+<div class="latex_rem"><span class="latex_rem_h">注记 2</span><span class="latex_rem_h">.</span> 基于 Zorn 引理的软证明, 难以找到具体的一组 Hamel 基.
+</div>
+
+
+<p><!-- /wp:details --></p>
+<div class="latex_examp"><span class="latex_examp_h">例子 1</span><span class="latex_examp_h">.</span> $\mbr$ 可以视为 $\mathbb{Q}$ 上的线性空间. 那么存在 Hamel 基 $\mathscr{B}\subset \mbr$ 使得对任意 $x\in\mbr$ 有<br>$$x=\sum_{i=1}^n r_ie_i,$$其中 $r_i\in\mathbb{Q}, e_i\in\mathscr{B}.$<br></div> 由下面的定理可以说明 $\mathscr{B}$ 是不可数的.
+<p><span class="latex_section">3. Banach 空间与 Schauder 基<a id="sec:3"></a></span>
+</p>
+<p></p><div class="latex_defn"><span class="latex_defn_h">定义 3</span> (<span class="latex_defn_name">Schauder 基</span>)<span class="latex_defn_h">.</span> 设 $(X,||\cdot||)$ 是一个 Banach 空间. 定义 $\mathscr{B}=\{e_i\}_{i\in \mbn}\subset X$ 为 $X$ 的一组 Schauder 基, 如果对任意 $x\in X$, 存在唯一的数列 $\{a_i\}_{i\in\mbn}$ 使得<br>$$ x=\sum_{i=0}^\infty a_ie_i.$$</div> 注意：Schauder 基在定义的时候就是可数的!
+<p></p><div class="latex_examp"><span class="latex_examp_h">例子 2</span><span class="latex_examp_h">.</span> 对于 $l^p, p\ges1$, 如下为一组 Schauder 基<br>$$e_1=(1,0,0,\cdots),\ \ e_2=(0,1,0,\cdots),\cdots.$$此外在适当的函数空间中, Fourier 级数和 Taylor 级数的基也是 Schauder 基.<br></div>
+<div class="latex_thm"><span class="latex_thm_h">定理 4</span><span class="latex_thm_h">.</span> 无穷维 Banach 空间中没有可数的 Hamel 基.<br></div>
+<div class="latex_cor"><span class="latex_cor_h">推论 5</span><span class="latex_cor_h">.</span> 无穷维 Banach 空间中的 Schauder 基一定不是 Hamel 基.<br></div>
+</div>
+  </div>
+  <nav class="post-navigation" aria-label="文章前后导航"><a href="/924.html"><span>上一篇</span><strong>第1章 集类与测度</strong></a><a href="/1003.html"><span>下一篇</span><strong>模 $n$ 剩余类环</strong></a></nav>
+</article>
+</main>
+  <footer class="site-footer">
+    <p>阿贝尔的数学之旅 · 数学笔记与思考</p>
+    <p><a href="/feed.xml">RSS</a><span aria-hidden="true"> · </span><a href="/sitemap.xml">站点地图</a></p>
+  </footer>
+  <script src="/assets/site.js"></script>
+  
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ["\\(","\\)"]],
+    displayMath: [['$$', '$$'], ["\\[", "\\]"]],
+    processEscapes: true
+  },
+  TeX: {
+    equationNumbers: {autoNumber: "AMS",
+    useLabelIds: true}
+  },
+});
+MathJax.Hub.Config({TeX: {Macros: {"mr": ["\\mathrm{#1}", 1], "mb": ["\\mathbb{#1}", 1], "ee": "\\exists\\,", "ff": "\\forall\\,", "les": "\\leqslant", "ges": "\\geqslant", "sse": "\\subset", "sbs": "\\subset", "sps": "\\supset", "ve": "\\varepsilon", "mbr": "\\mathbb{R}", "mbn": "\\mathbb{N}", "mbz": "\\mathbb{Z}", "mbq": "\\mathbb{Q}", "mbc": "\\mathbb{C}", "mbh": "\\mathbb{H}", "vp": "\\varphi", "nti": "n\\to\\infty", "md": "\\mathrm{d}", "mre": "\\mathrm{e}", "mri": "\\mathrm{i}", "lra": ["\\langle #1\\rangle", 1], "Ker": "\\mathrm{Ker}\\,", "Im": "\\mathrm{Im}\\,", "tl": "\\triangleleft", "set": ["\\left\\{#1\\,\\left|\\,#2\\right. \\right\\}", 2], "mod": ["\\ (\\mr{mod}\\ #1)", 1], "pp": "\\partial", "Gal": ["\\mathrm{Gal}\\left(#1\\right)", 1], "Inv": ["\\mathrm{Inv}\\left(#1\\right)", 1], "End": ["\\mathrm{End}_{#1}\\!\\left(#2\\right)", 2], "Hom": ["\\mathrm{Hom}_{#1}\\!\\left(#2\\right)", 2], "ca": "\\mathcal{A}", "cb": "\\mathcal{B}", "cc": "\\mathcal{C}", "cd": "\\mathcal{D}", "ce": "\\mathcal{E}", "cf": "\\mathcal{F}", "cg": "\\mathcal{G}", "cl": "\\mathcal{L}", "cs": "\\mathcal{S}", "Ext": "\\mathrm{Ext}", "Tor": "\\mathrm{Tor}", "mc": ["\\mathcal{#1}", 1], "ot": "\\otimes"}}});
+</script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_SVG.js"></script>
+</body>
+</html>

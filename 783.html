@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Abel 范畴｜阿贝尔的数学之旅</title>
+  <meta name="description" content="目录 目录 1. 笔记 … 继续阅读 →">
+  <link rel="canonical" href="https://www.abelmath.fun/783.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="阿贝尔的数学之旅">
+  <meta property="og:title" content="Abel 范畴｜阿贝尔的数学之旅">
+  <meta property="og:description" content="目录 目录 1. 笔记 … 继续阅读 →">
+  <meta property="og:url" content="https://www.abelmath.fun/783.html">
+  <meta property="og:image" content="https://www.abelmath.fun/assets/og.png">
+  <meta property="og:image:width" content="1731">
+  <meta property="og:image:height" content="909">
+  <meta property="og:image:alt" content="阿贝尔的数学之旅：数学笔记与思考">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Abel 范畴｜阿贝尔的数学之旅">
+  <meta name="twitter:description" content="目录 目录 1. 笔记 … 继续阅读 →">
+  <meta name="twitter:image" content="https://www.abelmath.fun/assets/og.png">
+  <link rel="stylesheet" href="/assets/site.css">
+  <link rel="alternate" type="application/rss+xml" title="阿贝尔的数学之旅" href="/feed.xml">
+</head>
+<body class="article-page">
+  <a class="skip-link" href="#main">跳到正文</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="/" aria-label="阿贝尔的数学之旅首页">
+        <span class="brand-mark" aria-hidden="true">∫</span>
+        <span><strong>阿贝尔的数学之旅</strong><small>ABEL'S MATHEMATICAL JOURNEY</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">目录</button>
+      <nav id="site-nav" class="site-nav" aria-label="主要导航"><a href="/">首页</a><a href="/category/%e8%ae%ba%e6%96%87/">论文</a><a href="/category/ode/">ODE</a><a href="/category/pde/">PDE</a><a href="/category/analysis/">分析</a><a href="/category/analysis/%e6%b5%8b%e5%ba%a6/">测度</a><a href="/category/%e8%bf%91%e4%b8%96%e4%bb%a3%e6%95%b0/">抽代</a><a href="/category/%e5%9f%ba%e4%bb%a3/">基代</a><a href="/category/%e7%a7%91%e6%99%ae/">科普</a><a href="/category/manim/">manim</a><a href="/category/%e6%8e%a2%e8%ae%a8/">探讨</a><a href="/category/%e8%ae%b0%e5%bd%95/">记录</a></nav>
+    </div>
+  </header>
+  <main id="main">
+<article class="article-shell">
+  <header class="article-header">
+    <a class="back-link" href="/">← 返回首页</a>
+    <div class="post-meta"><time datetime="2024-09-20T06:44:35+00:00">2024-09-20</time><a class="chip" href="/category/%E5%9F%BA%E4%BB%A3/">基代</a></div>
+    <h1>Abel 范畴</h1>
+    <p>目录 目录 1. 笔记 … 继续阅读 →</p>
+  </header>
+  <div class="article-layout">
+    <aside class="article-rail"><p>NOTE 783</p><span></span><p>2024 · 09 · 20</p></aside>
+    <div class="article-content"><p class="wp-block-paragraph"><span id="contents" style="text-align:center; font-size:18px; font-variant:small-caps;display:block;">目录</span><br>
+          <span id="sec:content"><a href="#contents">目录</a></span><br><span> 1.  <a href="#sec:1">笔记</a></span><br><span> 2.  <a href="#sec:2">加法范畴</a></span><br><span>   2.1.  <a href="#sec:2.1">余积</a></span><br><span>   2.2.  <a href="#sec:2.2">积</a></span><br><span> 3.  <a href="#sec:3">加法函子</a></span><br><span> 4.  <a href="#sec:4">Abel 范畴</a></span><br><span> 5.  <a href="#sec:5">态射范畴</a></span><br><span> 6.  <a href="#sec:6">Abel 范畴中的正合列和蛇引理</a></span><br><span> 7.  <a href="#sec:7">正合函子</a></span><br></p>
+
+
+
+<p class="wp-block-paragraph"><span class="latex_section">1. 笔记<a id="sec:1"></a></span>
+</p>
+
+
+
+<p class="wp-block-paragraph">除了投射模和内射模，自由模、张量积、余积、积的等价定义中，映射都是唯一的. <br>
+余积 = 对象 + 结构态射 + 泛性质. <br>
+余积的结构态射是嵌入，积的结构态射是投影. <br>
+张量积、余积、积、核、余核的泛性质描述的都是一种达成相同目的的“最短路径”. <br>
+画好证明的交换图后, 尝试仅看交换图在脑子里证明.</p>
+
+
+
+<p class="wp-block-paragraph"><span class="latex_section">2. 加法范畴<a id="sec:2"></a></span>
+<span class="latex_subsection">2.1. 余积<a id="sec:2.1"></a></span>
+</p>
+
+
+
+<p class="wp-block-paragraph"></p><div class="latex_defn"><span class="latex_defn_h">定义 1</span> (<span class="latex_defn_name">余积</span>)<span class="latex_defn_h">.</span> 设 $\ca$ 为范畴.<ol><li>$\ca$ 中一簇对象 $\{X_i\}_{i\in I}$ 的余积, 是 $\ca$ 中的对象 $X$, 连同态射 $e_i:X_i\to X(i\in I)$, 并满足如下泛性质：如果另有一簇态射 $f_i:X_i\to Y(i\in I)$, 则存在<b>唯一</b>态射 $f:X\to Y$ 使得 $fe_i=f_i(\ff i\in I)$. 此时我们将 $X$ 记为 $\bigoplus_{i\in I} X_i$, 记 $f$ 为 $(f_i)$, 并称 $e_i$ 是余积 $\bigoplus_{i\in I} X_i$ 的第 $i$ 个结构态射.</li><li>称 $\ca$ 有余积, 如果对任意一簇对象 $\{X_i\}_{i\in I}$, $\ca$ 中总有余积 $\bigoplus_{i\in I} X_i$. </li></ol></div>
+
+
+
+<p class="wp-block-paragraph"></p><div class="latex_prop"><span class="latex_prop_h">命题 2</span><span class="latex_prop_h">.</span> 若 $(P,\{\vp_i\})$ 和 $(Q,\{\psi_i\})$ 都是范畴 $\ca$ 中对象族 $\{X_i\}_{i\in I}$ 的余积, 则 $P\cong Q$. </div>
+
+
+
+<details class="wp-block-details is-layout-flow wp-block-details-is-layout-flow"><summary>证明</summary>
+<p class="wp-block-paragraph"></p><div class="latex_proof"><span class="latex_proof_h">证明</span><span class="latex_proof_h">.</span> 
+
+
+<div class="wp-block-image wp-block-image is-style-default">
+<figure class="aligncenter is-resized"><img decoding="async" width="229" height="52" fetchpriority="high" src="/wp-content/uploads/2024/09/P67.svg" alt="" class="wp-image-1021" style="width:400px;height:auto" loading="eager"></figure>
+</div>
+
+
+<figure class="wp-block-image"></figure>
+
+
+
+<p class="wp-block-paragraph"></p></div>
+</details>
+
+
+
+<p class="wp-block-paragraph"></p><div class="latex_prop"><span class="latex_prop_h">命题 3</span><span class="latex_prop_h">.</span> 设范畴 $\ca$ 有余积并且有零对象. <ol> <li>给定一簇对象 $\{X_i\}_{i\in I}$. 对任意 $j\in I$, 存在唯一态射 $p_j': \{X_i\}_{i\in I}\to X_j$ 满足 $$p_j'e_i=\delta_{ij}: X_i\to X_j,$$ 其中 $\delta_{ij}=\mr{Id}_{X_i}, x=j; \delta_{ij}=0, i\ne j$. 称 $p_j'$ 为余积 $\{X_i\}_{i\in I}$ 的第 $j$ 个投影态射. </li><li>余积的每个结构态射 $e_i$ 均是单态射, 每个投影态射 $p_i'$ 均是满态射. </li><li>整体单射性：设有态射 $f :\{X_i\}_{i\in I}\to Y$ 和 $f' :\{X_i\}_{i\in I}\to Y$ 满足 $$fe_i=fe_i',\ \ff i\in I,$$ 则 $f=f'$. </li><li>给定态射集 $\{f_i:X_i\to Y_i\}_{i\in I}$, 则存在唯一态射 $$\bigoplus_{i\in I} f_i:\bigoplus_{i\in I} X_i\to \bigoplus_{i\in I} Y_i\ :\ \big(\bigoplus_{i\in I} f_i\big) e_i^X=e_i^Yf_i,\ \ff i\in I.$$ </li><li>给定态射集 $\{f_i:X_i\to Y_i\}_{i\in I}$ 和 $\{g_i:Y_i\to Z_i\}_{i\in I}$, 则 $$ \Big(\bigoplus_{i\in I} g_i\Big)\Big(\bigoplus_{i\in I} f_i\Big)=\Big(\bigoplus_{i\in I} g_if_i\Big).$$ </li><li>$ \bigoplus_{i\in I} f_i:\bigoplus_{i\in I} X_i\to \bigoplus_{i\in I} Y_i$ 是满态射当仅当每个 $f_i$ 都是满态射. </li></ol> </div>
+
+
+
+<details class="wp-block-details is-layout-flow wp-block-details-is-layout-flow"><summary>证明</summary>
+<p class="wp-block-paragraph"></p><div class="latex_proof"><span class="latex_proof_h">证明</span><span class="latex_proof_h">.</span> <ol> <li>泛性质. </li><li>利用 $p_i'e_i=1_{X_i}.$ </li><li>泛性质. </li><li>泛性质. </li><li>泛性质. </li><li>画好证明的交换图后, 尝试仅看交换图在脑子里证明.  $\Rightarrow$.设 $g_if_i=h_if_i$, 两端同时左乘 $e_i^Z$ 再利用映射的交换性得 \begin{align*} (\oplus g_i)e_i^Yf_i&amp;=(\oplus h_i)e_i^Yf_i\\ (\oplus g_i)(\oplus f_i)e_i^X&amp;=(\oplus h_i)(\oplus f_i)e_i^X\\ (\oplus g_i)(\oplus f_i)&amp; =(\oplus h_i)(\oplus f_i) \\ \oplus g_i&amp; = \oplus h_i\\ (\oplus g_i)e_i^Y &amp; =(\oplus h_i)e_i^Y \\ e_i^Zg_i&amp; =e_i^Zh_i\ \Rightarrow\ g_i=h_i. \end{align*}
+
+
+<div class="wp-block-image wp-block-image">
+<figure class="aligncenter is-resized"><img decoding="async" width="146" height="62" fetchpriority="low" src="/wp-content/uploads/2024/09/P68_2.svg" alt="" class="wp-image-1023" style="width:257px;height:auto" loading="lazy"></figure>
+</div>
+
+
+<p class="wp-block-paragraph">$\Leftarrow$. 设 $g(\oplus f_i)=h(\oplus f_i)$, 两端同时右乘 $e_i^X$ 得 \begin{align*} g(\oplus f_i)e_i^X&amp;=h(\oplus f_i)e_i^X\\ ge_i^Yf_i&amp;=he_i^Yf_i\\ ge_i^Y &amp;=he_i^Y \ \Rightarrow\ g=h. \end{align*}</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img decoding="async" width="129" height="61" fetchpriority="low" src="/wp-content/uploads/2024/09/P68_1.svg" alt="" class="wp-image-1022" style="width:218px;height:auto" loading="lazy"></figure>
+</div>
+
+
+<p class="wp-block-paragraph"></p></li></ol> </div>
+</details>
+
+
+
+<p class="wp-block-paragraph"></p>
+
+
+
+<p class="wp-block-paragraph"><span class="latex_subsection">2.2. 积<a id="sec:2.2"></a></span>
+范畴 $\ca$ 中的积是模范畴中直积的类似物, 是余积的对偶. </p><div class="latex_defn"><span class="latex_defn_h">定义 4</span> (<span class="latex_defn_name">积</span>)<span class="latex_defn_h">.</span> 设 $\ca$ 为范畴. <ol> <li>$\ca$ 中一簇对象 $\{X_i\}_{i\in I}$ 的积是 $\ca$ 中对象 $X$, 连同态射 $p_i:X \to X_i (i\in I)$, 并满足如下泛性质：如果另有一簇态射 $g_i:Y\to X_i(i\in I)$ , 则存在唯一的态射 $g:Y\to X$ 使 $p_ig=g_i (\ff i\in I)$. 此时我们将 $X$ 记为 $\prod_{i\in I} X_i$, 称 $p_i$ 是积 $\prod_{i\in I} X_i$ 的第 $i$ 个结构态射. </li><li>称 $\ca$ 有积, 如果对任意一簇对象 $\{X_i\}_{i\in I}$ , $\ca$ 中总有积 $\prod_{i\in I} X_i$. </li></ol> </div>
+
+
+
+<p class="wp-block-paragraph"></p>
+
+
+
+<p class="wp-block-paragraph"></p>
+
+
+
+<p class="wp-block-paragraph"></p><div class="latex_rem"><span class="latex_rem_h">注记 1</span><span class="latex_rem_h">.</span> <ol> <li>$(X,p_i)$ 是 $\{X_i\}_{i\in I}$ 在范畴 $\ca$ 中的积当仅当 $(X,p_i)$ 是 $\{X_i\}_{i\in I}$ 在反范畴 $\ca^{\mr{op}}$ 中的余积. </li><li>$(X,e_i)$ 是 $\{X_i\}_{i\in I}$ 在范畴 $\ca$ 中的余积当仅当 $(X,e_i)$ 是 $\{X_i\}_{i\in I}$ 在反范畴 $\ca^{\mr{op}}$ 中的积. </li><li>由积的泛性质得一簇对象的积如果存在, 则在同构意义下唯一. </li></ol> </div>
+
+
+
+<p class="wp-block-paragraph"></p><div class="latex_examp"><span class="latex_examp_h">例子 1</span><span class="latex_examp_h">.</span> <ol> <li>环 $R$ 的模范畴 $\mr{R-Mod}$ 有积, 且积就是模的直积. </li><li>有限生成模范畴 $\mr{R-mod}$ 没有积 (有限的直积也就是直和, 当然是存在的). </li></ol> </div>
+
+
+
+<p class="wp-block-paragraph"></p>
+
+
+
+<p class="wp-block-paragraph"></p>
+
+
+
+<p class="wp-block-paragraph"></p><div class="latex_prop"><span class="latex_prop_h">命题 5</span><span class="latex_prop_h">.</span> 设范畴 $\mathcal{A}$ 有积并且有零对象. <ol> <li>给定一簇对象 $X_i(\forall i \in I)$, 对于任意 $j \in I$, 存在唯一的态射 $e_j^{\prime}: X_j \longrightarrow$ $\prod_{i \in I} X_i$ 满足 $$ p_i e_j^{\prime}=\delta_{i j}: X_j \longrightarrow X_i, \text { 其中 } \delta_{i j}= \begin{cases}\operatorname{Id}_{X_i}, &amp; i=j ; \\ 0, &amp; i \neq j .\end{cases} $$ 称 $e_j^{\prime}: X_j \longrightarrow \prod_{i \in I} X_i$ 为积 $\prod_{i \in I} X_i$ 的第 $j$ 个嵌入态射. </li><li>积的每个结构态射 $p_i$ 均是满态射; 积的每个嵌入态射 $e_i$ 均是单态射. </li><li>设有态射 $f: Y \longrightarrow \prod_{i \in I} X_i$ 和态射 $f^{\prime}: Y \longrightarrow \prod_{i \in I} X_i$ 满足 $p_i f=p_i f^{\prime}, \forall i \in$ I. 则 $f=f^{\prime}$. </li><li>设 $I$ 是指标集， $f_i: X_i \longrightarrow Y_i(i \in I)$ 是 $\mathcal{A}$ 中态射。则存在唯一的态射 $\prod_{i \in I} f_i: \prod_{i \in I} X_i \longrightarrow \prod_{i \in I} Y_i$ 使得 $p_i^Y \prod_{i \in I} f_i=f_i p_i^X, \forall i \in I$, 其中 $p_i^X$ 是 $\prod_{i \in I} X_i$ 的结构态射, $p_i^Y$ 是 $\prod_{i \in I} Y_i$ 的结构态射. </li><li>设 $I$ 是指标集, $f_i: X_i \longrightarrow Y_i(i \in I)$ 和 $g_i: Y_i \longrightarrow Z_i(i \in I)$ 均是 $\mathcal{A}$ 中态射. 则 $\left(\prod_{i \in I} g_i\right)\left(\prod_{i \in I} f_i\right)=\prod_{i \in I} g_i f_i$. </li><li>$\prod_{i \in I} f_i: \prod_{i \in I} X_i \longrightarrow \prod_{i \in I} Y_i$ 是单态射当且仅当每个 $f_i$ 是单态射. </li></ol> </div>
+
+
+
+<p class="wp-block-paragraph"></p>
+
+
+
+<p class="wp-block-paragraph"></p>
+
+
+
+<p class="wp-block-paragraph"></p><div class="latex_prop"><span class="latex_prop_h">命题 6</span> (<span class="latex_prop_name">余积是积的子模</span>)<span class="latex_prop_h">.</span> 设范畴 $\mathcal{A}$ 有余积也有积并且有零对象. 则对于任意一簇对象 $X_i$ $(i \in I)$, 存在态射 $\sigma: \bigoplus_{\alpha \in I} X_\alpha \longrightarrow \prod_{\alpha \in I} X_\alpha$, 它是满足 $\sigma e_i=e_i^{\prime}(i \in I)$ 的唯一态射,也是满足 $p_i \sigma=p_i^{\prime}(i \in I)$ 的唯一态射, 其中 $e_i$ 是余积的结构态射, $p_i$ 是积的结构态射, $e_i^{\prime}$ 是积的嵌入态射, $p_i^{\prime}$ 是余积的投影态射. </div> 
+
+
+
+<details class="wp-block-details is-layout-flow wp-block-details-is-layout-flow"><summary>证明</summary>
+<p class="wp-block-paragraph"></p><div class="latex_proof"><span class="latex_proof_h">证明</span><span class="latex_proof_h">.</span> 对于任意 $i \in I$, 考虑余积的结构态射 $e_i: X_i \longrightarrow \bigoplus_{\alpha \in I} X_\alpha$ 和积的嵌入态射 $e_i^{\prime}: X_i \longrightarrow \prod_{\alpha \in I} X_\alpha$, 由余积的泛性质得到唯一的态射 $\sigma: \bigoplus_{\alpha \in I}^{\alpha \in I} X_\alpha \longrightarrow \prod_{\alpha \in I} X_\alpha$ 满足 $\sigma e_i=e_i^{\prime}, \forall i \in I$. 又考虑积的结构态射 $p_i: \prod_{\alpha \in I} X_\alpha \longrightarrow X_i$ 和余积的投影态射 $p_i^{\prime}: \bigoplus_{\alpha \in I} X_\alpha \longrightarrow X_i$, 由积的泛性质得到唯一的态射 $\sigma^{\prime}: \bigoplus_{\alpha \in I} X_\alpha \longrightarrow \prod_{\alpha \in I} X_\alpha$ 满足 $p_i \sigma^{\prime}=p_i^{\prime}, \forall i \in I$. 图示如下
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img decoding="async" width="188" height="68" fetchpriority="low" src="/wp-content/uploads/2024/09/P70.svg" alt="" class="wp-image-1097" style="width:331px;height:auto" loading="lazy"></figure>
+</div>
+
+
+<p class="wp-block-paragraph"> 对每个 $i$ 和每个 $j$ $$ p_j \sigma e_i=p_j e_i^{\prime}=\delta_{i j}=p_j^{\prime} e_i=p_j \sigma^{\prime} e_i, \quad \forall i \in I, \forall j \in J $$ 因此, $\sigma e_i=\sigma^{\prime} e_i, \forall i \in I$. 再由嵌入态射的整体满射性 $\sigma=\sigma^{\prime}$. </p></div>
+</details>
+
+
+
+<p class="wp-block-paragraph"></p>
+
+
+
+<p class="wp-block-paragraph"></p>
+
+
+
+<p class="wp-block-paragraph"></p>
+
+
+
+<p class="wp-block-paragraph"></p><div class="latex_defn"><span class="latex_defn_h">定义 7</span> (<span class="latex_defn_name">加法范畴</span>)<span class="latex_defn_h">.</span> 范畴 $\mathcal{A}$ 称为加法范畴, 如果 $\mathcal{A}$ 具有下述三条性质: <ol> <li>$\mathcal{A}$ 有零对象; </li><li>对于任意对象 $X$ 和 $Y, \operatorname{Hom}_{\mathcal{A}}(X, Y)$ 具有 Abel 群的结构 (其运算记为 + ), 使得对于 $f \in \operatorname{Hom}_{\mathcal{A}}(X, Y), g, h \in \operatorname{Hom}_{\mathcal{A}}(Y, Z), f^{\prime} \in \operatorname{Hom}_{\mathcal{A}}(Z, W)$ 有 $$ (g+h) f=g f+h f, \quad f^{\prime}(g+h)=f^{\prime} g+f^{\prime} h ; $$ </li><li>对于任意对象 $X$ 和 $Y, \mathcal{A}$ 中存在余积 $X \oplus Y$. </li></ol> </div> <div class="latex_rem"><span class="latex_rem_h">注记 2</span><span class="latex_rem_h">.</span> <ol> <li>只满足第二条性质的范畴称为预加法范畴 </li><li>加法范畴中任意有限多个对象有余积, 但末必有余积 (也就是说, 无限多个对象未必有余积). 例如, 环的有限生成模范畴就是没有余积的加法范畴. </li><li>环的模范畴是加法范畴. 特别地, Abel 群的范畴 Ab 是加法范畴. 群范畴和环范畴 (按自然的方式) 均不是加法范畴. </li><li>加法范畴中的双积 (biproducts) 是积和余积一致的对象. </li></ol> </div> 为什么群范畴和环范畴 (按自然的方式) 均不是加法范畴？ <ol> <li>群范畴. <ol> <li>一般的群中, 群运算不一定交换, 无法定义同态的加法使得同态群具有 Abel 群的结构. </li><li>没有双积, 即没有统一的积与余积, 积是群的直积 $G\times H$, 余积是自由积 $G*H$. </li></ol> </li><li>环范畴. <ol> <li>没有零对象, 零环在环范畴中不是零对象. </li><li>同态集缺乏 Abel 群结构： $$\ff f,g\in\mr{Hom}(R,S),\ \ (f+g)(r):=f(r)+g(r)$$ 不一定是环同态, 它不一定保持乘法. </li><li>积和余积不一致：积是环的直积, 余积是自由积或张量积. </li></ol> </li></ol>
+
+
+
+<p class="wp-block-paragraph"></p>
+
+
+
+<p class="wp-block-paragraph"></p>
+
+
+
+<p class="wp-block-paragraph"></p><div class="latex_lem"><span class="latex_lem_h">引理 8</span><span class="latex_lem_h">.</span> 设 $\mathcal{A}$ 是加法范畴, $X_i(1 \les i \les n)$ 是 $\mathcal{A}$ 中任意有限多个对象. 则 <ol> <li>有$$\sum_{1\les i\les n} e_ip_i'=\mr{Id}_{\oplus 1\les i\les n X_i},$$其中 $e_i$ 是余积 $\bigoplus_{1 \les i \les n} X_i$ 的结构态射, $p_i'$ 是余积 $\bigoplus_{1 \les i \les n} X_i$ 的投影态射. </li><li>$\mathcal{A}$ 中存在积 $\prod_{1 \les i \les n} X_i$ 且 $$\sum_{1 \les i \les n} e_i^{\prime} p_i=\operatorname{Id} \prod_{1 \les i \les n} X_i,$$ 其中 $p_i$ 是积 $\prod_{1 \les i \les n} X_i$ 的结构态射, $e_i^{\prime}$ 是积 $\prod_{1 \les i \les n} X_i$ 的嵌入态射. </li><li>典范态射 $\sigma: \bigoplus_{1 \les i \les n} X_i \longrightarrow \prod_{1 \les i \les n} X_i$ 是同构. </li></ol> </div>
+
+
+
+<details class="wp-block-details is-layout-flow wp-block-details-is-layout-flow"><summary>证明</summary>
+<div class="latex_proof"><span class="latex_proof_h">证明</span><span class="latex_proof_h">.</span> <ol> <li>因为 $\mathcal{A}$ 是加法范畴, 态射的有限和 $\sum_{1 \les i \les n} e_i p_i^{\prime}$ 是有意义的. 对于任意 $j$, 我们有$$ \left(\sum_{1 \les i \les n} e_i p_i^{\prime}\right) e_j=\sum_{1 \les i \les n} e_i \delta_{i j}=e_j=\left(\operatorname{Id} \underset{1 \les i \les n}{\oplus} x_i\right) e_j $$从而由结构态射的整体满射性知 $\sum_{1 \les i \les n} e_i p_i^{\prime}=\operatorname{Id} \underset{1 \les i \les n}{\oplus} X_i$. </li><li>断言 $(\oplus X_i, p_i')$ 是 $\{X_i\}_{i\in I}$ 的积. 设存在 $\vp: Y\to \oplus X_i$ 使 $g_i=p_i'\vp$, 则先两边左乘 $e_i$ 再求和以及利用 (1) 的结论得$$ \vp=\sum_{1\les i\les n} e_ig_i.$$这便说明了 $\vp$ 存在且唯一.
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img decoding="async" width="78" height="57" fetchpriority="low" src="/wp-content/uploads/2024/09/P71.svg" alt="" class="wp-image-1059" style="width:136px;height:auto" loading="lazy"></figure>
+</div>
+
+
+<p class="wp-block-paragraph">同理可证$$ \sum_{1 \les i \les n} e_i^{\prime} p_i=\mathrm{Id}_{ \prod_{1 \les i \les n} X_i}.$$</p></li><li>由 (2) 知 $\{X_i\}_{1\les i\les n}$ 得积 $\prod_{1 \les i \les n} X_i$ 存在. 令 $\sigma'=\sum_i e_ip_i$, 则 \begin{align*} \sigma\sigma'&amp;=\Big(\sum_i e_i'p_i'\Big)\Big(\sum_i e_i p_i \Big)=\mathrm{Id}_{ \prod_{1 \les i \les n} X_i}\\ \sigma'\sigma&amp;=\Big(\sum_i e_i p_i \Big)\Big(\sum_i e_i' p_i' \Big)=\mathrm{Id}_{ \oplus_{1 \les i \les n} X_i} \end{align*}</li></ol></div>
+</details>
+
+
+
+
+
+<p class="wp-block-paragraph"></p><div class="latex_lem"><span class="latex_lem_h">引理 9</span><span class="latex_lem_h">.</span> 设 $\mathcal{A}$ 是加法范畴. 则有 Abel 群的典范同构: \begin{align*} \operatorname{Hom}_{\mathcal{A}}\Big(M, \bigoplus_{1 \les i \les n} N_i\Big) &amp;\cong \bigoplus_{1 \les i \les n} \operatorname{Hom}_{\mathcal{A}}\left(M, N_i\right), \quad f \longmapsto\left(p_1^{\prime} f, \cdots, p_n^{\prime} f\right) ;\\ \operatorname{Hom}_{\mathcal{A}}\Big(\bigoplus_{1 \les i \les n} M_i, N\Big) &amp;\cong \bigoplus_{1 \les i \les n} \operatorname{Hom}_{\mathcal{A}}\left(M_i, N\right), \quad f \longmapsto\left(f e_1, \cdots, f e_n\right) ;\\ \operatorname{Hom}_{\mathcal{A}}\left(\bigoplus_{i \in I} M_i, N\right) &amp;\cong \prod_{i \in I} \operatorname{Hom}_{\mathcal{A}}\left(M_i, N\right), f \longmapsto\left(f e_i\right)_{i \in I} \\ \operatorname{Hom}_{\mathcal{A}}\left(M, \prod_{i \in I} N_i\right) &amp;\cong \prod_{i \in I} \operatorname{Hom}_{\mathcal{A}}\left(M, N_i\right), f \longmapsto\left(p_i f\right)_{i \in I} \end{align*}其中 $I$ 是任意集. 可以不必假设 $\mathcal{A}$ 有余积或积, 只要假设相应的余积或积存在即可. 这个说明对于以下引理同样成立. </div>
+
+
+
+<p class="wp-block-paragraph"></p><div class="latex_lem"><span class="latex_lem_h">引理 10</span><span class="latex_lem_h">.</span> 设 $\mathcal{A}$ 是加法范畴. 则也有如下 Abel 群的典范态射: $$ \begin{aligned} \bigoplus_{i \in I} \operatorname{Hom}_{\mathcal{A}}\left(M, N_i\right) &amp;\hookrightarrow \operatorname{Hom}_{\mathcal{A}}\left(M, \bigoplus_{i \in I} N_i\right), \quad\left(f_i\right)_{i \in I} \longmapsto \sum_{i \in I} e_i f_i \\ \operatorname{Hom}_{\mathcal{A}}\left(M, \bigoplus_{i \in I} N_i\right) &amp;\hookrightarrow \prod_{i \in I} \operatorname{Hom}_{\mathcal{A}}\left(M, N_i\right), \quad f \longmapsto\left(p_i^{\prime} f\right)_{i \in I} \\ \operatorname{Hom}_{\mathcal{A}}\left(\prod_{i \in I} M_i, N\right) &amp;\longrightarrow \prod_{i \in I} \operatorname{Hom}_{\mathcal{A}}\left(M_i, N\right), \quad f \longmapsto\left(f e_i^{\prime}\right)_{i \in I} \\ \bigoplus_{i \in I} \operatorname{Hom}_{\mathcal{A}}\left(M_i, N\right) &amp;\longrightarrow \operatorname{Hom}_{\mathcal{A}}\left(\prod_{i \in I} M_i, N\right), \quad\left(f_i\right)_{i \in I} \longmapsto \sum_{i \in I} f_i p_i . \end{aligned} $$但是, 当 $I$ 是无限集时, 这四个典范态射一般来说均非同构. </div>
+
+
+
+<p class="wp-block-paragraph"><span class="latex_section">3. 加法函子<a id="sec:3"></a></span>
+我们使用加法函子研究加法范畴之间的关系. </p><div class="latex_defn"><span class="latex_defn_h">定义 11</span> (<span class="latex_defn_name">加法函子</span>)<span class="latex_defn_h">.</span> 设 $\ca,\cb$ 是加法范畴. 函子 $F:\ca\to\cb$ 称为加法函子, 如果对任意 $X,Y\in\mr{Ob}(\ca)$ 有$$F:\mr{Hom}_\ca(X,Y)\to \mr{Hom}_\cb(FX,FY), f\mapsto Ff$$是群同态, 即 $$F(f+g)=F(f)+F(g), \ \ \ff f,g\in\mr{Hom}_\ca(X,Y).$$</div> <div class="latex_rem"><span class="latex_rem_h">注记 3</span><span class="latex_rem_h">.</span> <ol><li>因为 $0$ 是加群 $\mr{Hom}_\ca(X,Y)$ 的单位元, 故加法函子 $F$ 保持零态射. </li><li>因为对象 $X$ 是零对象当仅当 $\mr{Id}_X=0$, 故加法函子 $F$ 保持零对象. </li></ol></div>
+
+
+
+<p class="wp-block-paragraph"></p><div class="latex_defn"><span class="latex_defn_h">定义 12</span> (<span class="latex_defn_name">保持有限余积</span>)<span class="latex_defn_h">.</span> 称加法范畴之间的函子 $F: \mathcal{A} \longrightarrow \mathcal{B}$ 保持有限余积, 如果对于 $\mathcal{A}$ 中任意两个对象 $X$ 与 $Y$ 在 $\mathcal{A}$ 中的余积 $\left(X \oplus Y, e_1, e_2\right),\left(F(X \oplus Y), F e_1, F e_2\right)$ 是 $F X$ 与 $F Y$ 在 $\mathcal{B}$ 中的余积. </div> <div class="latex_lem"><span class="latex_lem_h">引理 13</span><span class="latex_lem_h">.</span> 设 $F: \mathcal{A} \longrightarrow \mathcal{B}$ 是加法范帱之间的函子. <ol><li>若 $F$ 保持有限余积, 则 $F$ 保持零对象, 并且 $F$ 保持零态射. </li><li>$F$ 保持有限余积当且仅当对于 $X$ 与 $Y$ 在 $\mathcal{A}$ 中的余积 $\left(X \oplus Y, e_1, e_2\right)$, $\left(F e_1, F e_2\right): F X \oplus F Y \longrightarrow F(X \oplus Y)$ 是同构. 此时, $\left(F e_1, F e_2\right)$ 的逆同构是 $\binom{F p_1^{\prime}}{F p_2^{\prime}}$, 这里 $p_i^{\prime}$ 是余积 $F X \oplus F Y$ 的投影态射.</li></ol></div>
+
+
+
+<p class="wp-block-paragraph"><span class="latex_section">4. Abel 范畴<a id="sec:4"></a></span>
+</p><div class="latex_defn"><span class="latex_defn_h">定义 14</span> (<span class="latex_defn_name">核</span>)<span class="latex_defn_h">.</span> 设 $\ca$ 是有零对象的范畴.  <ol> <li>$f:X\to Y$ 是 $\ca$ 中态射. 态射 $k: K\to X$ 称为 $f$ 的核, 若 <ol> <li>$k$ 是单态射; </li><li>$fk=0$; </li><li>若 $u:L\to X$ 使 $fu=0$, 则存在 $g:L\to K$ 使得 $u=kg$. </li></ol> 此时将 $k$ 记为 $\mr{ker}f$, 态射的核再同构意义下唯一. </li><li>$\ca$ 称为有核, 如果 $\ca$ 中每个态射均有核. </li></ol> </div> "$k:K\to X$ 称为 $f$ 的核, 或者说二元组 $(k,K)$ 是 $f$ 的核, 或者说 $k$ 是 $f$ 的核."
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img loading="lazy" decoding="async" width="223" height="48" src="/wp-content/uploads/2024/09/kernel.svg" alt="" class="wp-image-1077" style="width:384px;height:auto"></figure>
+</div>
+
+
+<p class="wp-block-paragraph"></p><div class="latex_defn"><span class="latex_defn_h">定义 15</span> (<span class="latex_defn_name">余核</span>)<span class="latex_defn_h">.</span> 设 $\ca$ 是有零对象的范畴.<ol> <li>$f:X\to Y$ 是 $\ca$ 中态射. 态射 $c:Y\to C$ 称为 $f$ 的余核, 若 <ol> <li>$c$ 是满态射; </li><li>$cf=0$; </li><li>若 $v:Y\to D$ 使得 $vf=0$, 则存在 $h:C\to D$ 使得 $v=hc$. </li></ol> 此时将 $c$ 记为 $\mr{Coker}f$, 态射的余核再同构意义下唯一. </li><li>$\ca$ 称为有余核, 如果 $\ca$ 中每个态射均有余核. </li></ol> </div>
+
+
+
+<p class="wp-block-paragraph">设范畴 $\ca$ 有零对象, $\ca$ 有核和余核, 考虑下图</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img loading="lazy" decoding="async" width="224" height="52" src="/wp-content/uploads/2024/09/can.svg" alt="" class="wp-image-1080" style="width:435px;height:auto"></figure>
+</div>
+
+
+<p class="wp-block-paragraph"></p><ol>  <li>因为 $fk=0$, 由 $e$ 的泛性质得 $m'$; </li><li>因为 $cf=0$, 由 $m$ 得泛性质得 $\tilde{f}$; </li><li>因为 $cm'e=cf=0$, 又因为 $e$ 为满态射, 则 $cm'=0$. 由 $m$ 的泛性质得 $\mr{can}$ 使得 $m'=m\circ \mr{can}$. </li><li>因为 $$m\tilde{f}=f=m'e=m\circ \mr{can}\circ e,$$ 又 $m$ 为单态射, 故 $\tilde{f}=\mr{can}\circ e.$ </li></ol>
+
+
+
+<p class="wp-block-paragraph"></p><div class="latex_defn"><span class="latex_defn_h">定义 16</span> (<span class="latex_defn_name">Abel 范畴</span>)<span class="latex_defn_h">.</span> 加法范畴 $\ca$ 称为 Abel 范畴, 若 <ol> <li>$\ca$ 有核和余核; </li><li>对 $\ca$ 中每个态射 $f:X\to Y$, 典范态射 $$\mr{can}: \mr{Coim}f\to \mr{Im}f$$ 是同构. </li></ol> </div> 于是 Abel 范畴中任意态射 $f:X\to Y$ 有“满单分解”
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img loading="lazy" decoding="async" width="108" height="50" src="/wp-content/uploads/2024/09/P80.svg" alt="" class="wp-image-1086" style="width:209px;height:auto"></figure>
+</div>
+
+
+<p class="wp-block-paragraph">其中 $m$ 是 $f$ 的余核 $c$ 的核. 我们有典范同构$$\mr{can}\ :\ X/\mr{ker} f\cong \mr{Im}f.$$</p>
+
+
+<div class="latex_prop"><span class="latex_prop_h">命题 17</span><span class="latex_prop_h">.</span> 在 Abel 范畴中有以下结论：<br><ol><li>态射 $f:X\to Y$ 是单态射当仅当 $\Ker f\cong 0$, 也当仅当典范满态射 $\tilde{f}$ 是同构.</li><li>态射 $f:X\to Y$ 是满态射当仅当 $\mr{Coker} f\cong 0$, 也当仅当典范单态射 $m$ 是同构.</li><li>若 $g $ 是单态射, 则典范态射 $\Ker f\to \Ker(gf)$ 是同构.</li><li>若 $f$ 是满态射, 则典范态射 $\mr{Coker}g\to \mr{Coker}(gf)$ 是同构.</li><li>对任意态射 $f:X\to Y$, 有典范同构 $Y/\mr{Im}f\cong \mr{Coker}f$, 其中 $Y/\Im f$ 指 $m:\Im f\hookrightarrow Y$ 的余核.</li><li>若 $f$ 是满态射, 则典范态射 $\Im g\to \Im (gf)$ 是同构.</li><li>态射 $f$ 是同构当仅当它既是单态射又是满态射.</li><li>若 $g$ 是单态射, 则典范态射 $\Im f\to \Im (gf)$ 是同构.</li></ol></div>
+
+
+<p class="wp-block-paragraph"><span class="latex_section">5. 态射范畴<a id="sec:5"></a></span>
+</p>
+
+
+
+<p class="wp-block-paragraph"><span class="latex_section">6. Abel 范畴中的正合列和蛇引理<a id="sec:6"></a></span>
+</p>
+
+
+
+<p class="wp-block-paragraph"><span class="latex_section">7. 正合函子<a id="sec:7"></a></span>
+</p>
+
+
+
+<p class="wp-block-paragraph"></p>
+
+</div>
+  </div>
+  <nav class="post-navigation" aria-label="文章前后导航"><a href="/765.html"><span>上一篇</span><strong>如何画交换图</strong></a><a href="/785.html"><span>下一篇</span><strong>Abel 范畴上的同调代数</strong></a></nav>
+</article>
+</main>
+  <footer class="site-footer">
+    <p>阿贝尔的数学之旅 · 数学笔记与思考</p>
+    <p><a href="/feed.xml">RSS</a><span aria-hidden="true"> · </span><a href="/sitemap.xml">站点地图</a></p>
+  </footer>
+  <script src="/assets/site.js"></script>
+  
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ["\\(","\\)"]],
+    displayMath: [['$$', '$$'], ["\\[", "\\]"]],
+    processEscapes: true
+  },
+  TeX: {
+    equationNumbers: {autoNumber: "AMS",
+    useLabelIds: true}
+  },
+});
+MathJax.Hub.Config({TeX: {Macros: {"mr": ["\\mathrm{#1}", 1], "mb": ["\\mathbb{#1}", 1], "ee": "\\exists\\,", "ff": "\\forall\\,", "les": "\\leqslant", "ges": "\\geqslant", "sse": "\\subset", "sbs": "\\subset", "sps": "\\supset", "ve": "\\varepsilon", "mbr": "\\mathbb{R}", "mbn": "\\mathbb{N}", "mbz": "\\mathbb{Z}", "mbq": "\\mathbb{Q}", "mbc": "\\mathbb{C}", "mbh": "\\mathbb{H}", "vp": "\\varphi", "nti": "n\\to\\infty", "md": "\\mathrm{d}", "mre": "\\mathrm{e}", "mri": "\\mathrm{i}", "lra": ["\\langle #1\\rangle", 1], "Ker": "\\mathrm{Ker}\\,", "Im": "\\mathrm{Im}\\,", "tl": "\\triangleleft", "set": ["\\left\\{#1\\,\\left|\\,#2\\right. \\right\\}", 2], "mod": ["\\ (\\mr{mod}\\ #1)", 1], "pp": "\\partial", "Gal": ["\\mathrm{Gal}\\left(#1\\right)", 1], "Inv": ["\\mathrm{Inv}\\left(#1\\right)", 1], "End": ["\\mathrm{End}_{#1}\\!\\left(#2\\right)", 2], "Hom": ["\\mathrm{Hom}_{#1}\\!\\left(#2\\right)", 2], "ca": "\\mathcal{A}", "cb": "\\mathcal{B}", "cc": "\\mathcal{C}", "cd": "\\mathcal{D}", "ce": "\\mathcal{E}", "cf": "\\mathcal{F}", "cg": "\\mathcal{G}", "cl": "\\mathcal{L}", "cs": "\\mathcal{S}", "Ext": "\\mathrm{Ext}", "Tor": "\\mathrm{Tor}", "mc": ["\\mathcal{#1}", 1], "ot": "\\otimes"}}});
+</script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_SVG.js"></script>
+</body>
+</html>

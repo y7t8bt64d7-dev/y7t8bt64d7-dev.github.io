@@ -1,0 +1,363 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>等周问题｜阿贝尔的数学之旅</title>
+  <meta name="description" content="Bezier 曲线可以用来画不规则曲线 创建点 创建线条和虚线条 镜面对称. 这 … 继续阅读 →">
+  <link rel="canonical" href="https://www.abelmath.fun/683.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="阿贝尔的数学之旅">
+  <meta property="og:title" content="等周问题｜阿贝尔的数学之旅">
+  <meta property="og:description" content="Bezier 曲线可以用来画不规则曲线 创建点 创建线条和虚线条 镜面对称. 这 … 继续阅读 →">
+  <meta property="og:url" content="https://www.abelmath.fun/683.html">
+  <meta property="og:image" content="https://www.abelmath.fun/assets/og.png">
+  <meta property="og:image:width" content="1731">
+  <meta property="og:image:height" content="909">
+  <meta property="og:image:alt" content="阿贝尔的数学之旅：数学笔记与思考">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="等周问题｜阿贝尔的数学之旅">
+  <meta name="twitter:description" content="Bezier 曲线可以用来画不规则曲线 创建点 创建线条和虚线条 镜面对称. 这 … 继续阅读 →">
+  <meta name="twitter:image" content="https://www.abelmath.fun/assets/og.png">
+  <link rel="stylesheet" href="/assets/site.css">
+  <link rel="alternate" type="application/rss+xml" title="阿贝尔的数学之旅" href="/feed.xml">
+</head>
+<body class="article-page">
+  <a class="skip-link" href="#main">跳到正文</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="/" aria-label="阿贝尔的数学之旅首页">
+        <span class="brand-mark" aria-hidden="true">∫</span>
+        <span><strong>阿贝尔的数学之旅</strong><small>ABEL'S MATHEMATICAL JOURNEY</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">目录</button>
+      <nav id="site-nav" class="site-nav" aria-label="主要导航"><a href="/">首页</a><a href="/category/%e8%ae%ba%e6%96%87/">论文</a><a href="/category/ode/">ODE</a><a href="/category/pde/">PDE</a><a href="/category/analysis/">分析</a><a href="/category/analysis/%e6%b5%8b%e5%ba%a6/">测度</a><a href="/category/%e8%bf%91%e4%b8%96%e4%bb%a3%e6%95%b0/">抽代</a><a href="/category/%e5%9f%ba%e4%bb%a3/">基代</a><a href="/category/%e7%a7%91%e6%99%ae/">科普</a><a href="/category/manim/">manim</a><a href="/category/%e6%8e%a2%e8%ae%a8/">探讨</a><a href="/category/%e8%ae%b0%e5%bd%95/">记录</a></nav>
+    </div>
+  </header>
+  <main id="main">
+<article class="article-shell">
+  <header class="article-header">
+    <a class="back-link" href="/">← 返回首页</a>
+    <div class="post-meta"><time datetime="2024-09-11T12:33:55+00:00">2024-09-11</time><a class="chip" href="/category/manim/">manim</a></div>
+    <h1>等周问题</h1>
+    <p>Bezier 曲线可以用来画不规则曲线 创建点 创建线条和虚线条 镜面对称. 这 … 继续阅读 →</p>
+  </header>
+  <div class="article-layout">
+    <aside class="article-rail"><p>NOTE 683</p><span></span><p>2024 · 09 · 11</p></aside>
+    <div class="article-content"><p class="wp-block-paragraph">Bezier 曲线可以用来画不规则曲线</p>
+
+
+
+<pre class="EnlighterJSRAW" data-enlighter-language="python" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">from manim import *
+
+class ClosedBezierCurveWithControlPoints(Scene):
+    def construct(self):
+        # 定义控制点的坐标
+        control_points = [
+            [0, 0, 0],    # 起始点
+            [.5, 1, 0],
+            [2, .5, 0],    # 控制点 1
+            [3.5, 1, 0],
+            [4, 0, 0],    # 控制点 3
+            [2, -1.2, 0],   # 控制点 4
+            [0, 0, 0]     # 回到起始点，封闭曲线
+        ]
+
+        # 创建 VMobject 对象并设置贝塞尔曲线的控制点
+        closed_curve = VMobject()
+        closed_curve.set_points_smoothly(control_points)
+        closed_curve.close_path()  # 确保路径封闭
+        closed_curve.set_color(BLUE)
+
+        # 创建并显示贝塞尔曲线
+        self.play(Create(closed_curve))
+
+        # 在控制点的位置上添加 Dot 来标记
+        dots = [Dot(point=point, color=RED) for point in control_points]
+        labels = [Text(f"P{i}", font_size=24).next_to(dots[i], UP) for i in range(len(dots))]
+
+        for dot, label in zip(dots, labels):
+            self.play(FadeIn(dot), Write(label))
+
+        self.wait(2)</pre>
+
+
+
+<p class="wp-block-paragraph">创建点</p>
+
+
+
+<pre class="EnlighterJSRAW" data-enlighter-language="generic" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">dot_P1 = Dot(P1, color=RED)
+dot_P3 = Dot(P3, color=RED)
+self.play(FadeIn(dot_P1), FadeIn(dot_P3))</pre>
+
+
+
+<p class="wp-block-paragraph">创建线条和虚线条</p>
+
+
+
+<pre class="EnlighterJSRAW" data-enlighter-language="generic" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">tangent_line1 = Line(P1, P3, color=YELLOW)
+self.play(Create(tangent_line))
+tangent_line2 = DashedLine(P1, P3, color=YELLOW)
+self.play(Create(tangent_line), run_time=.5)</pre>
+
+
+
+<p class="wp-block-paragraph">镜面对称. 这里的对称轴是过 about_point 以 axis 为方向的直线</p>
+
+
+
+<p class="wp-block-paragraph">如果希望展示旋转过程可以直接 self.play(Rotate())</p>
+
+
+
+<pre class="EnlighterJSRAW" data-enlighter-language="generic" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">partial_curve_copy = partial_curve.copy()
+self.play(Rotate(partial_curve_copy, angle=-PI, axis=tangent_vector, about_point=midpoint))
+       </pre>
+
+
+
+<p class="wp-block-paragraph">如果不希望展示旋转过程就这样</p>
+
+
+
+<pre class="EnlighterJSRAW" data-enlighter-language="generic" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">extra_area2_copy = extra_area2.copy()
+self.add(extra_area2_copy)
+extra_area2_copy.rotate(angle=-PI, axis=[0,1,0], about_point=ORIGIN)
+self.play(FadeIn(extra_area2_copy))
+self.wait(1)</pre>
+
+
+
+<p class="wp-block-paragraph">如何将不同的曲线段合并成一条闭合曲线？</p>
+
+
+
+<pre class="EnlighterJSRAW" data-enlighter-language="generic" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">extra_area1 = VMobject()
+extra_area1.append_vectorized_mobject(partial_curve)
+extra_area1.append_vectorized_mobject(partial_curve_copy)</pre>
+
+
+
+<p class="wp-block-paragraph">如何提取一条曲线的一部分？这里的 0.14 和 0.61 分别是起点和终点, 每个点在范围 [0,1] 中.</p>
+
+
+
+<pre class="EnlighterJSRAW" data-enlighter-language="generic" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">partial_curve = VMobject()
+partial_curve.pointwise_become_partial(closed_curve,0.14, 0.61)
+partial_curve.set_color(RED)</pre>
+
+
+
+<p class="wp-block-paragraph">动态更新点的位置</p>
+
+
+
+<pre class="EnlighterJSRAW" data-enlighter-language="generic" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group=""># 线段AB定义为动态更新
+line_ab = always_redraw(lambda: DashedLine(curve_ap.get_start(), 
+                                           curve_bp.get_end(), 
+                                           color=YELLOW))</pre>
+
+
+
+<p class="wp-block-paragraph">设置图层</p>
+
+
+
+<pre class="EnlighterJSRAW" data-enlighter-language="generic" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group=""># 使用 set_z_index() 方法来设置图层顺序
+circle1.set_z_index(1)  # 最后渲染，显示在最前面
+circle2.set_z_index(0)  # 默认图层
+circle3.set_z_index(-1)  # 最先渲染，显示在最底部</pre>
+
+
+
+<p class="wp-block-paragraph">标签</p>
+
+
+
+<pre class="EnlighterJSRAW" data-enlighter-language="generic" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">label_a = MathTex("A").next_to(dot_a, RIGHT)</pre>
+
+
+
+<p class="wp-block-paragraph">在 Python 中的切片操作遵循以下规则：</p>
+
+
+
+<ol class="wp-block-list">
+<li><strong>索引从 0 开始</strong>：第一个元素的索引是 <code>0</code>，第二个是 <code>1</code>，以此类推。</li>
+
+
+
+<li><strong>负数索引</strong>：负数索引从列表的末尾开始，<code>-1</code> 表示最后一个元素，<code>-2</code> 表示倒数第二个元素，以此类推。</li>
+
+
+
+<li><strong>切片的结束位置是排他的</strong>：也就是说，<code>start:end</code> 中的 <code>end</code> 索引对应的元素并不包含在切片结果中，切片会取到 <code>end</code> 的前一个位置。</li>
+</ol>
+
+
+
+<p class="wp-block-paragraph">下面代码表示从索引为 7 的元素取到最后一位</p>
+
+
+
+<pre class="EnlighterJSRAW" data-enlighter-language="generic" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">one[0][7:]</pre>
+
+
+
+<p class="wp-block-paragraph">来回往复运动效果</p>
+
+
+
+<pre class="EnlighterJSRAW" data-enlighter-language="generic" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">self.play(Rotate(curve_ap, angle=PI/3, about_point=point_p, rate_func=there_and_back),
+         Rotate(area1, angle=PI/3, about_point=point_p, rate_func=there_and_back),
+          run_time=4)</pre>
+
+
+
+<p class="wp-block-paragraph">角的圆弧 Angle, 可以用 quadrant 选择象限, other_angle=True 显示补角</p>
+
+
+
+<pre class="EnlighterJSRAW" data-enlighter-language="generic" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">Angle( line_bp,line_ap, quadrant=(1,-1), radius=0.5, color=YELLOW)</pre>
+
+
+
+<p class="wp-block-paragraph">直角符号</p>
+
+
+
+<pre class="EnlighterJSRAW" data-enlighter-language="generic" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">RightAngle(line1, line2, length=0.4, quadrant=(1,-1))</pre>
+
+
+
+<p class="wp-block-paragraph">清除更新函数</p>
+
+
+
+<pre class="EnlighterJSRAW" data-enlighter-language="generic" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">angle.clear_updaters()</pre>
+
+
+
+<p class="wp-block-paragraph">获取线段中点坐标</p>
+
+
+
+<pre class="EnlighterJSRAW" data-enlighter-language="generic" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">line.get_center()</pre>
+
+
+
+<p class="wp-block-paragraph">轨迹追踪</p>
+
+
+
+<pre class="EnlighterJSRAW" data-enlighter-language="generic" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group=""># 计算半径为A到中点的距离
+radius = np.linalg.norm(midpoint- point_a)
+
+# 创建半圆的路径（隐藏半圆，仅用于让点P沿路径运动）
+hidden_semicircle = ArcBetweenPoints(point_a, point_b, angle=PI, radius=radius, color=WHITE, stroke_opacity=0)
+
+# 创建点P，初始位置在A
+point_p = Dot(point_a, color=RED)
+
+# 创建线段PA和PB
+line_pa = always_redraw(lambda: Line(point_p.get_center(), point_a))
+line_pb = always_redraw(lambda: Line(point_p.get_center(), point_b))
+
+# 使用 TracedPath 动态追踪P点的路径，绘制出圆弧
+traced_path = TracedPath(point_p.get_center, stroke_color=YELLOW, stroke_width=4)
+
+# 将点P、线段PA和PB以及追踪路径添加到场景中
+self.add(point_p, line_pa, line_pb, traced_path)
+
+# 让点P沿着隐藏的半圆路径运动，逐步绘制圆弧
+self.play(MoveAlongPath(point_p, hidden_semicircle), run_time=4, rate_func=linear)
+self.wait()</pre>
+
+
+
+<p class="wp-block-paragraph">平滑的移动效果 </p>
+
+
+
+<pre class="EnlighterJSRAW" data-enlighter-language="generic" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">object.animate.move_to(target_point)</pre>
+
+
+
+<p class="wp-block-paragraph">清除所有更新器和上移所有对象</p>
+
+
+
+<pre class="EnlighterJSRAW" data-enlighter-language="generic" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">for mob in self.mobjects:
+    mob.clear_updaters()
+self.play(*[obj.animate.shift(UP) for obj in self.mobjects])</pre>
+
+
+
+<p class="wp-block-paragraph">打包所有对象</p>
+
+
+
+<pre class="EnlighterJSRAW" data-enlighter-language="generic" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">everything1 = Group(*self.mobjects)</pre>
+
+
+
+<p class="wp-block-paragraph">打包所有对象，除了某个特定对象</p>
+
+
+
+<pre class="EnlighterJSRAW" data-enlighter-language="generic" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">everything1 = Group(*self.mobjects)
+everything1.remove(title)</pre>
+
+
+
+<p class="wp-block-paragraph">也可以这样</p>
+
+
+
+<pre class="EnlighterJSRAW" data-enlighter-language="generic" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">self.play(*[obj.animate.shift(UP) for obj in self.mobjects if obj!= title])</pre>
+
+
+
+<p class="wp-block-paragraph">导入图片</p>
+
+
+
+<pre class="EnlighterJSRAW" data-enlighter-language="generic" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">image = ImageMobject("path/to/your/image.png")</pre>
+
+
+
+<p class="wp-block-paragraph">贴到屏幕左边</p>
+
+
+
+<pre class="EnlighterJSRAW" data-enlighter-language="generic" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">Weierstrass.to_edge(LEFT, buff=0)</pre>
+</div>
+  </div>
+  <nav class="post-navigation" aria-label="文章前后导航"><a href="/626.html"><span>上一篇</span><strong>绪论</strong></a><a href="/731.html"><span>下一篇</span><strong>Tikz测试</strong></a></nav>
+</article>
+</main>
+  <footer class="site-footer">
+    <p>阿贝尔的数学之旅 · 数学笔记与思考</p>
+    <p><a href="/feed.xml">RSS</a><span aria-hidden="true"> · </span><a href="/sitemap.xml">站点地图</a></p>
+  </footer>
+  <script src="/assets/site.js"></script>
+  
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ["\\(","\\)"]],
+    displayMath: [['$$', '$$'], ["\\[", "\\]"]],
+    processEscapes: true
+  },
+  TeX: {
+    equationNumbers: {autoNumber: "AMS",
+    useLabelIds: true}
+  },
+});
+MathJax.Hub.Config({TeX: {Macros: {"mr": ["\\mathrm{#1}", 1], "mb": ["\\mathbb{#1}", 1], "ee": "\\exists\\,", "ff": "\\forall\\,", "les": "\\leqslant", "ges": "\\geqslant", "sse": "\\subset", "sbs": "\\subset", "sps": "\\supset", "ve": "\\varepsilon", "mbr": "\\mathbb{R}", "mbn": "\\mathbb{N}", "mbz": "\\mathbb{Z}", "mbq": "\\mathbb{Q}", "mbc": "\\mathbb{C}", "mbh": "\\mathbb{H}", "vp": "\\varphi", "nti": "n\\to\\infty", "md": "\\mathrm{d}", "mre": "\\mathrm{e}", "mri": "\\mathrm{i}", "lra": ["\\langle #1\\rangle", 1], "Ker": "\\mathrm{Ker}\\,", "Im": "\\mathrm{Im}\\,", "tl": "\\triangleleft", "set": ["\\left\\{#1\\,\\left|\\,#2\\right. \\right\\}", 2], "mod": ["\\ (\\mr{mod}\\ #1)", 1], "pp": "\\partial", "Gal": ["\\mathrm{Gal}\\left(#1\\right)", 1], "Inv": ["\\mathrm{Inv}\\left(#1\\right)", 1], "End": ["\\mathrm{End}_{#1}\\!\\left(#2\\right)", 2], "Hom": ["\\mathrm{Hom}_{#1}\\!\\left(#2\\right)", 2], "ca": "\\mathcal{A}", "cb": "\\mathcal{B}", "cc": "\\mathcal{C}", "cd": "\\mathcal{D}", "ce": "\\mathcal{E}", "cf": "\\mathcal{F}", "cg": "\\mathcal{G}", "cl": "\\mathcal{L}", "cs": "\\mathcal{S}", "Ext": "\\mathrm{Ext}", "Tor": "\\mathrm{Tor}", "mc": ["\\mathcal{#1}", 1], "ot": "\\otimes"}}});
+</script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_SVG.js"></script>
+</body>
+</html>

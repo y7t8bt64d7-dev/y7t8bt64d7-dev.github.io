@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>若干函数方程｜阿贝尔的数学之旅</title>
+  <meta name="description" content="目录 目录 1. 基本方法� … 继续阅读 →">
+  <link rel="canonical" href="https://www.abelmath.fun/1293.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="阿贝尔的数学之旅">
+  <meta property="og:title" content="若干函数方程｜阿贝尔的数学之旅">
+  <meta property="og:description" content="目录 目录 1. 基本方法� … 继续阅读 →">
+  <meta property="og:url" content="https://www.abelmath.fun/1293.html">
+  <meta property="og:image" content="https://www.abelmath.fun/assets/og.png">
+  <meta property="og:image:width" content="1731">
+  <meta property="og:image:height" content="909">
+  <meta property="og:image:alt" content="阿贝尔的数学之旅：数学笔记与思考">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="若干函数方程｜阿贝尔的数学之旅">
+  <meta name="twitter:description" content="目录 目录 1. 基本方法� … 继续阅读 →">
+  <meta name="twitter:image" content="https://www.abelmath.fun/assets/og.png">
+  <link rel="stylesheet" href="/assets/site.css">
+  <link rel="alternate" type="application/rss+xml" title="阿贝尔的数学之旅" href="/feed.xml">
+</head>
+<body class="article-page">
+  <a class="skip-link" href="#main">跳到正文</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="/" aria-label="阿贝尔的数学之旅首页">
+        <span class="brand-mark" aria-hidden="true">∫</span>
+        <span><strong>阿贝尔的数学之旅</strong><small>ABEL'S MATHEMATICAL JOURNEY</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">目录</button>
+      <nav id="site-nav" class="site-nav" aria-label="主要导航"><a href="/">首页</a><a href="/category/%e8%ae%ba%e6%96%87/">论文</a><a href="/category/ode/">ODE</a><a href="/category/pde/">PDE</a><a href="/category/analysis/">分析</a><a href="/category/analysis/%e6%b5%8b%e5%ba%a6/">测度</a><a href="/category/%e8%bf%91%e4%b8%96%e4%bb%a3%e6%95%b0/">抽代</a><a href="/category/%e5%9f%ba%e4%bb%a3/">基代</a><a href="/category/%e7%a7%91%e6%99%ae/">科普</a><a href="/category/manim/">manim</a><a href="/category/%e6%8e%a2%e8%ae%a8/">探讨</a><a href="/category/%e8%ae%b0%e5%bd%95/">记录</a></nav>
+    </div>
+  </header>
+  <main id="main">
+<article class="article-shell">
+  <header class="article-header">
+    <a class="back-link" href="/">← 返回首页</a>
+    <div class="post-meta"><time datetime="2024-10-25T01:13:58+00:00">2024-10-25</time><a class="chip" href="/category/%E6%8E%A2%E8%AE%A8/">探讨</a></div>
+    <h1>若干函数方程</h1>
+    <p>目录 目录 1. 基本方法� … 继续阅读 →</p>
+  </header>
+  <div class="article-layout">
+    <aside class="article-rail"><p>NOTE 1293</p><span></span><p>2024 · 10 · 25</p></aside>
+    <div class="article-content"><span id="contents" style="text-align:center; font-size:18px; font-variant:small-caps;display:block;">目录</span><br>
+          <span id="sec:content"><a href="#contents">目录</a></span><br><span> 1.  <a href="#sec:1">基本方法</a></span><br><span> 2.  <a href="#sec:2">经典例子</a></span><br><span> 3.  <a href="#sec:3">光滑性提升</a></span><br><span> 4.  <a href="#sec:4">非经典解</a></span><br>
+<span class="latex_section">1. 基本方法<a id="sec:1"></a></span>
+微分方程 $y''-Cy=0$ 的解为
+<ol>
+<li>$\ C=0:\ y=ax+b.$
+</li><li> $C&gt;0:\ y=C_1\mre^{\lambda x}+C_2\mre^{-\lambda x},$ 其中 $\lambda=\sqrt{C}&gt;0$.
+</li><li>$\ C&lt;0:\ y=C_1\sin {\lambda x}+C_2\cos{\lambda x},$ 其中 $\lambda=\sqrt{-C}&gt;0$.
+</li></ol>
+
+<span class="latex_section">2. 经典例子<a id="sec:2"></a></span>
+<div class="latex_examp"><span class="latex_examp_h">例子 1</span><span class="latex_examp_h">.</span> 设 $f\in C^\infty(\mbr)$. 求解函数方程
+<ol>
+<li>$f(x+y)=f(x)+f(y)$.
+</li><li> $f(x+y)=f(x)f(y)$.
+</li></ol>
+</div>
+
+<div class="latex_examp"><span class="latex_examp_h">例子 2</span><span class="latex_examp_h">.</span> 设 $f\in C^\infty(\mbr), f(0)=1$, 求解函数方程 $f(x+y)+f(x-y)=2f(x)f(y).$
+</div>
+
+
+<details class="wp-block-details is-layout-flow wp-block-details-is-layout-flow"><summary>证明</summary>
+<div class="latex_proof"><span class="latex_proof_h">证明</span><span class="latex_proof_h">.</span> 分别对函数方程中的 $x$ 和 $y$ 求两次导数得到
+\begin{align*}
+f''(x+y)+f''(x-y)&amp;=2f''(x)f(y)\\
+f''(x+y)+f''(x-y)&amp;=2f(x)f''(y)
+\end{align*}
+那么 $f''(x)f(y)=f(x)f''(y)$, 分离变量得
+$$\frac{f''(x)}{f(x)}=\frac{f''(y)}{f(y)}\equiv C.$$
+因此只需求解方程 $f''(x)-Cf(x)=0$. 在原方程中令 $x=y$ 得到单变量方程 $f(2x)=2f^2(x)-1$, 求导得到 $f'(0)=0$, 这是解需满足的必要条件, 接下来根据 $C$ 的符号, 结合初始条件以及这个必要条件来筛解.
+<ol>
+<li>$C=0$ 时, $f''(x)=0, f(x)=ax+b$, 由必要条件得 $f$ 只能是常数.
+</li><li>$C&gt;0$ 时, 解得
+$$ f(x)=C_1\mre^{\sqrt{C}x}+C_1\mre^{-\sqrt{C}x}\ \Rightarrow\ f(x)=\frac{\mre^{\lambda x}+\mre^{-\lambda x}}{2}, \lambda\ne0.$$
+</li><li>$C&lt;0$ 时, 解得 
+$$f(x)=C_1\cos ax+C_2\sin ax\ \Rightarrow\ f(x)=\cos\lambda x, \lambda\ne0.$$
+</li></ol>
+综上\begin{align*}
+C=0:&amp;\ f(x)\equiv 1\\
+C&gt;0:&amp;\ f(x)=\frac{\mre^{\lambda x}+\mre^{-\lambda x}}{2}=\cosh(\lambda x),\ \ \lambda\ne0\\
+C&lt;0:&amp;\ f(x)=\cos\lambda x,\ \ \lambda\ne0.
+\end{align*}
+</div>
+</details>
+
+
+<div class="latex_rem"><span class="latex_rem_h">注记 1</span><span class="latex_rem_h">.</span> 事实上, $f$ 只需要在 $\mbr$ 上连续, 再结合函数方程就能推出 $f$ 在 $\mbr$ 上任意阶可导.
+</div>
+
+<div class="latex_examp"><span class="latex_examp_h">例子 3</span><span class="latex_examp_h">.</span> 设 $f\in C^\infty(\mbr)$. 求解函数方程
+$$ f^2(x)-f^2(y)=f(x+y)f(x-y).$$
+</div>
+
+
+<details class="wp-block-details is-layout-flow wp-block-details-is-layout-flow"><summary>证明</summary>
+<div class="latex_proof"><span class="latex_proof_h">证明</span><span class="latex_proof_h">.</span> 首先显然有 $f(0)=0$. 原式两边对 $x$ 求导得
+$$ 2f(x)f'(x)=f'(x+y)f(x-y)+f(x+y)f'(x-y),$$
+再同时两边对 $y$ 求导得
+$$0=f''(x+y)f(x-y)-f(x+y)f''(x-y).$$
+令 $u=x+y,v=x-y$, 则可分离变量为
+$$\frac{f''(u)}{f(u)}=\frac{f''(v)}{f(v)}\equiv C.$$
+分类讨论得
+<ol>
+<li>$\ C=0: f(x)=\tilde{C}x$. 
+</li><li> $C&gt;0: f(x)=\tilde{C}\sinh (\lambda x)$.
+</li><li>$\ C&lt;0: f(x)=\tilde{C}\sin (\lambda x)$.
+</li></ol>
+</div>
+</details>
+
+
+<div class="latex_examp"><span class="latex_examp_h">例子 4</span><span class="latex_examp_h">.</span> 设 $f\in C^\infty(\mbr)$. 求解函数方程
+$$   f(x+y)=\frac{f(x)+f(y)}{1-f(x)f(y)},\ f(0)=0.$$
+</div>
+
+<div class="latex_examp"><span class="latex_examp_h">例子 5</span><span class="latex_examp_h">.</span> 设 $f,g\in C^\infty(\mbr), f(0)=0, g(0)=1$ 且 $f$ 为奇函数, $g$ 为偶函数. 求解函数方程
+\begin{align*}
+ f(x+y)&amp;=f(x) g(y)+g(x) f(y) \\
+ g(x+y)&amp;=g(x) g(y)-f(x) f(y).
+\end{align*}
+</div>
+
+
+<details class="wp-block-details is-layout-flow wp-block-details-is-layout-flow"><summary>证明</summary>
+<div class="latex_proof"><span class="latex_proof_h">证明</span><span class="latex_proof_h">.</span> </div>
+</details>
+
+
+
+<div class="latex_rem"><span class="latex_rem_h">注记 2</span><span class="latex_rem_h">.</span> <ol>
+<li>边界条件是多余的.
+</li><li> 若去掉奇偶性条件, 两式相除可得到
+$$
+\vp(x+y)=\frac{\vp(x)+\vp(y)}{1-\vp(x)\vp(y)},\ \vp(0)=0.$$
+其中 $\vp(x)=\frac{f(x)}{g(x)}.$ 容易看出 $\vp$ 是奇函数.
+</li></ol>
+</div>
+
+<span class="latex_section">3. 光滑性提升<a id="sec:3"></a></span>
+<span class="latex_section">4. 非经典解<a id="sec:4"></a></span>
+</div>
+  </div>
+  <nav class="post-navigation" aria-label="文章前后导航"><a href="/1280.html"><span>上一篇</span><strong>模论2</strong></a><a href="/1313.html"><span>下一篇</span><strong>双曲三角函数的前世今生</strong></a></nav>
+</article>
+</main>
+  <footer class="site-footer">
+    <p>阿贝尔的数学之旅 · 数学笔记与思考</p>
+    <p><a href="/feed.xml">RSS</a><span aria-hidden="true"> · </span><a href="/sitemap.xml">站点地图</a></p>
+  </footer>
+  <script src="/assets/site.js"></script>
+  
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ["\\(","\\)"]],
+    displayMath: [['$$', '$$'], ["\\[", "\\]"]],
+    processEscapes: true
+  },
+  TeX: {
+    equationNumbers: {autoNumber: "AMS",
+    useLabelIds: true}
+  },
+});
+MathJax.Hub.Config({TeX: {Macros: {"mr": ["\\mathrm{#1}", 1], "mb": ["\\mathbb{#1}", 1], "ee": "\\exists\\,", "ff": "\\forall\\,", "les": "\\leqslant", "ges": "\\geqslant", "sse": "\\subset", "sbs": "\\subset", "sps": "\\supset", "ve": "\\varepsilon", "mbr": "\\mathbb{R}", "mbn": "\\mathbb{N}", "mbz": "\\mathbb{Z}", "mbq": "\\mathbb{Q}", "mbc": "\\mathbb{C}", "mbh": "\\mathbb{H}", "vp": "\\varphi", "nti": "n\\to\\infty", "md": "\\mathrm{d}", "mre": "\\mathrm{e}", "mri": "\\mathrm{i}", "lra": ["\\langle #1\\rangle", 1], "Ker": "\\mathrm{Ker}\\,", "Im": "\\mathrm{Im}\\,", "tl": "\\triangleleft", "set": ["\\left\\{#1\\,\\left|\\,#2\\right. \\right\\}", 2], "mod": ["\\ (\\mr{mod}\\ #1)", 1], "pp": "\\partial", "Gal": ["\\mathrm{Gal}\\left(#1\\right)", 1], "Inv": ["\\mathrm{Inv}\\left(#1\\right)", 1], "End": ["\\mathrm{End}_{#1}\\!\\left(#2\\right)", 2], "Hom": ["\\mathrm{Hom}_{#1}\\!\\left(#2\\right)", 2], "ca": "\\mathcal{A}", "cb": "\\mathcal{B}", "cc": "\\mathcal{C}", "cd": "\\mathcal{D}", "ce": "\\mathcal{E}", "cf": "\\mathcal{F}", "cg": "\\mathcal{G}", "cl": "\\mathcal{L}", "cs": "\\mathcal{S}", "Ext": "\\mathrm{Ext}", "Tor": "\\mathrm{Tor}", "mc": ["\\mathcal{#1}", 1], "ot": "\\otimes"}}});
+</script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_SVG.js"></script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>绪论——测度与概率｜阿贝尔的数学之旅</title>
+  <meta name="description" content="考核方式：平时作业30分, 期末考试70分. 教材：测度论讲义, 严加安, 科学 … 继续阅读 →">
+  <link rel="canonical" href="https://www.abelmath.fun/922.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="阿贝尔的数学之旅">
+  <meta property="og:title" content="绪论——测度与概率｜阿贝尔的数学之旅">
+  <meta property="og:description" content="考核方式：平时作业30分, 期末考试70分. 教材：测度论讲义, 严加安, 科学 … 继续阅读 →">
+  <meta property="og:url" content="https://www.abelmath.fun/922.html">
+  <meta property="og:image" content="https://www.abelmath.fun/assets/og.png">
+  <meta property="og:image:width" content="1731">
+  <meta property="og:image:height" content="909">
+  <meta property="og:image:alt" content="阿贝尔的数学之旅：数学笔记与思考">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="绪论——测度与概率｜阿贝尔的数学之旅">
+  <meta name="twitter:description" content="考核方式：平时作业30分, 期末考试70分. 教材：测度论讲义, 严加安, 科学 … 继续阅读 →">
+  <meta name="twitter:image" content="https://www.abelmath.fun/assets/og.png">
+  <link rel="stylesheet" href="/assets/site.css">
+  <link rel="alternate" type="application/rss+xml" title="阿贝尔的数学之旅" href="/feed.xml">
+</head>
+<body class="article-page">
+  <a class="skip-link" href="#main">跳到正文</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="/" aria-label="阿贝尔的数学之旅首页">
+        <span class="brand-mark" aria-hidden="true">∫</span>
+        <span><strong>阿贝尔的数学之旅</strong><small>ABEL'S MATHEMATICAL JOURNEY</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">目录</button>
+      <nav id="site-nav" class="site-nav" aria-label="主要导航"><a href="/">首页</a><a href="/category/%e8%ae%ba%e6%96%87/">论文</a><a href="/category/ode/">ODE</a><a href="/category/pde/">PDE</a><a href="/category/analysis/">分析</a><a href="/category/analysis/%e6%b5%8b%e5%ba%a6/">测度</a><a href="/category/%e8%bf%91%e4%b8%96%e4%bb%a3%e6%95%b0/">抽代</a><a href="/category/%e5%9f%ba%e4%bb%a3/">基代</a><a href="/category/%e7%a7%91%e6%99%ae/">科普</a><a href="/category/manim/">manim</a><a href="/category/%e6%8e%a2%e8%ae%a8/">探讨</a><a href="/category/%e8%ae%b0%e5%bd%95/">记录</a></nav>
+    </div>
+  </header>
+  <main id="main">
+<article class="article-shell">
+  <header class="article-header">
+    <a class="back-link" href="/">← 返回首页</a>
+    <div class="post-meta"><time datetime="2024-09-25T08:31:06+00:00">2024-09-25</time><a class="chip" href="/category/%E6%B5%8B%E5%BA%A6/">测度</a></div>
+    <h1>绪论——测度与概率</h1>
+    <p>考核方式：平时作业30分, 期末考试70分. 教材：测度论讲义, 严加安, 科学 … 继续阅读 →</p>
+  </header>
+  <div class="article-layout">
+    <aside class="article-rail"><p>NOTE 922</p><span></span><p>2024 · 09 · 25</p></aside>
+    <div class="article-content"><p>考核方式：平时作业30分, 期末考试70分.<br>
+教材：测度论讲义, 严加安, 科学出版社.<br>
+任课老师：陈昕, chenxin217@sjtu.edu.cn</p>
+<p>参考教材：<br>
+</p><ol><li>测度与概率, 严士健, 刘秀芳, 北师大出版社</li><li>Measure Theory, Paul. Halmos, Springer</li><li>An Introduction to Measure Theory, Terence Tao, American Math Society</li><li>Probability Theory and Examples, Rick Durrett</li></ol>
+<p>课程思路：从“如何定义测度”和“可测函数的性质”出发, 定义“关于测度的积分”, 从而得到“积分”的性质.</p>
+<p>如何对一般的随机变量 $X$ 定义期望 $\mathbb{E}(X)$? 这个随机变量可能既不离散, 也不连续.</p>
+<p>线性性：$a\mathbb{E}(X)+b\mathbb{E}(X)=\mathbb{E}(aX+bY).$<br>
+对于非负随机变量 $X,Y$ 我们可以定义非线性期望( $g$ 期望, $G$ 期望, 彭实戈), 它满足次可加性<br>
+$$\hat{\mathbb{E}}(X+Y)\les \hat{\mathbb{E}}(X)+\hat{\mathbb{E}}(Y).$$<br>
+非线性期望在数理金融上有重要作用.</p>
+<p>奇异随机偏微分方程, 如 KPZ 方程<br>
+$$\pp_tu(x,t)=\pp^2_{xx}u(x,t)+(\pp_xu(x,t))^2+\xi(x,t),$$<br>
+其中 $\xi(x,t)$ 为白噪声项, 是一个测度函数. Martin Hairer (2014 Fields) 提出了 regularity structure. 对于线性方程我们可以用测试函数 $\phi$ 将 $u$ 的导数转移到 $\phi$ 上:<br>
+$$\int \pp^2_{xx} u(x,t)f(x,t)\md x=\int u(x,t)\pp^2_{xx} f(x,t)\md x.$$<br>
+但对非线性项难以完全转移.</p>
+</div>
+  </div>
+  <nav class="post-navigation" aria-label="文章前后导航"><a href="/785.html"><span>上一篇</span><strong>Abel 范畴上的同调代数</strong></a><a href="/924.html"><span>下一篇</span><strong>第1章 集类与测度</strong></a></nav>
+</article>
+</main>
+  <footer class="site-footer">
+    <p>阿贝尔的数学之旅 · 数学笔记与思考</p>
+    <p><a href="/feed.xml">RSS</a><span aria-hidden="true"> · </span><a href="/sitemap.xml">站点地图</a></p>
+  </footer>
+  <script src="/assets/site.js"></script>
+  
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ["\\(","\\)"]],
+    displayMath: [['$$', '$$'], ["\\[", "\\]"]],
+    processEscapes: true
+  },
+  TeX: {
+    equationNumbers: {autoNumber: "AMS",
+    useLabelIds: true}
+  },
+});
+MathJax.Hub.Config({TeX: {Macros: {"mr": ["\\mathrm{#1}", 1], "mb": ["\\mathbb{#1}", 1], "ee": "\\exists\\,", "ff": "\\forall\\,", "les": "\\leqslant", "ges": "\\geqslant", "sse": "\\subset", "sbs": "\\subset", "sps": "\\supset", "ve": "\\varepsilon", "mbr": "\\mathbb{R}", "mbn": "\\mathbb{N}", "mbz": "\\mathbb{Z}", "mbq": "\\mathbb{Q}", "mbc": "\\mathbb{C}", "mbh": "\\mathbb{H}", "vp": "\\varphi", "nti": "n\\to\\infty", "md": "\\mathrm{d}", "mre": "\\mathrm{e}", "mri": "\\mathrm{i}", "lra": ["\\langle #1\\rangle", 1], "Ker": "\\mathrm{Ker}\\,", "Im": "\\mathrm{Im}\\,", "tl": "\\triangleleft", "set": ["\\left\\{#1\\,\\left|\\,#2\\right. \\right\\}", 2], "mod": ["\\ (\\mr{mod}\\ #1)", 1], "pp": "\\partial", "Gal": ["\\mathrm{Gal}\\left(#1\\right)", 1], "Inv": ["\\mathrm{Inv}\\left(#1\\right)", 1], "End": ["\\mathrm{End}_{#1}\\!\\left(#2\\right)", 2], "Hom": ["\\mathrm{Hom}_{#1}\\!\\left(#2\\right)", 2], "ca": "\\mathcal{A}", "cb": "\\mathcal{B}", "cc": "\\mathcal{C}", "cd": "\\mathcal{D}", "ce": "\\mathcal{E}", "cf": "\\mathcal{F}", "cg": "\\mathcal{G}", "cl": "\\mathcal{L}", "cs": "\\mathcal{S}", "Ext": "\\mathrm{Ext}", "Tor": "\\mathrm{Tor}", "mc": ["\\mathcal{#1}", 1], "ot": "\\otimes"}}});
+</script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_SVG.js"></script>
+</body>
+</html>

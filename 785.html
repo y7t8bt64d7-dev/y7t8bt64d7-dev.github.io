@@ -1,0 +1,453 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Abel 范畴上的同调代数｜阿贝尔的数学之旅</title>
+  <meta name="description" content="目录 目录 1. 笔记 … 继续阅读 →">
+  <link rel="canonical" href="https://www.abelmath.fun/785.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="阿贝尔的数学之旅">
+  <meta property="og:title" content="Abel 范畴上的同调代数｜阿贝尔的数学之旅">
+  <meta property="og:description" content="目录 目录 1. 笔记 … 继续阅读 →">
+  <meta property="og:url" content="https://www.abelmath.fun/785.html">
+  <meta property="og:image" content="https://www.abelmath.fun/assets/og.png">
+  <meta property="og:image:width" content="1731">
+  <meta property="og:image:height" content="909">
+  <meta property="og:image:alt" content="阿贝尔的数学之旅：数学笔记与思考">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Abel 范畴上的同调代数｜阿贝尔的数学之旅">
+  <meta name="twitter:description" content="目录 目录 1. 笔记 … 继续阅读 →">
+  <meta name="twitter:image" content="https://www.abelmath.fun/assets/og.png">
+  <link rel="stylesheet" href="/assets/site.css">
+  <link rel="alternate" type="application/rss+xml" title="阿贝尔的数学之旅" href="/feed.xml">
+</head>
+<body class="article-page">
+  <a class="skip-link" href="#main">跳到正文</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="/" aria-label="阿贝尔的数学之旅首页">
+        <span class="brand-mark" aria-hidden="true">∫</span>
+        <span><strong>阿贝尔的数学之旅</strong><small>ABEL'S MATHEMATICAL JOURNEY</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">目录</button>
+      <nav id="site-nav" class="site-nav" aria-label="主要导航"><a href="/">首页</a><a href="/category/%e8%ae%ba%e6%96%87/">论文</a><a href="/category/ode/">ODE</a><a href="/category/pde/">PDE</a><a href="/category/analysis/">分析</a><a href="/category/analysis/%e6%b5%8b%e5%ba%a6/">测度</a><a href="/category/%e8%bf%91%e4%b8%96%e4%bb%a3%e6%95%b0/">抽代</a><a href="/category/%e5%9f%ba%e4%bb%a3/">基代</a><a href="/category/%e7%a7%91%e6%99%ae/">科普</a><a href="/category/manim/">manim</a><a href="/category/%e6%8e%a2%e8%ae%a8/">探讨</a><a href="/category/%e8%ae%b0%e5%bd%95/">记录</a></nav>
+    </div>
+  </header>
+  <main id="main">
+<article class="article-shell">
+  <header class="article-header">
+    <a class="back-link" href="/">← 返回首页</a>
+    <div class="post-meta"><time datetime="2024-09-20T06:47:32+00:00">2024-09-20</time><a class="chip" href="/category/%E5%9F%BA%E4%BB%A3/">基代</a></div>
+    <h1>Abel 范畴上的同调代数</h1>
+    <p>目录 目录 1. 笔记 … 继续阅读 →</p>
+  </header>
+  <div class="article-layout">
+    <aside class="article-rail"><p>NOTE 785</p><span></span><p>2024 · 09 · 20</p></aside>
+    <div class="article-content"><p class="wp-block-paragraph"><span id="contents" style="text-align:center; font-size:18px; font-variant:small-caps;display:block;">目录</span><br>
+          <span id="sec:content"><a href="#contents">目录</a></span><br><span> 1.  <a href="#sec:1">笔记</a></span><br><span> 2.  <a href="#sec:2">复形范畴</a></span><br><span>   2.1.  <a href="#sec:2.1">加法范畴上的复形范畴</a></span><br><span>   2.2.  <a href="#sec:2.2">Abel 范畴上的复形范畴</a></span><br><span>   2.3.  <a href="#sec:2.3">上同调函子</a></span><br><span>   2.4.  <a href="#sec:2.4">上同调函子的性质</a></span><br><span>   2.5.  <a href="#sec:2.5">拟同构</a></span><br><span> 3.  <a href="#sec:3">同调代数基本定理</a></span><br><span> 4.  <a href="#sec:4">同伦范畴</a></span><br><span>   4.1.  <a href="#sec:4.1">同伦</a></span><br><span>   4.2.  <a href="#sec:4.2">同伦范畴</a></span><br><span>   4.3.  <a href="#sec:4.3">关键公式</a></span><br><span> 5.  <a href="#sec:5">投射分解和内射分解</a></span><br><span>   5.1.  <a href="#sec:5.1">马蹄引理</a></span><br><span> 6.  <a href="#sec:6">导出函子</a></span><br><span>   6.1.  <a href="#sec:6.1">Motivations</a></span><br><span>   6.2.  <a href="#sec:6.2">Construction and first properties</a></span><br><span>   6.3.  <a href="#sec:6.3">Variations</a></span><br><span> 7.  <a href="#sec:7">$\mr{Ext}^n$ 函子</a></span><br><span>   7.1.  <a href="#sec:7.1">背景</a></span><br><span>   7.2.  <a href="#sec:7.2">正文</a></span><br><span>     7.2.1.  <a href="#sec:7.2.1">左正合反变函子</a></span><br><span>     7.2.2.  <a href="#sec:7.2.2">左正合共变函子</a></span><br><span>     7.2.3.  <a href="#sec:7.2.3">足够多的投射、内射对象</a></span><br><span> 8.  <a href="#sec:8">$\mr{Tor}_n$ 函子</a></span><br><span> 9.  <a href="#sec:9">同调维数</a></span><br><span> 10.  <a href="#sec:10">拉回和推出</a></span><br></p>
+
+
+
+<p class="wp-block-paragraph"><span class="latex_section">1. 笔记<a id="sec:1"></a></span>
+</p>
+
+
+
+<p class="wp-block-paragraph">加法范畴可以讨论态射的加法、对象的余积; Abel 范畴可以讨论态射的核与余核, 进而可以讨论正合列.</p>
+
+
+
+<p class="wp-block-paragraph">整理：同伦、同构、拟同构、同伦等价</p>
+
+
+
+<p class="wp-block-paragraph">$\mr{Hom}$ 函子是左正合的 </p><ol> <li>$\mr{Hom}_\ca(-,N)$ 是反变函子 </li><li>$\mr{Hom}_\ca(M,-)$ 是共变函子 </li></ol>
+
+
+
+<p class="wp-block-paragraph">\begin{align*} I\ \text{是内射对象}\ &amp;\Leftrightarrow\ \mr{Hom}_\ca(-,I)\ \text{正合}\ \Leftrightarrow\ \Ext^1_\ca(M,I)=0,\ff M\in\mr{Ob}(\ca)\\ P\ \text{是投射对象}\ &amp;\Leftrightarrow\ \mr{Hom}_\ca(P,-)\ \text{正合}\ \Leftrightarrow\ \Ext^1_\ca(P,N)=0,\ff N\in\mr{Ob}(\ca) \end{align*}</p>
+
+
+
+<p class="wp-block-paragraph">$\ot$ 函子是右正合共变函子 </p><ol> <li>$M\ot_R-$ 是共变函子 </li><li>$-\ot_RM$ 是共变函子 </li></ol>
+
+
+
+<p class="wp-block-paragraph">有一类特殊的模, 用它作张量积后短正合列仍为短正合列, 正如投射模和内射模在 $\mr{Hom}$ 中所起的作用一样, 这种模就是平坦模.</p>
+
+
+
+<p class="wp-block-paragraph">$$M\ \text{是平坦模}\ \Leftrightarrow\ M\ot_R-\ \text{正合}\ \Leftrightarrow\ \mr{Tor}_1^R (M,N)=0,\ff N\in R-\mr{mod}$$</p>
+
+
+
+<p class="wp-block-paragraph"><span class="latex_section">2. 复形范畴<a id="sec:2"></a></span>
+<span class="latex_subsection">2.1. 加法范畴上的复形范畴<a id="sec:2.1"></a></span>
+</p><div class="latex_defn"><span class="latex_defn_h">定义 1</span> (<span class="latex_defn_name">链复形</span>)<span class="latex_defn_h">.</span> 加法范畴 $\ca$ 上的一个<b>上链复形</b>是指 $\ca$ 的一个态射链 $$ \cdots \longrightarrow X^{n-1} \xrightarrow{d^{n-1}} X^n \xrightarrow{d^n} X^{n+1} \longrightarrow \cdots $$ 满足 $d^n d^{n-1}=0, \ \forall n \in \mathbb{Z}$. 通过添加零对象, 总可认为此链左右无限. 将此上链复形记为 $X^{\bullet}=\left(X^n, d^n\right)_{n \in \mathbb{Z}}$, 或简记为 $X$. <ol> <li>将 $X^n$ 称为 $X^\bullet$ 的第 $n$ 次<b>分支</b>. </li><li>将 $d^n: X^n\to X^{n+1}$ 称为 $X^\bullet$ 的第 $n$ 次<b>微分</b>. </li><li>只有一个非零分支的复形称为<b>轴复形</b>. </li></ol> </div> 类似地, $\ca$ 上的<b>链复形</b>是指 $\ca$ 上的一个态射链 $$ \cdots \longrightarrow X_{n+1} \xrightarrow{d_n} X_n \xrightarrow{d_{n-1}} X_{n-1} \longrightarrow \cdots $$ 满足 $d_{n-1} d_n=0, \ \forall n \in \mathbb{Z}$. 将此上链复形记为 $X^{\bullet}=\left(X_n, d_n\right)_{n \in \mathbb{Z}}$, 或简记为 $X$. 上链复形和链复形, 目前来看, 仅仅记号不同. 以后统称为复形. <div class="latex_examp"><span class="latex_examp_h">例子 1</span><span class="latex_examp_h">.</span> 对 $R$-模 $M$ 的投射分解 $$ \cdots \longrightarrow P_1 \xrightarrow{d_0} P_0 \xrightarrow{\pi} M \longrightarrow 0 $$ 删去 $M$ 后得到复形 $$ \cdots \longrightarrow P_1 \xrightarrow{d_0} P_0 \longrightarrow 0 $$ 此时使用链复形的记号比较自然. 而于 $M$ 的内射分解 $$ 0 \longrightarrow M \xrightarrow{\varepsilon} I^0 \xrightarrow{d^0} I^1 \longrightarrow \cdots $$ 删去 $M$ 后得到复形 $$ 0 \longrightarrow I^0 \xrightarrow{d^0} I^1 \longrightarrow \cdots $$ 此时使用上链复形的记号比较自然. </div> 今后若无特殊说明, 只讨论上链复形, 其实 $\ca$ 上的链复形恰是反范畴 $\ca^{\mr{OP}}$ 上的上链复形. <div class="latex_defn"><span class="latex_defn_h">定义 2</span><span class="latex_defn_h">.</span> 复形之间的<b>链映射</b>(又称复形态射) $f^\bullet: X\to Y$ 是指 $f^\bullet=(f^n)_{n\in\mbz}$, 其中每个 $f^n:X^n\to Y^n$ 均是 $\ca$ 中的态射, 满足 $$ f^{n+1} d_X^n=d_Y^n f^n, \quad \forall n \in \mathbb{Z} $$ 即有如下交换图
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img loading="eager" decoding="async" width="225" height="53" src="/wp-content/uploads/2024/09/P108.svg" alt="" class="wp-image-1115" style="width:426px;height:auto" fetchpriority="high"></figure>
+</div>
+
+
+<p class="wp-block-paragraph"> 也将 $f^\bullet$ 简记为 $f$. 两个链映射相等是指 $f^n=g^n,\ \ff n\in\mbz$. </p></div>
+
+
+
+<p class="wp-block-paragraph"></p><div class="latex_defn"><span class="latex_defn_h">定义 3</span><span class="latex_defn_h">.</span> 复形 $X$ 称为 <ul> <li>有界的: 如果只有有限个非零分支. </li><li>上有界/右有界：如果 $n$ 充分大时 $X^n=0$. </li><li>下有界/左有界：如果 $n$ 充分小时 $X^n=0$. </li></ul> 分别用 $C^b(\ca), C^-(\ca), C^+(\ca)$ 表示 $\ca$ 上所有有界复形、所有上有界复形和所有下有界复形所成的 $C(\ca)$ 的满子范畴. </div>
+
+
+
+<p class="wp-block-paragraph"></p><div class="latex_prop"><span class="latex_prop_h">命题 4</span><span class="latex_prop_h">.</span> 设 $\ca$ 是加法范畴, 则 $C(\ca), C^b(\ca), C^-(\ca), C^+(\ca)$ 均是加法范畴, 其中复形 $X$ 和复形 $Y$ 的余积 $X\oplus Y$ 是复形 $$ \left(X^n \oplus Y^n,\left(\begin{array}{cc} d_x^n &amp; 0 \\ 0 &amp; d_Y^n \end{array}\right)\right) $$ 链映射 $f=\left(f^n\right)_{n \in \mathbb{Z}}: X \longrightarrow Y$ 与 $g=\left(g^n\right)_{n \in \mathbb{Z}}: X \longrightarrow Y$ 的和定义为 $f+g:=\left(f^n+g^n\right)_{n \in \mathbb{Z}}: X \longrightarrow Y$. $C^*(\mathcal{A})$ 中的链映射 $f=\left(f^n\right)_{n \in \mathbb{Z}}: X \longrightarrow Y$ 是 $C^*(\mathcal{A})$ 中的单态射 (满态射,同构) 当且仅当每个 $f^n$ 都是 $\mathcal{A}$ 中的单态射 (满态射, 同构), 这里 $* \in\{$ 空, $b,+,-\}$. </div>
+
+
+
+<p class="wp-block-paragraph"><span class="latex_subsection">2.2. Abel 范畴上的复形范畴<a id="sec:2.2"></a></span>
+设 $\ca$ 是 Abel 范畴, $f:X\to Y$ 是 $\ca$ 上复形的链映射. 对每个 $n$, </p><ul> <li>用 $\sigma^n: \operatorname{Ker} f^n \hookrightarrow X^n$ 表示 $f^n: X^n \rightarrow Y^n$ 在 $\mathcal{A}$ 中的核. </li><li>用 $\pi^{n+1}: Y^{n+1} \twoheadrightarrow \operatorname{Coker} f^{n+1}$ 表示 $f^{n+1}: X^{n+1} \rightarrow Y^{n+1}$ 在 $\mathcal{A}$ 中的余核. </li></ul> 因为 $f^{n+1} d_X^n \sigma^n=d_Y^n f^n \sigma^n=0$, 由核 $\left(\operatorname{Ker} f^{n+1}, \sigma^{n+1}\right)$ 的泛性质, 存在唯一的态射 $\widetilde{d_X^n}: \operatorname{Ker} f^n \rightarrow \operatorname{Ker} f^{n+1}$ 使得 $d_X^n \sigma^n=\sigma^{n+1} \widetilde{d_X^n}$. 同理, 因为 $\pi^{n+1} d_Y^n f^n=0$, 由余核 $\left(\operatorname{Coker} f^n, \pi^n\right)$ 的泛性质, 存在唯一的态射 $\overline{d_Y^n}: \operatorname{Coker} f^n \rightarrow \operatorname{Coker} f^{n+1}$ 使得 $\overline{d_Y^n} \pi^n=\pi^{n+1} d_Y^n$. 所以我们得到如下交换图
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img loading="lazy" decoding="async" width="297" height="125" src="/wp-content/uploads/2024/09/P109.svg" alt="" class="wp-image-1117" style="width:526px;height:auto"></figure>
+</div>
+
+
+<p class="wp-block-paragraph"></p><div class="latex_lem"><span class="latex_lem_h">引理 5</span><span class="latex_lem_h">.</span> 若 $\mathcal{A}$ 是 Abel 范畴, 则 $C^*(\mathcal{A})$ 也都是 Abel 范畴, 其中 $* \in\{$ 空, $b,+,-\}$.链映射的序列 $0 \longrightarrow X \xrightarrow{u} Y \xrightarrow{v} Z \longrightarrow 0$ 是 $C^*(\mathcal{A})$ 中的短正合列当且仅当对于每个 $n \in \mathbb{Z}, 0 \longrightarrow X^n \xrightarrow{u^n} Y^n \xrightarrow{v^n} Z^n \longrightarrow 0$ 均是 $\mathcal{A}$ 中的短正合列. </div>
+
+
+
+<p class="wp-block-paragraph"><span class="latex_subsection">2.3. 上同调函子<a id="sec:2.3"></a></span>
+设 $\mathcal{A}$ 为 Abel 范畴. 对于 $\mathcal{A}$ 上的上链复形 $X=$ $\left(X^n, d^n\right)_{n \in \mathbb{Z}}$ 和任一 $n \in \mathbb{Z}$, 因为 $d^n d^{n-1}=0, \forall n \in \mathbb{Z}$, 故有典范单态射 $\operatorname{Im} d^{n-1} \hookrightarrow \operatorname{Ker} d^n$ ，按照我们的记号，其余核记为 $\operatorname{Ker} d^n / \operatorname{Im} d^{n-1}$ . . 定义复形 $X$ 的 $n$ 次<b>上同调对象</b>为 $$ \mathrm{H}^n(X):=\operatorname{Ker} d^n / \operatorname{Im} d^{n-1} $$ 类似地, 对于 $\mathcal{A}$ 上的链复形 $X=\left(X_n, d_n\right)_{n \in \mathbb{Z}}$ 和任一 $n \in \mathbb{Z}$, 定义其 $n$ 次<b>同调对象</b>为 $$ \mathrm{H}_n(X):=\operatorname{Ker} d_{n-1} / \operatorname{Im} d_n \text {. } $$ 同理, $\mathrm{H}^n$ 和 $\mathrm{H}_n$ 仅仅是记号上的不同. 以后只对 $\mathrm{H}^n$ 叙述. </p><div class="latex_lem"><span class="latex_lem_h">引理 6</span><span class="latex_lem_h">.</span> 设 $\mathcal{A}$ 是 Abel 范畴. 则有加法函子 $\mathrm{H}^n: C(\mathcal{A}) \longrightarrow \mathcal{A}$. </div> <span class="latex_subsection">2.4. 上同调函子的性质<a id="sec:2.4"></a></span>
+
+
+
+
+<p class="wp-block-paragraph"><span class="latex_subsection">2.5. 拟同构<a id="sec:2.5"></a></span>
+</p><div class="latex_defn"><span class="latex_defn_h">定义 7</span> (<span class="latex_defn_name">拟同构</span>)<span class="latex_defn_h">.</span> 复形范畴 $C(\ca)$ 中的链映射 $f:X\to Y$ 称为拟同构, 如果对于任何 $n\in\mbz,\ \mr{H}^n(f):\mr{H}^n(X)\to \mr{H}^n(Y)$ 都是 $\ca$ 中的同构. </div> 如果 $f: X \longrightarrow Y$ 是 $C(\mathcal{A})$ 中的同构, 即有链映射 $g: Y \longrightarrow X$ 使 $g f=\operatorname{Id}_X, f g=\operatorname{Id}_Y$, 则 $$ \mathrm{H}^n(g) \mathrm{H}^n(f)=\mathrm{H}^n(g f)=\mathrm{H}^n\left(\operatorname{Id}_X\right)=\operatorname{Id}_{\mathrm{H}^n(X)}, $$ 同理 $\mathrm{H}^n(f) \mathrm{H}^n(g)=\operatorname{Id}_{\mathrm{H}^n(Y)}$. 故有 <div class="latex_prop"><span class="latex_prop_h">命题 8</span><span class="latex_prop_h">.</span> 复形范畴 $C(\mathcal{A})$ 中的同构必为拟同构. 反之未必. </div> 例如, 取模范畴 $R-\operatorname{Mod}$ 中的正合列 $0 \longrightarrow X^0 \xrightarrow{f} X^1 \xrightarrow{g} Y \longrightarrow 0$ 使得 $X^0 \neq 0$. 则有 $C(R-\operatorname{Mod})$ 中的链映射 $g^{\bullet}:X^{\bullet}\to Y^{\bullet}$ :
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img loading="lazy" decoding="async" width="231" height="48" src="/wp-content/uploads/2024/09/P112.svg" alt="" class="wp-image-1119" style="width:417px;height:auto"></figure>
+</div>
+
+
+<p class="wp-block-paragraph">且 $g^{\bullet}$ 是拟同构, 但 $g^{\bullet}$ 不是 $C(R-\mathrm{Mod})$ 中的同构.</p>
+
+
+
+<p class="wp-block-paragraph"><span class="latex_section">3. 同调代数基本定理<a id="sec:3"></a></span>
+</p><div class="latex_thm"><span class="latex_thm_h">定理 9</span> (<span class="latex_thm_name">同调代数基本定理</span>)<span class="latex_thm_h">.</span> 设 $\mathcal{A}$ 是 Abel 范畴, $0 \longrightarrow X \xrightarrow{u} Y \xrightarrow{v} Z \longrightarrow 0$是上链复形的短正合列. 则有 $\mathcal{A}$ 中长正合列 $$ \cdots \longrightarrow \mathrm{H}^n(X) \xrightarrow{\mathrm{H}^n(u)} \mathrm{H}^n(Y) \xrightarrow{\mathrm{H}^n(v)} \mathrm{H}^n(Z) \xrightarrow{c^n} \mathrm{H}^{n+1}(X) \xrightarrow{\mathrm{H}^{n+1}(u)} \mathrm{H}^{n+1}(Y) \longrightarrow \cdots $$ 其中连接态射 $c$ 是自然的: 即, 若有 $C(\mathcal{A})$ 中交换图
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img loading="lazy" decoding="async" width="181" height="46" src="/wp-content/uploads/2024/09/P113_1.svg" alt="" class="wp-image-1121" style="width:342px;height:auto"></figure>
+</div>
+
+
+<p class="wp-block-paragraph">其中上下两行均为 $\mathcal{A}$ 上复形的短正合列, 则有 $\mathcal{A}$ 中长正合列的交换图</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large"><img loading="lazy" decoding="async" width="517" height="67" src="/wp-content/uploads/2024/09/P113_2.svg" alt="" class="wp-image-1122"></figure>
+</div>
+
+
+<p class="wp-block-paragraph"></p></div> 上述同调代数基本定理是用上链复形的语言表述的. 类似地, 如果 $0 \longrightarrow X \xrightarrow{u} Y \xrightarrow{v} Z \longrightarrow 0$ 是链复形的短正合列, 则有 $\mathcal{A}$ 中长正合列 $$ \cdots \longrightarrow \mathrm{H}_{n+1}(Y) \xrightarrow{\mathrm{H}_{n+1}(v)} \mathrm{H}_{n+1}(Z) \xrightarrow{c_n} \mathrm{H}_n(X) \xrightarrow{\mathrm{H}_n(u)} \mathrm{H}_n(Y) \xrightarrow{\mathrm{H}_n(v)} \mathrm{H}_n(Z) \longrightarrow \cdots $$ 其中连接态射 $c$ 是自然的.
+
+
+
+<p class="wp-block-paragraph"></p><div class="latex_defn"><span class="latex_defn_h">定义 10</span> (<span class="latex_defn_name">无环复形</span>)<span class="latex_defn_h">.</span> 复形 $X$ 称为<b>无环复形</b>, 或<b>零调复形</b>, 如果 $X$ 是正合列, 或等价地, $\mr{H}^n(X)=0,\, \ff n\in\mbz$. </div> <div class="latex_cor"><span class="latex_cor_h">推论 11</span><span class="latex_cor_h">.</span> 设 $0 \longrightarrow X \xrightarrow{u} Y \xrightarrow{v} Z \longrightarrow 0$ 为 Abel 范畴 $\mathcal{A}$ 中的复形短正合列. 则 <ol> <li>当 $X, Y, Z$ 三者中有两个为无环复形时, 第三个也为无环复形. </li><li>链映射 $u$ 是拟同构当且仅当 $Z$ 是无环复形; $v$ 是拟同构当且仅当 $X$ 是无环复形; 所有的连接态射均为同构当且仅当 $Y$ 是无环复形. </li></ol> </div>
+
+
+
+<p class="wp-block-paragraph"><span class="latex_section">4. 同伦范畴<a id="sec:4"></a></span>
+<span class="latex_subsection">4.1. 同伦<a id="sec:4.1"></a></span>
+首先我们介绍链映射之间的同伦关系. </p><div class="latex_defn"><span class="latex_defn_h">定义 12</span> (<span class="latex_defn_name">同伦</span>)<span class="latex_defn_h">.</span> 设 $\ca$ 是加法范畴. <ol> <li>设 $f: X \longrightarrow Y$ 是 $\mathcal{A}$ 上复形的链映射. 称 $f$ 是零伦的，如果存在 $\mathcal{A}$ 中一组态射 $s^n: X^n \longrightarrow Y^{n-1}, \forall n \in \mathbb{Z}$, 使得 $f^n=d_Y^{n-1} s^n+s^{n+1} d_X^n, \forall n \in \mathbb{Z}$. 图示如下: 
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img loading="lazy" decoding="async" width="299" height="63" src="/wp-content/uploads/2024/09/P117.svg" alt="" class="wp-image-1125" style="width:477px;height:auto"></figure>
+</div>
+
+
+<p class="wp-block-paragraph">此时称 $s=\left(s^n\right)_{n \in \mathbb{Z}}$ 是链映射 $f$ 到链映射 $0$ 的一个同伦, 记为 $f \stackrel{s}{\sim} 0$, 或 $s: f \sim 0$. </p></li><li>设 $f: X \longrightarrow Y$ 和 $g: X \longrightarrow Y$ 是链映射. 称 $f$ 与 $g$ 同伦, 记为 $f \sim g$,如果存在 $f-g \stackrel{s}{\sim} 0$, 即 $f^n-g^n=d_Y^{n-1} s^n+s^{n+1} d_X^n, \forall n \in \mathbb{Z}$. 此时也记为 $f \stackrel{s}{\sim} g$,并称 $s=\left(s^n\right)_{n \in \mathbb{Z}}$ 是链映射 $f$ 到链映射 $g$ 的一个同伦. </li></ol> </div> <div class="latex_rem"><span class="latex_rem_h">注记 1</span><span class="latex_rem_h">.</span> <ul> <li>同伦 $s$ 未必与微分可换, 即 $d_Y^{n-1} s^n \neq s^{n+1} d_X^n$. </li><li>同伦的链映射未必是相同的链映射. </li><li>链映射的同伦关系 $\sim$ 是范畴 $C(\mathcal{A})$ 中的等价关系. </li></ul> </div> 同伦关系的意义在于如下命题. <div class="latex_prop"><span class="latex_prop_h">命题 13</span><span class="latex_prop_h">.</span> 设 $\ca$ 是 Abel 范畴. 则同伦的链映射诱导出相同的上同调对象之间的态射. 即若链映射 $f,g:X\to Y$ 且 $f \stackrel{s}{\sim} g$, 则 $$\mr{H}^n(f)=\mr{H}^n(g): \mr{H}^n(X)\to \mr{H}^n(Y).$$</div>
+
+
+
+<details class="wp-block-details is-layout-flow wp-block-details-is-layout-flow"><summary>证明</summary>
+<div class="latex_proof"><span class="latex_proof_h">证明</span><span class="latex_proof_h">.</span> 对每个 $n$, 用 $\sigma_X^n: \operatorname{Ker} d_X^n \hookrightarrow X^n$ 表示 $d_X^n: X^n \longrightarrow X^{n+1}$ 的核. 因为 $d_Y^n f^n \sigma_X^n=f^{n+1} d_X^n \sigma_X^n=0$, 故存在唯一的态射 $c^n(f): \operatorname{Ker} d_X^n \longrightarrow \operatorname{Ker} d_Y^n$ 使得有正合列的交换图
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img decoding="async" width="219" height="56" fetchpriority="low" src="/wp-content/uploads/2024/09/P118_1.svg" alt="" class="wp-image-1129" style="width:411px;height:auto" loading="lazy"></figure>
+</div>
+
+
+<p class="wp-block-paragraph">由如下交换图</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img decoding="async" width="246" height="57" fetchpriority="low" src="/wp-content/uploads/2024/09/P118_2.svg" alt="" class="wp-image-1130" style="width:454px;height:auto" loading="lazy"></figure>
+</div>
+
+
+<p class="wp-block-paragraph">及单-满-分解 $d_Y^{n-1}=\sigma_Y^n a_Y^n \widetilde{d_Y^{n-1}}: Y^{n-1} \longrightarrow Y^n$ 得到<br>\begin{align*}<br>\sigma_Y^n c^n(f-g) &amp; =\left(f^n-g^n\right) \sigma_X^n=\left(d_Y^{n-1} s^n+s^{n+1} d_X^n\right) \sigma_X^n \\<br>&amp; =d_Y^{n-1} s^n \sigma_X^n=\sigma_Y^n a_Y^n \widetilde{d_Y^{n-1}} s^n \sigma_X^n .<br>\end{align*}故 $c^n(f-g)=a_Y^n \widetilde{d_Y^{n-1}} s^n \sigma_X^n$. 于是$$\left(\mathrm{H}^n(f)-\mathrm{H}^n(g)\right) e_X^n=\mathrm{H}^n(f-g) e_X^n=e_Y^n c^n(f-g)=e_Y^n a_Y^n \widetilde{d_Y^{n-1}} s^n \sigma_X^n=0$$从而 $\mathrm{H}^n(f)-\mathrm{H}^n(g)=0$.</p></div>
+</details>
+
+
+
+<p class="wp-block-paragraph"><span class="latex_subsection">4.2. 同伦范畴<a id="sec:4.2"></a></span>
+设 $\ca$ 为加法范畴, $X$ 和 $Y$ 是 $C(\ca)$ 中的复形. 令 $$ \operatorname{Htp}(X, Y):=\{f \mid f: X \longrightarrow Y \text { 为链映射, 且 } f \sim 0\} . $$ 则 $\operatorname{Htp}(X, Y)$ 是 $\operatorname{Hom}_{C(\mathcal{A})}(X, Y)$ 的子群.</p>
+
+
+
+<p class="wp-block-paragraph"></p><div class="latex_defn"><span class="latex_defn_h">定义 14</span> (<span class="latex_defn_name">同伦范畴</span>)<span class="latex_defn_h">.</span> 加法范畴 $\mathcal{A}$ 的同伦范畴 $K(\mathcal{A})$ 的对象是 $\mathcal{A}$ 上的复形; 对于 $\mathcal{A}$ 上的任意两个复形 $X$ 和 $Y$, 态射集 $\operatorname{Hom}_{K(\mathcal{A})}(X, Y)$ 定义为商群 $$\operatorname{Hom}_{K(\mathcal{A})}(X, Y):=\operatorname{Hom}_{C(\mathcal{A})}(X, Y) / \operatorname{Htp}(X, Y).$$ </div> 在同伦范畴 $K(\ca)$ 中 <ol> <li>两个链映射在 $K(\ca)$ 中相等当仅当这两个链映射是同伦的. </li><li>零态射为零伦的链映射. </li><li>零对象为满足 $\mr{Id}_X\sim0$ 的复形 $X$. </li></ol>
+
+
+
+<p class="wp-block-paragraph"></p><div class="latex_defn"><span class="latex_defn_h">定义 15</span> (<span class="latex_defn_name">可缩复形</span>)<span class="latex_defn_h">.</span> 具体地说, 同伦范畴中的零对象是这样的复形 $(X,d)$, 存在 $s^n: X^n\to X^{n-1}$ 使得 $$ \mathrm{Id}_{X^n}=d^{n-1} s^n+s^{n+1} d^n,\ \forall n \in \mathbb{Z} $$ </div>
+
+
+
+<p class="wp-block-paragraph"></p><div class="latex_prop"><span class="latex_prop_h">命题 16</span><span class="latex_prop_h">.</span> 设 $\ca$ 是 Abel 范畴, 则 $\ca$ 上的可缩复形一定是无环复形; 反之未必. </div> <div class="latex_rem"><span class="latex_rem_h">注记 2</span><span class="latex_rem_h">.</span> <ol> <li>不难验证, 两个复形在复形范畴中的余积(即通常复形的余积) 仍是这两个复形在同伦范畴中的余积. </li><li>同伦范畴 $K(\ca)$ 是加法范畴. </li></ol> </div>
+
+
+
+<p class="wp-block-paragraph"></p><div class="latex_defn"><span class="latex_defn_h">定义 17</span> (<span class="latex_defn_name">同伦等价</span>)<span class="latex_defn_h">.</span> 同伦范畴中的同构称为同伦等价, 即链映射 $f:X\to Y$ 称为同伦等价, 如果存在链映射 $g:Y\to X$ 使得 $$ g f \sim \operatorname{Id}_X,\ f g \sim \operatorname{Id}_Y . $$ 此时也称 $X$ 和 $Y$ 是同伦等价的. </div>
+
+
+
+<p class="wp-block-paragraph"></p><div class="latex_prop"><span class="latex_prop_h">命题 18</span><span class="latex_prop_h">.</span> 设 $\ca$ 是 Abel 范畴, 则 $K(\ca)$ 中的同伦等价是拟同构; 反之未必. </div>
+
+
+
+<details class="wp-block-details is-layout-flow wp-block-details-is-layout-flow"><summary>证明</summary>
+<p class="wp-block-paragraph"></p><div class="latex_proof"><span class="latex_proof_h">证明</span><span class="latex_proof_h">.</span> 因为 $f$ 与 $g$ 同伦等价, 所以 $$ \mathrm{H}^n(g f)=\mathrm{Id}_{\mathrm{H}^n(X)} ,\ \ \mathrm{H}^n(f g)=\mathrm{Id}_{\mathrm{H}^n(Y)},$$ 进而 $$ \mathrm{H}^n(g) \mathrm{H}^n(f)=\operatorname{Id}_{\mathrm{H}^n(X)},\ \ \mathrm{H}^n(f) \mathrm{H}^n(g)=\operatorname{Id}_{\mathrm{H}^n(Y)} . $$ 所以每个 $\mr{H}^n(f)$ 均是同构. 例如, 取 $R$-Mod 中的非可裂短正合列 $0 \longrightarrow X \xrightarrow{f} Y \xrightarrow{g} Z \longrightarrow 0$, 则如下
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img decoding="async" width="133" height="48" fetchpriority="low" src="/wp-content/uploads/2024/09/P120.svg" alt="" class="wp-image-1139" style="width:247px;height:auto" loading="lazy"></figure>
+</div>
+
+
+<p class="wp-block-paragraph">就给出同伦范畴 $K(R-\mathrm{Mod})$ 中的拟同构, 但它不是同伦等价. </p></div>
+</details>
+
+
+
+<p class="wp-block-paragraph"></p>
+
+
+
+<p class="wp-block-paragraph"><span class="latex_subsection">4.3. 关键公式<a id="sec:4.3"></a></span>
+</p>
+
+
+
+<p class="wp-block-paragraph"><span class="latex_section">5. 投射分解和内射分解<a id="sec:5"></a></span>
+</p>
+
+
+
+<p class="wp-block-paragraph">投射分解总是存在的, 但不唯一. 借助同伦关系, 在同伦等价的意义下唯一. 设 $\ca$ 是有足够多投射对象的 Abel 范畴. </p><div class="latex_defn"><span class="latex_defn_h">定义 19</span> (<span class="latex_defn_name">投射分解</span>)<span class="latex_defn_h">.</span> $M$ 是 $\ca$ 中任一对象. 称形如 $$ \cdots \longrightarrow P_2 \xrightarrow{d_1} P_1 \xrightarrow{d_0} P_0 \xrightarrow{\pi} M \longrightarrow 0 $$ 的<b>正合列</b>为 $M$ 的一个投射分解, 其中每个 $P_i$ 均是 $\ca$ 的投射对象. 方便起见, 将 $M$ 的这个投射分解简记为 $P \xrightarrow{\pi} M \longrightarrow 0$, 其中 $P$ 为复形 $$ \cdots \longrightarrow P_2 \xrightarrow{d_1} P_1 \xrightarrow{d_0} P_0 \longrightarrow 0, $$ 并习惯地称 $P$ 为 $M$ 的一个删项投射分解. </div>
+
+
+
+<p class="wp-block-paragraph"></p><div class="latex_examp"><span class="latex_examp_h">例子 2</span><span class="latex_examp_h">.</span> 设 $k$ 是域, $A=k[x] /\left\langle x^s\right\rangle(s \ges 2), M=k[x] /\left\langle x^r\right\rangle(1  \les r  \les s)$ 是 $A$-模.则 $$ \cdots \longrightarrow{ }_A A \xrightarrow{d_1}{ }_A A \xrightarrow{d_0}{ }_A A \xrightarrow{\pi} M \longrightarrow 0 $$ 是 $M$ 的一个投射分解，其中 $$ \begin{aligned} \pi: &amp;\, A \longrightarrow M, \quad f(x)+\left\langle x^s\right\rangle \longmapsto f(x)+\left\langle x^r\right\rangle \\ d_{2 t}: &amp;\, A \longrightarrow A, \quad f(x)+\left\langle x^s\right\rangle \longmapsto x^r f(x)+\left\langle x^s\right\rangle, \quad \forall t \ges 0\\ d_{2 t-1}: &amp;\, A \longrightarrow A, \quad f(x)+\left\langle x^s\right\rangle \longmapsto x^{s-r} f(x)+\left\langle x^s\right\rangle, \quad \forall t \ges 1 . \end{aligned} $$ </div>
+
+
+
+<p class="wp-block-paragraph"></p><div class="latex_thm"><span class="latex_thm_h">定理 20</span> (<span class="latex_thm_name">比较定理</span>)<span class="latex_thm_h">.</span> 设 $\mathcal{A}$ 是有足够多投射对象的 Abel 范畴, $f: M \longrightarrow N$是 $\mathcal{A}$ 中态射, $P \xrightarrow{\pi} M \longrightarrow 0$ 是 $M$ 的一个投射分解, $\cdots \longrightarrow Q_n \longrightarrow \cdots \longrightarrow$ $Q_0 \xrightarrow{\pi^{\prime}} N \longrightarrow 0$ 是正合列 ( $Q_i$ 未必是投射对象), $Q$ 是删去 $N$ 后得到的复形. 则存在链映射 $\alpha: P \longrightarrow Q$, 使得下图交换
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img loading="lazy" decoding="async" width="336" height="53" src="/wp-content/uploads/2024/09/P123.svg" alt="" class="wp-image-1143" style="width:580px;height:auto"></figure>
+</div>
+
+
+<p class="wp-block-paragraph"> 即 $f \pi=\pi^{\prime} \alpha_0$. 进一步, 如果还有链映射 $\beta: P \longrightarrow Q$ 使得上图也交换(即 $\left.f \pi=\pi^{\prime} \beta_0\right)$, 则 $\alpha$ 与 $\beta$ 同伦. </p></div>
+
+
+
+<p class="wp-block-paragraph"><span class="latex_subsection">5.1. 马蹄引理<a id="sec:5.1"></a></span>
+</p><div class="latex_defn"><span class="latex_defn_h">定义 21</span> (<span class="latex_defn_name">链可裂短正合列</span>)<span class="latex_defn_h">.</span> 称 $\mathcal{A}$ 上复形的链映射序列 $0 \longrightarrow P^{\prime} \xrightarrow{f} P \xrightarrow{g} P^{\prime \prime} \longrightarrow 0$ 是链可裂短正合列，如果对于每个 $n \in \mathbb{Z}, 0 \longrightarrow P^{\prime n} \xrightarrow{f^n} P^n \xrightarrow{g^n} P^{\prime \prime n} \longrightarrow 0$ 均是 $\mathcal{A}$中可裂短正合列. 显然, 复形的链可裂短正合列是复形的短正合列. </div>
+
+
+
+<p class="wp-block-paragraph"></p><div class="latex_lem"><span class="latex_lem_h">引理 22</span> (<span class="latex_lem_name">马蹄引理</span>)<span class="latex_lem_h">.</span> 设 $\mathcal{A}$ 是有足够多投射对象的 Abel 范畴, $0 \longrightarrow X \xrightarrow{f}Y \xrightarrow{g} Z \longrightarrow 0$ 是 $\mathcal{A}$ 中短正合列。设 $P^{\prime} \xrightarrow{\pi^{\prime}} X \longrightarrow 0$ 和 $P^{\prime \prime} \xrightarrow{\pi^{\prime \prime}} Z \longrightarrow 0$ 分别为 $X$ 和 $Z$ 的一个投射分解. 则存在 $Y$ 的一个投射分解 $P \xrightarrow{\pi} Y \longrightarrow 0$, 使得 $P_n=P_n^{\prime} \oplus P_n^{\prime \prime}, \forall n \ges 0$, 且有如下行与列均为正合列的交换图
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img loading="lazy" decoding="async" width="208" height="156" src="/wp-content/uploads/2024/09/P125.svg" alt="" class="wp-image-1145" style="width:372px;height:auto"></figure>
+</div>
+
+
+<p class="wp-block-paragraph">从而有复形的链可裂短正合列 $0 \longrightarrow P^{\prime} \longrightarrow P \longrightarrow P^{\prime \prime} \longrightarrow 0$ 使得 $P \longrightarrow Y \longrightarrow 0$是 $Y$ 的一个投射分解. </p></div>
+
+
+
+<p class="wp-block-paragraph"><span class="latex_section">6. 导出函子<a id="sec:6"></a></span>
+<span class="latex_subsection">6.1. Motivations<a id="sec:6.1"></a></span>
+</p>
+
+
+
+<p class="wp-block-paragraph">设 $F:\ca\to\cb$ 是 Abel 范畴之间的左正合加法函子, $0\to A\to B\to C\to0$ 是 $\ca$ 中的短正合列. 作用 $F$ 得到正合列 $$0\rightarrow F(A)\rightarrow F(B)\rightarrow F(C) .$$ 我们会问能否向右延长这个正合列得到长正合列. 严格来说这个问题不是良定的, 因为有很多种不同的延长方法. 但是当 $A$ 的性质足够好时, 存在一种由右导出函子给出的典范方法. 对任意 $i\ges1$, 存在函子 $\mr{R}^iF:\ca\to\cb$ 使得一下为正合列 \begin{array} 00\!\!\!\! &amp;\to F(A)\!\!\!\! &amp;\to F(B)\!\!\!\! &amp;\to F(C)\\ &amp;\to \mr{R}^1F(A)\!\!\!\! &amp;\to \mr{R}^1F(B)\!\!\!\! &amp;\to \mr{R}^1F(C)\\ &amp;\to \mr{R}^2F(A)\!\!\!\! &amp;\to \mr{R}^2F(B)\!\!\!\! &amp;\to \mr{R}^2F(C)\!\!\!\!\!\!\!\! &amp;\to\cdots \end{array} 由此可得 $F$ 为正合函子当仅当 $\mr{R}^1F=0$. 在这个角度下, $F$ 的右导出函子衡量了 $F$ 成为正合函子的障碍. 如果 $0\to A\to B\to C\to0$ 中的 $A$ 是内射对象, 则为可列短正合列, 加法函子保持可列短正合列. 特别地, $\mr{R}^1F(A)=0$. 内射对象上的右导出函子为 $0$, 这是如下构造的动机.</p>
+
+
+
+<p class="wp-block-paragraph"><span class="latex_subsection">6.2. Construction and first properties<a id="sec:6.2"></a></span>
+</p>
+
+
+
+<p class="wp-block-paragraph">需要对 Abel 范畴 $\ca$ 作的关键假设为 $\ca$ 有足够多的内射对象. 即, 对任意 $\ca$ 中对象 $A$ 存在单态射 $A\to I$, 其中 $I$ 为 $A$ 中的内射对象. 下面我们来定义<b>共变左正合函子</b> $F:\ca\to\cb$ 的右导出函子. 任取 $X\in\ca$, 考虑其内射分解 $$0\to X\to I^0\to I^1\to I^2\to\cdots,$$ 将 $F$ 作用到 $X$ 的删项内射分解上得到链复形 $$0\to F(I^0)\to F(I^1)\to F(I^2)\to\cdots.$$ 注意：此链复形一般不再是正合列. 但我们可以计算第 $i$ 处的上同调(从 $F(I^i)$ 出发的核模掉到 $F(I^i)$ 的像), 记为 $\mr{R}^iF(X)$. 现在还有很多事情需要核对： </p><ol> <li>$\mr{R}^iF(X)$ 不依赖于 $X$ 的内射分解. </li><li>任何态射 $X\to Y$ 可以自然地产生态射 $\mr{R}^iF(X)\to \mr{R}^iF(Y)$. </li></ol> 因此我们得到一个函子. 左正合性意味着 $0\to F(X)\to F(I^0)\to F(I^1)$ 是正合的, 因此 $\mr{R}^0F(X)=F(X)$, 所以只有在 $i&gt;0$ 时才能得到一些有趣的结果. 如果 $X$ 是内射对象, 则我们可以选取内射分解 $$0\to X\to X\to 0.$$ 因此 $\mr{R}^iF(X)\equiv0,\,i\ges1$. 在实际计算时, 连同长正合列的性质, 它经常被用来计算右导出函子.
+
+
+
+<p class="wp-block-paragraph"><span class="latex_subsection">6.3. Variations<a id="sec:6.3"></a></span>
+如果我们从<b>共变右正合函子</b> $G$ 出发, 并且假设范畴 $\ca$ 有足够多的投射对象, 那么可以类似地定义左导出函子. 任取 $X\in \ca$, 取其投射分解 $$\cdots\to P_2\to P_1\to P_0\to X\to0$$ 将 $G$ 作用于删项投射分解得 $$\cdots\to G(P_2)\to G(P_1)\to G(P_0)\to0.$$ 计算上同调(homology)得到 $\mr{L}_iG(X)$. 和之前类似, $\mr{L}_0G(X)=G(X)$. \begin{array}{rcccccc} \cdots &amp; \to &amp; \mr{L}_2 G(A) &amp; \to &amp; \mr{L}_2 G(B) &amp; \to &amp; \mr{L}_2 G(C)&amp; \\ &amp; \to &amp; \mr{L}_1 G(A) &amp; \to &amp; \mr{L}_1 G(B) &amp; \to &amp; \mr{L}_1 G(C)&amp; \\ &amp; \to &amp; G(A) &amp; \to &amp; G(B) &amp; \to &amp; G(C) &amp; \to0 \end{array} 左导出函子在投射对象上为零. 从<b>反变左正合函子</b> $F$ 出发, 相应得右导出函子也是反变的. 短正合列 $0\to A\to B\to C\to0$ 随之变成长正合列 \begin{array} 00\!\!\!\! &amp;\to F(C)\!\!\!\! &amp;\to F(B)\!\!\!\! &amp;\to F(A)&amp; \\ &amp;\to \mr{R}^1F(C)\!\!\!\! &amp;\to \mr{R}^1F(B)\!\!\!\! &amp;\to \mr{R}^1F(A)&amp; \\ &amp;\to \mr{R}^2F(C)\!\!\!\! &amp;\to \mr{R}^2F(B)\!\!\!\! &amp;\to \mr{R}^2F(A)\!\!\!\!\!\!\!\! &amp;\to\cdots \end{array} 这些左导出函子在投射对象上都为零, 因此可以通过投射分解计算.</p>
+
+
+
+<p class="wp-block-paragraph"><span class="latex_section">7. $\mr{Ext}^n$ 函子<a id="sec:7"></a></span>
+<span class="latex_subsection">7.1. 背景<a id="sec:7.1"></a></span>
+为了帮助理解 $\Ext$ 的含义, 我们现在研究模的扩张问题. </p><div class="latex_defn"><span class="latex_defn_h">定义 23</span> (<span class="latex_defn_name">扩张</span>)<span class="latex_defn_h">.</span> 设 $M,N$ 是两个 $R$-模, 如果有以下的短正合列 $$0\to N\xrightarrow[]{\alpha} E\xrightarrow[]{\beta} M\to 0,$$ 则称此正合列为 $M$ 通过 $N$ 的扩张 (extension). 在不致混淆的情况下也可把 $E$ 称为扩张. 如果这个短正合列是分裂的, 则称这个扩张是分裂扩张, 因此任意两个模的扩张总是存在的. </div> 两个扩张 $E_1$ 与 $E_2$ 同构是指相应的短正合列同构, 即有如下交换图
+
+
+
+<p class="wp-block-paragraph">由于短正合列的同构是一个等价关系, 我们把 $M$ 通过 $N$ 扩张的同构类记为 $E(M,N)$. 我们将建立集合 $E(M,N)$ 与 $\Ext^1_R(M,N)$ 之间的对应关系, 然后证明这个映射是集合的等价, 从而提示了 $\Ext$ 来源于 Extension.</p>
+
+
+
+<p class="wp-block-paragraph">设有 $M$ 通过 $N$ 的扩张 $E$: $$0\to N\xrightarrow[]{\alpha} E\xrightarrow[]{\beta} M\to 0,$$ 用函子 $\mr{Hom}(-,N)$ 作用后得长正合列 $$ \begin{aligned} 0 &amp; \rightarrow \operatorname{Hom}(M, N) \xrightarrow{\bar{\beta}} \operatorname{Hom}(E, N) \xrightarrow{\bar{\alpha}} \operatorname{Hom}(N, N) \\ &amp; \xrightarrow{\Delta^0} \operatorname{Ext}^1(M, N) \rightarrow \operatorname{Ext}^1(E, N) \rightarrow \operatorname{Ext}^1(N, N)\cdots \end{aligned} $$ 根据 $\Ext$ 函子得性质(4), 两个同构的扩张诱导了相同的连接态射 $\delta_E:=\Delta^0$. 因此对于扩张的同构类 $[E]\in E(M,N)$, 可以定义 $$\mr{ch}(E)=\delta_E(1_N)\in\Ext^1_R(M,N),$$ 称为 $[E]$ 的示性类 (characteristic class). </p><div class="latex_thm"><span class="latex_thm_h">定理 24</span><span class="latex_thm_h">.</span> 示性类 $\mr{ch}(E)$ 建立了集合 $E(M,N)$ 与 $\Ext^1_R(M,N)$ 之间的一一对应关系. 特别地, 分裂扩张的示性类等于 $0$. </div> <span class="latex_subsection">7.2. 正文<a id="sec:7.2"></a></span>
+本节我们将左正合(反变)函子的右导出函子理论应用到 $\mr{Hom}$ 函子. <span class="latex_subsubsection">7.2.1. 左正合反变函子<a id="sec:7.2.1"></a></span>设 $\ca$ 是有足够多投射对象的 Abel 范畴, $N$ 是 $\ca$ 中的对象, 则 $\Hom{\ca}{-,N}:\ca\to\mr{Ab}$ 是左正合反变函子. 因此我们有 $\Hom{\ca}{-,N}$ 的第 $n$ 次右导出函子 $\mr{R}^n\Hom{\ca}{-,N}$, 记为 $\Ext_\ca^n(-,N)$. 即我们有反变加法函子 $$\Ext_\ca^n(-,N)=\mr{R}^n\Hom{\ca}{-,N}:\ca\to\mr{Ab}, \ff n\ges0.$$ 对于 $\ca$ 中对象 $M$, 记 $\Ext_\ca^n(M,N):=\Ext_\ca^n(-,N)(M)$. 取 $M$ 的一个投射分解 $$ \cdots \longrightarrow P_2 \xrightarrow{d_1} P_1 \xrightarrow{d_0} P_0 \xrightarrow{\pi} M \longrightarrow 0 $$ 得到复形 $\Hom{\ca}{P,N}:=\Hom{\ca}{-,N}(P)$ $$ 0 \longrightarrow \operatorname{Hom}_{\mathcal{A}}\left(P_0, N\right) \xrightarrow{\left(d_0, N\right)} \operatorname{Hom}_{\mathcal{A}}\left(P_1, N\right) \xrightarrow{\left(d_1, N\right)} \operatorname{Hom}_{\mathcal{A}}\left(P_2, N\right) \longrightarrow \cdots $$ 由定义得 $$ \begin{aligned} &amp; \operatorname{Ext}_{\mathcal{A}}^n(M, N)=\mathrm{H}^n \operatorname{Hom}_{\mathcal{A}}(P, N) \\ =&amp;\operatorname{Ker}{\operatorname{Hom}_{\mathcal{A}}}\left(d_n, N\right) / \operatorname{Im}{\operatorname{Hom}_{\mathcal{A}}}\left(d_{n-1}, N\right), \quad \forall n \ges 0 . \end{aligned} $$ <div class="latex_cor"><span class="latex_cor_h">推论 25</span><span class="latex_cor_h">.</span> 设 $\ca$ 是有足够多投射对象的 Abel 范畴, $N$ 是 $\ca$ 中对象, 则 <ol> <li>$\operatorname{Ext}_{\mathcal{A}}^0(-, N) \cong \operatorname{Hom}_{\mathcal{A}}(-, N)$. </li><li>若 $M$ 是投射对象, 则 $\operatorname{Ext}_{\mathcal{A}}^n(M, N)=0, \forall n \ges 1$. </li><li>对于 $\mathcal{A}$ 中短正合列 $0 \longrightarrow M^{\prime} \xrightarrow{f} M \xrightarrow{g} M^{\prime \prime} \longrightarrow 0$, 有 Abel 群的长正合列 \begin{align*} 0 &amp;\longrightarrow \operatorname{Hom}\left(M^{\prime \prime}, N\right) \xrightarrow{(g, N)} \operatorname{Hom}(M, N) \xrightarrow{(f, N)} \operatorname{Hom}\left(M^{\prime}, N\right)\\ &amp; \xrightarrow{c^0} \operatorname{Ext}_{\mathcal{A}}^1\left(M^{\prime \prime}, N\right)\rightarrow \operatorname{Ext}_{\mathcal{A}}^1\left(M , N\right)\rightarrow \operatorname{Ext}_{\mathcal{A}}^1\left(M^{ \prime}, N\right)\to\cdots \end{align*} </li><li>连接同态 $c^n: \operatorname{Ext}_{\mathcal{A}}^n\left(M^{\prime}, N\right) \longrightarrow \operatorname{Ext}_{\mathcal{A}}^{n+1}\left(M^{\prime \prime}, N\right)$ 是自然的, $\forall n \ges 0$. </li></ol> </div>
+
+
+
+<p class="wp-block-paragraph"><span class="latex_subsubsection">7.2.2. 左正合共变函子<a id="sec:7.2.2"></a></span>设 $\ca$ 是有足够多内射对象的 Abel 范畴. 考虑左正合函子 $\Hom{\ca}{M,-}:\ca\to\mr{Ab}$ 的第 $n$ 次右导出函子 $\mr{ext}^n_\ca(M,-):\ca\to\mr{Ab}$. 对于 $\ca$ 中对象 $N$, 记 $$\mr{ext}^n_\ca(M,-)(N)=:\mr{ext}^n_\ca(M,N).$$ 取 $N$ 的一个内射分解 $$ 0 \longrightarrow N \xrightarrow{\varepsilon} I^0 \xrightarrow{d^0} I^1 \xrightarrow{d^1} I^2 \longrightarrow \cdots. $$ 得到复形 $\operatorname{Hom}_{\mathcal{A}}(M, I):=\operatorname{Hom}_{\mathcal{A}}(M,-)(I)$ : $$ 0 \longrightarrow \operatorname{Hom}_{\mathcal{A}}\left(M, I^0\right) \xrightarrow{\left(M, d^0\right)} \operatorname{Hom}_{\mathcal{A}}\left(M, I^1\right) \xrightarrow{\left(M, d^1\right)} \operatorname{Hom}_{\mathcal{A}}\left(M, I^2\right) \longrightarrow \cdots $$ 由定义即知 $$ \begin{aligned} &amp;\operatorname{ext}_{\mathcal{A}}^n(M, N) =\mathrm{H}^n \operatorname{Hom}_{\mathcal{A}}(M, I) \\ =&amp;\operatorname{Ker} {\operatorname{Hom}_{\mathcal{A}}}\left(M, d^n\right) / \operatorname{Im} {\operatorname{Hom}_{\mathcal{A}}}\left(M, d^{n-1}\right), \quad \forall n \ges 0 \end{aligned} $$ </p><div class="latex_cor"><span class="latex_cor_h">推论 26</span><span class="latex_cor_h">.</span> 设 $\mathcal{A}$ 是有足够多内射对象的 Abel 范畴, $M$ 是 $\mathcal{A}$ 中对象. 则有 <ol> <li>$\operatorname{ext}_{\mathcal{A}}^0(M,-) \cong \operatorname{Hom}_{\mathcal{A}}(M,-)$. </li><li>若 $N$ 是内射对象, 则 $\operatorname{ext}_{\mathcal{A}}^n(M, N)=0, \forall n \ges 1$. </li><li>设 $0 \longrightarrow N^{\prime} \xrightarrow{f} N \xrightarrow{g} N^{\prime \prime} \longrightarrow 0$ 是 $\mathcal{A}$ 中正合列. 则有 Abel 群的长正合列 \begin{align*} 0 &amp;\longrightarrow \operatorname{Hom}\left(M, N^{\prime}\right) \xrightarrow{(M, f)} \operatorname{Hom}(M, N) \xrightarrow{(M, g)} \operatorname{Hom}\left(M, N^{\prime \prime}\right)\\ &amp;\xrightarrow{c^0} \operatorname{ext}_{\mathcal{A}}^1\left(M, N^{\prime}\right)\to \operatorname{ext}_{\mathcal{A}}^1\left(M, N \right)\to \operatorname{ext}_{\mathcal{A}}^1\left(M, N^{\prime\prime}\right)\to \cdots \end{align*} </li><li>连接同态 $c^n: \operatorname{ext}_{\mathcal{A}}^n\left(M, N^{\prime \prime}\right) \longrightarrow \operatorname{ext}_{\mathcal{A}}^{n+1}\left(M, N^{\prime}\right)$ 是自然的. </li></ol> </div>
+
+
+
+<p class="wp-block-paragraph"><span class="latex_subsubsection">7.2.3. 足够多的投射、内射对象<a id="sec:7.2.3"></a></span></p>
+
+
+
+<p class="wp-block-paragraph">设 $\ca$ 是 Abel 范畴, 并且 $\ca$ 既有足够多的投射对象, 又有足够多的内射对象. 例如, 环 $R$ 的左模范畴 $\mr{R-mod}$ 和右模范畴 $\mr{mod\,R}$, Artin 代数 $A$ 的有限生成左模范畴 $A-\mr{mod}$ 和有限生成右模范畴 $\mr{mod}\,A$. 自然的问题是, 对于 $\ca$ 中任意对象 $M$ 和 $N$, 以及任意 $n\ges0$, 是否有 Abel 群的同构 $$\Ext_\ca^n(M,N)\cong \mr{ext}_\ca^n(M,N).$$ </p><div class="latex_prop"><span class="latex_prop_h">命题 27</span><span class="latex_prop_h">.</span> 设 $\ca$ 是 Abel 范畴, 并且 $\ca$ 既有足够多的投射对象, 又有足够多的内射对象, $M$ 是 $\ca$ 中对象. 则有函子的自然同构 $$\Ext_\ca^n(M,-)\cong \mr{ext}_\ca^n(M,-),\ \ff n\in\mbz,\ff n\ges0.$$ 特别地, 对于 $\ca$ 中任意两个对象 $M$ 和 $N$, 有 Abel 群同构 $$\Ext_\ca^n(M,N)\cong \mr{ext}_\ca^n(M,N).$$ </div> 其中 \begin{align*} \Ext_\ca^n(M,N)&amp;:=\Ext_\ca^n(-,N)(M)\\ \mr{ext}_\ca^n(M,N)&amp;:=\mr{ext}_\ca^n(M,-)(N)\\ \mathcal{E}\mr{xt}_\ca^n(M,-)(N)&amp;:=\Ext_\ca^n(M,N). \end{align*} 于是, 若 $\ca$ 既有足够多投射对象, 也有足够多内射对象, 则无需区分 $\Ext_\ca^n(M,N)$ 和 $\mr{ext}_\ca^n(M,N)$, 并通常仅用记号 $\Ext_\ca^n(M,N)$. 这样, 从理论上讲, <b>即可以通过 $M$ 的投射分解, 也可以通过 $N$ 的内射分解来计算 $\mr{Ext}_{\mathcal{A}}^n(M,N)$ . </b> 当然, 实际上投射分解比较容易构造.
+
+
+
+<p class="wp-block-paragraph"></p><div class="latex_cor"><span class="latex_cor_h">推论 28</span><span class="latex_cor_h">.</span> 设 $\ca$ 为 Abel 范畴. <ol> <li>如果 $\mathcal{A}$ 有足够多投射对象, 则下述等价: <ol> <li>$I$ 是内射对象; </li><li>$\operatorname{Ext}_{\mathcal{A}}^n(M, I)=0, \forall M \in \mathcal{A}, \forall n \ges 1$; </li><li>$\operatorname{Ext}_{\mathcal{A}}^1(M, I)=0, \forall M \in \mathcal{A}$. </li></ol> </li><li>如果 $\mathcal{A}$ 有足够多投射对象, 则下述等价: <ol> <li>$P$ 是投射对象; </li><li>$\operatorname{Ext}_{\mathcal{A}}^n(P, N)=0, \forall N \in \mathcal{A}, \forall n \ges 1 $; </li><li>$\operatorname{Ext}_{\mathcal{A}}^1(P, N)=0, \forall N \in \mathcal{A}$. </li></ol> </li><li>如果 $\mathcal{A}$ 有足够多内射对象, 则下述等价: <ol> <li>$I$ 是内射对象; </li><li>$\operatorname{ext}_{\mathcal{A}}^n(M, I)=0, \forall M \in \mathcal{A}, \forall n \ges 1$; </li><li>$\operatorname{ext}_{\mathcal{A}}^1(M, I)=0, \forall M \in \mathcal{A}$. </li></ol> </li><li>如果 $\mathcal{A}$ 有足够多内射对象, 则下述等价: <ol> <li>$P$ 是投射对象; </li><li>$\operatorname{ext}_{\mathcal{A}}^n(P, N)=0, \forall N \in \mathcal{A}, \forall n \ges 1$; </li><li>$\operatorname{ext}_{\mathcal{A}}^1(P, N)=0, \forall N \in \mathcal{A}$. </li></ol> </li></ol> </div> 
+
+
+
+<p class="wp-block-paragraph"></p>
+
+
+
+<p class="wp-block-paragraph"></p><div class="latex_examp"><span class="latex_examp_h">例子 3</span><span class="latex_examp_h">.</span> 考虑 $k$-代数 $A:=k[x] /\left\langle x^s\right\rangle(s \ges 2)$ 上的模 $M:=k[x] /\left\langle x^r\right\rangle$, 其中 $1 \les r\les s.$ $r  \les s$. 计算 $\Ext^n_\ca(M,M).$</div>
+
+
+
+<details class="wp-block-details is-layout-flow wp-block-details-is-layout-flow"><summary>证明</summary>
+<p class="wp-block-paragraph">取 $M$ 的一个投射分解: $$\cdots \longrightarrow{ }_A A \xrightarrow{d_1}{ }_A A \xrightarrow{d_0}{ }_A A \xrightarrow{\pi} M \longrightarrow 0,$$ 其中 $$ \begin{aligned} \pi:&amp; A \longrightarrow M, \quad f(x)+\left\langle x^s\right\rangle \longmapsto f(x)+\left\langle x^r\right\rangle, \\ d_{2 t}=x^r:&amp; A \longrightarrow A, \quad f(x)+\left\langle x^s\right\rangle \longmapsto x^r f(x)+\left\langle x^s\right\rangle, \quad \forall t \ges 0 \\ d_{2 t-1}=x^{s-r}:&amp; A \longrightarrow A, \quad f(x)+\left\langle x^s\right\rangle \longmapsto x^{s-r} f(x)+\left\langle x^s\right\rangle, \quad \forall t \ges 1 . \end{aligned} $$ 将函子 $\operatorname{Hom}_A(-, M)$ 作用在 $M$ 的删项投射分解上, 得到复形的交换图, 其中坚直的同态均为同构</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img decoding="async" width="392" height="56" fetchpriority="low" src="/wp-content/uploads/2024/09/P144_1.svg" alt="" class="wp-image-1148" style="width:579px;height:auto" loading="lazy"></figure>
+</div>
+
+
+<p class="wp-block-paragraph">因此 $$ \begin{align*} \operatorname{Ext}_A^0(M, M) &amp;\cong \operatorname{Hom}_A(M, M) \cong \operatorname{Ker} \operatorname{Hom}_A\left(x^r, M\right)=\operatorname{Ker} 0 \cong M \\ \operatorname{Ext}_A^{2 n-1}(M, M) &amp;\cong \operatorname{Ker}\Big(M \xrightarrow{x^{s-r}} M\Big) \cong \begin{cases}M, &amp; s \ges 2 r \\ \frac{\left\langle x^{2 r-s}\right\rangle}{\left\langle x^r\right\rangle}, &amp; s&lt;2 r\end{cases} \\ \operatorname{Ext}_A^{2 n}(M, M)&amp;=\frac{M}{\operatorname{Im}\Big(M \xrightarrow{x^{s-r}} M\Big)} \cong \begin{cases}M \\ \frac{k[x]}{\left\langle x^{s-r}\right\rangle} \cong \frac{\left\langle x^{2 r-s}\right\rangle}{\left\langle x^r\right\rangle}, &amp; s&lt;2 r\end{cases} \end{align*} $$ 综上所述我们有 $$ \operatorname{Hom}_A(M, M) \cong M, \quad \operatorname{Ext}_A^n(M, M) \cong\left\{\begin{array}{ll} M, &amp; s \ges 2 r \\ \frac{\left\langle x^{2 r-s}\right\rangle}{\left\langle x^r\right\rangle}, &amp; s&lt;2 r \end{array} \quad \forall n \ges 1\right. $$ </p>
+</details>
+
+
+
+<p class="wp-block-paragraph"></p><div class="latex_examp"><span class="latex_examp_h">例子 4</span><span class="latex_examp_h">.</span> 计算 $\Ext^i_\mbz(\mbz_m,\mbz_n),i=0,1,\cdots.$ 设 $n, m$ 均为大于 1 的整数. </div> 
+
+
+
+<details class="wp-block-details is-layout-flow wp-block-details-is-layout-flow"><summary>证明</summary>
+<p class="wp-block-paragraph">取 $\mathbb{Z}_m$ 的一个投射分解: $0 \longrightarrow \mathbb{Z} \xrightarrow{m} \mathbb{Z} \longrightarrow$ $\mathbb{Z}_m \longrightarrow 0$, 得到复形的交换图, 其中坚直的同态均为同构</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img decoding="async" width="229" height="56" fetchpriority="low" src="/wp-content/uploads/2024/09/P144_2.svg" alt="" class="wp-image-1149" style="width:383px;height:auto" loading="lazy"></figure>
+</div>
+
+
+<p class="wp-block-paragraph">因此 $$ \begin{aligned} &amp; \operatorname{Ext}_{\mathbb{Z}}^i\left(\mathbb{Z}_m, \mathbb{Z}_n\right)=0, \quad i \ges 2 \\ &amp; \operatorname{Ext}_{\mathbb{Z}}^0\left(\mathbb{Z}_m, \mathbb{Z}_n\right) \cong \operatorname{Hom}_{\mathbb{Z}}\left(\mathbb{Z}_m, \mathbb{Z}_n\right) \cong \operatorname{Ker}\Big(\mathbb{Z}_n \xrightarrow{m} \mathbb{Z}_n\Big)=\frac{n}{(m, n)} \mathbb{Z} / n \mathbb{Z} \cong \mathbb{Z}_{(m, n)} \\ &amp; \operatorname{Ext}_{\mathbb{Z}}^1\left(\mathbb{Z}_m, \mathbb{Z}_n\right) \cong \frac{\mathbb{Z}_n}{m \mathbb{Z}_n}=\frac{\mathbb{Z} / n \mathbb{Z}}{(n \mathbb{Z}+m \mathbb{Z}) / n \mathbb{Z}}=\frac{\mathbb{Z} / n \mathbb{Z}}{(n, m) \mathbb{Z} / n \mathbb{Z}}=\mathbb{Z}_{(m, n)} \end{aligned} $$ 其中 $(n, m)$ 表示正整数 $n$ 和 $m$ 的最大公约数. </p>
+</details>
+
+
+
+ <span class="latex_section">8. $\mr{Tor}_n$ 函子<a id="sec:8"></a></span>
+<span class="latex_section">9. 同调维数<a id="sec:9"></a></span>
+同调维数是一个对象投射分解的最短长度. <div class="latex_defn"><span class="latex_defn_h">定义 29</span> (<span class="latex_defn_name">投射维数</span>)<span class="latex_defn_h">.</span> 设 $\ca$ 是有足够多投射对象的 Abel 范畴, $M$ 是 $\ca$ 中对象, $d$ 是非负整数. <ol> <li>称 $M$ 的投射维数不超过 $d$, 记作 $\operatorname{proj}.\operatorname{dim}(M) \les d$, 如果存在 $M$ 的投射分解 $$ 0 \longrightarrow P_d \longrightarrow \cdots \longrightarrow P_0 \longrightarrow M \longrightarrow 0 $$ </li><li>称 $M$ 的投射维数是 $d$, 记作 $\operatorname{proj} . \operatorname{dim}(M)=d$, 如果 $\operatorname{proj}.\operatorname{dim}(M) \les d$, 并且不存在 $M$ 的投射分解 $0 \longrightarrow P_{d-1} \longrightarrow \cdots \longrightarrow P_0 \longrightarrow M \longrightarrow 0$. </li><li>若 $M$ 没有有限长的投射分解, 则称 $M$ 的投射维数为无穷, 记作 $\operatorname{proj} .\operatorname{dim}(M)=\infty$. </li></ol> </div> 据此定义, $\mathcal{A}$ 中对象 $P$ 是投射对象当且仅当 $\operatorname{proj} \cdot \operatorname{dim}(P)=0$. <div class="latex_lem"><span class="latex_lem_h">引理 30</span><span class="latex_lem_h">.</span> 设 $\ca$ 是有足够多投射对象的 Abel 范畴, $M$ 是 $\ca$ 中对象, $d$ 是非负整数. <ol> <li>$\operatorname{proj} .\operatorname{dim}(M) \les d$; </li><li>$\operatorname{Ext}_{\mathcal{A}}^n(M, N)=0, \ff N\in\mr{Ob}(\ca)\ \forall n \ges d+1$ ; </li><li>$\operatorname{Ext}_{\mathcal{A}}^{d+1}(M, N)=0, \ff N\in\mr{Ob}(\ca)$; </li><li>若 $0 \longrightarrow P_d \xrightarrow{t_d} P_{d-1} \longrightarrow \cdots \longrightarrow P_1 \xrightarrow{t_1} P_0 \xrightarrow{t_0} M \longrightarrow 0$ 是 $\mathcal{A}$ 中正合列, 且 $P_0, \cdots, P_{d-1}$ 均为投射对象, 则 $P_d$ 也是投射对象. </li></ol> </div> 
+
+
+
+<details class="wp-block-details is-layout-flow wp-block-details-is-layout-flow"><summary>证明</summary>
+<div class="latex_proof"><span class="latex_proof_h">证明</span><span class="latex_proof_h">.</span> $(1)\Rightarrow (2)$ 和 $(2)\Rightarrow (3)$ 是显然的. 
+
+
+
+$(3)\Rightarrow (4)$. 令 $K_i=\operatorname{Ker} t_i, 0 \les i \les d-1$ (不妨记 $ K_{-1}:=M, K_{d-1}:=P_d$).对每个正合列 $$ 0 \longrightarrow K_i \longrightarrow P_i \longrightarrow K_{i-1} \longrightarrow 0, \quad 0  \les i \les d-1 $$ 由导出函子的性质得长正合列 \begin{align*} 0&amp;\to\mr{Hom}(K_{i-1},N)\to \mr{Hom}(P_i,N)\to \mr{Hom}(K_{i },N)\\ &amp;\to\Ext^1(K_{i-1},N)\to \Ext^1(P_i,N)\to \Ext^1(K_{i },N)\\ &amp;\to\Ext^2(K_{i-1},N)\to \Ext^2(P_i,N)\to \Ext^2(K_{i },N)\\ &amp;\to\Ext^3(K_{i-1},N)\to \Ext^3(P_i,N)\to \Ext^3(K_{i },N)\to\cdots \end{align*} 因 $P_i(0\les i\les d-1)$ 为投射对象, 故 $\Ext^n(P_i,N)=0, \ff N\in\mr{Ob}(\ca),\ff n\ges1$. 故 $$\Ext^n(K_i,N)\cong \Ext^{n-1}(K_i,N),\ \ff n\ges1.$$ 那么 $$\Ext^1_\ca(P_d,N)=\Ext^2_\ca(K_{d-2},N)=\cdots=\Ext^d_\ca(K_0,N)=\Ext^{d+1}_\ca(M,N)=0.$$ 因此 $P_d$ 为投射对象. $(4)\Rightarrow (1)$. 取正合列 $$ P_{d-1} \longrightarrow P_{d-2} \longrightarrow \cdots \longrightarrow P_0 \longrightarrow M \longrightarrow 0 $$ 其中每个 $P_i$ 均是投射对象. 令 $P_d:=\operatorname{Ker}\left(P_{d-1} \rightarrow P_{d-2}\right)$. 则有正合列 $$0 \longrightarrow P_d \longrightarrow P_{d-1} \longrightarrow \cdots \longrightarrow P_0 \longrightarrow M \longrightarrow 0.$$ 由题设知 $P_d$ 也是投射对象，故 $\operatorname{proj.dim}(M) \les d$. </div>
+</details>
+
+
+
+ <div class="latex_lem"><span class="latex_lem_h">引理 31</span><span class="latex_lem_h">.</span> 设 $\ca$ 是有足够多投射对象的 Abel 范畴, $M$ 是 $\ca$ 中对象, $d$ 是非负整数. <ol> <li>$\operatorname{proj} .\operatorname{dim}(M) = d$; </li><li>$\operatorname{Ext}_{\mathcal{A}}^n(M, N)=0, \ff N\in\mr{Ob}(\ca)\forall n \ges d+1$ 且存在 $N'$ 使得 $\Ext_\ca^d(M,N')\ne0$ ; </li><li>$\operatorname{Ext}_{\mathcal{A}}^{d+1}(M, N)=0,\ \ff N\in\mr{Ob}(\ca)$ 且存在 $N'$ 使得 $\Ext_\ca^d(M,N')\ne0$ ; </li><li>若 $0 \longrightarrow P_d \xrightarrow{t_d} P_{d-1} \longrightarrow \cdots \longrightarrow P_1 \xrightarrow{t_1} P_0 \xrightarrow{t_0} M \longrightarrow 0$ 是 $\mathcal{A}$ 中正合列, 且 $P_0, \cdots, P_{d-1}$ 均为投射对象, 则 $P_d$ 也是投射对象且 $t_d$ 非可裂单. </li></ol> </div>  
+
+
+
+<details class="wp-block-details is-layout-flow wp-block-details-is-layout-flow"><summary>证明</summary>
+<p class="wp-block-paragraph"></p><div class="latex_proof"><span class="latex_proof_h">证明</span><span class="latex_proof_h">.</span> $(1)\Rightarrow(2)$. 只证明后一结论. 取 $M$ 的投射分解 $$0 \longrightarrow P_d \xrightarrow{t_d} P_{d-1} \longrightarrow \cdots \longrightarrow P_1 \xrightarrow{t_1} P_0 \xrightarrow{t_0} M \longrightarrow 0$$ 得到复形 $$0\to\mr{Hom}_\ca(P_0,P_d)\to\cdots\to\mr{Hom}_\ca(P_{d-1},P_d)\xrightarrow[]{\ \mr{Hom}(t_d,P_d) \ } \mr{Hom}_\ca(P_d,P_d)\to0.$$ 断言 $$\Ext^d_\ca(M,P_d)=\mr{Hom}_\ca(P_d,P_d)/\mr{Im}\mr{Hom}_\ca(t_d,P_d)\ne0.$$ 否则 $\mr{Hom}_\ca(P_d,P_d)=\mr{Im}\mr{Hom}_\ca(t_d,P_d)$. 对于 $\mr{Id}_{P_d}$, 存在 $\delta:P_{d-1}\to P_d$ 使得 $\delta t_d=\mr{Id}_{P_d}$, 即 $t_d$ 可裂单. 因而存在 $P'_{d-1}$ 使得 $P_{d-1}\cong \mr{Im}t_d\oplus P'_{d-1}$, 于是得到 $M$ 的投射分解 $$0\to P'_{d-1}\to P_{d-2}\to\cdots\to P_0\to M\to0.$$ 即 $\mr{proj.dim}M\les d-1$, 矛盾. $(2)\Rightarrow (3)$ 显然. $(3)\Rightarrow (4)$ 只需证明 $t_d$ 非可裂单. 否则, $M$ 有投射分解 $$0\to P'_{d-1}\to \cdots\to P_0\to0.$$ 从而 $\Ext_\ca^d(M,N)=0,\ \ff N\in\mr{Ob}(\ca)$, 矛盾. $(4)\Rightarrow(1)$. 已知 $\mr{proj.dim}(M)\les d$. 假设 $\mr{proj.dim}(M)\les d-1$. 则得到 $M$ 的投射分解 $$0 \longrightarrow Q_{d-1} \longrightarrow \cdots \longrightarrow Q_0 \longrightarrow M \longrightarrow 0.$$ 另一方面, 取正合列 $$P_{d-1} \longrightarrow P_{d-2} \longrightarrow \cdots \longrightarrow P_0 \longrightarrow M \longrightarrow 0,$$ 其中每个 $P_i$ 均是投射对象. 令 $P_d:=\operatorname{Ker}\left(P_{d-1} \longrightarrow P_{d-2}\right)$. 则有正合列 $0 \longrightarrow P_d \xrightarrow{t_d} P_{d-1} \longrightarrow$ $\cdots \longrightarrow P_0 \longrightarrow M \longrightarrow 0$. 由题设知 $P_d$ 也是投射对象且 $t_d$ 非可裂单. 这样得到 $M$ 的两个投射分解, 由比较定理的推论知存在链映射 $\alpha: P \longrightarrow Q$ 和 $\beta: Q \longrightarrow P$ 使得 $\beta \alpha \sim \operatorname{Id}_P$. 如图所示:
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img decoding="async" width="238" height="52" fetchpriority="low" src="/wp-content/uploads/2024/09/P154.svg" alt="" class="wp-image-1152" style="width:426px;height:auto" loading="lazy"></figure>
+</div>
+
+
+<p class="wp-block-paragraph"></p></div>
+</details>
+
+
+
+<p class="wp-block-paragraph"> <span class="latex_section">10. 拉回和推出<a id="sec:10"></a></span>
+</p>
+
+
+
+<p class="wp-block-paragraph"></p>
+
+</div>
+  </div>
+  <nav class="post-navigation" aria-label="文章前后导航"><a href="/783.html"><span>上一篇</span><strong>Abel 范畴</strong></a><a href="/922.html"><span>下一篇</span><strong>绪论——测度与概率</strong></a></nav>
+</article>
+</main>
+  <footer class="site-footer">
+    <p>阿贝尔的数学之旅 · 数学笔记与思考</p>
+    <p><a href="/feed.xml">RSS</a><span aria-hidden="true"> · </span><a href="/sitemap.xml">站点地图</a></p>
+  </footer>
+  <script src="/assets/site.js"></script>
+  
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ["\\(","\\)"]],
+    displayMath: [['$$', '$$'], ["\\[", "\\]"]],
+    processEscapes: true
+  },
+  TeX: {
+    equationNumbers: {autoNumber: "AMS",
+    useLabelIds: true}
+  },
+});
+MathJax.Hub.Config({TeX: {Macros: {"mr": ["\\mathrm{#1}", 1], "mb": ["\\mathbb{#1}", 1], "ee": "\\exists\\,", "ff": "\\forall\\,", "les": "\\leqslant", "ges": "\\geqslant", "sse": "\\subset", "sbs": "\\subset", "sps": "\\supset", "ve": "\\varepsilon", "mbr": "\\mathbb{R}", "mbn": "\\mathbb{N}", "mbz": "\\mathbb{Z}", "mbq": "\\mathbb{Q}", "mbc": "\\mathbb{C}", "mbh": "\\mathbb{H}", "vp": "\\varphi", "nti": "n\\to\\infty", "md": "\\mathrm{d}", "mre": "\\mathrm{e}", "mri": "\\mathrm{i}", "lra": ["\\langle #1\\rangle", 1], "Ker": "\\mathrm{Ker}\\,", "Im": "\\mathrm{Im}\\,", "tl": "\\triangleleft", "set": ["\\left\\{#1\\,\\left|\\,#2\\right. \\right\\}", 2], "mod": ["\\ (\\mr{mod}\\ #1)", 1], "pp": "\\partial", "Gal": ["\\mathrm{Gal}\\left(#1\\right)", 1], "Inv": ["\\mathrm{Inv}\\left(#1\\right)", 1], "End": ["\\mathrm{End}_{#1}\\!\\left(#2\\right)", 2], "Hom": ["\\mathrm{Hom}_{#1}\\!\\left(#2\\right)", 2], "ca": "\\mathcal{A}", "cb": "\\mathcal{B}", "cc": "\\mathcal{C}", "cd": "\\mathcal{D}", "ce": "\\mathcal{E}", "cf": "\\mathcal{F}", "cg": "\\mathcal{G}", "cl": "\\mathcal{L}", "cs": "\\mathcal{S}", "Ext": "\\mathrm{Ext}", "Tor": "\\mathrm{Tor}", "mc": ["\\mathcal{#1}", 1], "ot": "\\otimes"}}});
+</script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_SVG.js"></script>
+</body>
+</html>

@@ -1,0 +1,523 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>模论2｜阿贝尔的数学之旅</title>
+  <meta name="description" content="目录 目录 1. 正合性 … 继续阅读 →">
+  <link rel="canonical" href="https://www.abelmath.fun/1280.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="阿贝尔的数学之旅">
+  <meta property="og:title" content="模论2｜阿贝尔的数学之旅">
+  <meta property="og:description" content="目录 目录 1. 正合性 … 继续阅读 →">
+  <meta property="og:url" content="https://www.abelmath.fun/1280.html">
+  <meta property="og:image" content="https://www.abelmath.fun/assets/og.png">
+  <meta property="og:image:width" content="1731">
+  <meta property="og:image:height" content="909">
+  <meta property="og:image:alt" content="阿贝尔的数学之旅：数学笔记与思考">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="模论2｜阿贝尔的数学之旅">
+  <meta name="twitter:description" content="目录 目录 1. 正合性 … 继续阅读 →">
+  <meta name="twitter:image" content="https://www.abelmath.fun/assets/og.png">
+  <link rel="stylesheet" href="/assets/site.css">
+  <link rel="alternate" type="application/rss+xml" title="阿贝尔的数学之旅" href="/feed.xml">
+</head>
+<body class="article-page">
+  <a class="skip-link" href="#main">跳到正文</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="/" aria-label="阿贝尔的数学之旅首页">
+        <span class="brand-mark" aria-hidden="true">∫</span>
+        <span><strong>阿贝尔的数学之旅</strong><small>ABEL'S MATHEMATICAL JOURNEY</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">目录</button>
+      <nav id="site-nav" class="site-nav" aria-label="主要导航"><a href="/">首页</a><a href="/category/%e8%ae%ba%e6%96%87/">论文</a><a href="/category/ode/">ODE</a><a href="/category/pde/">PDE</a><a href="/category/analysis/">分析</a><a href="/category/analysis/%e6%b5%8b%e5%ba%a6/">测度</a><a href="/category/%e8%bf%91%e4%b8%96%e4%bb%a3%e6%95%b0/">抽代</a><a href="/category/%e5%9f%ba%e4%bb%a3/">基代</a><a href="/category/%e7%a7%91%e6%99%ae/">科普</a><a href="/category/manim/">manim</a><a href="/category/%e6%8e%a2%e8%ae%a8/">探讨</a><a href="/category/%e8%ae%b0%e5%bd%95/">记录</a></nav>
+    </div>
+  </header>
+  <main id="main">
+<article class="article-shell">
+  <header class="article-header">
+    <a class="back-link" href="/">← 返回首页</a>
+    <div class="post-meta"><time datetime="2024-10-17T07:23:58+00:00">2024-10-17</time><a class="chip" href="/category/%E5%9F%BA%E4%BB%A3/">基代</a></div>
+    <h1>模论2</h1>
+    <p>目录 目录 1. 正合性 … 继续阅读 →</p>
+  </header>
+  <div class="article-layout">
+    <aside class="article-rail"><p>NOTE 1280</p><span></span><p>2024 · 10 · 17</p></aside>
+    <div class="article-content"><span id="contents" style="text-align:center; font-size:18px; font-variant:small-caps;display:block;">目录</span><br>
+          <span id="sec:content"><a href="#contents">目录</a></span><br><span> 1.  <a href="#sec:1">正合性</a></span><br><span> 2.  <a href="#sec:2">Jordan-Hölder定理</a></span><br><span> 3.  <a href="#sec:3">Artin模与Noether模</a></span><br><span>   3.1.  <a href="#sec:3.1">Artin模与Noether模</a></span><br><span>   3.2.  <a href="#sec:3.2">合成列与 Fitting 引理</a></span><br><span>   3.3.  <a href="#sec:3.3">Artin 环和 Noether 环</a></span><br><span> 4.  <a href="#sec:4">Krull-Schmidt-Remak 定理</a></span><br><span> 5.  <a href="#sec:5">自由模与投射模</a></span><br><span>   5.1.  <a href="#sec:5.1">自由模</a></span><br><span>   5.2.  <a href="#sec:5.2">投射模</a></span><br><span> 6.  <a href="#sec:6">内射模</a></span><br><span> 7.  <a href="#sec:7">张量积与平坦模</a></span><br>
+
+
+<span class="latex_section">1. 正合性<a id="sec:1"></a></span>
+<span class="latex_section">2. Jordan-Hölder定理<a id="sec:2"></a></span>
+Motivation for composition series: In abstract algebra, a composition series provides a way to break up an algebraic structure, such as a group or a module, into simple pieces. The need for considering composition series in the context of module arises from the fact that many naturally occurring modules are not semisimple, hence cannot be decomposed into a direct sum of simple modules. A composition series of a module $M$ is a finite increasing filtration of $M$ by submodules such that the successive quotients are simple and serve as a replacement of the direct sum decomposition of $M$ into its simple constituents.
+
+
+
+<div class="latex_defn"><span class="latex_defn_h">定义 1</span> (<span class="latex_defn_name">等价、一步加细、加细</span>)<span class="latex_defn_h">.</span> 左 $R$-模 $M$ 的两个有限的子模序列 $$ M=M_0 \supseteq M_1 \supseteq \cdots \supseteq M_s=0, \quad M=N_0 \supseteq N_1 \supseteq \cdots \supseteq N_t=0 $$ 称为等价的, 如果 $s=t$, 并且存在 $\{0,1, \cdots, s-1\}$ 的一个置换 $\pi$, 使得 $$ M_i / M_{i+1} \cong N_{\pi(i)} / N_{\pi(i)+1}, \quad 0 \les i \les s-1 $$ 对于模 $M$ 的有限的子模序列 $M=M_0 \supseteq M_1 \supseteq \cdots \supseteq M_s=0$ ，在 $M_i$ 与 $M_{i+1}$ 中间添加一个子模 $N$, 将所得到的序列 $$ M=M_0 \supseteq M_1 \supseteq \cdots \supseteq M_i \supseteq N \supseteq M_{i+1} \supseteq \cdots \supseteq M_s=0 $$ 称为原序列的一个一步加细. 将 $M$ 的有限子模序列经过有限步加细后得到的序列称为原序列的一个加细. </div>  <div class="latex_thm"><span class="latex_thm_h">定理 2</span><span class="latex_thm_h">.</span> 模 $M$ 的任意两个有限子模序列均有等价的加细. </div>  <div class="latex_defn"><span class="latex_defn_h">定义 3</span> (<span class="latex_defn_name">合成列</span>)<span class="latex_defn_h">.</span> 非零 $R$-模 $M$ 的一个有限的子模序列 $$ M=M_0 \supseteq M_1 \supseteq \cdots \supseteq M_s=0 $$ 称为 $M$ 的一个合成列, 如果 $M / M_1, M_1 / M_2, \cdots, M_{s-1} / M_s=M_{s-1}$ 均为单 $R$-模. 此时它们称为该合成列的合成因子, $s$ 称为该合成列的长度. </div>
+<div class="latex_rem"><span class="latex_rem_h">注记 1</span><span class="latex_rem_h">.</span> 在合成列这个概念中要注意, 单模这个条件不是平凡的: $N$ 是 $M$ 的极大子模当仅当 $M/N$ 是单模.
+</div>
+  并非任一非零模均有合成列. 例如无限循环群 $\mathbb{Z}$ 作为 $\mathbb{Z}$-模就没有合成列. 非零模 $M$ 具有合成列的意义在于利用单模的扩张可以构建 $M$ 本身. 下述定理表明 $M$ 的合成列的长度和合成因子的全体并不依赖于合成列的选取, 它们是 $M$的内蕴不变量. 因此它是模论中的一条基本定理. <div class="latex_thm"><span class="latex_thm_h">定理 4</span> (<span class="latex_thm_name">Jordan-Hölder 定理</span>)<span class="latex_thm_h">.</span> 模 $M$ 的任意两个合成列均是等价的. </div>
+
+
+
+<details class="wp-block-details is-layout-flow wp-block-details-is-layout-flow"><summary>证明</summary>
+<div class="latex_proof"><span class="latex_proof_h">证明</span><span class="latex_proof_h">.</span> 合成列 $M=M_0 \supseteq M_1 \supseteq \cdots \supseteq M_s=0$ 的一个加细只能在某些 $M_i$ 与 $M_{i+1}$之间添加 $M_i$ 或 $M_{i+1}$, 即合成列并没有真加细. 从而结论由 Scherier 加细定理可推出. </div>
+</details>
+
+
+
+将单模 $S$ 出现在 $M$ 的合成因子中的次数记为 $d_S$, 因此得到 $M$ 的维数向量 $\left(d_S\right)_S$. 这是模同构的不变量. <div class="latex_thm"><span class="latex_thm_h">定理 5</span><span class="latex_thm_h">.</span> 设 $A$ 是有限维代数. 任一单 $A$-模 $S$ 均同构于正则模 ${ }_A A$ 的某一合成因子. 特别地, $A$ 仅有有限多个单 $A$-模的同构类. </div>
+
+
+
+<details class="wp-block-details is-layout-flow wp-block-details-is-layout-flow"><summary>证明</summary>
+<div class="latex_proof"><span class="latex_proof_h">证明</span><span class="latex_proof_h">.</span> 因为 $A$ 是有限维代数, 左正则 $A$-模 ${ }_A A$ 总有合成列. 取 ${ }_A A$ 的一个合成列 $A=M_0 \supseteq M_1 \supseteq M_2 \supseteq \cdots \supseteq M_t=0$ .  则 $A / M_1, M_1 / M_2, \cdots, M_{t-1} / M_t=M_{t-1}$均为单 $A$-模, 且有 $A$-模的短正合列 $$ \begin{aligned} &amp; 0 \longrightarrow M_1 \longrightarrow A \longrightarrow A / M_1 \longrightarrow 0, \\ &amp; 0 \longrightarrow M_2 \longrightarrow M_1 \longrightarrow M_1 / M_2 \longrightarrow 0, \\ &amp; \text { ......... } \\ &amp; 0 \longrightarrow M_{t-1} \longrightarrow M_{t-2} \longrightarrow M_{t-2} / M_{t-1} \longrightarrow 0 . \end{aligned} $$ 设 $S$ 是任意单 $A$-模. 将左正合反变函子 $\operatorname{Hom}_A(-, S)$ 作用在这些正合列上, 我们得到正合列 $$ \begin{aligned} 0 \rightarrow \operatorname{Hom}_A\left(A / M_1, S\right) &amp; \rightarrow \operatorname{Hom}_A(A, S) \rightarrow \operatorname{Hom}_A\left(M_1, S\right) \\ 0 \rightarrow \operatorname{Hom}_A\left(M_1 / M_2, S\right) &amp; \rightarrow \operatorname{Hom}_A\left(M_1, S\right) \rightarrow \operatorname{Hom}_A\left(M_2, S\right) \\ &amp; \ldots \ldots \ldots \ldots \\ 0 \rightarrow \operatorname{Hom}_A\left(M_{t-2} / M_{t-1}, S\right) &amp; \rightarrow \operatorname{Hom}_A\left(M_{t-2}, S\right) \rightarrow \operatorname{Hom}_A\left(M_{t-1}, S\right) \end{aligned} $$ 因为 $\operatorname{Hom}_A(A, S) \cong S \neq 0$ ，由上述正合列可推出存在 $0 \les i \les t-1$ ，使得 $$ \operatorname{Hom}_A\left(M_i / M_{i+1}, S\right) \neq 0 $$ 于是, 由 Schur 引理知 $S \cong M_i / M_{i+1}$. </div>
+</details>
+
+
+
+<span class="latex_section">3. Artin模与Noether模<a id="sec:3"></a></span>
+<span class="latex_subsection">3.1. Artin模与Noether模<a id="sec:3.1"></a></span>
+Artin模与Noether模是有限维模的自然推广.  <div class="latex_defn"><span class="latex_defn_h">定义 6</span> (<span class="latex_defn_name">Artin模与Noether模</span>)<span class="latex_defn_h">.</span> <ol> <li>称 $M$ 是 Artin 模, 如果 $M$ 的任一子模降链驻定(也称满足降链条件): 若 $M_1\sps M_2\sps\cdots$ 是 $M$ 的一个子模降链, 则存在正整数 $N$ 使得 $$M_N=M_{N+1}=\cdots.$$ </li><li>称 $M$ 是 Noether 模, 如果 $M$ 的任一子模升链驻定(也称满足升链条件): 若 $M_1\sbs M_2\sbs\cdots$ 是 $M$ 的一个子模降链, 则存在正整数 $N$ 使得 $$M_N=M_{N+1}=\cdots.$$ </li></ol> </div> <div class="latex_rem"><span class="latex_rem_h">注记 2</span><span class="latex_rem_h">.</span> 由选择公理可得两类模的等价定义 <ol> <li>Artin 模：$M$ 的任一非空子模集中, 对于包含关系有极小元, 即极小子模. </li><li>Noether 模：$M$ 的任一非空子模集中, 对于包含关系有极大元, 即极大子模. </li></ol> </div> <div class="latex_examp"><span class="latex_examp_h">例子 1</span><span class="latex_examp_h">.</span> <ol> <li>有限维代数 $A$ 上的有限维模既是 Artin 模, 也是 Noether 模. </li><li>有限交换群作为 $\mathbb{Z}$-模既是 Artin 模，也是 Noether 模. </li><li>无限循环群 $\mathbb{Z}$ 是 Noether $\mathbb{Z}$-模, 但不是 $\operatorname{Artin} \mathbb{Z}$-模. 一方面, 其子模升链形如
+$$ n_1\mbz\sbs n_2\mbz\sbs n_3\mbz\sbs\cdots,$$
+其中 $n_2|n_1,n_3|n_2,\cdots$. 因为 $n_1$ 的因数是有限的, 故该升链必驻定.<br>
+另一方面, 显然， $\mathbb{Z} \supsetneqq 2 \mathbb{Z} \supsetneqq 2^2 \mathbb{Z} \supsetneqq\cdots$ 不驻定. </li></ol> </div> <div class="latex_lem"><span class="latex_lem_h">引理 7</span><span class="latex_lem_h">.</span> 设 $M_1, M_2, N$ 均是 $M$ 的子模, 且 $M_2 \subseteq M_1, N+M_1=N+M_2, N \cap M_1=N \cap M_2$. 则 $M_1=M_2$. </div> <div class="latex_prop"><span class="latex_prop_h">命题 8</span> (<span class="latex_prop_name">继承性质</span>)<span class="latex_prop_h">.</span> 设 $M$ 是 $R$-模, $N,L$ 为其子模 <ol> <li>Artin 模的子模和商模也是 Artin 模. </li><li>Noether 模的子模和商模也是 Noether 模. </li><li>设 $N$ 是 $M$ 的子模. 若 $N$ 与 $M / N$ 均是 Artin 模, 则 $M$ 也是 Artin 模. </li><li>设 $N$ 是 $M$ 的子模. 若 $N$ 与 $M / N$ 均是 Noether 模, 则 $M$ 也是 Noether 模. </li><li>设 $N$ 和 $L$ 是 $M$ 的子模. 若 $N$ 和 $L$ 是 $\operatorname{Artin}$ 模, 则 $N+L$ 也是 Artin 模. </li><li>设 $N$ 和 $L$ 是 $M$ 的子模. 若 $N$ 和 $L$ 是 Noether 模, 则 $N+L$ 也是 Noether 模. </li></ol> </div>
+
+
+
+<details class="wp-block-details is-layout-flow wp-block-details-is-layout-flow"><summary>证明</summary>
+<div class="latex_proof"><span class="latex_proof_h">证明</span><span class="latex_proof_h">.</span> <ol> <li>[1] 设 $M$ 是 Artin 模, $N$ 为 $M$ 的子模. 则 $N$ 的任一子模降链也是 $M$ 的子模降链，从而驻定，即 $N$ 是 Artin 模. 商模 $M / N$ 的子模降链形如 $M_1 / N \supseteq$ $M_2 / N \supseteq \cdots$ ，其中 $M_1 \supseteq M_2 \supseteq \cdots$ 是 $M$ 的子模降链，它是驻定的，故前者也驻定, 即 $M / N$ 是 $\operatorname{Artin}$ 模. </li><li>[3] 设 $M_1 \supseteq M_2 \supseteq \cdots$ 是 $M$ 的子模降链. 则 $N$ 的子模降链 $M_1 \cap N \supseteq$ $M_2 \cap N \supseteq \cdots$ ，和 $M / N$ 的子模降链 $\left(M_1+N\right) / N \supseteq\left(M_2+N\right) / N \supseteq \cdots$ 都驻定. 从而存在 $s$, 使得 $$ M_s \cap N=M_{s+1} \cap N=\cdots; \quad (M_s+N)/N=(M_{s+1}+N)/N=\cdots $$ 由子模对应定理得 $$ M_s \cap N=M_{s+1} \cap N=\cdots, \quad M_s+N=M_{s+1}+N=\cdots $$ 再由上述引理得 $M_s=M_{s+1}=\cdots$ . 即 $M$ 是 $\operatorname{Artin}$ 模.  </li><li>[5] 由（1）知， $L /(N \cap L)$ 是 Artin 模. 由同构 $(N+L) / N \cong L /(N \cap L)$ ， $(N+L) / N$ 也是 Artin 模. 因为 $N$ 和 $(N+L) / N$ 均是 $\operatorname{Artin}$ 模，由（2）即知 $N+L$ 也是 Artin 模. </li></ol> </div>
+</details>
+
+
+
+<div class="latex_prop"><span class="latex_prop_h">命题 9</span><span class="latex_prop_h">.</span> 设 $M$ 是 $R$-模. 则 $M$ 是 Noether 模当且仅当 $M$ 的任一子模都是有限生成模. </div>
+
+
+
+<details class="wp-block-details is-layout-flow wp-block-details-is-layout-flow"><summary>证明</summary>
+<div class="latex_proof"><span class="latex_proof_h">证明</span><span class="latex_proof_h">.</span> $\Longrightarrow$ ：设 $M$ 是 Noether 模， $N$ 是 $M$ 的子模. 则 $N$ 是有限生成的. 否则，存在 $x_1$ 使得 $R x_1 \varsubsetneqq N$. 再可取 $x_2 \in N-R x_1$, 使得 $R x_1+R x_2 \varsubsetneqq N$. 以此类推, 得到 $N$ 的一个子模升链 $R x_1 \varsubsetneqq R x_1+R x_2 \varsubsetneqq \cdots$, 但它不是驻定的, 这与 $N$ 是 Noether 模矛盾! $\Longleftarrow$ ：设 $M_1 \subseteq M_2 \subseteq \cdots$ 是 $M$ 的一个子模升链. 则 $N:=\bigcup_{n \ges 1} M_n$ 是 $M$的子模, 从而是有限生成的. 设 $N=R x_1+\cdots+R x_s$. 因此存在 $M_l$, 使得 $x_1, \cdots, x_s \in M_l$. 从而 $N=M_l=M_{l+1}=\cdots$. 即 $M_1 \subseteq M_2 \subseteq \cdots$ 驻定, 即 $M$是 Noether 模. </div>
+</details>
+
+
+
+<span class="latex_subsection">3.2. 合成列与 Fitting 引理<a id="sec:3.2"></a></span>
+<div class="latex_defn"><span class="latex_defn_h">定义 10</span> (<span class="latex_defn_name">极大子模</span>)<span class="latex_defn_h">.</span> 模 $M$ 的子模 $N$ 是 $M$ 的极大子模, 如果 $N\ne M$ 且 $M$ 的真包含 $N$ 的子模只有 $M$ 本身. </div>  <div class="latex_thm"><span class="latex_thm_h">定理 11</span><span class="latex_thm_h">.</span> 设 $M$ 是非零 $R$-模. 则 $M$ 有合成列当且仅当 $M$ 既是 $\operatorname{Artin}$ 模, 也是 Noether 模. </div>
+
+
+
+<div class="latex_lem"><span class="latex_lem_h">引理 12</span> (<span class="latex_lem_name">Fitting 引理</span>)<span class="latex_lem_h">.</span> 设 $R$-模 $M$ 既是 Artin 模, 也是 Noether 模. 设 $f: M \longrightarrow M$ 为 $R$-模自同态. 记 $f^{n+1}(x)=f\left(f^n(x)\right), n \ges 1$. 则 $$M=f^{\infty}(M) \oplus f^{-\infty}(0),$$ 其中 $f^{\infty}(M)=\bigcap_{n \ges 1} f^n(M), f^{-\infty}(0)=\bigcup_{n \ges 1} \operatorname{Ker} f^n$, 并且 $f$在 $f^{\infty}(M)$ 上的限制是 $f^{\infty}(M)$ 上的自同构, $f$ 在 $f^{-\infty}(0)$ 上的限制是幂零自同态. </div>
+
+
+
+<details class="wp-block-details is-layout-flow wp-block-details-is-layout-flow"><summary>证明</summary>
+<div class="latex_proof"><span class="latex_proof_h">证明</span><span class="latex_proof_h">.</span> 因为 $M$ 既是 Artin 模, 又是 Noether 模, 从而对于 $M$ 的子模链 $$ f(M) \supseteq f^2(M) \supseteq \cdots \quad \text { 和 } \quad \operatorname{Ker} f \subseteq \operatorname{Ker} f^2 \subseteq \cdots \text { ， } $$ 必存在 $N$ 使得 $f^N(M)=f^{N+1}(M)=\cdots, \operatorname{Ker} f^N=\operatorname{Ker} f^{N+1}=\cdots$ . 因此 $f^{\infty}(M)=f^N(M), f^{-\infty}(0)=\operatorname{Ker} f^N$. 下证 $M=f^N(M) \oplus \operatorname{Ker} f^N$ . 先证 $f^N(M) \cap \operatorname{Ker} f^N=0$ . 任取 $x \in f^N(M) \cap$ $\operatorname{Ker} f^N$, 则存在 $m \in M$ 使得 $x=f^N(m)$ 并且 $f^N(x)=0$. 因此 $f^{2 N}(m)=f^N(x)=0$. 即 $m \in \operatorname{Ker} f^{2 N}$ . 又 $\operatorname{Ker} f^{2 N}=\operatorname{Ker} f^N$, 从而 $x=f^N(m)=0$.再证 $M=f^N(M)+\operatorname{Ker} f^N$ . 任取 $m \in M, f^N(m) \in f^N(M)=f^{2 N}(M)$,因此存在 $m^{\prime} \in M$ 使得 $f^N(m)=f^{2 N}\left(m^{\prime}\right)$, 即 $m-f^N\left(m^{\prime}\right) \in \operatorname{Ker} f^N$. 于是 $m=f^N\left(m^{\prime}\right)+\left(m-f^N\left(m^{\prime}\right)\right)$, 其中 $f^N\left(m^{\prime}\right) \in f^N(M), m-f^N\left(m^{\prime}\right) \in \operatorname{Ker} f^N$.这就证明了 $M=f^N(M)+\operatorname{Ker} f^N$ .  显然 $f$ 在 $f^{\infty}(M)=f^N(M)$ 上的限制给出自同态 $f_1: f^{\infty}(M) \longrightarrow f^{\infty}(M)$,并且它是自同构: 因为 $f_1\left(f^{\infty}(M)\right)=f\left(f^N(M)\right)=f^{N+1}(M)=f^N(M)$, 故 $f_1$ 是满同态; 又 $\operatorname{Ker} f_1 \subseteq f^{-\infty}(0) \cap f^{\infty}(M)=0$, 故 $f_1$ 是单同态. 因为 $f_2\left(\operatorname{Ker} f^N\right)=f\left(\operatorname{Ker} f^N\right) \subseteq \operatorname{Ker} f^N ， f$ 在 $f^{-\infty}(0)=\operatorname{Ker} f^N$ 上的限制给出自同态 $f_2: f^{-\infty}(0) \longrightarrow f^{-\infty}(0)$, 并且它是幂零自同态: 这是因为 $f_2^N\left(\operatorname{Ker} f^N\right)=f^N\left(\operatorname{Ker} f^N\right)=0$. </div>
+</details>
+
+
+
+Fitting 引理的如下推论是 Schur 引理的推广. <div class="latex_cor"><span class="latex_cor_h">推论 13</span><span class="latex_cor_h">.</span> 若 $M$ 是不可分解 $R$-模且有合成列, 则 $M$ 的自同态或者是同构, 或者是幂零的. </div> 有限维线性空间的单 (或满) 线性变换必是同构. 下述结论是这一事实的推广.  <div class="latex_cor"><span class="latex_cor_h">推论 14</span><span class="latex_cor_h">.</span> <ol> <li>Artin 模的单自同态是同构. </li><li>Noether 模的满自同态是同构. </li><li>有合成列模的单 (或满) 自同态是同构. </li></ol> </div>
+
+
+
+<details class="wp-block-details is-layout-flow wp-block-details-is-layout-flow"><summary>证明</summary>
+<div class="latex_proof"><span class="latex_proof_h">证明</span><span class="latex_proof_h">.</span> <ol>
+<li>设 $f: M \longrightarrow M$ 是 $\operatorname{Artin}$ 模 $M$ 的单自同态. 对于 $M$ 的子模链 $f(M) \supseteq f^2(M) \supseteq \cdots$ 必存在 $s$ 使得 $f^s(M)=f^{s+1}(M)=\cdots$ . 从而对于任意 $m \in M$ ，存在 $m^{\prime} \in M$ 使得 $f^s(m)=f^{s+1}\left(m^{\prime}\right)$ . 于是 $m-f\left(m^{\prime}\right) \in \operatorname{Ker} f^s=0$ . 即 $f$ 也是满射, 从而是同构. 
+</li><li>因为 $M$ 为 Noether 模, 故
+$$\Ker f\sbs \Ker f^2\sbs \cdots\sbs \Ker f^N=\Ker f^{N+1}.$$
+又 $\Im f=M$, 则 $\Im f^N=M$, 即任取 $x\in M$, 存在 $y\in M$ 使得 $x=f^N(y)$. 若 $f(x)=0$, 则
+$$0=f(x)=f^{N+1}(y)\ \Rightarrow \ 0=f^N(y)=x.$$
+</li></ol>
+ </div>
+</details>
+
+
+
+<span class="latex_subsection">3.3. Artin 环和 Noether 环<a id="sec:3.3"></a></span>
+<div class="latex_defn"><span class="latex_defn_h">定义 15</span> (<span class="latex_defn_name">Artin 环和 Noether 环</span>)<span class="latex_defn_h">.</span> <ol> <li>环 $R$ 称为左 Artin 环, 如果 ${ }_R R$ 是 Arin 模, 即 $R$ 的任意左理想降链必驻定.  </li><li>环 $R$ 称为左 Noether 环, 如果 ${ }_R R$ 是 Noether 模, 即 $R$ 的任意左理想升链必驻定.  </li></ol> </div>  <div class="latex_prop"><span class="latex_prop_h">命题 16</span><span class="latex_prop_h">.</span> <ol>  <li>环 $R$ 是左 Artin 环当且仅当任一有限生成左 $R$-模是 Artin 模. </li><li>环 $R$ 是左 Noether 环当且仅当任一有限生成左 $R$-模是 Noether 模.   </li></ol> </div>
+
+
+
+<details class="wp-block-details is-layout-flow wp-block-details-is-layout-flow"><summary>证明</summary>
+<div class="latex_proof"><span class="latex_proof_h">证明</span><span class="latex_proof_h">.</span> <ol>
+<li>设 $R$ 是左 $\operatorname{Artin}$ 环, $M$ 是有限生成左 $R$-模. 则有 $M=R x_1+\cdots+R x_n$.因为每个 $R x_i$ 均是 ${ }_R R$ 的同态像，因此 $R x_i$ 均为 $\operatorname{Artin}$ 模. 再由命题 1.8.3 (3) 知 $M$ 是 $\operatorname{Artin}$ 模. 反之，设任一有限生成左 $R$-模是 $\operatorname{Artin}$ 模. 则正则左 $R$-模 ${ }_R R$ 是 Artin 模, 即 $R$ 是左 Artin 环. 
+</li><li>设 $R$ 是左 Noether 环， $N$ 是有限生成左 $R$ 模 $M$ 的子模. 则由 (2') 知 $M$是 Noether 模，从而 $N$ 是有限生成的. 反之，设有限生成左 $R$-模的子模是有限生成的. 则 ${ }_R R$ 的任一子模是有限生成模, 由 (1) 知 $R$ 是左 Noether 环. 
+</li></ol>
+</div>
+</details>
+
+
+
+<div class="latex_prop"><span class="latex_prop_h">命题 17</span><span class="latex_prop_h">.</span> <ol>
+<li>环 $R$ 是左 Noether 环当且仅当 $R$ 的任一左理想是有限生成的.特别地，若 $R$ 是交换环，则 $R$ 是 Noether 环当且仅当 $R$ 的任一理想是有限生成的. 
+</li><li>环 $R$ 是左 Noether 环当且仅当有限生成左 $R$-模的子模是有限生成的.
+</li><li>左 Artin 环上的有限生成非零左 $R$-模有合成列.
+</li></ol>
+</div>
+
+
+
+我们也有右 Artin 环与右 Noether 环的概念和相应的结论. 下例表明左 Artin 环并非是右 Artin 环, 左 Noether 环也并非是右 Noether 环.  下述重要定理的证明需要较多的环论知识.  <div class="latex_thm"><span class="latex_thm_h">定理 18</span><span class="latex_thm_h">.</span> 左 Artin 环一定是左 Noether 环. 右 Artin 环一定是右 Noether 环. </div> 这一定理的逆定理不正确. 例如, $\mathbb{Z}$ 是 Noether 环, 但不是 Artin 环.
+
+
+
+ <span class="latex_section">4. Krull-Schmidt-Remak 定理<a id="sec:4"></a></span>
+在引理中我们指出, Artin 模或者 Noether 模, 必可分解成有限个不可分解模的直和.<br>
+Krull-Schmidt-Remak 定理指出具有<b>合成列</b>的模分解成有限个不可分解模的直和时, 在不计直和因子顺序和同构的意义下, 分解是唯一的. 
+
+
+
+ <div class="latex_lem"><span class="latex_lem_h">引理 19</span><span class="latex_lem_h">.</span> 设 $M$ 是 Artin 模或 Noether 模, 则 $M$ 必可分解成有限个不可分解模的直和.
+</div> 
+
+
+
+<details class="wp-block-details is-layout-flow wp-block-details-is-layout-flow"><summary>证明</summary>
+ <div class="latex_proof"><span class="latex_proof_h">证明</span><span class="latex_proof_h">.</span> 若 $M$ 不可分解, 则结论成立. 否则设
+$$M\cong A_1\oplus B_1,\ (A_1\ne0, B_1\ne0).$$
+若直和分量不可分解, 则结论成立. 有限次分解后若各分量均不可分解, 则结论成立. 不妨假设 $A_n$ 总是可分解的. 那么有 $M$ 可以依次进行如下分解
+\begin{align*}
+M&amp;=A_1\oplus B_1\\
+M&amp;=(A_2\oplus B_2)\oplus B_1\\
+M&amp;=(A_3\oplus B_3)\oplus B_2\oplus B_1\\
+\cdots&amp;\cdots
+\end{align*}
+这样我们分别得到了 $M$ 的子模降链和子模升链
+\begin{align*}
+&amp;M_1\supset A_1\supset A_2\supset A_3\supset\cdots\\
+&amp; B_1\subset B_1\oplus B_2\subset B_1\oplus B_2\oplus B_3\subset \cdots\subset M.
+\end{align*}
+因为 $M$ 是 Artin 模或 Noether 模, 故降链驻定或升链驻定. 因此 “$A_n$ 总是可分解的”假设不成立, 经过有限次分解后, 直和分量均不可分解.
+</div> 
+</details>
+
+
+
+ <div class="latex_thm"><span class="latex_thm_h">定理 20</span> (<span class="latex_thm_name">Krull-Schmidt-Remak 定理</span>)<span class="latex_thm_h">.</span> 设 $R$-模 $M$ 有合成列, 则 $M$ 有如下直和分解
+$$ M\cong M_1\oplus M_2\oplus \cdots\oplus M_n,$$
+其中每个 $M_i$ 均是不可分解模. 并且如果还有
+$$M\cong N_1\oplus N_2\oplus \cdots\oplus N_t,$$
+其中每个 $N_j$ 均是不可分解模. 则 $m=t$, 且存在 $\{1,\cdots,n\}$ 的置换 $\pi$ 使得 $N_i\cong M_{\pi(i)},\ff i.$
+</div> 
+
+
+
+<p class="wp-block-paragraph"></p><div class="latex_defn"><span class="latex_defn_h">定义 21</span> (<span class="latex_defn_name">局部环</span>)<span class="latex_defn_h">.</span> 环 $R$ 称为局部环, 如果 $R$ 中所有不可逆元作成的集合是 $R$ 的一个理想.
+</div>
+
+
+
+<p class="wp-block-paragraph"></p><div class="latex_prop"><span class="latex_prop_h">命题 22</span><span class="latex_prop_h">.</span> $R$-模 $M$ 不可分解当仅当 $\mr{End}_R(M)$ 仅有两个平凡幂等元 $0$ 和 $1$.
+</div>
+
+
+<details class="wp-block-details"><summary>证明</summary>
+<div class="latex_proof"><span class="latex_proof_h">证明</span><span class="latex_proof_h">.</span> \begin{proof}<br>$\Rightarrow$. 若存在非平凡幂元 $e$, 即 $e^2=e, e\ne0,1$. 则可以验证 $M$ 有直和分解<br>$$M=e(M)\oplus (1-e)(M)=:M_1\oplus M_2,$$<br>其中 $M_1,M_2\ne0$, 这与 $M$ 不可分解矛盾.<br>$\Leftarrow$. 若 $M$ 可分解, 设 $M=M_1\oplus M_2, M_1\ne0, M_2\ne0$. 令 $\pi:M\to M$ 为 $M$ 到 $M_1$ 上的投影, 则 $e^2=e$ 且 $e\ne0,1$.<br></div>
+\end{proof}
+</details>
+<!-- /wp:details -->
+
+<!-- wp:paragraph -->
+<div class="latex_prop"><span class="latex_prop_h">命题 23</span><span class="latex_prop_h">.</span> 设 $R$-模 $M$ 有合成列, 则 $M$ 不可分解当仅当 $\mr{End}_R(M)$ 是局部环. </div> 
+<!-- /wp:paragraph -->
+
+<details class="wp-block-details"><summary>证明</summary><!-- wp:paragraph {"placeholder":"键入 / 添加隐藏区块"} -->
+<div class="latex_proof"><span class="latex_proof_h">证明</span><span class="latex_proof_h">.</span> $\Rightarrow.$ 设 $I=\set{f\in\mr{End}_R(M)}{f\text{ 不可逆 }}$, 由 Fitting 引理的推论和 $I$ 中的元素都是幂零的. 任取 $f\in I, g\in \mr{End}_R(M)$, 若 $fg$ 可逆, 则 $1=(fg)(fg)^{-1}$, 左乘 $f^{n-1}$ 得 $f^{n-1}=0$, 矛盾! 同理可得 $gf$ 也不可逆. 任取 $f_1,f_2\in I$, 若 $f_1+f_2\notin I$, 设 $h\in\mr{End}_R(M)$ 为其逆元, 则<br>$$(f_1+f_2)h-1,\ \ f_1h=1-f_2h.$$<br>由上一步知 $f_1h\in I, f_2h\in I$. 因为 $f_2h$ 为幂等元, 故 $1-f_2h$ 可逆：<br>$$(1-a)(1+a+\cdots+a^{n-1})=1-a^n=1,\ a^n=0.$$<br>矛盾! 从而 $f_1+f_2\in I.$<br>$\Leftarrow.$ 我们证明 $\mr{End}_R(M)$ 没有非平凡幂等元 $e$. 若存在 $e\in\mr{End}_R(M), e^2=e, e\ne0,1$, 则由 $1=e+(1-e)$ 以及 $\mr{End}_R(M)$ 为局部环知 $e$ 和 $1-e$ 必有其一可逆. 若 $e$ 可逆, 则在 $0=e(1-e)$ 两边左乘 $e^{-1}$ 得 $1-e=0$, 矛盾. 同理可得 $1-e$ 也不可逆, 矛盾. 
+</div>
+<!-- /wp:paragraph --></details>
+<!-- /wp:details -->
+
+<!-- wp:paragraph -->
+<div class="latex_excs"><span class="latex_excs_h">习题 1</span><span class="latex_excs_h">.</span> 局部环的非零同态像仍是布局环. </div>
+<!-- /wp:paragraph -->
+
+<details class="wp-block-details"><summary>证明</summary><!-- wp:paragraph {"placeholder":"键入 / 添加隐藏区块"} -->
+<div class="latex_proof"><span class="latex_proof_h">证明</span><span class="latex_proof_h">.</span> 设 $f:R\to S$ 为环同态, $R$ 是局部环. 显然 $\Im f$ 中的单位元为 $1_S=f(1_R)$. 下面说明 $r\in R$ 可逆当仅当 $f(r)$ 在 $\Im f$ 中可逆. <br>必要性显然. 充分性：设 $f(r)$ 可逆, 即<br>$$1=f(r)f(r')=f(rr').$$<br>若 $r$ 不可逆, 则 $rr'$ 不可逆, 进而 $1-rr'$ 可逆 (若 $1-rr'$ 不可逆, 则 $1=(1-rr')+rr'$ 也不可逆, 矛盾). 但是 $f(1-rr')=0$, 这说明 $1-rr'$ 不可逆, 矛盾, 从而 $r$ 是可逆的. <br>设 $f(a), f(b)$ 不可逆, 则由上述结论得<br>\begin{align*}<br>f(a)f(b)&amp;=f(ab),\\<br>f(a)+f(b)&amp;=f(a+b)<br>\end{align*}<br>也不可逆. 故 $\Im f$ 中的不可逆元作成 $\Im f$ 的理想, $\Im f$ 为局部环.
+</div>
+<!-- /wp:paragraph --></details>
+<!-- /wp:details -->
+
+<span class="latex_section">5. 自由模与投射模<a id="sec:5"></a></span>
+<span class="latex_subsection">5.1. 自由模<a id="sec:5.1"></a></span>
+自由模可视为环上的线性空间. 
+<div class="latex_defn"><span class="latex_defn_h">定义 24</span> (<span class="latex_defn_name">自由模</span>)<span class="latex_defn_h">.</span> 左 $R$-模 $F$ 称为左自由模, 如果存在 $F$ 中的一簇元素 $\{x_\alpha\}_{\alpha\in I}$, 使任意 $x\in F$ 均可<b>唯一地</b>写成 $\{x_\alpha\}_{\alpha\in I}$ 中元素的<b>有限</b> $R$-组合, 即 $$x=\sum_{\alpha\in I} r_\alpha x_\alpha,\ r_\alpha\in R,$$ 其中只有有限个非零 $r_\alpha$ 且若 $x=\sum_{\alpha\in I} r_\alpha' x_\alpha$, 则 $r_\alpha=r_\alpha'$. 此时称 $\{x_\alpha\}_{\alpha\in I}$ 为 $F$ 的一组 $R$-基. 若 $I$ 是有限集, 则 $F$ 称为有限秩自由模, $|I|$ 称为 $F$ 的秩. </div>
+ <div class="latex_rem"><span class="latex_rem_h">注记 3</span><span class="latex_rem_h">.</span> 其实就是 Hamel基. </div>
+易知, $F$ 是自由 $R$-模当且仅当 $F$ 同构于左正则模的某个直和 $R^{(I)}$; 而 $F$ 是有限秩自由 $R$-模当且仅当 $F$ 同构于 $R^{(n)}=n R$. 
+<div class="latex_prop"><span class="latex_prop_h">命题 25</span><span class="latex_prop_h">.</span> 任一 $R$-模均同构于某个自由模的商模; 任一有限生成 $R$-模均同构于某个有限秩自由模的商模. </div>
+
+<details class="wp-block-details"><summary>证明</summary><!-- wp:paragraph {"placeholder":"键入 / 添加隐藏区块"} -->
+<div class="latex_proof"><span class="latex_proof_h">证明</span><span class="latex_proof_h">.</span> 设 $M$ 是任一 $R$-模. 则 $R^{(M)}$ 为自由模. 构造 $R$-模满同态 $R^{(M)} \longrightarrow M$ 如下: $$ \sum_{m \in M} r_m e_m(\text { 有限和 }) \longmapsto \sum_{m \in M} r_m m \text { (有限和) }, $$ 其中 $e_m=(\cdots, 0,1,0, \cdots)$. 由同态基本定理即知第一个结论. 设 $M$ 是有限生成 $R$-模， $M=R m_1+\cdots+R m_n$ . 则构造 $R$-模满同态 $R^{(n)} \longrightarrow M, e_i \longmapsto m_i, \forall 1 \les i \les n$. 由此即得第二个结论.
+</div>
+<!-- /wp:paragraph --></details>
+<!-- /wp:details -->
+
+<!-- wp:paragraph -->
+<div class="latex_rem"><span class="latex_rem_h">注记 4</span><span class="latex_rem_h">.</span> 有限生成 $R$-模是一个必有限秩自由 $R$-模更弱的概念. 因为生成集 $X$ 不一定是 $R$-线性无关组, 每个元素的表达形式不唯一.
+</div>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<div class="latex_defn"><span class="latex_defn_h">定义 26</span> (<span class="latex_defn_name">不变基数环, IBN 环</span>)<span class="latex_defn_h">.</span> 称环 $R$ 为 IBN 环, 若环 $R$ 上的自由模满足它任何两个基的元素个数相等. 即若 $R^{(n)}=R^{(m)}, m,n\in\mbn^+$, 则 $m=n$. 
+</div>
+
+<div class="latex_prop"><span class="latex_prop_h">命题 27</span><span class="latex_prop_h">.</span> 交换环是 IBN 环, 有限维代数也是 IBN 环. </div> 
+
+<div class="latex_thm"><span class="latex_thm_h">定理 28</span><span class="latex_thm_h">.</span> 主理想整环 $D$ 上秩为 $n$ 的自由模的非零子模 $K$, 均是秩不超过 $n$的自由 $D$-模. </div>
+<!-- /wp:paragraph -->
+
+<details class="wp-block-details"><summary>证明</summary><!-- wp:paragraph {"placeholder":"键入 / 添加隐藏区块"} -->
+<div class="latex_proof"><span class="latex_proof_h">证明</span><span class="latex_proof_h">.</span> 设 $M$ 是 $D$ 上秩为 $n$ 的自由模, 因为 $M\cong D^n$, 故以下仅考虑 $M=D^n$ 的情形 (大概因为 $D$ 为 PID吧). 下用数学归纳法证明.<br>$n=1$ 时, $K$ 是 $D$ 的理想, 故 $K=\lra{a}$, 它是以 $a$ 为基的自由 $D$-模.<br>假设结论对秩为 $n-1$ 的自由模 $D^{n-1}$ 成立, 设 $\{e_1,\cdots,e_{n-1}\}$ 是 $D^{n-1}$ 的一组基. 考虑<br>$$\bar{K}:=(K+D^{n-1})/D^{n-1}\sbs D^n/D^{n-1}.$$<br>若 $\bar{K}=0$, 则 $K\sbs D^{n-1}$, 由归纳假设知结论成立. 设 $K\ne0$, 因为 $D^n/D^{n-1}$ 是基为 $\bar{e}_n=e_n+D^{n-1}$ 的自由 $D$-模, 故 $\bar{K}$ 是秩为 $1$ 的自由 $D$-模, 其基设为 $\bar{a}_1=a_1+D^{n-1}$, 其中 $a_1\in K$. 由第一同构定理得<br>$$\bar{K}=(K+D^{n-1})/D^{n-1}\cong K/(K\cap D^{n-1}).$$<br>若 $K\cap D^{n-1}=0$, 则 $\bar{K}\cong K$, 从而 $K$ 是秩 $1$ 的自由模.<br>若 $K\cap D^{n-1}\ne0$, 则 $K\cap D^{n-1}$ 是 $D^{n-1}$ 的子模, 由归纳假设知 $K\cap D^{n-1}$ 是秩为 $m-1$ 的自由模, 其中 $m\les n$, 设基为 $\{a_2,\cdots,a_m\}$, 又<br>$$K\cong \big[ K/(K\cap D^{n-1})\big]\oplus (K\cap D^{n-1}),$$<br>故 $\{a_1,a_2,\cdots,a_m\}$ 为 $K$ 的一组基.
+</div>
+<!-- /wp:paragraph --></details>
+<!-- /wp:details -->
+
+<details class="wp-block-details"><summary>证明</summary><!-- wp:paragraph {"placeholder":"键入 / 添加隐藏区块"} -->
+<div class="latex_proof"><span class="latex_proof_h">证明</span><span class="latex_proof_h">.</span> 首先, 主理想整环等价于不含非零零因子的交换环, 由上述命题得交换环是 IBN 环, 故其上自由模的秩是良定的. 现在对 $n$ 用归纳法. 若 $n=1, K$ 是 $D$ 的理想, 故 $K=\langle a\rangle$, 它是以 $a$ 为基的自由 $D$-模. 假设结论对秩为 $n-1$ 的自由模 $D^{n-1}$ 成立. 设 $e_1, \cdots, e_{n-1}$ 是 $D^{n-1}$ 的一组基. 令 $\bar{K}:=\left(K+D^{n-1}\right) / D^{n-1} \subseteq D^n / D^{n-1}$. 若 $\bar{K}=0$, 则 $K \subseteq D^{n-1}$, 从而由归纳假设知结论成立. 设 $\bar{K} \neq 0$. 因 $D^n / D^{n-1}$ 是基为 $\overline{e_n}=e_n+D^{n-1}$ 的自由 $D$-模，故 $\bar{K}$ 是秩为 1 的自由 $D$-模，其基设为 $\overline{a_1}=a_1+D^{n-1}$ ，其中 $a_1 \in K$ . 若 $K \cap D^{n-1}=0$, 则 $\bar{K}=\left(K+D^{n-1}\right) / D^{n-1} \cong K /\left(K \cap D^{n-1}\right)=K$ ，从而 $K$ 是秩为 1 的自由 $D$-模. 若 $K \cap D^{n-1} \neq 0$, 则 $K \cap D^{n-1}$ 是 $D^{n-1}$ 的子模, 从而由归纳假设知 $K \cap D^{n-1}$是秩为 $m-1$ 的自由 $D$-模, 其中 $m \les n$. 设 $\left\{a_2, \cdots, a_m\right\}$ 是 $K \cap D^{n-1}$ 的一组 $D$-基. 则 $\left\{a_1, a_2, \cdots, a_m\right\}$ 是 $K$ 的一组 $D$-基. 从而定理证毕.
+</div>
+<!-- /wp:paragraph --></details>
+<!-- /wp:details -->
+
+<span class="latex_subsection">5.2. 投射模<a id="sec:5.2"></a></span>
+投射模是自由模的推广, 并且保留了一些自由模的主要性质 (在定义中 $g$ 不要求唯一). 
+<div class="latex_defn"><span class="latex_defn_h">定义 29</span> (<span class="latex_defn_name">投射模</span>)<span class="latex_defn_h">.</span> <!-- wp:image {"id":758,"align":"center","className":"wp-block-image aligncenter size-large is-resized"} -->
+<figure class="wp-block-image aligncenter size-large is-resized"><img loading="eager" decoding="async" class="wp-image-758" src="/wp-content/uploads/2024/09/tisheng-1.svg" alt="" width="189" height="94" fetchpriority="high"></figure>
+</div>
+
+
+<!-- wp:paragraph -->
+<div class="latex_prop"><span class="latex_prop_h">命题 30</span><span class="latex_prop_h">.</span> 对于任意指标集 $I$, 直和 $\bigoplus_{i \in I} P_i$ 是投射模当且仅当每个 $P_i(i \in I)$ 均为投射模. 
+</div>
+<!-- /wp:paragraph -->
+
+<details class="wp-block-details"><summary>证明</summary><!-- wp:paragraph {"placeholder":"键入 / 添加隐藏区块"} -->
+<div class="latex_proof"><span class="latex_proof_h">证明</span><span class="latex_proof_h">.</span> </div>
+<!-- /wp:paragraph --></details>
+<!-- /wp:details -->
+
+<!-- wp:paragraph -->
+<div class="latex_lem"><span class="latex_lem_h">引理 31</span><span class="latex_lem_h">.</span> 模范畴 $R$-Mod 中的短正合列 $0 \longrightarrow M \xrightarrow{f} L \xrightarrow{g} N \longrightarrow 0$称为可裂短正合列, 如果满足下述等价条件之一: <ol> <li>$f$ 可裂单, 即存在模同态 $f^{\prime}: L \longrightarrow M$, 使得 $f^{\prime} f=\operatorname{Id}_M$ ; </li><li>$\operatorname{Im} f=\operatorname{Ker} g$ 是 $L$ 的直和项; </li><li>$g$ 可裂满, 即存在模同态 $g^{\prime}: N \longrightarrow L$, 使得 $g g^{\prime}=\operatorname{Id}_N$; </li><li>存在模同态 $f^{\prime}: L \longrightarrow M$ 和 $g^{\prime}: N \longrightarrow L$, 使得 $f f^{\prime}+g^{\prime} g=\mathrm{Id}_L$ ； </li><li>存在模同态 $f^{\prime}: L \longrightarrow M$ 和 $g^{\prime}: N \longrightarrow L$ ，使得下图交换 且 $\binom{f^{\prime}}{g}: L \longrightarrow M \oplus N$ 是模同构, 其逆为 $\left(f, g^{\prime}\right): M \oplus N \longrightarrow L$.此时有 $L \cong M \oplus N$. </li></ol> </div>
+<!-- /wp:paragraph -->
+
+<details class="wp-block-details"><summary>证明</summary><!-- wp:paragraph {"placeholder":"键入 / 添加隐藏区块"} -->
+<div class="latex_proof"><span class="latex_proof_h">证明</span><span class="latex_proof_h">.</span> $(1)\to(2)$. 我们可以验证 $L=\mr{Im}f\oplus\mr{Ker}f'$. 任取 $x\in \mr{Im}f\cap\mr{Ker}f'$, 则 $x=f(m)$ 且 $$0=f'(x)=f'(f(m))=m,$$ 从而 $x=f(0)=0$. 任取 $x\in L$, 因为 $$x=f(f'(x))+[x-f(f'(x))],$$ 只需说明 $x-f(f'(x)) \in \Ker f'$: $$ f'\big(x-f(f'(x))\big)=f'(x)-f'(x)=0.$$ $(2)\to(3)$. 设 $L=\Ker g\oplus N'$, 则 $g(L)=g(N')=N$. 直接验证得限制 $g|_{N'}$ 为模同构, 故存在 $g':N\to N'$ 使得 $g|_{N'}g'=\mr{Id}_N$, 将 $g'$ 视为 $N$ 到 $L$ 的模同态即得 $gg'=\mr{Id}_N$. $(3)\to(4)$. 直接验证得 $L=\Ker g\oplus \Im g'$. 因为 $f$ 单, 故存在 $f':\Im f\to M$ 使得 $f'f=\mr{Id}_M, ff'=\mr{Id}_{\Im f}$. 设 $x=x_1+x_2$, 其中 $ x_1\in\Ker g=\Im f, x_2\in \Im g'$. 于是存在 $n\in N$ 使得 $x_2=g'(n)$. 令 $\pi: L\to \Im f$ 为投影, 则 \begin{align*} (ff'\pi+g'g)(x)&amp;=ff'\pi(x)+g'g(x)=ff'(x)+g'g(x_2)\\ &amp;=x_1+g'gg'(n)=x_1+g'(n)\\ &amp;=x_1+x_2=x. \end{align*} 
+</div>
+<!-- /wp:paragraph --></details>
+<!-- /wp:details -->
+
+<!-- wp:paragraph -->
+<div class="latex_prop"><span class="latex_prop_h">命题 32</span><span class="latex_prop_h">.</span> 给定 $R$-模 $ _RP$, 下述等价 <ol> <li>$P$ 是投射模 </li><li>$\mr{Hom}_R(P,-)\,:\, \mr{R-Mod}\to \mr{Ab}$ 是正合函子 </li><li>任一短正合列 $0\to M\to N \xrightarrow{\pi} P\to 0$ 是可裂短正合列 </li><li>$P$ 是自由模的直和项, 即存在模 $Q$ 使 $P\oplus Q$ 为自由模 </li></ol> </div>
+<!-- /wp:paragraph -->
+ <span class="latex_section">6. 内射模<a id="sec:6"></a></span>
+内射模有着 $\mbz$-模 $\mbq$ 的一些较好的性质. 任意 $R$-模都是投射模的商模, 任意 $R$-模都是内射模的子模. 
+<div class="latex_defn"><span class="latex_defn_h">定义 33</span> (<span class="latex_defn_name">内射模</span>)<span class="latex_defn_h">.</span> 左 $R$-模 $I$ 称为内射模, 如果对于任意左 $R$-模的单同态 $i: M \longrightarrow N$以及左 $R$-模同态 $f: M \longrightarrow I$, 均存在同态 $g: N \longrightarrow I$ 使得 $f=g i$. 图示如下
+<!-- wp:image {"id":761,"align":"center","className":"wp-block-image aligncenter is-resized size-large"} -->
+<figure class="wp-block-image aligncenter is-resized size-large"><img loading="lazy" decoding="async" class="wp-image-761" src="/wp-content/uploads/2024/09/kuozhang.svg" alt="" width="175" height="84"></figure>
+<!-- /wp:image -->
+</div>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<div class="latex_lem"><span class="latex_lem_h">引理 34</span> (<span class="latex_lem_name">Baer 判别法</span>)<span class="latex_lem_h">.</span> 设 $I$ 是左 $R$-模. 则 $I$ 是内射模当且仅当对 $R$ 的每个左理想 $L$, 任何左 $R$-模同态 $\alpha: L \longrightarrow I$ 都可扩张为左 $R$-模同态 $\beta: R \longrightarrow I$,即 $\beta(l)=\alpha(l), \forall l \in L$. </div> 
+<!-- /wp:paragraph -->
+
+<details class="wp-block-details"><summary>证明</summary><!-- wp:paragraph {"placeholder":"键入 / 添加隐藏区块"} -->
+<div class="latex_proof"><span class="latex_proof_h">证明</span><span class="latex_proof_h">.</span> 只证充分性. 设有模单同态 $\sigma: M \hookrightarrow N$ 和模同态 $g: M \longrightarrow I$. 不妨将 $M$等同于 $\operatorname{Im} \sigma$, 将 $\sigma$ 看成嵌入. 我们要证明 $g$ 可扩张为模同态 $h: N \longrightarrow I$ . 为此考虑如下二元组 $(C, \alpha)$ 的集合<br>\begin{align*}<br>\Omega:&amp;= \set{(C, \alpha)}{ M \subseteq C \text{ 且 } C \text{ 是 } N \text{ 的子模 }; \alpha\in\mr{Hom}_R(C,I), \alpha|_M=g}\\<br>&amp;\stackrel{?}{=} \set{C}{M \subseteq C \text{ 且 } C \text{ 是 } N \text{ 的子模 }}\times \set{\alpha\in\mr{Hom}_R(C,I)}{\alpha|_M=g}<br>\end{align*}
+因 $(M, g) \in \Omega$, 故 $\Omega$ 非空. 定义 $\Omega$ 上的偏序 $\les$ : $$ (C, \alpha) \les(D, \beta) \Longleftrightarrow C \subseteq D,\left.\quad \beta\right|_C=\alpha $$ 设 $\left\{\left(C_j, \alpha_j\right) \mid j \in J\right\}$ 是 $\Omega$ 中的一个链. 令 $C:=\bigcup_{j \in J} C_j$. 则 $C$ 是 $N$ 的子模. 定义$R$-模同态 $$ \alpha: C \rightarrow I, \quad \forall c \in C_j, \quad \alpha(c)=\alpha_j(c) . $$ 则 $\alpha$ 是良定的, 而且 $\left.\alpha\right|_M=g$. 于是 $(C, \alpha) \in \Omega$ 是这个链的上界. 应用 Zorn 引理就可得到 $\Omega$ 的一个极大元 $(D, h)$ . 我们断言 $D=N$, 即 $g$ 被扩张成 $h: N \rightarrow I$.从而引理得证. 
+<!-- wp:image {"id":1266} --> 
+<figure class="wp-block-image"><img loading="lazy" decoding="async" class="wp-image-1266 aligncenter" src="/wp-content/uploads/2024/09/Baer.svg" alt="" width="361" height="197"></figure><!-- /wp:image -->
+ <!-- wp:image {"id":1267} --> 
+<figure class="wp-block-image"><img loading="lazy" decoding="async" class="wp-image-1267 aligncenter" src="/wp-content/uploads/2024/09/Baer2.svg" alt="" width="247" height="96"></figure>
+ <!-- /wp:image -->
+否则, $D \neq N$. 取 $n \in N-D$. 令 $L:=\{l \in R \mid l n \in D\}$. 则 $L$ 是 $R$ 的左理想. 定义模同态 $f: L \rightarrow I, f(l):=h(l n)$ . 由假设 $f$ 可以被扩张为模同态 $f^{\prime}: R \rightarrow I$ . 考虑映射 $h^{\prime}: D+R n \rightarrow I, d+r n \mapsto h(d)+f^{\prime}(r)$ . 则 $h^{\prime}$ 是良定的: 事实上, 若 $d+r n=d^{\prime}+r^{\prime} n$, 则<br>$$\left(r-r^{\prime}\right) n=d^{\prime}-d \in D\ \Rightarrow\ r-r^{\prime} \in L,$$ 从而 $$ f^{\prime}\left(r-r^{\prime}\right)=f\left(r-r^{\prime}\right)=h\left(\left(r-r^{\prime}\right) n\right)=h\left(d^{\prime}-d\right) $$ 即 $h(d)+f^{\prime}(r)=h\left(d^{\prime}\right)+f^{\prime}\left(r^{\prime}\right)$. 这就证明了 $h^{\prime}$ 是良定的, 而且 $h^{\prime}$ 还是 $R$-模同态,并且 $h^{\prime}$ 是 $h$ 的扩张. 于是<br>$$\left(D+R n, h^{\prime}\right) \in \Omega ,\ (D, h) \les\left(D+R n, h^{\prime}\right),(D, h) \neq\left(D+R n, h^{\prime}\right).$$ 这与 $(D, h)$ 是 $\Omega$ 的一个极大元相矛盾. 
+</div>
+<!-- /wp:paragraph --></details>
+<!-- /wp:details -->
+ 
+<!-- wp:paragraph -->
+<div class="latex_rem"><span class="latex_rem_h">注记 5</span><span class="latex_rem_h">.</span> 证明后半段有点麻烦是因为 $D\cap Rn$ 可能非空. 若 $D\cap Rn=\varnothing,$ 则 $D+Rn=D\oplus Rn$, 直接定义 $h'$ 为 $h'(d,rn)=h(d)$ 即可. 因为 $D+Rn=D\oplus Rn$ 未必成立, 所以需要考虑 $h'$ 的良定性.</div>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<div class="latex_defn"><span class="latex_defn_h">定义 35</span> (<span class="latex_defn_name">可除模</span>)<span class="latex_defn_h">.</span> 设 $D$ 是整环, $M$ 是 $D$-模. 如果对任意 $y\in M$ 和任意 $0\ne d\in D$, 存在 $x\in M$ 使 $y=dx$, 则称 $M$ 是可除 $D$-模. </div>
+<div class="latex_examp"><span class="latex_examp_h">例子 2</span><span class="latex_examp_h">.</span> <ol>
+ <li>$\mathbb{Q}$ 是可除 $\mathbb{Z}$-模. </li><li>$\mathbb{Q} / \mathbb{Z}$ 是可除 $\mathbb{Z}$-模. </li><li>$\mathbb{Z}$ 不是可除 $\mathbb{Z}$-模. </li><li>设 $D$ 是整环. 则可除 $D$-模的商模也是可除 $D$-模. 
+</li></ol>
+ </div>
+
+<div class="latex_lem"><span class="latex_lem_h">引理 36</span><span class="latex_lem_h">.</span> 设 $D$ 是主理想整环, $M$ 是 $D$-模. 则 $M$ 是内射模当仅当 $M$ 是可除模. 
+</div>
+<!-- /wp:paragraph -->
+
+<details class="wp-block-details"><summary>证明</summary><!-- wp:paragraph {"placeholder":"键入 / 添加隐藏区块"} -->
+<div class="latex_proof"><span class="latex_proof_h">证明</span><span class="latex_proof_h">.</span> $\Leftarrow$. (x=h(1)不需要可除模保证?) 设 $M$ 是可除 $D$-模. 设 $L$ 是 $D$ 的非零理想. 因为 $D$ 是主理想整环, 故存在 $l \in L$ 使得 $L=\langle l\rangle$ . 设 $h: L \longrightarrow M$ 是任意 $D$-模同态. 由于 $M$ 是可除 $D$-模，故存在 $x \in M$ 使得 $l x=h(l)$ . 定义 $D$-模同态 $\bar{h}: D \longrightarrow M, d \longmapsto d x$ . 则对于 $L$ 中的任意元 $d l$ 有 $\bar{h}(d l)=d l x=d h(l)=h(d l)$, 即 $\left.\bar{h}\right|_L=h$. 根据引理 1.11.4 即知 $M$ 是内射 $D$-模. $\Rightarrow$. 任取 $y\in M, 0\ne d\in M$. 下证存在 $x\in M$ 使得 $y=dx$.
+<!-- wp:image {"id":844,"width":"174px","height":"auto","align":"center","className":"wp-block-image size-large"} -->
+<figure class="wp-block-image aligncenter is-resized size-large">
+<figure><img loading="lazy" decoding="async" width="97" height="48" class="wp-image-844" style="width: 174px; height: auto;" src="/wp-content/uploads/2024/09/P55.svg" alt=""></figure>
+</figure>
+考虑 $D$-模单同态 $f$ 和 $D$-模同态 $h$ \begin{align*<em>} f&amp;:\,D\ni a \mapsto da\in D\ h&amp;:\, D\ni a\mapsto ay\in M. \end{align</em>*} 由于 $M$ 是内射模, 则存在 $\bar{h}:D\to M$ 使 $h=\bar{h}f$, 于是 $$y=h(1)=\bar{h}f(1)=\bar{h}(d)=d\bar{h}(1),$$ 即 $M$ 是可除 $D$-模. 这里仅用到 $D$ 是整环.
+</div>
+<!-- /wp:paragraph --></details>
+<!-- /wp:details -->
+
+<!-- wp:paragraph -->
+<div class="latex_prop"><span class="latex_prop_h">命题 37</span><span class="latex_prop_h">.</span> 每个 $\mbz$-模都能嵌入到一个内射 $\mbz$-模. </div>
+<!-- /wp:paragraph -->
+
+<details class="wp-block-details"><summary>证明</summary><!-- wp:paragraph {"placeholder":"键入 / 添加隐藏区块"} -->
+<div class="latex_proof"><span class="latex_proof_h">证明</span><span class="latex_proof_h">.</span> 设 $M$ 是 Abel 群. 我们要将 $M$ 嵌入到 $\mathbb{Q} / \mathbb{Z}$ 的直积, 后者是内射 $\mathbb{Z}$-模. 对于任意 $0 \neq a \in M$, 若循环群 $\langle a\rangle$ 的阶是 $n$, 则定义群同态 $f_a:\langle a\rangle \longrightarrow \mathbb{Q} / \mathbb{Z}$,使得 $f_a(a)=\frac{1}{n}+\mathbb{Z}$; 若 $\langle a\rangle \cong \mathbb{Z}$, 则定义群同态 $f_a:\langle a\rangle \longrightarrow \mathbb{Q} / \mathbb{Z}$, 使得 $f_a(a)$ 等于 $\mathbb{Q} / \mathbb{Z}$ 中任意一个固定的非零元. 由于 $\mathbb{Q} / \mathbb{Z}$ 是内射 $\mathbb{Z}-$ 模，每个 $f_a$ 均可扩张为 $\mathbb{Z}$-模同态 $\overline{f_a}: M \longrightarrow \mathbb{Q} / \mathbb{Z}$. 由直积的性质知存在唯一的 $\mathbb{Z}$-模同态 $f: M \longrightarrow$ $\prod_{\not \neq a \in M} \mathbb{Q} / \mathbb{Z}$, 使得对于任意 $0 \neq a \in M$ 有 $f(a)=\left(\cdots, \overline{f_b}(a), \cdots\right) \in \prod_{0 \neq b \in M} \mathbb{Q} / \mathbb{Z}$.由于当 $a \neq 0$ 时有 $f_a(a) \neq 0$, 故 $f$ 是单同态.
+</div>
+<!-- /wp:paragraph --></details>
+<!-- /wp:details -->
+
+<div class="latex_rem"><span class="latex_rem_h">注记 6</span><span class="latex_rem_h">.</span> 第一次是由内射模导致的扩张; 第二次是由直积导致的提升. </div> 
+<div class="latex_lem"><span class="latex_lem_h">引理 38</span><span class="latex_lem_h">.</span> 设 $R$ 是任意环. 若 $D$ 是内射 $\mbz$-模, 则 $\mr{Hom}_\mbz(R_R,D)$ 是内射左 $R$-模. </div> 
+不太懂为什么是 $R_R$. 
+
+<details class="wp-block-details"><summary>证明</summary><!-- wp:paragraph {"placeholder":"键入 / 添加隐藏区块"} -->
+<div class="latex_proof"><span class="latex_proof_h">证明</span><span class="latex_proof_h">.</span> 对 $R$ 的任意左理想 $L$ 和任意左 $R$-模同态 $h: L \longrightarrow \operatorname{Hom}_{\mathbb{Z}}\left(R_R, D\right)$, 由 Baer 判别法, 只需证明 $h$ 能扩张为模同态 $\bar{h}: R \longrightarrow \operatorname{Hom}_{\mathbb{Z}}(R, D)$. 我们有 Abel 群的同态 $g: L \longrightarrow D, l \longmapsto h(l)(1)$ . 因 $D$ 是内射 $\mathbb{Z}$-模, $g$ 可扩张为群同态 $\bar{g}: R \longrightarrow D$ . 定义 $\bar{h}: R \longrightarrow \operatorname{Hom}_{\mathbb{Z}}\left(R_R, D\right), \quad r \longmapsto$ " $\bar{h}(r): a \longmapsto$ $\bar{g}(a r)$ ". 直接验证 $\bar{h}$ 是群同态. 对于 $r, s, a \in R$, 因为 $$ \bar{h}(s r)(a)=\bar{g}(a s r)=\bar{h}(r)(a s)=(s \bar{h}(r))(a) $$ 即有 $\bar{h}(s r)=s \bar{h}(r)$, 故 $\bar{h}$ 是左 $R$-模同态. 为了验证 $\bar{h}$ 是 $h$ 的扩张, 设 $l \in L, r \in R$.则 $r l \in L$, 故 $$ \bar{h}(l)(r)=\bar{g}(r l)=g(r l)=h(r l)(1)=(r h(l))(1)=h(l)(r), $$ 即 $\left.\bar{h}\right|_L=h$. 因此 $\bar{h}$ 是 $h$ 的扩张.
+</div>
+<!-- /wp:paragraph --></details>
+<!-- /wp:details -->
+
+<!-- wp:paragraph -->
+<div class="latex_thm"><span class="latex_thm_h">定理 39</span><span class="latex_thm_h">.</span> 任何 $R$-模都可以嵌入到内射 $R$-模. </div>
+<!-- /wp:paragraph -->
+
+<details class="wp-block-details"><summary>证明</summary><!-- wp:paragraph {"placeholder":"键入 / 添加隐藏区块"} -->
+<div class="latex_proof"><span class="latex_proof_h">证明</span><span class="latex_proof_h">.</span> 设 $M$ 是左 $R$-模. 由命题 $1.11 .8, \mathbb{Z}$-模 $M$ 可嵌入内射 $\mathbb{Z}$-模 $D$, 即存在 $\mathbb{Z}$-模的单同态 $f: M \longrightarrow D$. 于是有 $\mathbb{Z}$-模单同态 $$\bar{f}:=\operatorname{Hom}_{\mathbb{Z}}(R, f): \operatorname{Hom}_{\mathbb{Z}}(R, M) \longrightarrow$ $\operatorname{Hom}_{\mathbb{Z}}(R, D)$$ 是单同态; 易证 $\bar{f}$ 也是左 $R$-模单同态 (留给读者). 不难验证 $\operatorname{Hom}_R(R, M)$ 是 $\operatorname{Hom}_{\mathbb{Z}}(R, M)$ 的子 $R$-模. 从而得到如下 $R$-模单同态序列 $$ M \xrightarrow{\sim} \operatorname{Hom}_R(R, M) \hookrightarrow \operatorname{Hom}_{\mathbb{Z}}(R, M) \xrightarrow{\bar{f}} \operatorname{Hom}_{\mathbb{Z}}(R, D) . $$ 它们的合成就给出左 $R$-模单同态 $M \longleftrightarrow \operatorname{Hom}_{\mathbb{Z}}(R, D)$, 由引理 1.11.9, $\operatorname{Hom}_{\mathbb{Z}}(R, D)$是内射左 $R$-模. 从而将 $M$ 嵌入内射 $R$-模.
+</div>
+<!-- /wp:paragraph --></details>
+<!-- /wp:details -->
+
+<span class="latex_section">7. 张量积与平坦模<a id="sec:7"></a></span>
+两个模的张量积 $A\otimes_R B$ 的概念不但在多重线性代数中起着重要作用, 而且在同调代数中作为 $\mr{Hom}_R(A,B)$ 在某种意义下的对偶也是一个核心的概念. 下面我们在假定 $R$ 是<b>交换环</b>的条件下定义两个模的张量积, 虽然失去了一点普遍性, 但是使得讨论大大简化, 对于非代数专业的读者来说, 已经完全够用了.
+ <div class="latex_defn"><span class="latex_defn_h">定义 40</span> (<span class="latex_defn_name">张量积</span>)<span class="latex_defn_h">.</span> 设 $A$ 和 $B$ 是两个 $R$-模, 以集合 $A\times B$ 的元素为基生成的<b>自由 $R$-模</b>记为 $V$. $V$ 中由下列形式的元素生成的 $R$-子模记为 $K$: \begin{array}{c} (a+a',b)-(a,b)-(a',b)\\ (a,b+b')-(a,b)-(a,b')\\ (ra,b)-r(a,b)\\ (a,rb)-r(a,b) \end{array} 其中 $a,a'\in A, b,b'\in B, r\in R$. 商模 $V/K$ 称为 $A$ 与 $B$ 的张量积, 记为 $A\otimes_R B$. $V$ 中元素 $(a,b)$ 的陪集记为 $(a,b)+k=:a\otimes b$, $0\otimes 0$ 记为 $0$. 
+</div> 
+
+<div class="latex_rem"><span class="latex_rem_h">注记 7</span><span class="latex_rem_h">.</span> 张量积用一个公式表示就是 $$ A\otimes_R B:=\mr{span}_R(A\times B)/\sim.$$
+ </div> 
+<b>张量积中的双线性关系:</b> 由商模的定义容易验证 \begin{align*} &amp; (a+a')\otimes b=a\otimes b+a'\otimes b\\ &amp; a\otimes (b+b')=a\otimes b+a\otimes b'\\ &amp; (ra)\otimes b=r(a\otimes b)=a\otimes (rb). \end{align*} 也就是说张量积 $\otimes $ 满足双线性关系, 由此可得 $$a\otimes 0=0\otimes b=0.$$ <b>张量积中的元素:</b> 因为 $\{(a,b)\}$ 是 $V$ 的生成元素, 所以 $\{a\otimes b\}$ 是张量积 $A\otimes_R B$ 的生成元集. 因而 $A\otimes_R B$ 中的元素都是这些生成元的线性组合, 也就是说 $A\otimes_R B$ 中元素的一般形式是 $$\sum_{i=1}^n r_i(a_i\otimes b_i)=\sum_{i=1}^n(r_ia_i)\otimes b_i.$$ 因此以后总可以假定 $A\otimes_R B$ 的一般元素具有 $\sum_{i=1}^n a_i\otimes b_i $ 的形式. 从上面的双线性关系 $(ra)\otimes b=a\otimes (rb)$ 就可以看出这种表达式并不唯一, 甚至可以有 $a\ne0, b\ne0$ 而 $a\times b=0$ 的情形发生. 
+
+<div class="latex_defn"><span class="latex_defn_h">定义 41</span> (<span class="latex_defn_name">双线性映射</span>)<span class="latex_defn_h">.</span> 设 $A,B,C$ 是 $R$-模, 映射 $f:A\times B\to C$ 如果满足 \begin{array}{c} f(a+a',b)=f(a,b)+f(a',b)\\ f(a,b+b')=f(a,b)+f(a,b')\\ f(ra,b)=rf(a,b)=f(a,rb) \end{array} 其中 $a,a'\in A, b,b'\in B, r\in R$, 就称 $f$ 为双线性映射. 
+</div>
+
+ <div class="latex_defn"><span class="latex_defn_h">定义 42</span> (<span class="latex_defn_name">典范双线性映射</span>)<span class="latex_defn_h">.</span> 从张量积的性质可以看出用 $i(a,b)=a\otimes b$ 定义的映射 $$i:A\times B\to A\otimes _R B$$ 是双线性映射, 称为典范双线性映射. </div>
+
+<div class="latex_thm"><span class="latex_thm_h">定理 43</span> (<span class="latex_thm_name">张量积的等价定义</span>)<span class="latex_thm_h">.</span> 设 $A,B,C$ 是 $R$-模, 映射 $f:A\times B\to C$ 是双线性映射, 则 <ol> <li>存在唯一的 $R$-模同态 $\bar{f}: A\otimes _R B\to C$ 使得 $\bar{f}i=f$. </li><li>张量积被这个性质确定到相差一个同构: 设 $M$ 是一个 $R$-模, 带有一个双线性映射 $j:A\times B\to M$, 使得对任意的双线性映射 $f:A\times B\to C$ 存在唯一同态 $\bar{f}:M\to C$ 使得 $\bar{f}j=f$, 则 $M\cong A\ot_R B$. </li></ol> 
+</div>
+ <div class="latex_rem"><span class="latex_rem_h">注记 8</span><span class="latex_rem_h">.</span> 此定理说明张量积的本质性质是双线性. 张量积是具有双线性的笛卡尔积, 具有双线性的笛卡尔积与张量积相差一个同构.
+ </div>
+ 此定理可以看出张量积的等价定义或者核心性质. 不但如此, 这个定理也给我们提供了建立从张量积到一个模的同态的方法. 这是因为张量积中元素的表达式不是唯一的, 因此要证明从张量积 $A\otimes_R B$ 出发的某个对应规则确实定义了一个映射不是一件容易的事. 我们必须说明当 $\sum a_i\otimes b_i=\sum a_j'\otimes b_j'$ 时, 按照这个规则得到的是同一个元素, 而这是 $a_i,b_i,a_j',b_j'$ 之间并没有明显的关系. 为了避开这个难点, 我们可以利用此定理, 先定义从 $A\times B$ 出发的一个双线性映射, 一般来说这是不难验证得, 然后利用此定理就能右导出从 $A\otimes_R B$ 出发的一个同态. 从下面几个命题的证明中读者可以学会这种方法.
+
+<details class="wp-block-details"><summary>证明</summary><!-- wp:paragraph {"placeholder":"键入 / 添加隐藏区块"} -->
+<div class="latex_proof"><span class="latex_proof_h">证明</span><span class="latex_proof_h">.</span> <ol> <li>由于集合 $A\times B$ 是自由模 $V$ 的基, 故同态 $f$ 可唯一 $R$-线性延拓到同态 $V\to C$, 仍记为 $f$. 由于 $f$ 是双线性映射, 因此 $K$ 的生成元都被 $f$ 映到 $0$, 所以 $K\subset \Ker f$, 即 $\Ker(i)\subset \Ker(f)$. 由核分解定理得存在唯一同态 \begin{align*} \bar{f}:V/K=A\ot B&amp;\longrightarrow C\\ a\ot b\longmapsto f(a,b) \end{align*} 使得 $\bar{f}i=f$. </li><li>如下图.<br><!-- /wp:paragraph --><br><!-- wp:paragraph {"placeholder":"键入 / 添加隐藏区块"} --><br>由 $$j=\phi i,\ i=\psi j$$ 得 $$ j=\phi\psi j,\ i=\psi\phi i.$$ 由唯一性得 $\phi\psi=1, \psi\phi=1$. </li></ol>
+</div>
+<!-- /wp:paragraph --></details>
+<!-- /wp:details -->
+
+<!-- wp:paragraph -->
+<div class="latex_prop"><span class="latex_prop_h">命题 44</span><span class="latex_prop_h">.</span> 设 $A,B$ 都是 $R$-模, 则有以下 $R$-模同构 <ol> <li>$A\ot_RR\cong A,\ R\ot_RB\cong B$. </li><li>$A\ot_RB\cong B\ot_RA$. </li></ol> </div>
+<!-- /wp:paragraph -->
+
+<details class="wp-block-details"><summary>证明</summary><!-- wp:paragraph {"placeholder":"键入 / 添加隐藏区块"} -->
+<div class="latex_proof"><span class="latex_proof_h">证明</span><span class="latex_proof_h">.</span> <ol> <li>只证明 $A\ot_RR\cong A$. 定义 $$ f:A\times R\ni (a,r)\mapsto ra\in A.$$ 不难验证 $f$ 是双线性的, 由张量积的等价定义得诱导 $R$-模同态 $\bar{f}:A\ot_RR\to A$ 使得 $\bar{f}i=f$. 同时定义如下 $R$-模同态 $$ g:A\ni a \mapsto a\ot1\in A\ot_RR.$$ 由于 $A\ot_RR$ 中的一般元素为 $$ \sum_i a_i\ot r_i=\sum_i (r_ia_r)\ot1=\big(\sum_i r_ia_i\big)\ot1,$$ 即具有 $a\ot1$ 得形式, 因此 $$g\bar{f}(a\ot1)=g(a)=a\ot1\ \Rightarrow\ g\bar{f}=1_{A\ot R}.$$ </li><li>不难验证以下的映射是双线性的 $$ f:A\times B\ni (a,b)\mapsto b\ot a \in B\ot_R A$$ 因此诱导出同态 $$\bar{f}: A\ot B\ni a\ot b\mapsto b\ot a \in B\ot A.$$ 类似可构造同态 $$\bar{g}: B\ot A\ni b\ot a \mapsto a\ot b\ni A\ot B.$$ 因为 $$\bar{g}\bar{f}(a\ot b)=a\ot b,\ \bar{f}\bar{g}(b\ot a )=b\ot a,$$ 且 $\{a\ot b\}$ 是 $A\ot B$ 的生成元, 故 $$\bar{g}\bar{f}=1_{A\ot B}, \ \bar{f}\bar{g}=1_{B\ot A}\ \Rightarrow\ A\ot B\cong B\ot A.$$ </li></ol> 
+</div>
+<!-- /wp:paragraph --></details>
+<!-- /wp:details -->
+
+<!-- wp:paragraph -->
+<div class="latex_prop"><span class="latex_prop_h">命题 45</span><span class="latex_prop_h">.</span> 设 $A,B,C$ 是 $R$-模, 则有 $R$-模同构 $$(A\ot _R B)\ot_R C\cong A\ot_R(B\ot_R C).$$ </div>
+<!-- /wp:paragraph -->
+
+<details class="wp-block-details"><summary>证明</summary><!-- wp:paragraph {"placeholder":"键入 / 添加隐藏区块"} -->
+<div class="latex_proof"><span class="latex_proof_h">证明</span><span class="latex_proof_h">.</span> <ol> <li>Step1. 诱导两次建立同态 $(A\ot _R B)\ot_R C\to A\ot_R(B\ot_R C).$ 任取 $c\in C$, 构造如下双线性映射 \begin{align*} f_c:A\times B&amp;\longrightarrow A\ot(B\ot C)\\ (a,b)&amp;\mapsto a\ot(b\ot c) \end{align*} 据此诱导出同态 \begin{align*} \bar{f}_c:A\otimes B&amp;\longrightarrow A\ot(B\ot C)\\ a\ot b&amp;\longmapsto a\ot(b\ot c) \end{align*} 再作如下双线性映射 \begin{align*} g:(A\ot B)\times C&amp;\longrightarrow A\ot(B\ot C)\\ \big(\sum_i a_i\ot b_i,c\big)&amp;\mapsto \bar{f_c}\big(\sum_i a_i\ot b_i\big)=\sum_i a_i\ot (b_i\ot c) \end{align*} 据此诱导出同态 \begin{align*} \phi:(A\ot B)\ot C&amp;\longrightarrow A\ot(B\ot C)\\ \big(\sum_i a_i\ot b_i\big)\ot c&amp;\longmapsto \sum_i a_i\ot\big(b_i\ot c\big) \end{align*} </li><li>Step2. 仿照第一步, 建立同态 \begin{align*} \psi:A\ot (B\ot C)&amp;\longrightarrow A\ot(B\ot C)\\ a\ot \big(\sum_i b_i\ot c_i\big)&amp;\longmapsto \sum_i \big(a \ot b_i\big)\ot c_i \end{align*} </li><li>证明 $\phi$ 和 $\psi$ 互拟, 因而是同构. 由于 $(A\ot B)\ot C$ 中的一般元素为 $$ \sum_i\Big[ \big(\sum_j a_{ij}\ot b_{ij}\big)\ot c\Big]=\sum_i\sum_j(a_{ij}\ot b_{ij})\ot c.$$ 因此 $(A\ot B)\ot C$ 可由形如 $(a\ot b)\ot c$ 这样的元素生成. 同理 $$ A\ot (B\ot C)=\mr{span}_R\{a\ot (b\ot c)\}.$$ 因为 \begin{align*} \phi\psi\big(a\ot (b\ot c)\big)&amp;=\phi\big( (a\ot b)\ot c\big)= a\ot (b\ot c)\\ \psi\phi\big( (a\ot b)\ot c\big)&amp;=\psi\big( a\ot (b\ot c)\big)=(a\ot b)\ot c \end{align*} 故结论成立. </li></ol>
+</div>
+<!-- /wp:paragraph --></details>
+<!-- /wp:details -->
+ 
+
+<div class="latex_cor"><span class="latex_cor_h">推论 46</span> (<span class="latex_cor_name">同态的张量积</span>)<span class="latex_cor_h">.</span> 设 $f:A\to A', g:B\to B'$ 都是 $R$-模同态, 则存在唯一的 $R$-模同态 $$\varphi:A\ot B\ni a\ot b\mapsto f(a)\ot g(b)\ni A'\ot B'.$$ </div> 将此推论中的 $\varphi$ 记为 $f\ot g$, 则 $$ (f\ot g)(a\ot b)=f(a)\ot g(b).$$ 如果又有同态 $f':A'\to A'', g':B'\to B''$, 则 $$ (f'\ot g')(f\ot g)=(f'f)\ot (g'g).$$ 当 $f$ 和 $g$ 都是同构时, $f\ot g$ 也是同构, 逆为 $f^{-1}\ot g^{-1}$.
+<div class="latex_prop"><span class="latex_prop_h">命题 47</span><span class="latex_prop_h">.</span> 设 $A,B,A_i,B_i (i\in I)$ 都是 $R$-模, 则 <ol> <li>$\Big(\bigoplus\limits_{i\in I} A_i\Big)\ot_R B\cong \bigoplus\limits_{i\in I}\Big( A_i \ot_R B\Big).$ </li><li>$A\ot_R \Big(\bigoplus\limits_{i\in I} B_i\Big) \cong \bigoplus\limits_{i\in I}\Big( A \ot_R B_i\Big).$ </li></ol>
+ </div>
+
+<div class="latex_prop"><span class="latex_prop_h">命题 48</span> (<span class="latex_prop_name">伴随结合性</span>)<span class="latex_prop_h">.</span> 对于 $R$-模 $A,B,C$, 映射 \begin{align*} \phi:\mr{Hom}_R(A\ot_RB,C)&amp;\ \longrightarrow\ \mr{Hom}_R\big(A, \mr{Hom}_R(B,C)\big)\\ f&amp;\longmapsto \Big[a\mapsto\Big(b\mapsto f(a\ot b)\Big)\Big] \end{align*} 是 $R$-模同构. </div>
+
+当张量积的因子中有一个是自由模时, 张量积的结构可以变得很简单. 
+<div class="latex_prop"><span class="latex_prop_h">命题 49</span><span class="latex_prop_h">.</span> 设 $V$ 是一个自由 $R$-模, $X$ 是 $V$ 的基, 则 $A\ot_R V$ 中的元素可唯一地写成 $\sum_{i=1}^n a_i\ot x_i$ 的形式, 其中 $a_i\in A, x_i\in X$. 
+</div>
+
+<details class="wp-block-details"><summary>证明</summary><!-- wp:paragraph {"placeholder":"键入 / 添加隐藏区块"} -->
+<div class="latex_proof"><span class="latex_proof_h">证明</span><span class="latex_proof_h">.</span> 由自由模的性质得 $V\cong \bigoplus_{x\in X}Rx$, 因此 $$ A\ot V\cong \bigoplus_{x\in X}\big(A\ot Rx\big)\cong \bigoplus_{x\in X} Ax,$$ 这里 $Ax$ 同构于 $A$, 它的元素可以唯一地写成 $a\ot x$ 的形式, 因而 $A\ot _RV$ 中的元素可唯一地写成 $\sum_{i=1}^n a_i\ot x_i$ 的形式. 
+</div>
+<!-- /wp:paragraph --></details>
+<!-- /wp:details -->
+
+
+<div class="latex_prop"><span class="latex_prop_h">命题 50</span><span class="latex_prop_h">.</span> 如果 $A$ 和 $B$ 都是自由 $R$-模, 它们的基分别为 $X$ 和 $Y$, 则 $A\ot_R B$ 也是自由模, 以 $\set{x\ot y}{x\in X, y\in Y}$ 为基. 
+</div> 
+
+<details class="wp-block-details"><summary>证明</summary><!-- wp:paragraph {"placeholder":"键入 / 添加隐藏区块"} -->
+<div class="latex_proof"><span class="latex_proof_h">证明</span><span class="latex_proof_h">.</span> 由 $A\cong \bigoplus_{x\in X} Rx, B\cong \bigoplus_{y\in Y} Ry$, 则 $$ A\ot B\cong \bigoplus_{x\in X,y\in Y} \big(Rx\ot Ry\big)\cong \bigoplus_{x\in X,y\in Y}R(x\ot y).$$ 因此结论成立.
+</div>
+<!-- /wp:paragraph --></details>
+<!-- /wp:details -->
+
+<div class="latex_defn"><span class="latex_defn_h">定义 51</span> (<span class="latex_defn_name">平坦模</span>)<span class="latex_defn_h">.</span> 设 $M$ 是一个 $R$-模, 如果对于任意的 $R$-模单同态 $f:A\to B$, 其诱导同态 $$1_M\ot f: M\ot_R A\to M\to_R B$$ 也是单同态, 则称 $M$ 是平坦模. 
+</div> 
+这个定义等价于说 $M\ot_R-$ 是左正合的, 结合张量函子本来就是右正合的, 故这个定义等价于说张量函子是正合的.
+
+
+<!-- wp:paragraph -->
+<div class="latex_prop"><span class="latex_prop_h">命题 52</span><span class="latex_prop_h">.</span> 设 $\{M_i\}_{i\in I}$ 是一族 $R$-模, 则 $M=\bigoplus_{i\in I} M_i$ 是平坦模当仅当每个 $M_i$ 都是平坦模. 
+</div>
+<!-- /wp:paragraph -->
+
+<details class="wp-block-details"><summary>证明</summary><!-- wp:paragraph {"placeholder":"键入 / 添加隐藏区块"} -->
+<div class="latex_proof"><span class="latex_proof_h">证明</span><span class="latex_proof_h">.</span> $M$ 是平坦模当仅当对于任意 $R$-模单同态 $f:A\to B$ 都有 $1_M\ot f: M\ot A\to M\ot B$ 是单同态. 因为 $$ M\ot A\cong \bigoplus_{i\in I}\big(M_i\ot A\big),\ \ M\ot B\cong \bigoplus_{i\in I}\big(M_i\ot B\big).$$ 根据直和的性质, $1_M\ot f$ 为单同态当仅当每个 $$1_{M_i}\ot f: M_i\ot A\to M_i\ot B$$ 都是单同态. 也就是说每个 $M_i$ 都是平坦模.
+</div>
+<!-- /wp:paragraph --></details>
+<!-- /wp:details -->
+
+<div class="latex_prop"><span class="latex_prop_h">命题 53</span> (<span class="latex_prop_name">平坦模判别法</span>)<span class="latex_prop_h">.</span> $R$ 模 $M$ 是平坦模当且仅当对 $R$ 的所有理想 $S$, 以下序列是正合的: $$ 0 \rightarrow M \otimes_R S \xrightarrow{1_M \otimes i} M \otimes_R R, $$ 这里 $i: S \longrightarrow R$ 是包含映射. 
+</div>
+
+
+<div class="latex_thm"><span class="latex_thm_h">定理 54</span><span class="latex_thm_h">.</span> 投射模是平坦模. </div>
+
+<div class="latex_prop"><span class="latex_prop_h">命题 55</span><span class="latex_prop_h">.</span> 当 $R$ 是主理想整环时, $R$-模 $M$ 是平坦模当仅当 $M$ 是无扭的. </div> 
+
+<details class="wp-block-details"><summary>证明</summary><!-- wp:paragraph {"placeholder":"键入 / 添加隐藏区块"} -->
+<div class="latex_proof"><span class="latex_proof_h">证明</span><span class="latex_proof_h">.</span> ( $\Rightarrow$ ) 设 $R$ 是整环 (这里只用到这个条件), 如果 $M$ 不是无扭的, 则存在 $x(\neq 0) \in M$ 以及 $a(\neq 0) \in R$ 使得 $a x=0$. 作如下的单同态 $$ \begin{aligned} f: R &amp; \longrightarrow R \\ r &amp; \longmapsto a r . \end{aligned} $$ 再观察 $R$ 模同态 $f \otimes 1_M: R \otimes_R M \longrightarrow R \otimes_R M$. 因为 $\left(f \otimes 1_M\right)(1 \otimes x)=$ $a \otimes x=1 \otimes(a x)=0$, 所以 $f \otimes 1_M$ 不是单同态, 与 $M$ 是平坦模矛盾. $(\Leftarrow)$ 因为 $R$ 是主理想整环，所以 $R$ 的理想都具有 $(a)=R a$ 的形式.设 $a \neq 0, f$ 是包含同态, 观察 $R$ 模同态 $$ f \otimes 1_M: R a \otimes_R M \longrightarrow R \otimes_R M $$ 设 $\sum_{i=1}^m r_i a \otimes x_i \in R a \otimes_R M$ 被 $f \otimes 1_M$ 映到 0 , 则有 $$ 0=\sum_{i=1}^m r_i a \otimes x_i=1 \otimes\left(a \sum_{i=1}^m r_i x_i\right) $$ 也即 $\sum_{i=1}^m r_i x_i=0$ (因为 $M$ 是无扭的). 于是 $\sum_{i=1}^m r_i a \otimes x_i=a \otimes\left(\sum_{i=1}^m r_i x_i\right)=$ 0 . 这说明 $f \otimes 1_M$ 是单同态, 根据平坦模的判定法就可得出 $M$ 是平坦模.
+</div>
+<!-- /wp:paragraph --></details>
+<!-- /wp:details -->
+
+ </div>
+  </div>
+  <nav class="post-navigation" aria-label="文章前后导航"><a href="/1232.html"><span>上一篇</span><strong>同态基本定理与向量空间</strong></a><a href="/1293.html"><span>下一篇</span><strong>若干函数方程</strong></a></nav>
+</article>
+</main>
+  <footer class="site-footer">
+    <p>阿贝尔的数学之旅 · 数学笔记与思考</p>
+    <p><a href="/feed.xml">RSS</a><span aria-hidden="true"> · </span><a href="/sitemap.xml">站点地图</a></p>
+  </footer>
+  <script src="/assets/site.js"></script>
+  
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ["\\(","\\)"]],
+    displayMath: [['$$', '$$'], ["\\[", "\\]"]],
+    processEscapes: true
+  },
+  TeX: {
+    equationNumbers: {autoNumber: "AMS",
+    useLabelIds: true}
+  },
+});
+MathJax.Hub.Config({TeX: {Macros: {"mr": ["\\mathrm{#1}", 1], "mb": ["\\mathbb{#1}", 1], "ee": "\\exists\\,", "ff": "\\forall\\,", "les": "\\leqslant", "ges": "\\geqslant", "sse": "\\subset", "sbs": "\\subset", "sps": "\\supset", "ve": "\\varepsilon", "mbr": "\\mathbb{R}", "mbn": "\\mathbb{N}", "mbz": "\\mathbb{Z}", "mbq": "\\mathbb{Q}", "mbc": "\\mathbb{C}", "mbh": "\\mathbb{H}", "vp": "\\varphi", "nti": "n\\to\\infty", "md": "\\mathrm{d}", "mre": "\\mathrm{e}", "mri": "\\mathrm{i}", "lra": ["\\langle #1\\rangle", 1], "Ker": "\\mathrm{Ker}\\,", "Im": "\\mathrm{Im}\\,", "tl": "\\triangleleft", "set": ["\\left\\{#1\\,\\left|\\,#2\\right. \\right\\}", 2], "mod": ["\\ (\\mr{mod}\\ #1)", 1], "pp": "\\partial", "Gal": ["\\mathrm{Gal}\\left(#1\\right)", 1], "Inv": ["\\mathrm{Inv}\\left(#1\\right)", 1], "End": ["\\mathrm{End}_{#1}\\!\\left(#2\\right)", 2], "Hom": ["\\mathrm{Hom}_{#1}\\!\\left(#2\\right)", 2], "ca": "\\mathcal{A}", "cb": "\\mathcal{B}", "cc": "\\mathcal{C}", "cd": "\\mathcal{D}", "ce": "\\mathcal{E}", "cf": "\\mathcal{F}", "cg": "\\mathcal{G}", "cl": "\\mathcal{L}", "cs": "\\mathcal{S}", "Ext": "\\mathrm{Ext}", "Tor": "\\mathrm{Tor}", "mc": ["\\mathcal{#1}", 1], "ot": "\\otimes"}}});
+</script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_SVG.js"></script>
+</body>
+</html>

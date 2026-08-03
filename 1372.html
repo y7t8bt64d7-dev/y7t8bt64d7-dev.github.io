@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>上下极限｜阿贝尔的数学之旅</title>
+  <meta name="description" content="目录 目录 1. 数列的上下极限&amp;# … 继续阅读 →">
+  <link rel="canonical" href="https://www.abelmath.fun/1372.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="阿贝尔的数学之旅">
+  <meta property="og:title" content="上下极限｜阿贝尔的数学之旅">
+  <meta property="og:description" content="目录 目录 1. 数列的上下极限&amp;# … 继续阅读 →">
+  <meta property="og:url" content="https://www.abelmath.fun/1372.html">
+  <meta property="og:image" content="https://www.abelmath.fun/assets/og.png">
+  <meta property="og:image:width" content="1731">
+  <meta property="og:image:height" content="909">
+  <meta property="og:image:alt" content="阿贝尔的数学之旅：数学笔记与思考">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="上下极限｜阿贝尔的数学之旅">
+  <meta name="twitter:description" content="目录 目录 1. 数列的上下极限&amp;# … 继续阅读 →">
+  <meta name="twitter:image" content="https://www.abelmath.fun/assets/og.png">
+  <link rel="stylesheet" href="/assets/site.css">
+  <link rel="alternate" type="application/rss+xml" title="阿贝尔的数学之旅" href="/feed.xml">
+</head>
+<body class="article-page">
+  <a class="skip-link" href="#main">跳到正文</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="/" aria-label="阿贝尔的数学之旅首页">
+        <span class="brand-mark" aria-hidden="true">∫</span>
+        <span><strong>阿贝尔的数学之旅</strong><small>ABEL'S MATHEMATICAL JOURNEY</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">目录</button>
+      <nav id="site-nav" class="site-nav" aria-label="主要导航"><a href="/">首页</a><a href="/category/%e8%ae%ba%e6%96%87/">论文</a><a href="/category/ode/">ODE</a><a href="/category/pde/">PDE</a><a href="/category/analysis/">分析</a><a href="/category/analysis/%e6%b5%8b%e5%ba%a6/">测度</a><a href="/category/%e8%bf%91%e4%b8%96%e4%bb%a3%e6%95%b0/">抽代</a><a href="/category/%e5%9f%ba%e4%bb%a3/">基代</a><a href="/category/%e7%a7%91%e6%99%ae/">科普</a><a href="/category/manim/">manim</a><a href="/category/%e6%8e%a2%e8%ae%a8/">探讨</a><a href="/category/%e8%ae%b0%e5%bd%95/">记录</a></nav>
+    </div>
+  </header>
+  <main id="main">
+<article class="article-shell">
+  <header class="article-header">
+    <a class="back-link" href="/">← 返回首页</a>
+    <div class="post-meta"><time datetime="2024-10-30T15:40:36+00:00">2024-10-30</time><a class="chip" href="/category/%E6%8E%A2%E8%AE%A8/">探讨</a></div>
+    <h1>上下极限</h1>
+    <p>目录 目录 1. 数列的上下极限&amp;# … 继续阅读 →</p>
+  </header>
+  <div class="article-layout">
+    <aside class="article-rail"><p>NOTE 1372</p><span></span><p>2024 · 10 · 30</p></aside>
+    <div class="article-content"><p class="wp-block-paragraph"><span id="contents" style="text-align:center; font-size:18px; font-variant:small-caps;display:block;">目录</span><br>
+          <span id="sec:content"><a href="#contents">目录</a></span><br><span> 1.  <a href="#sec:1">数列的上下极限</a></span><br><span>   1.1.  <a href="#sec:1.1">运算性质</a></span><br><span> 2.  <a href="#sec:2">集合列的上下极限</a></span><br></p>
+
+
+
+<p class="wp-block-paragraph"><span class="latex_section">1. 数列的上下极限<a id="sec:1"></a></span>
+</p>
+
+
+
+<p class="wp-block-paragraph"><span class="latex_subsection">1.1. 运算性质<a id="sec:1.1"></a></span>
+</p>
+
+
+
+<p class="wp-block-paragraph">上下极限具有半线性</p>
+
+
+
+<div class="latex_prop"><span class="latex_prop_h">命题 1</span> (<span class="latex_prop_name">上下极限的运算性质</span>)<span class="latex_prop_h">.</span> 设 $\left\{a_n\right\},\left\{b_n\right\}$ 是两个数列
+<ol>
+<li>若 $a_n \leqslant b_n(n&gt;N)$, 则<br>$$\liminf _{n \rightarrow \infty} a_n \leqslant \liminf _{n \rightarrow \infty} b_n, \limsup _{n \rightarrow \infty} a_n \leqslant \limsup _{n \rightarrow \infty} b_n.$$
+</li><li>半线性
+\begin{align*}
+  \liminf _{n \rightarrow \infty} a_n+\liminf _{n \rightarrow \infty} b_n &amp;\leqslant \liminf _{n \rightarrow \infty}\left(a_n+b_n\right) \leqslant \liminf _{n \rightarrow \infty} a_n+\limsup _{n \rightarrow \infty} b_n \\  \limsup _{n \rightarrow \infty} a_n+\liminf _{n \rightarrow \infty} b_n &amp;\leqslant \limsup _{n \rightarrow \infty}\left(a_n+b_n\right) \leqslant \limsup _{n \rightarrow \infty} a_n+\limsup _{n \rightarrow \infty} b_n .\end{align*}
+进一步，若 $\lim _{n } b_n$ 存在，则 
+\begin{align*}
+\liminf _{n \rightarrow \infty}\left(a_n+b_n\right)&amp;=\liminf _{n \rightarrow \infty} a_n+\lim _{n \rightarrow \infty} b_n\\
+\limsup _{n \rightarrow \infty}\left(a_n+b_n\right)&amp;=\limsup _{n \rightarrow \infty} a_n+\lim _{n \rightarrow \infty} b_n .
+\end{align*}
+</li><li>设 $a_n \geqslant 0, b_n \geqslant 0$, 则
+\begin{align*}
+ \liminf _{n \rightarrow \infty} a_n \cdot \liminf _{n \rightarrow \infty} b_n &amp;\leqslant \liminf _{n \rightarrow \infty}\left(a_n b_n\right) \leqslant \liminf _{n \rightarrow \infty} a_n \cdot \limsup _{n \rightarrow \infty} b_n \\
+  \limsup _{n \rightarrow \infty} a_n \cdot \liminf _{n \rightarrow \infty} b_n &amp;\leqslant \limsup _{n \rightarrow \infty}\left(a_n b_n\right) \leqslant \limsup _{n \rightarrow \infty} a_n \cdot \limsup _{n \rightarrow \infty} b_n .
+\end{align*}
+进一步，若 $\lim _{n } b_n$ 存在，则 
+\begin{align*}
+\liminf _{n \rightarrow \infty}\left(a_n \cdot b_n\right)&amp;=\liminf _{n \rightarrow \infty} a_n \cdot \lim _{n \rightarrow \infty} b_n, \\
+\limsup _{n \rightarrow \infty}\left(a_n \cdot b_n\right)&amp;=\limsup _{n \rightarrow \infty} a_n \cdot \lim _{n \rightarrow \infty} b_n .
+\end{align*}
+</li></ol> 
+</div>
+
+
+
+
+
+
+<p class="wp-block-paragraph"><span class="latex_section">2. 集合列的上下极限<a id="sec:2"></a></span>
+</p>
+
+
+
+总的来说, 集合列的半极限性质会比数列的半极限性质好一些, 因为证明用的是特征函数. 集合列的半极限是一种特殊的数列极限.
+
+
+
+<div class="latex_examp"><span class="latex_examp_h">例子 1</span><span class="latex_examp_h">.</span> 设 $A_k$ 两两不交, 则由上极限的等价定义得
+$$\lim_n\bigcup_{k=n}^\infty A_k=\bigcap_{n\ges1}\bigcup_{k\ges n}A_k=\limsup A_k=\varnothing.$$
+</div>
+
+
+
+</div>
+  </div>
+  <nav class="post-navigation" aria-label="文章前后导航"><a href="/1350.html"><span>上一篇</span><strong>第三章 积分和空间 $L^p$</strong></a><a href="/1382.html"><span>下一篇</span><strong>Helmholtz 分解</strong></a></nav>
+</article>
+</main>
+  <footer class="site-footer">
+    <p>阿贝尔的数学之旅 · 数学笔记与思考</p>
+    <p><a href="/feed.xml">RSS</a><span aria-hidden="true"> · </span><a href="/sitemap.xml">站点地图</a></p>
+  </footer>
+  <script src="/assets/site.js"></script>
+  
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ["\\(","\\)"]],
+    displayMath: [['$$', '$$'], ["\\[", "\\]"]],
+    processEscapes: true
+  },
+  TeX: {
+    equationNumbers: {autoNumber: "AMS",
+    useLabelIds: true}
+  },
+});
+MathJax.Hub.Config({TeX: {Macros: {"mr": ["\\mathrm{#1}", 1], "mb": ["\\mathbb{#1}", 1], "ee": "\\exists\\,", "ff": "\\forall\\,", "les": "\\leqslant", "ges": "\\geqslant", "sse": "\\subset", "sbs": "\\subset", "sps": "\\supset", "ve": "\\varepsilon", "mbr": "\\mathbb{R}", "mbn": "\\mathbb{N}", "mbz": "\\mathbb{Z}", "mbq": "\\mathbb{Q}", "mbc": "\\mathbb{C}", "mbh": "\\mathbb{H}", "vp": "\\varphi", "nti": "n\\to\\infty", "md": "\\mathrm{d}", "mre": "\\mathrm{e}", "mri": "\\mathrm{i}", "lra": ["\\langle #1\\rangle", 1], "Ker": "\\mathrm{Ker}\\,", "Im": "\\mathrm{Im}\\,", "tl": "\\triangleleft", "set": ["\\left\\{#1\\,\\left|\\,#2\\right. \\right\\}", 2], "mod": ["\\ (\\mr{mod}\\ #1)", 1], "pp": "\\partial", "Gal": ["\\mathrm{Gal}\\left(#1\\right)", 1], "Inv": ["\\mathrm{Inv}\\left(#1\\right)", 1], "End": ["\\mathrm{End}_{#1}\\!\\left(#2\\right)", 2], "Hom": ["\\mathrm{Hom}_{#1}\\!\\left(#2\\right)", 2], "ca": "\\mathcal{A}", "cb": "\\mathcal{B}", "cc": "\\mathcal{C}", "cd": "\\mathcal{D}", "ce": "\\mathcal{E}", "cf": "\\mathcal{F}", "cg": "\\mathcal{G}", "cl": "\\mathcal{L}", "cs": "\\mathcal{S}", "Ext": "\\mathrm{Ext}", "Tor": "\\mathrm{Tor}", "mc": ["\\mathcal{#1}", 1], "ot": "\\otimes"}}});
+</script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_SVG.js"></script>
+</body>
+</html>

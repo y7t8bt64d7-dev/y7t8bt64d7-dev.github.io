@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>同态基本定理与向量空间｜阿贝尔的数学之旅</title>
+  <meta name="description" content="设 $U,V$ 为域上的线性空间, 我们知道对线性映射 $f:U\to V$ 有 … 继续阅读 →">
+  <link rel="canonical" href="https://www.abelmath.fun/1232.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="阿贝尔的数学之旅">
+  <meta property="og:title" content="同态基本定理与向量空间｜阿贝尔的数学之旅">
+  <meta property="og:description" content="设 $U,V$ 为域上的线性空间, 我们知道对线性映射 $f:U\to V$ 有 … 继续阅读 →">
+  <meta property="og:url" content="https://www.abelmath.fun/1232.html">
+  <meta property="og:image" content="https://www.abelmath.fun/assets/og.png">
+  <meta property="og:image:width" content="1731">
+  <meta property="og:image:height" content="909">
+  <meta property="og:image:alt" content="阿贝尔的数学之旅：数学笔记与思考">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="同态基本定理与向量空间｜阿贝尔的数学之旅">
+  <meta name="twitter:description" content="设 $U,V$ 为域上的线性空间, 我们知道对线性映射 $f:U\to V$ 有 … 继续阅读 →">
+  <meta name="twitter:image" content="https://www.abelmath.fun/assets/og.png">
+  <link rel="stylesheet" href="/assets/site.css">
+  <link rel="alternate" type="application/rss+xml" title="阿贝尔的数学之旅" href="/feed.xml">
+</head>
+<body class="article-page">
+  <a class="skip-link" href="#main">跳到正文</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="/" aria-label="阿贝尔的数学之旅首页">
+        <span class="brand-mark" aria-hidden="true">∫</span>
+        <span><strong>阿贝尔的数学之旅</strong><small>ABEL'S MATHEMATICAL JOURNEY</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">目录</button>
+      <nav id="site-nav" class="site-nav" aria-label="主要导航"><a href="/">首页</a><a href="/category/%e8%ae%ba%e6%96%87/">论文</a><a href="/category/ode/">ODE</a><a href="/category/pde/">PDE</a><a href="/category/analysis/">分析</a><a href="/category/analysis/%e6%b5%8b%e5%ba%a6/">测度</a><a href="/category/%e8%bf%91%e4%b8%96%e4%bb%a3%e6%95%b0/">抽代</a><a href="/category/%e5%9f%ba%e4%bb%a3/">基代</a><a href="/category/%e7%a7%91%e6%99%ae/">科普</a><a href="/category/manim/">manim</a><a href="/category/%e6%8e%a2%e8%ae%a8/">探讨</a><a href="/category/%e8%ae%b0%e5%bd%95/">记录</a></nav>
+    </div>
+  </header>
+  <main id="main">
+<article class="article-shell">
+  <header class="article-header">
+    <a class="back-link" href="/">← 返回首页</a>
+    <div class="post-meta"><time datetime="2024-10-08T15:54:55+00:00">2024-10-08</time><a class="chip" href="/category/%E6%8E%A2%E8%AE%A8/">探讨</a></div>
+    <h1>同态基本定理与向量空间</h1>
+    <p>设 $U,V$ 为域上的线性空间, 我们知道对线性映射 $f:U\to V$ 有 … 继续阅读 →</p>
+  </header>
+  <div class="article-layout">
+    <aside class="article-rail"><p>NOTE 1232</p><span></span><p>2024 · 10 · 08</p></aside>
+    <div class="article-content"><p>设 $U,V$ 为域上的线性空间, 我们知道对线性映射 $f:U\to V$ 有同态基本定理<br>
+$$U/\Ker f\cong \Im f.$$<br>
+这是否表明 $U\cong \Im f\oplus \Ker f$? 我觉得这个同构是对的. 特别地, 当 $V=U$ 时, 有 $U=\Im f\oplus \Ker f$, 我觉得这个也是对的. 这个分解看起来那么有用, 为什么学高代的时候没人提? 我觉得可能是因为, 与 Fitting 引理相比, $f$ 在 $\Im f$ 上的限制不一定是自同构, 在 $\Ker f$ 上的限制也不一定是幂零的.<br>
+同态基本定理很有用, 由它可以直接得到有限维线性空间上的线性变换是单的或者满的, 则一定是同构.<br>
+事实上, 上面的思考和断言有很多是错误的. 首先, 如果仅由同态基本定理, 推得单线性变换是同构, 那有限维空间的有限维限制体现在哪里? 按照这个思路, 任何向量空间上的单线性变换都是同构, 这是不对的, 有这么强的结论早就有人提出来了.<br>
+后来才发现, 确实是有限维和无限维, 或者说有限集和无限集有着本质的差别. 另一方面, “同构”和“等于”两个概念还是有区别的. 比如考虑 $\mbz$ 模单同态<br>
+$$ f:\mbz\to\mbz,\ n\mapsto 2n,$$<br>
+由模同态基本定理得 $\mbz/\Ker f\cong \Im f$, 因为 $\Ker f=0$, 故 $\mbz\cong 2\mbz$. 现在问题好像是浮出水面了, $\mbz\cong 2\mbz$ 这个关系式没有错, 但是 $\mbz\ne2\mbz$, $\Im f$ 同构于 $\mbz$ 不能说明 $f$ 是满射!<br>
+还有一个比较有意思的地方, $\dim_\mbz\mbz=\dim_\mbz2\mbz=1$, $2\mbz$ 作为 $\mbz$ 的子模, 维数和大模相等, 但是子模和大模并不相等. 这是和线性空间比较大的一个差别. 在线性空间中, 子空间维数如果等于全空间的维数, 则这个子空间就是全空间. 这表明环上的线性空间和域上的线性空间有着本质上的差别, 域上的线性空间在某种意义下更贴近现实.<br>
+从上面也可以看出 Fitting 引理的强大之处, 它比同态基本定理更强, 因为 Fitting 引理给出的结果是“等号”, 而同态基本定理只是“同构”<br>
+$$M=\Im f^N\oplus \Ker f^N.$$<br>
+Fitting 引理在矩阵情形反映的是矩阵的上面分解？矩阵的等价标准型？</p>
+</div>
+  </div>
+  <nav class="post-navigation" aria-label="文章前后导航"><a href="/1228.html"><span>上一篇</span><strong>抽象代数回顾</strong></a><a href="/1280.html"><span>下一篇</span><strong>模论2</strong></a></nav>
+</article>
+</main>
+  <footer class="site-footer">
+    <p>阿贝尔的数学之旅 · 数学笔记与思考</p>
+    <p><a href="/feed.xml">RSS</a><span aria-hidden="true"> · </span><a href="/sitemap.xml">站点地图</a></p>
+  </footer>
+  <script src="/assets/site.js"></script>
+  
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ["\\(","\\)"]],
+    displayMath: [['$$', '$$'], ["\\[", "\\]"]],
+    processEscapes: true
+  },
+  TeX: {
+    equationNumbers: {autoNumber: "AMS",
+    useLabelIds: true}
+  },
+});
+MathJax.Hub.Config({TeX: {Macros: {"mr": ["\\mathrm{#1}", 1], "mb": ["\\mathbb{#1}", 1], "ee": "\\exists\\,", "ff": "\\forall\\,", "les": "\\leqslant", "ges": "\\geqslant", "sse": "\\subset", "sbs": "\\subset", "sps": "\\supset", "ve": "\\varepsilon", "mbr": "\\mathbb{R}", "mbn": "\\mathbb{N}", "mbz": "\\mathbb{Z}", "mbq": "\\mathbb{Q}", "mbc": "\\mathbb{C}", "mbh": "\\mathbb{H}", "vp": "\\varphi", "nti": "n\\to\\infty", "md": "\\mathrm{d}", "mre": "\\mathrm{e}", "mri": "\\mathrm{i}", "lra": ["\\langle #1\\rangle", 1], "Ker": "\\mathrm{Ker}\\,", "Im": "\\mathrm{Im}\\,", "tl": "\\triangleleft", "set": ["\\left\\{#1\\,\\left|\\,#2\\right. \\right\\}", 2], "mod": ["\\ (\\mr{mod}\\ #1)", 1], "pp": "\\partial", "Gal": ["\\mathrm{Gal}\\left(#1\\right)", 1], "Inv": ["\\mathrm{Inv}\\left(#1\\right)", 1], "End": ["\\mathrm{End}_{#1}\\!\\left(#2\\right)", 2], "Hom": ["\\mathrm{Hom}_{#1}\\!\\left(#2\\right)", 2], "ca": "\\mathcal{A}", "cb": "\\mathcal{B}", "cc": "\\mathcal{C}", "cd": "\\mathcal{D}", "ce": "\\mathcal{E}", "cf": "\\mathcal{F}", "cg": "\\mathcal{G}", "cl": "\\mathcal{L}", "cs": "\\mathcal{S}", "Ext": "\\mathrm{Ext}", "Tor": "\\mathrm{Tor}", "mc": ["\\mathcal{#1}", 1], "ot": "\\otimes"}}});
+</script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_SVG.js"></script>
+</body>
+</html>

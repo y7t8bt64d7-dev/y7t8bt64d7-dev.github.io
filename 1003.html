@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>模 $n$ 剩余类环｜阿贝尔的数学之旅</title>
+  <meta name="description" content="命题 1 (同态、同构的必要条件). 设 $A,B$ 是群. 若 $f:A\to … 继续阅读 →">
+  <link rel="canonical" href="https://www.abelmath.fun/1003.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="阿贝尔的数学之旅">
+  <meta property="og:title" content="模 $n$ 剩余类环｜阿贝尔的数学之旅">
+  <meta property="og:description" content="命题 1 (同态、同构的必要条件). 设 $A,B$ 是群. 若 $f:A\to … 继续阅读 →">
+  <meta property="og:url" content="https://www.abelmath.fun/1003.html">
+  <meta property="og:image" content="https://www.abelmath.fun/assets/og.png">
+  <meta property="og:image:width" content="1731">
+  <meta property="og:image:height" content="909">
+  <meta property="og:image:alt" content="阿贝尔的数学之旅：数学笔记与思考">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="模 $n$ 剩余类环｜阿贝尔的数学之旅">
+  <meta name="twitter:description" content="命题 1 (同态、同构的必要条件). 设 $A,B$ 是群. 若 $f:A\to … 继续阅读 →">
+  <meta name="twitter:image" content="https://www.abelmath.fun/assets/og.png">
+  <link rel="stylesheet" href="/assets/site.css">
+  <link rel="alternate" type="application/rss+xml" title="阿贝尔的数学之旅" href="/feed.xml">
+</head>
+<body class="article-page">
+  <a class="skip-link" href="#main">跳到正文</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="/" aria-label="阿贝尔的数学之旅首页">
+        <span class="brand-mark" aria-hidden="true">∫</span>
+        <span><strong>阿贝尔的数学之旅</strong><small>ABEL'S MATHEMATICAL JOURNEY</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">目录</button>
+      <nav id="site-nav" class="site-nav" aria-label="主要导航"><a href="/">首页</a><a href="/category/%e8%ae%ba%e6%96%87/">论文</a><a href="/category/ode/">ODE</a><a href="/category/pde/">PDE</a><a href="/category/analysis/">分析</a><a href="/category/analysis/%e6%b5%8b%e5%ba%a6/">测度</a><a href="/category/%e8%bf%91%e4%b8%96%e4%bb%a3%e6%95%b0/">抽代</a><a href="/category/%e5%9f%ba%e4%bb%a3/">基代</a><a href="/category/%e7%a7%91%e6%99%ae/">科普</a><a href="/category/manim/">manim</a><a href="/category/%e6%8e%a2%e8%ae%a8/">探讨</a><a href="/category/%e8%ae%b0%e5%bd%95/">记录</a></nav>
+    </div>
+  </header>
+  <main id="main">
+<article class="article-shell">
+  <header class="article-header">
+    <a class="back-link" href="/">← 返回首页</a>
+    <div class="post-meta"><time datetime="2024-10-04T12:56:35+00:00">2024-10-04</time><a class="chip" href="/category/%E5%9F%BA%E4%BB%A3/">基代</a></div>
+    <h1>模 $n$ 剩余类环</h1>
+    <p>命题 1 (同态、同构的必要条件). 设 $A,B$ 是群. 若 $f:A\to … 继续阅读 →</p>
+  </header>
+  <div class="article-layout">
+    <aside class="article-rail"><p>NOTE 1003</p><span></span><p>2024 · 10 · 04</p></aside>
+    <div class="article-content"><div class="latex_prop"><span class="latex_prop_h">命题 1</span> (<span class="latex_prop_name">同态、同构的必要条件</span>)<span class="latex_prop_h">.</span> 设 $A,B$ 是群.
+<ol>
+<li>若 $f:A\to B$ 为群同态, $f(a)=b$, 则 $b$ 的阶整除 $a$ 的阶.
+</li><li>若 $A\cong B$, 则 $A,B$ 中有相同元素的阶. 特别地, 元素的最高阶相等.</li></ol></div>
+
+
+<div class="latex_prop"><span class="latex_prop_h">命题 2</span><span class="latex_prop_h">.</span> 同余方程 $ax\equiv b\mod{p}$ 有解
+$$ \Leftrightarrow \ b\in (a,m)\mbz\ \Leftrightarrow \ (a,m)|b.$$
+</div>
+
+
+
+<p class="wp-block-paragraph"></p><div class="latex_prop"><span class="latex_prop_h">命题 3</span><span class="latex_prop_h">.</span> \begin{align*}  n\mbz+m\mbz&amp;=(n,m)\mbz\\  n\mbz\cap m\mbz&amp;=[n,m]\mbz\\  m\mbz_n&amp;=(n,m)\mbz/n\mbz\\  n\mbz/(mn)\mbz&amp;=\mbz/m\mbz  \end{align*}</div>
+
+
+
+<p class="wp-block-paragraph"></p><div class="latex_prop"><span class="latex_prop_h">命题 4</span><span class="latex_prop_h">.</span> 若 $(n,m)=1$, 则有环同构 $\mbz_{mn}\cong \mbz_m\oplus \mbz_n$. ($\mbz$-模同构也是对的)  </div>
+
+
+
+<details class="wp-block-details is-layout-flow wp-block-details-is-layout-flow"><summary>证明</summary>
+<p class="wp-block-paragraph"></p><div class="latex_proof"><span class="latex_proof_h">证明</span><span class="latex_proof_h">.</span> 我们说明 $\sigma:\bar{x}\mapsto (\tilde{x},\hat{x})$ 是环同构.  <ol>  <li>环同态：  \begin{align*}  \sigma(\bar{1})&amp;=(\tilde{1},\hat{1})\\  \sigma(\bar{x}+\bar{y})&amp;=\sigma(\overline{x+y})=\big(\widetilde{x+y},\widehat{x+y}\big)=(\tilde{x}+\tilde{y},\hat{x}+\hat{y})=\sigma(\bar{x})+\sigma(\bar{y})\\  \sigma(\bar{x}\bar{y})&amp;=\sigma(\overline{xy})=\big(\widetilde{xy},\widehat{xy}\big)=(\tilde{x}\tilde{y},\hat{x}\hat{y})=\sigma(\bar{x})\sigma(\bar{y})  \end{align*}  </li><li>单射：设 $(\tilde{x},\hat{x})=(\tilde{y},\hat{y})$, 即 $\big(\widetilde{x-y},\widehat{x-y}\big)=0$, 那么  $$x-y\in m\mbz\cap n\mbz=mn\mbz\ \Rightarrow\ \overline{x-y}=0\ \Rightarrow\ \bar{x}=\bar{y}.$$  </li><li>满射：任取 $(x+m\mbz,y+n\mbz)\in\mbz_m\oplus\mbz_n$, 其中 $0\les x\les m-1,0\les y\les n-1$. 需构造 $z\in\mbz$ 满足\begin{align*}  &amp;(z+m\mbz,z+n\mbz)=(x+m\mbz,y+n\mbz)\\  \Leftrightarrow\ &amp; z-x\in m\mbz, z-y\in n\mbz\\  \Leftrightarrow\ &amp; \ee k_1,k_2\in\mbz\ :\ z=x+mk_1=y+nk_2\\  \Leftrightarrow\ &amp; \ee k_1,k_2\in\mbz\ :\ x-y=nk_2-nk_1.  \end{align*}因为 $(n,m)=1$, 故存在 $a,b\in\mbz$ 使得 $ma+nb=1$. 进而 $x-y=ma(x-y)+nb(x-y)$,  $$x-ma(x-y)=y+nb(x-y)=:z.$$  </li></ol>  </div>
+</details>
+
+
+
+<div class="latex_prop"><span class="latex_prop_h">命题 5</span><span class="latex_prop_h">.</span> 当 $(m,n)=d&gt;1$ 时, $\mbz_{mn}\not\cong \mbz_m\oplus\mbz_n$.
+</div>
+
+
+<details class="wp-block-details"><summary>证明</summary>
+<div class="latex_proof"><span class="latex_proof_h">证明</span><span class="latex_proof_h">.</span> 我们说明任一模同态 $\sigma:\mbz_{mn}\to \mbz_m\oplus\mbz_n$ 的核不为零, 从而不能为单射. 对任意 $ \mbz_m\oplus\mbz_n$ 中元素 $(\tilde{x},\hat{x})$ 有
+$$\frac{mn}{d}(\tilde{x},\hat{x})=\Big(\frac{n}{d}\cdot m \tilde{x},\frac{m}{d} \cdot n\hat{x}\Big)=0.$$
+那么 $\frac{mn}{d}\sigma(\bar{1})=0$, 即 $\sigma\big(\frac{mn}{d}\bar{1}\big)=0$. 但是 $0\ne\frac{mn}{d}\bar{1}\in\Ker\sigma$, 故任意模同态 $\sigma$ 都不能是单射.
+</div>
+</details>
+<!-- /wp:details -->
+ 
+
+<!-- wp:paragraph -->
+<div class="latex_examp"><span class="latex_examp_h">例子 1</span><span class="latex_examp_h">.</span> $\mbz_6\cong \mbz_2\oplus \mbz_3$, 其中同构映射为  $$\sigma: \bar{x}\mapsto (\tilde{x},\hat{x}),\ x+6\mbz\mapsto (x+2\mbz,2+3\mbz).$$  具体而言\begin{align*}\sigma(\bar{0 })&amp;=(\tilde{0},\hat{0}),\ &amp; \ \sigma(\bar{ 3})&amp;=(\tilde{1},\hat{0})\\  \sigma(\bar{1 })&amp;=(\tilde{1},\hat{1}), \ &amp; \ \sigma(\bar{4 })&amp;=(\tilde{0},\hat{1})\\  \sigma(\bar{ 2})&amp;=(\tilde{0},\hat{2}), \ &amp;\ \sigma(\bar{ 5})&amp;=(\tilde{1},\hat{2}).  \end{align*}</div>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>$(n,m)=d&gt;1$.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<div class="latex_prop"><span class="latex_prop_h">命题 6</span><span class="latex_prop_h">.</span> $\mbz_n$ 可以作为 $\mbz_m$-模当仅当 $n|m$.  </div>
+<!-- /wp:paragraph -->
+
+<!-- wp:details -->
+<details class="wp-block-details"><summary>证明</summary><!-- wp:paragraph {"placeholder":"键入 / 添加隐藏区块"} -->
+<div class="latex_proof"><span class="latex_proof_h">证明</span><span class="latex_proof_h">.</span> 分析. $\mbz_n$ 天然就是加群, 要成为 $\mbz_m$-模, 只需定义 $R$-作用：$$ (r+m\mbz)\cdot (a+n\mbz):=ra+n\mbz\in\mbz_n.$$因为定义中涉及商空间, 所以 $R$-作用有效当仅当 $R$-作用良定. 设 $r+m\mbz=r'+m\mbz$, 即 $r-r'\in m\mbz$. 那么  $$ ar+n\mbz=ar'+n\mbz,\ \ff a\in\mbz\ \Leftrightarrow\ a(r-r')\in n\mbz,\ \ff a\in\mbz.$$ $\Rightarrow$. 设 $\mbz_n$ 为 $\mbz_m$ 模, 则 $R$-作用良定. 特别地, 在分析中取 $r-r'=m, a=1$, 则  $r-r'=m\in n\mbz,$ 那么 $n|m$.  $\Leftarrow$. 设 $n|m$, 则当 $r-r'\in m\mbz$ 时有 $a(r-r')\in n\mbz, \ff a\in\mbz$, 即 $R$-作用良定.  </div>
+<!-- /wp:paragraph --></details>
+<!-- /wp:details -->
+
+
+<!-- wp:paragraph -->
+<div class="latex_prop"><span class="latex_prop_h">命题 7</span><span class="latex_prop_h">.</span> 证明 $\mbz$-模同构 $\mr{Hom}_\mbz(\mbz_n,\mbz_m)\cong \mbz_{(m,n)}.$  </div>
+<!-- /wp:paragraph -->
+
+<!-- wp:details -->
+<details class="wp-block-details"><summary>证明</summary><!-- wp:paragraph {"placeholder":"键入 / 添加隐藏区块"} -->
+<div class="latex_proof"><span class="latex_proof_h">证明</span><span class="latex_proof_h">.</span> $\mbz$-模同态 $\mr{Hom}_\mbz(\mbz_n,\mbz_m)$ 中的元素 $f$ 被 $f(\bar{1})$ 所决定, 即有同构  $$\vp: \mr{Hom}_\mbz(\mbz_n,\mbz_m)\ni f\mapsto f(\bar{1})=\bar{a}\in\mbz_m.$$现在只需 $f(\bar{1})$ 良定即可. 当 $\bar{1}=\bar{1+nk}$ 时, 需有 $\bar{a}=\overline{(1+nk)a}$, 即 $\overline{nka}=0, \ff k\in\mbz$. 那么$$m|nka\ \Rightarrow\ m'|n'ka\ \Rightarrow\ \ff k\in\mbz \Leftrightarrow m'|n'a \Leftrightarrow m'|a,$$其中 $m'=m/(m,n), n'=n/(m,n)$. 那么  $$a\in\{0, m', 2m', \cdots, \big((m,n)-1\big) m'\}\cong \mbz_{(m,n)},$$其中同构映射为 $km'+m\mbz\mapsto k+(m,n)\mbz$. 故结论成立.  </div>
+<!-- /wp:paragraph --></details>
+<!-- /wp:details -->
+
+<!-- wp:paragraph -->
+<div class="latex_examp"><span class="latex_examp_h">例子 2</span><span class="latex_examp_h">.</span> 证明
+<ol>
+<li>设 $m\ges1$, 对任意 Abel 群 $A$ 有 $\mbz$-模同构
+$$ A\ot_\mbz \mbz_m\cong A/ mA.$$
+</li><li>$\mbz_m\ot_\mbz \mbz_n\cong \mbz_{(m,n)}$. 特别地, 当 $(m,n)=$ 时, $\mbz_m\ot_\mbz \mbz_n\cong 0.$
+</li></ol>
+</div>
+<!-- /wp:paragraph -->
+
+<!-- wp:details -->
+<details class="wp-block-details"><summary>证明</summary><!-- wp:paragraph {"placeholder":"键入 / 添加隐藏区块"} -->
+ <div class="latex_proof"><span class="latex_proof_h">证明</span><span class="latex_proof_h">.</span> 难以直接建立双射. 考虑用张量积的等价命题. 构造双线性型
+\begin{align*}
+\tilde{\vp}: A\times \mbz_m&amp;\to A/mA\\
+(a,x+m\mbz)&amp;\mapsto xa+mA
+\end{align*}
+则存在 $\vp:A\ot_\mbz \mbz_m \to A/mA$ 使得 $\vp i=\tilde{\vp}.$ 另一方面, 构造映射
+\begin{align*}
+\psi: A/m A&amp;\to A\ot \mbz_m\\
+a+mA&amp;\mapsto a\ot\bar{1}
+\end{align*}
+由于 $A\ot \mbz_m$ 中的一般元素为
+$$\sum_{i=1}^na_i\ot \bar{x_i}=\big(\sum_{i=1}^n x_ia_i\big) \ot\bar{1}=a\ot\bar{1}.$$
+因此有
+\begin{align*}
+\vp\psi(a+mA)&amp;=\vp(a\ot \bar{1})=a+mA\ \Rightarrow\ \vp\psi=1\\
+\psi\vp(a\ot\bar{1})&amp;=\psi(a+mA)=a\ot\bar{1}\ \Rightarrow\ \psi\vp=1.
+\end{align*}
+</div> 
+<!-- /wp:paragraph --></details>
+<!-- /wp:details -->
+
+<!-- wp:paragraph -->
+<div class="latex_examp"><span class="latex_examp_h">例子 3</span><span class="latex_examp_h">.</span> 用 Baer 判别法证明
+<ol>
+<li>$\mbz_m$ 是内射 $\mbz_m$-模.
+</li><li>$d|m$ 且 $d$ 与 $m/d$ 有公共素因子, 则 $\mbz_d$ 不是内射 $\mbz_m$-模.
+</li></ol>
+</div>
+<!-- /wp:paragraph -->
+<!-- wp:details -->
+<details class="wp-block-details"><summary>证明</summary><!-- wp:paragraph {"placeholder":"键入 / 添加隐藏区块"} -->
+<div class="latex_proof"><span class="latex_proof_h">证明</span><span class="latex_proof_h">.</span> <ol>
+<li>令 $R=\mbz_m$, 则 $R$ 的理想形如 $k\mbz_m$, 其中 $k|m$. 考虑同态 $f:k\mbz/m\mbz\to m\mbz$. 设
+$$f(kx+m\mbz)=y+m\mbz,$$
+则
+$$0=\frac{m}{k}f(kx+m\mbz)=m\frac{y}{k}+m\mbz.$$
+那么 $k|y, \Im f\subset k\mbz/m\mbz$. 这样便有
+$$f(kx+m\mbz)=ky'+m\mbz.$$
+令 $x=1$ 有 $f(k+m\mbz)=ky_0+m\mbz$, 故 $f$ 可延拓至同态
+$$\bar{f}: \mbz_m\ni\bar{x}\mapsto y_0\bar{x_0}\in\mbz_m.$$
+</li><li>令 $a=m/d$. 考虑典范同构 $a\mbz/m\mbz\stackrel{f}{=} \mbz_d$. 因为 $f(\bar{a})=\bar{1}$, 若 $f$ 有延拓 $\bar{f}$, 则 $\bar{f}(\bar{a})=\bar{1}, \bar{a}\bar{f}(\bar{1})=\bar{1}$, 而这
+$$\Leftrightarrow\ ax\equiv 1\mod{d} \text{ 有解 }\ \Leftrightarrow\ (a,d)|1.$$
+这与条件矛盾.
+</li></ol>
+</div>
+<!-- /wp:paragraph --></details>
+<!-- /wp:details -->
+
+<!-- wp:paragraph -->
+<div class="latex_examp"><span class="latex_examp_h">例子 4</span><span class="latex_examp_h">.</span> 对于 $R:=\mbz_6$ 有
+\begin{align*}
+\mbz_6&amp;=\{\bar{0},\bar{2},\bar{4}\}\oplus \{\bar{0},\bar{3}\}\\
+&amp;=:K\oplus N\cong\mbz_2\oplus\mbz_3. 
+\end{align*}
+因为 $K$ 和 $N$ 都是自由 $R$-模 $R$ 的直和项, 从而是投射模. 但它们不是自由 $R$-模, 因为不存在线性无关组.
+</div>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<div class="latex_examp"><span class="latex_examp_h">例子 5</span><span class="latex_examp_h">.</span> 证明：$\mbz_2$ 和 $\mbz_3$ 都不是投射 $\mbz$-模.
+</div>
+<!-- /wp:paragraph -->
+<!-- wp:details -->
+<details class="wp-block-details"><summary>证明</summary><!-- wp:paragraph {"placeholder":"键入 / 添加隐藏区块"} -->
+<div class="latex_proof"><span class="latex_proof_h">证明</span><span class="latex_proof_h">.</span> 主理想整环上的投射模是自由模. 因为 $\mbz_2$ 和 $\mbz_3$ 都没有 $\mbz$-线性无关组, 故不是自由模, 从而不是投射模.
+</div>
+<!-- /wp:paragraph --></details>
+<!-- /wp:details -->
+
+<!-- wp:paragraph -->
+当 $(m,n)=1$ 时, $\mbz_n$ 是投射 $\mbz_{mn}$ 模, 因为 $\mbz_n$ 是 $\mbz_{mn}=\mbz_m\oplus \mbz_n$ 的直和项.
+<!-- /wp:paragraph -->
+</div>
+  </div>
+  <nav class="post-navigation" aria-label="文章前后导航"><a href="/994.html"><span>上一篇</span><strong>Schauder 基与 Hamel 基</strong></a><a href="/1228.html"><span>下一篇</span><strong>抽象代数回顾</strong></a></nav>
+</article>
+</main>
+  <footer class="site-footer">
+    <p>阿贝尔的数学之旅 · 数学笔记与思考</p>
+    <p><a href="/feed.xml">RSS</a><span aria-hidden="true"> · </span><a href="/sitemap.xml">站点地图</a></p>
+  </footer>
+  <script src="/assets/site.js"></script>
+  
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ["\\(","\\)"]],
+    displayMath: [['$$', '$$'], ["\\[", "\\]"]],
+    processEscapes: true
+  },
+  TeX: {
+    equationNumbers: {autoNumber: "AMS",
+    useLabelIds: true}
+  },
+});
+MathJax.Hub.Config({TeX: {Macros: {"mr": ["\\mathrm{#1}", 1], "mb": ["\\mathbb{#1}", 1], "ee": "\\exists\\,", "ff": "\\forall\\,", "les": "\\leqslant", "ges": "\\geqslant", "sse": "\\subset", "sbs": "\\subset", "sps": "\\supset", "ve": "\\varepsilon", "mbr": "\\mathbb{R}", "mbn": "\\mathbb{N}", "mbz": "\\mathbb{Z}", "mbq": "\\mathbb{Q}", "mbc": "\\mathbb{C}", "mbh": "\\mathbb{H}", "vp": "\\varphi", "nti": "n\\to\\infty", "md": "\\mathrm{d}", "mre": "\\mathrm{e}", "mri": "\\mathrm{i}", "lra": ["\\langle #1\\rangle", 1], "Ker": "\\mathrm{Ker}\\,", "Im": "\\mathrm{Im}\\,", "tl": "\\triangleleft", "set": ["\\left\\{#1\\,\\left|\\,#2\\right. \\right\\}", 2], "mod": ["\\ (\\mr{mod}\\ #1)", 1], "pp": "\\partial", "Gal": ["\\mathrm{Gal}\\left(#1\\right)", 1], "Inv": ["\\mathrm{Inv}\\left(#1\\right)", 1], "End": ["\\mathrm{End}_{#1}\\!\\left(#2\\right)", 2], "Hom": ["\\mathrm{Hom}_{#1}\\!\\left(#2\\right)", 2], "ca": "\\mathcal{A}", "cb": "\\mathcal{B}", "cc": "\\mathcal{C}", "cd": "\\mathcal{D}", "ce": "\\mathcal{E}", "cf": "\\mathcal{F}", "cg": "\\mathcal{G}", "cl": "\\mathcal{L}", "cs": "\\mathcal{S}", "Ext": "\\mathrm{Ext}", "Tor": "\\mathrm{Tor}", "mc": ["\\mathcal{#1}", 1], "ot": "\\otimes"}}});
+</script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_SVG.js"></script>
+</body>
+</html>

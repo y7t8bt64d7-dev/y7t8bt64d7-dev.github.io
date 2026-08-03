@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>判断周期解存在性的方法｜阿贝尔的数学之旅</title>
+  <meta name="description" content="目录 目录 1. 排除闭合轨道的存在 … 继续阅读 →">
+  <link rel="canonical" href="https://www.abelmath.fun/1526.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="阿贝尔的数学之旅">
+  <meta property="og:title" content="判断周期解存在性的方法｜阿贝尔的数学之旅">
+  <meta property="og:description" content="目录 目录 1. 排除闭合轨道的存在 … 继续阅读 →">
+  <meta property="og:url" content="https://www.abelmath.fun/1526.html">
+  <meta property="og:image" content="https://www.abelmath.fun/assets/og.png">
+  <meta property="og:image:width" content="1731">
+  <meta property="og:image:height" content="909">
+  <meta property="og:image:alt" content="阿贝尔的数学之旅：数学笔记与思考">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="判断周期解存在性的方法｜阿贝尔的数学之旅">
+  <meta name="twitter:description" content="目录 目录 1. 排除闭合轨道的存在 … 继续阅读 →">
+  <meta name="twitter:image" content="https://www.abelmath.fun/assets/og.png">
+  <link rel="stylesheet" href="/assets/site.css">
+  <link rel="alternate" type="application/rss+xml" title="阿贝尔的数学之旅" href="/feed.xml">
+</head>
+<body class="article-page">
+  <a class="skip-link" href="#main">跳到正文</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="/" aria-label="阿贝尔的数学之旅首页">
+        <span class="brand-mark" aria-hidden="true">∫</span>
+        <span><strong>阿贝尔的数学之旅</strong><small>ABEL'S MATHEMATICAL JOURNEY</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">目录</button>
+      <nav id="site-nav" class="site-nav" aria-label="主要导航"><a href="/">首页</a><a href="/category/%e8%ae%ba%e6%96%87/">论文</a><a href="/category/ode/">ODE</a><a href="/category/pde/">PDE</a><a href="/category/analysis/">分析</a><a href="/category/analysis/%e6%b5%8b%e5%ba%a6/">测度</a><a href="/category/%e8%bf%91%e4%b8%96%e4%bb%a3%e6%95%b0/">抽代</a><a href="/category/%e5%9f%ba%e4%bb%a3/">基代</a><a href="/category/%e7%a7%91%e6%99%ae/">科普</a><a href="/category/manim/">manim</a><a href="/category/%e6%8e%a2%e8%ae%a8/">探讨</a><a href="/category/%e8%ae%b0%e5%bd%95/">记录</a></nav>
+    </div>
+  </header>
+  <main id="main">
+<article class="article-shell">
+  <header class="article-header">
+    <a class="back-link" href="/">← 返回首页</a>
+    <div class="post-meta"><time datetime="2025-08-28T12:47:58+00:00">2025-08-28</time><a class="chip" href="/category/ode/">ODE</a></div>
+    <h1>判断周期解存在性的方法</h1>
+    <p>目录 目录 1. 排除闭合轨道的存在 … 继续阅读 →</p>
+  </header>
+  <div class="article-layout">
+    <aside class="article-rail"><p>NOTE 1526</p><span></span><p>2025 · 08 · 28</p></aside>
+    <div class="article-content"><p><span id="contents" style="text-align:center; font-size:18px; font-variant:small-caps;display:block;">目录</span><br>
+          <span id="sec:content"><a href="#contents">目录</a></span><br><span> 1.  <a href="#sec:1">排除闭合轨道的存在性</a></span><br><span> 2.  <a href="#sec:2">证明闭合轨道的存在性</a></span><br><span> 3.  <a href="#sec:3">Dulac 定理</a></span><br></p>
+<p><span class="latex_section">1. 排除闭合轨道的存在性<a id="sec:1"></a></span>
+
+我们有如下两个方法<br>
+</p><ol>    <li>指标理论: $\mathbb{R}^{2}$ 中的闭合轨道必须包含固定点, 这些固定点的指数之和为 $1$.<br>
+    </li><li>Dulac 定理: 设 $\dot{x}=f(x)$, $x\in \mathbb{R}^{2}$, $R$ 是 $\mathbb{R}^{2}$ 中的一个单连通区域. 如果存在光滑函数 $g$ 使得 $\nabla\cdot(gf)$ 在 $R$ 中具有单一符号, 那么在 $R$ 中不存在闭合轨道.</li></ol><span class="latex_section">2. 证明闭合轨道的存在性<a id="sec:2"></a></span>
+
+<div class="latex_thm"><span class="latex_thm_h">定理 1</span> (<span class="latex_thm_name">Poincaré-Bendixson 定理</span>)<span class="latex_thm_h">.</span> 设 $\dot{x}=f(x)$, $x\in \mathbb{R}^{2}$, $R$ 是 $\mathbb{R}^{2}$ 中的一个有界闭区域, 且在 $R$ 中没有固定点. 如果存在一个被捕获的轨迹 $T$, 即 $T = (x(t), y(t))$ 在 $t = t_{0}$ 时位于 $R$ 中, 并且对所有 $t &gt; t_{0}$ 都保持在 $R$ 中. 那么:<br>
+<ul>    <li>$T$ 要么是一个闭合轨道, 要么<br>
+    </li><li>当 $t \to +\infty$ 时, $T$ 螺旋趋近于一个闭合轨道.</li></ul></div><br>
+<div class="latex_rem"><span class="latex_rem_h">注记 1</span><span class="latex_rem_h">.</span> 找到一个环形区域, 使得向量场在其边界上指向环形区域内部.<br>
+</div>
+<p><span class="latex_section">3. Dulac 定理<a id="sec:3"></a></span>
+</p>
+<div class="latex_thm"><span class="latex_thm_h">定理 2</span> (<span class="latex_thm_name">Dulac 定理</span>)<span class="latex_thm_h">.</span> 设平面自治系统<br>
+$$<br>
+\frac{\mathrm{d}x}{\mathrm{d}t}=f(x, y), \quad \frac{\mathrm{d}y}{\mathrm{d}t}=g(x, y)<br>
+$$定义在单连通区域 $D \subset \mathbb{R}^{2}$ 上, 其中 $f, g \in C^{1}(D)$. 若存在 $C^{1}$ 函数 $\varphi(x, y)$ （称为Dulac函数）, 使得表达式<br>
+$$<br>
+\frac{\partial(\varphi f)}{\partial x}+\frac{\partial(\varphi g)}{\partial y}<br>
+$$在 $D$ 内几乎处处保持同号（且不为零）, 则该系统在 $D$ 内不存在完全位于 $D$ 中的非常数周期解.<br>
+</div>
+
+<details class="wp-block-details">
+<summary>证明</summary>
+<p></p><div class="latex_proof"><span class="latex_proof_h">证明</span><span class="latex_proof_h">.</span> 假设 $C$ 是单连通区域 $R$ 内的闭轨线（周期解）, 其内部区域为 $D$.  对Dulac函数 $\varphi(x,y)$ 与系统函数 $f,g$ 构成的散度项在 $D$ 上积分:   $$<br>
+   \iint_D \left( \frac{\partial(\varphi f)}{\partial x} + \frac{\partial(\varphi g)}{\partial y} \right) \mathrm{d}x\mathrm{d}y<br>
+   $$   根据格林定理, 该积分等于沿闭曲线 $C$ 的极积分:<br>
+   $$<br>
+   \oint_C \left( -\varphi \dot{y} \mathrm{d}x + \varphi \dot{x} \mathrm{d}y \right)<br>
+   $$由系统定义 $\dot{x}=f(x,y),\ \dot{y}=g(x,y)$, 且沿闭轨线 $C$ 有 $\mathrm{d}x = \dot{x}\mathrm{d}t,\ \mathrm{d}y = \dot{y}\mathrm{d}t$, 代入得:<br>
+   $$<br>
+   \oint_C \varphi \left( -\dot{y}\dot{x} + \dot{x}\dot{y} \right) \mathrm{d}t = \oint_C 0 \cdot \mathrm{d}t = 0<br>
+   $$由条件 $\frac{\partial(\varphi f)}{\partial x} + \frac{\partial(\varphi g)}{\partial y} &gt; 0$, 左端二重积分应为正数, 但右端线积分结果为 $0$, 矛盾.<br>
+</div><br>
+</details>
+<p></p><div class="latex_examp"><span class="latex_examp_h">例子 1</span><span class="latex_examp_h">.</span> 证明系统<br>
+$$<br>
+\dot{x}=x(2-x-y), \quad \dot{y}=y(4x-x^{2}-3)<br>
+$$<br>
+在区域 $R=\{x&gt;0,y&gt;0\}$ 内没有闭合轨道.<br>
+</div>
+<details class="wp-block-details">
+<summary>证明</summary>
+<p></p><div class="latex_proof"><span class="latex_proof_h">证明</span><span class="latex_proof_h">.</span> 选取 Dulac 函数 $g=\frac{1}{xy}$,<br>
+$$<br>
+\nabla\cdot(gF)=\frac{\partial}{\partial x}\frac{2-x-y}{y}+\frac{\partial}{\partial y}\frac{4x-x^{2}-3}{x}=-\frac{1}{y}&lt;0
+$$
+证毕. $\square$
+</div>
+</details>
+<p></p><div class="latex_examp"><span class="latex_examp_h">例子 2</span><span class="latex_examp_h">.</span> 证明系统<br>
+$$<br>
+\dot{x}=y, \quad \dot{y}=-x-y+x^{2}+y^{2}<br>
+$$<br>
+在 $\mathbb{R}^{2}$ 内没有闭合轨道.<br>
+</div>
+<details class="wp-block-details">
+<summary>证明</summary>
+<p></p><div class="latex_proof"><span class="latex_proof_h">证明</span><span class="latex_proof_h">.</span> 选取 Dulac 函数 $g=\mathrm{e}^{-2x}$,<br>
+$$<br>
+\nabla\cdot(gF)=\frac{\partial}{\partial x}(y\mathrm{e}^{-2x})+\frac{\partial}{\partial y}[\mathrm{e}^{-2x}(-x-y+x^{2}+y^{2})]=-\mathrm{e}^{-2x}&lt;0
+$$
+证毕. $\square$
+</div>
+</details>
+<div class="latex_rem"><span class="latex_rem_h">注记 2</span><span class="latex_rem_h">.</span> Dulac 准则的问题: 难以找到合适的 $g$ 函数.<br>
+我们可以尝试:<br>
+$$<br>
+g=1,\ \frac{1}{xy},\ \frac{1}{x^{a}y^{b}},\ \mathrm{e}^{kx},\ \mathrm{e}^{ky},\ \cdots<br>
+$$<br>
+</div>
+</div>
+  </div>
+  <nav class="post-navigation" aria-label="文章前后导航"><a href="/1523.html"><span>上一篇</span><strong>用 Fourier 变换证明 Leibniz 法则</strong></a><a href="/1569.html"><span>下一篇</span><strong>拉普拉斯方程</strong></a></nav>
+</article>
+</main>
+  <footer class="site-footer">
+    <p>阿贝尔的数学之旅 · 数学笔记与思考</p>
+    <p><a href="/feed.xml">RSS</a><span aria-hidden="true"> · </span><a href="/sitemap.xml">站点地图</a></p>
+  </footer>
+  <script src="/assets/site.js"></script>
+  
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ["\\(","\\)"]],
+    displayMath: [['$$', '$$'], ["\\[", "\\]"]],
+    processEscapes: true
+  },
+  TeX: {
+    equationNumbers: {autoNumber: "AMS",
+    useLabelIds: true}
+  },
+});
+MathJax.Hub.Config({TeX: {Macros: {"mr": ["\\mathrm{#1}", 1], "mb": ["\\mathbb{#1}", 1], "ee": "\\exists\\,", "ff": "\\forall\\,", "les": "\\leqslant", "ges": "\\geqslant", "sse": "\\subset", "sbs": "\\subset", "sps": "\\supset", "ve": "\\varepsilon", "mbr": "\\mathbb{R}", "mbn": "\\mathbb{N}", "mbz": "\\mathbb{Z}", "mbq": "\\mathbb{Q}", "mbc": "\\mathbb{C}", "mbh": "\\mathbb{H}", "vp": "\\varphi", "nti": "n\\to\\infty", "md": "\\mathrm{d}", "mre": "\\mathrm{e}", "mri": "\\mathrm{i}", "lra": ["\\langle #1\\rangle", 1], "Ker": "\\mathrm{Ker}\\,", "Im": "\\mathrm{Im}\\,", "tl": "\\triangleleft", "set": ["\\left\\{#1\\,\\left|\\,#2\\right. \\right\\}", 2], "mod": ["\\ (\\mr{mod}\\ #1)", 1], "pp": "\\partial", "Gal": ["\\mathrm{Gal}\\left(#1\\right)", 1], "Inv": ["\\mathrm{Inv}\\left(#1\\right)", 1], "End": ["\\mathrm{End}_{#1}\\!\\left(#2\\right)", 2], "Hom": ["\\mathrm{Hom}_{#1}\\!\\left(#2\\right)", 2], "ca": "\\mathcal{A}", "cb": "\\mathcal{B}", "cc": "\\mathcal{C}", "cd": "\\mathcal{D}", "ce": "\\mathcal{E}", "cf": "\\mathcal{F}", "cg": "\\mathcal{G}", "cl": "\\mathcal{L}", "cs": "\\mathcal{S}", "Ext": "\\mathrm{Ext}", "Tor": "\\mathrm{Tor}", "mc": ["\\mathcal{#1}", 1], "ot": "\\otimes"}}});
+</script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_SVG.js"></script>
+</body>
+</html>

@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>抽象代数回顾｜阿贝尔的数学之旅</title>
+  <meta name="description" content="目录 目录 1. 代数对象� … 继续阅读 →">
+  <link rel="canonical" href="https://www.abelmath.fun/1228.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="阿贝尔的数学之旅">
+  <meta property="og:title" content="抽象代数回顾｜阿贝尔的数学之旅">
+  <meta property="og:description" content="目录 目录 1. 代数对象� … 继续阅读 →">
+  <meta property="og:url" content="https://www.abelmath.fun/1228.html">
+  <meta property="og:image" content="https://www.abelmath.fun/assets/og.png">
+  <meta property="og:image:width" content="1731">
+  <meta property="og:image:height" content="909">
+  <meta property="og:image:alt" content="阿贝尔的数学之旅：数学笔记与思考">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="抽象代数回顾｜阿贝尔的数学之旅">
+  <meta name="twitter:description" content="目录 目录 1. 代数对象� … 继续阅读 →">
+  <meta name="twitter:image" content="https://www.abelmath.fun/assets/og.png">
+  <link rel="stylesheet" href="/assets/site.css">
+  <link rel="alternate" type="application/rss+xml" title="阿贝尔的数学之旅" href="/feed.xml">
+</head>
+<body class="article-page">
+  <a class="skip-link" href="#main">跳到正文</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="/" aria-label="阿贝尔的数学之旅首页">
+        <span class="brand-mark" aria-hidden="true">∫</span>
+        <span><strong>阿贝尔的数学之旅</strong><small>ABEL'S MATHEMATICAL JOURNEY</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">目录</button>
+      <nav id="site-nav" class="site-nav" aria-label="主要导航"><a href="/">首页</a><a href="/category/%e8%ae%ba%e6%96%87/">论文</a><a href="/category/ode/">ODE</a><a href="/category/pde/">PDE</a><a href="/category/analysis/">分析</a><a href="/category/analysis/%e6%b5%8b%e5%ba%a6/">测度</a><a href="/category/%e8%bf%91%e4%b8%96%e4%bb%a3%e6%95%b0/">抽代</a><a href="/category/%e5%9f%ba%e4%bb%a3/">基代</a><a href="/category/%e7%a7%91%e6%99%ae/">科普</a><a href="/category/manim/">manim</a><a href="/category/%e6%8e%a2%e8%ae%a8/">探讨</a><a href="/category/%e8%ae%b0%e5%bd%95/">记录</a></nav>
+    </div>
+  </header>
+  <main id="main">
+<article class="article-shell">
+  <header class="article-header">
+    <a class="back-link" href="/">← 返回首页</a>
+    <div class="post-meta"><time datetime="2024-10-07T16:10:27+00:00">2024-10-07</time><a class="chip" href="/category/%E5%9F%BA%E4%BB%A3/">基代</a></div>
+    <h1>抽象代数回顾</h1>
+    <p>目录 目录 1. 代数对象� … 继续阅读 →</p>
+  </header>
+  <div class="article-layout">
+    <aside class="article-rail"><p>NOTE 1228</p><span></span><p>2024 · 10 · 07</p></aside>
+    <div class="article-content"><p><span id="contents" style="text-align:center; font-size:18px; font-variant:small-caps;display:block;">目录</span><br>
+          <span id="sec:content"><a href="#contents">目录</a></span><br><span> 1.  <a href="#sec:1">代数对象</a></span><br><span> 2.  <a href="#sec:2">子代数对象</a></span><br><span> 3.  <a href="#sec:3">同态映射</a></span><br></p>
+<p><span class="latex_section">1. 代数对象<a id="sec:1"></a></span>
+</p>
+<div class="latex_defn"><span class="latex_defn_h">定义 1</span> (<span class="latex_defn_name">线性空间</span>)<span class="latex_defn_h">.</span> 定义了数乘的 Abel 群, 常讲 “$数域  \mathbb{K}$ 上的线性空间”. 
+</div>
+<div class="latex_defn"><span class="latex_defn_h">定义 2</span> (<span class="latex_defn_name">环</span>)<span class="latex_defn_h">.</span> 定义了乘法的 Abel 群. 
+</div>
+<div class="latex_defn"><span class="latex_defn_h">定义 3</span> (<span class="latex_defn_name">整环</span>)<span class="latex_defn_h">.</span> 不含零因子的含幺交换环. 
+</div>
+<div class="latex_defn"><span class="latex_defn_h">定义 4</span> (<span class="latex_defn_name">主理想整环</span>)<span class="latex_defn_h">.</span> <ol> 
+<li>每个理想都是主理想的交换环是主理想环; 
+</li><li>每个理想都是主理想的交换整环是主理想整环, 简记为 PID. 
+</li></ol> 
+</div>
+<div class="latex_defn"><span class="latex_defn_h">定义 5</span> (<span class="latex_defn_name">除环</span>)<span class="latex_defn_h">.</span> 定义了除法的环, 即任意非零元有乘法逆元. 
+</div>
+<div class="latex_rem"><span class="latex_rem_h">注记 1</span><span class="latex_rem_h">.</span> <ol> 
+<li>交换除环定义为域, 有限除环可以被证明是域 
+</li><li>除环一定是单环 
+</li></ol> 
+</div>
+<div class="latex_defn"><span class="latex_defn_h">定义 6</span> (<span class="latex_defn_name">代数闭域</span>)<span class="latex_defn_h">.</span> Algebraically closed fields, 非常数 $f(x)\in \mathbb{K}[x]$ 在 $\mathbb{K}$ 中有根. 
+</div>
+<div class="latex_defn"><span class="latex_defn_h">定义 7</span> (<span class="latex_defn_name">代数</span>)<span class="latex_defn_h">.</span> 定义了乘法的 $\mathbb{K}$-线性空间, 常讲“ $\mathbb{K}$ 上的代数”. 
+</div>
+<div class="latex_defn"><span class="latex_defn_h">定义 8</span> (<span class="latex_defn_name">可除代数</span>)<span class="latex_defn_h">.</span> 定义了除法的代数, 任一非零元有乘法逆元. 
+</div>
+<div class="latex_rem"><span class="latex_rem_h">注记 2</span><span class="latex_rem_h">.</span> $\mbr$ 上的有限维可除代数只有四种：实数、复数、四元数、八元数. 
+</div>
+<div class="latex_defn"><span class="latex_defn_h">定义 9</span> (<span class="latex_defn_name">模</span>)<span class="latex_defn_h">.</span> <ol> 
+<li>环上的模, 左 $R$-模：定义了左 $R$-作用的加群 
+</li><li>代数上的模, 左 $A$-模：定义了左 $A$-作用的 $\mathbb{K}$-线性空间 
+</li></ol> 
+</div> 
+<div class="latex_rem"><span class="latex_rem_h">注记 3</span><span class="latex_rem_h">.</span> 自由模可视为环上的线性空间. 
+</div>
+<p></p><div class="latex_defn"><span class="latex_defn_h">定义 10</span> (<span class="latex_defn_name">单模</span>)<span class="latex_defn_h">.</span> 没有非零真子模的模. 
+</div>
+<div class="latex_defn"><span class="latex_defn_h">定义 11</span> (<span class="latex_defn_name">不可分解模</span>)<span class="latex_defn_h">.</span> 不能被分解为两个非零子模的直和的模. 
+</div>
+<p><span class="latex_section">2. 子代数对象<a id="sec:2"></a></span>
+</p><div class="latex_defn"><span class="latex_defn_h">定义 12</span> (<span class="latex_defn_name">正规子群</span>)<span class="latex_defn_h">.</span> 任一一个左陪集等于右陪集的子群, 即若 $H\les G$ 又 $aH=Ha,\ff a\in G.$ 
+</div>
+<div class="latex_defn"><span class="latex_defn_h">定义 13</span> (<span class="latex_defn_name">理想</span>)<span class="latex_defn_h">.</span> 设 $(R,+,\cdot)$ 是环, $I$ 是 $R$ 的加法子群且 $RI\subset I (IR\subset I)$, 则称 $I$ 为 $R$ 的一个左(右)理想. 双边理想简称理想. 
+</div>
+<div class="latex_defn"><span class="latex_defn_h">定义 14</span> (<span class="latex_defn_name">主理想</span>)<span class="latex_defn_h">.</span> 由一个元素 $a$ 生成的理想 $\lra{a}$, 对左乘、右乘、左乘右乘和加法封闭. 
+</div> 
+<div class="latex_rem"><span class="latex_rem_h">注记 4</span><span class="latex_rem_h">.</span> 当 $R$ 是含幺交换环时, 
+$$\lra{a}=\set{ra}{r\in R}=Ra.$$ 
+</div>
+<p></p><div class="latex_defn"><span class="latex_defn_h">定义 15</span> (<span class="latex_defn_name">商群</span>)<span class="latex_defn_h">.</span> 设 $H\tl G$, 则 $H$ 的全部陪集组成的集合 
+$$G/H:=\set{aH}{a\in G}$$ 
+关于二元运算 
+$$(aH)\cdot(bH):=(ab)H$$ 
+作成的群称为商群, 仍记为 $G/H.$ 
+</div>
+<div class="latex_defn"><span class="latex_defn_h">定义 16</span> (<span class="latex_defn_name">商环</span>)<span class="latex_defn_h">.</span> 设 $I\tl R$, 在 $I$ 的加法陪集集合 $\set{r+I}{r\in R}$ 上定义 
+$$ (r+I)+(s+I)=(r+s)+I,\ \ (r+I)(s+I)=rs+I,$$ 
+则此集合关于上述加法和乘法作成环, 称为商环, 仍记为 $R/I.$ 
+</div>
+<p><span class="latex_section">3. 同态映射<a id="sec:3"></a></span>
+</p>
+<div class="latex_defn"><span class="latex_defn_h">定义 17</span><span class="latex_defn_h">.</span> <ol> 
+<li>群同态：$f:G\to G$ 满足 $f(ab)=f(a)f(b).$ 
+</li><li>环同态：$f:R\to R'$ 满足 
+$$ f(a+b)=f(a)+f(b),\ f(ab)=f(a)f(b),\ f(1_R)=1_{R'}.$$ 
+</li><li>代数同态：环同态 ＋ $\mathbb{K}$-线性映射 
+$$ f(a+b)=f(a)+f(b),\ f(ab)=f(a)f(b),\ f(1_A)=1_{A'},\ f(ka)=kf(a).$$ 
+</li><li>模同态： 
+$$f(a+b)=f(a)+f(b),\ f(rm)=rf(m).$$ 
+</li></ol> 
+</div>
+
+
+<p class="wp-block-paragraph"></p>
+
+</div>
+  </div>
+  <nav class="post-navigation" aria-label="文章前后导航"><a href="/1003.html"><span>上一篇</span><strong>模 $n$ 剩余类环</strong></a><a href="/1232.html"><span>下一篇</span><strong>同态基本定理与向量空间</strong></a></nav>
+</article>
+</main>
+  <footer class="site-footer">
+    <p>阿贝尔的数学之旅 · 数学笔记与思考</p>
+    <p><a href="/feed.xml">RSS</a><span aria-hidden="true"> · </span><a href="/sitemap.xml">站点地图</a></p>
+  </footer>
+  <script src="/assets/site.js"></script>
+  
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ["\\(","\\)"]],
+    displayMath: [['$$', '$$'], ["\\[", "\\]"]],
+    processEscapes: true
+  },
+  TeX: {
+    equationNumbers: {autoNumber: "AMS",
+    useLabelIds: true}
+  },
+});
+MathJax.Hub.Config({TeX: {Macros: {"mr": ["\\mathrm{#1}", 1], "mb": ["\\mathbb{#1}", 1], "ee": "\\exists\\,", "ff": "\\forall\\,", "les": "\\leqslant", "ges": "\\geqslant", "sse": "\\subset", "sbs": "\\subset", "sps": "\\supset", "ve": "\\varepsilon", "mbr": "\\mathbb{R}", "mbn": "\\mathbb{N}", "mbz": "\\mathbb{Z}", "mbq": "\\mathbb{Q}", "mbc": "\\mathbb{C}", "mbh": "\\mathbb{H}", "vp": "\\varphi", "nti": "n\\to\\infty", "md": "\\mathrm{d}", "mre": "\\mathrm{e}", "mri": "\\mathrm{i}", "lra": ["\\langle #1\\rangle", 1], "Ker": "\\mathrm{Ker}\\,", "Im": "\\mathrm{Im}\\,", "tl": "\\triangleleft", "set": ["\\left\\{#1\\,\\left|\\,#2\\right. \\right\\}", 2], "mod": ["\\ (\\mr{mod}\\ #1)", 1], "pp": "\\partial", "Gal": ["\\mathrm{Gal}\\left(#1\\right)", 1], "Inv": ["\\mathrm{Inv}\\left(#1\\right)", 1], "End": ["\\mathrm{End}_{#1}\\!\\left(#2\\right)", 2], "Hom": ["\\mathrm{Hom}_{#1}\\!\\left(#2\\right)", 2], "ca": "\\mathcal{A}", "cb": "\\mathcal{B}", "cc": "\\mathcal{C}", "cd": "\\mathcal{D}", "ce": "\\mathcal{E}", "cf": "\\mathcal{F}", "cg": "\\mathcal{G}", "cl": "\\mathcal{L}", "cs": "\\mathcal{S}", "Ext": "\\mathrm{Ext}", "Tor": "\\mathrm{Tor}", "mc": ["\\mathcal{#1}", 1], "ot": "\\otimes"}}});
+</script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_SVG.js"></script>
+</body>
+</html>

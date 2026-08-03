@@ -1,0 +1,360 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>第1章 集类与测度｜阿贝尔的数学之旅</title>
+  <meta name="description" content="目录 目录 1. 笔记 … 继续阅读 →">
+  <link rel="canonical" href="https://www.abelmath.fun/924.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="阿贝尔的数学之旅">
+  <meta property="og:title" content="第1章 集类与测度｜阿贝尔的数学之旅">
+  <meta property="og:description" content="目录 目录 1. 笔记 … 继续阅读 →">
+  <meta property="og:url" content="https://www.abelmath.fun/924.html">
+  <meta property="og:image" content="https://www.abelmath.fun/assets/og.png">
+  <meta property="og:image:width" content="1731">
+  <meta property="og:image:height" content="909">
+  <meta property="og:image:alt" content="阿贝尔的数学之旅：数学笔记与思考">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="第1章 集类与测度｜阿贝尔的数学之旅">
+  <meta name="twitter:description" content="目录 目录 1. 笔记 … 继续阅读 →">
+  <meta name="twitter:image" content="https://www.abelmath.fun/assets/og.png">
+  <link rel="stylesheet" href="/assets/site.css">
+  <link rel="alternate" type="application/rss+xml" title="阿贝尔的数学之旅" href="/feed.xml">
+</head>
+<body class="article-page">
+  <a class="skip-link" href="#main">跳到正文</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="/" aria-label="阿贝尔的数学之旅首页">
+        <span class="brand-mark" aria-hidden="true">∫</span>
+        <span><strong>阿贝尔的数学之旅</strong><small>ABEL'S MATHEMATICAL JOURNEY</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">目录</button>
+      <nav id="site-nav" class="site-nav" aria-label="主要导航"><a href="/">首页</a><a href="/category/%e8%ae%ba%e6%96%87/">论文</a><a href="/category/ode/">ODE</a><a href="/category/pde/">PDE</a><a href="/category/analysis/">分析</a><a href="/category/analysis/%e6%b5%8b%e5%ba%a6/">测度</a><a href="/category/%e8%bf%91%e4%b8%96%e4%bb%a3%e6%95%b0/">抽代</a><a href="/category/%e5%9f%ba%e4%bb%a3/">基代</a><a href="/category/%e7%a7%91%e6%99%ae/">科普</a><a href="/category/manim/">manim</a><a href="/category/%e6%8e%a2%e8%ae%a8/">探讨</a><a href="/category/%e8%ae%b0%e5%bd%95/">记录</a></nav>
+    </div>
+  </header>
+  <main id="main">
+<article class="article-shell">
+  <header class="article-header">
+    <a class="back-link" href="/">← 返回首页</a>
+    <div class="post-meta"><time datetime="2024-09-25T08:36:23+00:00">2024-09-25</time><a class="chip" href="/category/%E6%B5%8B%E5%BA%A6/">测度</a></div>
+    <h1>第1章 集类与测度</h1>
+    <p>目录 目录 1. 笔记 … 继续阅读 →</p>
+  </header>
+  <div class="article-layout">
+    <aside class="article-rail"><p>NOTE 924</p><span></span><p>2024 · 09 · 25</p></aside>
+    <div class="article-content"><p class="wp-block-paragraph"><span id="contents" style="text-align:center; font-size:18px; font-variant:small-caps;display:block;">目录</span><br>
+          <span id="sec:content"><a href="#contents">目录</a></span><br><span> 1.  <a href="#sec:1">笔记</a></span><br><span> 2.  <a href="#sec:2">集合运算与集类</a></span><br><span> 3.  <a href="#sec:3">单调类定理</a></span><br><span> 4.  <a href="#sec:4">测度与非负集函数</a></span><br><span> 5.  <a href="#sec:5">外测度与测度的扩张</a></span><br><span> 6.  <a href="#sec:6">欧氏空间中的 Lebesgue-Stieltjes 测度</a></span><br><span> 7.  <a href="#sec:7">测度的逼近</a></span><br></p>
+
+
+
+<p class="wp-block-paragraph"><span class="latex_section">1. 笔记<a id="sec:1"></a></span>
+</p>
+
+
+
+<p class="wp-block-paragraph">数学归纳法只能证明对于任意有限的正整数能满足命题, 如需推广到无穷, 需要说明这个性质对极限过程也成立.</p>
+
+
+
+<p class="wp-block-paragraph">证明集合相等：正反包含关系或运算律.</p>
+
+
+
+<p class="wp-block-paragraph">整理集合的运算律和不等式.</p>
+
+
+
+<p class="wp-block-paragraph">控制： </p><ol> <li>控制收敛定理 </li><li>集合的例子：$A=\set{x\in\Omega}{p(x)}$ 里考虑集合及一些集合运算, 首先要指定一个大集合 $\Omega$. 这在某种程度上也算是一种控制. </li></ol>
+
+
+
+<p class="wp-block-paragraph">半环扩张定理：把<b>半环</b>上定义的集函数扩张到定义在 $\sigma$ 代数上的测度. 在某种意义下, 这种扩张是唯一的. (和自由模的性质很像).</p>
+
+
+
+<p class="wp-block-paragraph">$\sigma$ 代数：可数可加性</p>
+
+
+
+<p class="wp-block-paragraph">单调类、$\lambda$ 类：单调类定理</p>
+
+
+
+<p class="wp-block-paragraph"><span class="latex_section">2. 集合运算与集类<a id="sec:2"></a></span>
+</p>
+
+
+
+<p class="wp-block-paragraph"></p><div class="latex_defn"><span class="latex_defn_h">定义 1</span> (<span class="latex_defn_name">单调列</span>)<span class="latex_defn_h">.</span> 设 $\left\{A_n, n \geqslant 1\right\}$ 为一集合序列. 若对每个 $n$, 有 $A_n \subset A_{n+1}$ (相应地, $\left.A_n \supset A_{n+1}\right)$, 则称 $\left(A_n\right)$ 为单调增 (相应地, 单调降). 二者统称为单调列. 对单调增或单调降序列 $\left(A_n\right)$, 我们分别令 $A=\bigcup_n A_n$ 或 $A=\bigcap_n A_n$, 称 $A$ 为 $\left(A_n\right)$ 的极限, 通常记为 $A_n \uparrow A$ 或 $A_n \downarrow A$. </div>
+
+
+
+<p class="wp-block-paragraph"></p><div class="latex_defn"><span class="latex_defn_h">定义 2</span> (<span class="latex_defn_name">集合列的极限</span>)<span class="latex_defn_h">.</span> 一般地, 对任一集列 $\left(A_n\right)$, 令 $$ \limsup _{n \rightarrow \infty} A_n=\bigcap_{n=1}^{\infty} \bigcup_{k=n}^{\infty} A_k, \quad \liminf _{n \rightarrow \infty} A_n=\bigcup_{n=1}^{\infty} \bigcap_{k=n}^{\infty} A_k, $$ 分别称其为 $\left(A_n\right)$ 的上极限和下极限. </div> 我们有 \begin{align*} \omega\in\limsup_n A_n &amp;\ \Leftrightarrow\ \omega \in\bigcup_{k\ges n} A_k, \ \ff n\ges1 \\ &amp;\ \Leftrightarrow\ \ff n\ges1\ \ \ee k\ges n\ \ \mr{s.t.}\ \ \omega\in A_k\\ &amp;\ \Leftrightarrow\ \omega \text { 属于无穷多个 } A_n \end{align*} 类似地 \begin{align*} \omega\in\liminf_n A_n &amp;\ \Leftrightarrow\ \ee n_0\in\mbn\ \ \mr{s.t.}\ \ \omega\in\bigcap_{k\ges n_0} A_k \\ &amp;\ \Leftrightarrow\ \ee n_0\in\mbn\ \ \ff k\ges n_0\ \ \omega\in A_k \\ &amp;\ \Leftrightarrow\ \text { 从某个 } n_0 \text{ 开始 }, \omega \text{ 属于每个 } A_k\ (k\ges n_0) \end{align*} 从而恒有 $$\liminf_{n \rightarrow \infty}A_n \subset \limsup\limits_{n \rightarrow \infty} A_{n }.$$ 若 $\liminf\limits _{n \rightarrow \infty} A_n=\limsup\limits _{n \rightarrow \infty} A_n$, 称 $\left(A_n\right)$ 的极限存在, 并用 $\lim\limits _{n \rightarrow \infty} A_n$ 表示 $\left(A_n\right)$ 的极限, 即令 $$\lim\limits _{n \rightarrow \infty} A_n=\liminf\limits _{n \rightarrow \infty} A_n=\limsup\limits _{n \rightarrow \infty} A_n.$$
+
+
+
+<p class="wp-block-paragraph"></p><div class="latex_prop"><span class="latex_prop_h">命题 3</span><span class="latex_prop_h">.</span> 若 $A_n\uparrow $ 或 $A_n\downarrow$, 则 $\lim_n A_n$ 存在. </div> <div class="latex_proof"><span class="latex_proof_h">证明</span><span class="latex_proof_h">.</span> 设 $A_n\uparrow $. 一方面我们有(只需证明正反包含关系) $$ \ff n\ges1, \ \bigcup_{k\ges n} A_k= \bigcup_{k\ges 1} A_k.$$ 那么 $$\limsup_n A_n=\bigcap_{n\ges1}\bigcup_{k\ges n} A_k=\bigcup_{k\ges1} A_k.$$ 另一方面有 $$\bigcap_{k\ges n} A_k=A_n,$$ 那么 $$\liminf _n A_n=\bigcup_{n\ges1} \bigcap_{k\ges n} A_k=\bigcup_{n\ges1} A_n.$$ </div>
+
+
+
+<p class="wp-block-paragraph"></p><div class="latex_defn"><span class="latex_defn_h">定义 4</span> (<span class="latex_defn_name">两两不交</span>)<span class="latex_defn_h">.</span> 对于集合列 $\{A_n\}_{n\ges1}$, 若 $A_n\cap A_m=\varnothing, (\ff n\ne m)$, 则称 $\{A_n\}_{n\ges1}$ 为两两不交的, 记 $$\sum_{n=1}^\infty A_n:=\bigcup_{n=1}^\infty A_n=\bigsqcup_{n=1}^\infty A_n.$$ </div>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter is-resized"><img loading="eager" decoding="async" width="1869" height="1248" src="/wp-content/uploads/2024/09/bujiao-web.webp" alt="" class="wp-image-968" style="width:352px;height:auto" fetchpriority="high"></figure>
+</div>
+
+
+<p class="wp-block-paragraph"></p><div class="latex_prop"><span class="latex_prop_h">命题 5</span> (<span class="latex_prop_name">两两不交化技巧</span>)<span class="latex_prop_h">.</span> 给定集合列 $\{A_n\}_{n\ges1}$, 定义 \begin{align*} B_1&amp;=A_1\\ B_2&amp;=A_1^c\cap A_2\\ B_3&amp;=A_1^c\cap A_2^c\cap A_3\\ \cdots&amp;\cdots\\ B_n&amp;=A_1^c\cap A_2^c\cap\cdots\cap A_{n-1}^c\cap A_n\\ &amp;=A_n\backslash(A_1\cup A_2\cup \cdots\cup A_{n-1}) \end{align*} 则 $\{B_n\}_{n\ges1}$ 是两两不交的并且 $$\sum_{k=1}^n B_k=\sum_{k=1}^n A_k, \quad \sum_{k=1}^\infty B_k=\sum_{k=1}^\infty A_k.$$  </div> <div class="latex_proof"><span class="latex_proof_h">证明</span><span class="latex_proof_h">.</span> 两两不交：设 $n&gt;m$, 则 $B_n\subset A_m^c, B_m\subset A_m$, 故 $$ B_n\cap B_m\subset A_m^c\cap A_m=\varnothing.$$ 和：注意到 \begin{align*} B_1\cup B_2&amp;=A_1\cup (A_1^c\cap A_2)=(A_1\cup A_1^c)\cap (A_1\cup A_2)\\ &amp;=A_1\cup A_2\\ B_1\cup B_2\cup B_3&amp;= (A_1\cup A_2)\cup \big( (A_1\cup A_2)^c\cap A_3\big)\\ &amp;=A_1\cup A_2\cup A_3 \end{align*} 由数学归纳法即证任意有限个的情况, 再取极限即可. </div>
+
+
+
+<p class="wp-block-paragraph"></p><div class="latex_defn"><span class="latex_defn_h">定义 6</span> (<span class="latex_defn_name">集类</span>)<span class="latex_defn_h">.</span> 以全集 $\Omega$ 上某些子集为元素的集合称为( $\Omega$ 上的) 集类. 一般以花写字母表示, 并且约定集类是非空的. </div>
+
+
+
+<p class="wp-block-paragraph"></p><div class="latex_defn"><span class="latex_defn_h">定义 7</span><span class="latex_defn_h">.</span> 给定集类 $\mc{C}$. <ol> <li>若对任意 $A,B\in\mc{C}$ 都有 $A\cap B\in\mc{C}$, 则称 $\mc{C}$ 对于有限交是封闭的. 利用数学归纳法可说明, 对任意有限交都是封闭的. </li><li>若对任意 $A_1,A_2,\cdots\in\mc{C}$ 都有 $\cap_iA_i\in\mc{C}$, 则称 $\mc{C}$ 对于可数交是封闭的. </li></ol> 同理可定义 $\mc{C}$ 对有限并、可数并、余集、上极限、下极限 $\cdots$ 封闭. </div> <div class="latex_rem"><span class="latex_rem_h">注记 1</span><span class="latex_rem_h">.</span> 对有限交封闭 $\nRightarrow$ 对可数交封闭. 比如令 $\ca$ 为 $\mbr$ 上所有开集组成的集类, $A_n=\big(-\frac1n,\frac1n\big)\in\ca, n=1,2,\cdots$. $\ca$ 对有限交是封闭的: $\cap_{k=1}^n A_k=A_n\in\ca$ 但是对无限交未必： $$\bigcap_{n\ges1} A_n=\{0\}\notin\ca.$$ </div>
+
+
+
+<p class="wp-block-paragraph">称 $\mc{C}_{\cap f}$ 为用有限交运算封闭 $\mc{C}$ 所得的集类. </p><div class="latex_prop"><span class="latex_prop_h">命题 8</span><span class="latex_prop_h">.</span> $\mc{C}_{\cap f}$ 是包含 $\mc{C}$ 的最小有限交封闭集类. 即 <ol> <li>$\mc{C}_{\cap f}\supset \mc{C}$ 且 $\mc{C}_{\cap f}$ 对有限交封闭. </li><li>若 $\mc{G}\supset \mc{C}$ 且对有限交封闭, 则 $\mc{G}\supset \mc{C}_{\cap f}$. </li></ol> </div> <div class="latex_proof"><span class="latex_proof_h">证明</span><span class="latex_proof_h">.</span> <ol> <li>显然 $\mc{C}\subset \mc{C}_{\cap f}$. 只需按定义验证 $\mc{C}_{\cap f}$ 对有限交封闭. </li><li>对任意 $A\in \mc{C}_{\cap f}, A=\cap_{i=1}^n A_i, A_i\in\mc{C}\subset \mc{G}$, 则 $\cap_{i=1}^n A_i\subset \mc{G}$, 即 $\mc{C}_{\cap f}\subset \mc{G}$. </li></ol> </div> 同理可定义 <ol> <li>$\mc{C}_{\cup f}$：有限并 </li><li>$\mc{C}_{\Sigma f}$：两两不交有限并 </li><li>$\mc{C}_\delta$：可数交 </li><li>$\mc{C}_\sigma$：可数并 </li><li>$\mc{C}_{\Sigma \sigma}$：可数不交并 </li></ol>
+
+
+
+<p class="wp-block-paragraph">现在我们用集合运算的封闭性来划分不同类型的集类. 下面是测度论中常用的一些集类的定义. </p><div class="latex_defn"><span class="latex_defn_h">定义 9</span> (<span class="latex_defn_name">集类的分类</span>)<span class="latex_defn_h">.</span> 设 $\mc{C}$ 为一集类. <ol> <li>称 $\mc{C}$ 为 <b>$\pi$ 类</b>, 如果它对有限交封闭. </li><li>称 $\mc{C}$ 为<b>半环</b>, 如果 $\varnothing\in\mc{C}$, 且有 $$A,B\in\mc{C}\ \Rightarrow\ A\cap B\in\mc{C}, A\backslash B\in \mc{C}_{\Sigma f}.$$ </li><li>称 $\mc{C}$ 为<b>半代数</b>, 如果它是半环, 且 $\Omega\in\mc{C}$. </li><li>称 $\mc{C}$ 为<b>代数</b>, 如果它对有限交和取余集运算封闭, 且有 $\Omega,\varnothing\in\mc{C}$. (由此推知它对有限并和差运算也封闭) </li><li>称 $\mc{C}$ 为 <b>$\sigma$ 代数</b>, 如果它对可列交和取余集运算封闭, 且有 $\Omega,\varnothing\in\mc{C}$. (由此推知它对有限并和差运算也封闭) </li><li>称 $\mc{C}$ 为<b>单调类</b>, 如果它对单调集列的极限封闭：设 $A_n\in\mc{C}, \ff n\ges1, A_n\uparrow A$ 或 $A_n\downarrow A$, 则 $A\in\mc{C}$. </li><li>称 $\mc{C}$ 为 <b>$\lambda$ 类</b>, 如果它满足下列条件 <ol> <li>$\Omega\in\mc{C}$; </li><li>$A,B\in\mc{C}, B\subset A\ \Rightarrow\ A\backslash B\in\mc{C}$; </li><li>$A_n\in\mc{C}, n\ges1, A_n\uparrow A\ \Rightarrow\ A\in\mc{C}$. </li></ol> 易知: $\sigma$ 代数为 $\lambda$ 类, $\lambda$ 类为单调类. </li></ol> </div>
+
+
+
+<p class="wp-block-paragraph">$\sigma$ 代数的等价定义：可数交可以改成可数并.</p>
+
+
+
+<p class="wp-block-paragraph"></p><div class="latex_examp"><span class="latex_examp_h">例子 1</span><span class="latex_examp_h">.</span> 设 $\mathbb{R}$ 为实直线 ( 即 $\mathbb{R}=(-\infty, \infty)$ ), 令 $$ \begin{aligned} &amp; \mathcal{C}_1=\{(-\infty, a] \mid a \in \mathbb{R}\}, \mathcal{C}_2=\{(a, \infty) \mid a \in \mathbb{R}\} \\ &amp; \mathcal{C}_3=\{(a, b] \mid a \leqslant b, a, b \in \mathbb{R}\} \end{aligned} $$ 则 $\mathcal{C}_1, \mathcal{C}_2$ 及 $\mathcal{C}_3$ 为 $\pi$ 类, $\mathcal{C}_1 \cup \mathcal{C}_2 \cup \mathcal{C}_3$ 为半环, $\mathcal{C}_1 \cup \mathcal{C}_2 \cup \mathcal{C}_3 \cup\{\mathbb{R}\}$ 为半代数. </div>
+
+
+
+<p class="wp-block-paragraph"><span class="latex_section">3. 单调类定理<a id="sec:3"></a></span>
+</p>
+
+
+
+<p class="wp-block-paragraph"></p><div class="latex_prop"><span class="latex_prop_h">命题 10</span><span class="latex_prop_h">.</span> 设 $\{\mc{C}\}_{i\in I}$ 为 $\Omega$ 上一族集类, 若每个 $\mc{C}_i$ 对某种集合运算封闭, 则其交 $\cap_i\mc{C}_i$ 也有此性质. 即若 $\mc{C}_i$ 为 $\sigma$ 代数( $\lambda$ 类、单调类), 则 $\cap_i\mc{C}_i$ 为 $\sigma$ 代数( $\lambda$ 类、单调类). </div> <div class="latex_rem"><span class="latex_rem_h">注记 2</span><span class="latex_rem_h">.</span> 不过对 $\cup$ 运算不封闭：若 $\cap_i\mc{C}_i$ 为 为 $\sigma$ 代数( $\lambda$ 类、单调类), 则 $\cup_i\mc{C}_i$ 未必为 $\sigma$ 代数( $\lambda$ 类、单调类). </div> <div class="latex_defn"><span class="latex_defn_h">定义 11</span> (<span class="latex_defn_name">生成的 $\sigma$ 代数</span>)<span class="latex_defn_h">.</span> 给定集类 $\cc$, 定义 $$\sigma(\cc)=\bigcap_\cg \cg,$$ 其中 $\cg\supset\cc$ 且 $\cg$ 为 $\sigma$ 代数. 称 $\sigma(\cc)$ 为 $\cc$ 所生成的 $\sigma$ 代数. </div> $\cc$ 所生成的 $\sigma$ 代数 $\sigma(\cc)$ 是包含 $\cc$ 的最小 $\sigma$ 代数: <ol> <li>$\sigma(\cc)$ 是 $\sigma$ 代数 </li><li>若 $\cg\supset \cc$ 且 $\cg$ 为 $\sigma$ 代数, 则 $\cg\supset \sigma(\cc)$. </li></ol> 同理, 我们可以定义 $m(\cc), \lambda(\cc)$ 为 $\cc$ 所生成的单调类、$\lambda$ 类, 即包含 $\cc$ 的最小单调类、$\lambda$ 类.
+
+
+
+<p class="wp-block-paragraph"></p><div class="latex_examp"><span class="latex_examp_h">例子 2</span><span class="latex_examp_h">.</span> 令 $\cc=\{\mbr\ \text{上的所有开区间}\ \}$, 则 Borel 集 $\cb(\mbr)=\sigma(\cc)$. </div>
+
+
+
+<p class="wp-block-paragraph">由定义, $\sigma$ 代数即是单调类, 也是 $\lambda$ 类, 则 $m(\cc)$ 和 $\lambda(\cc)$ 作为最小的单调类和 $\lambda$ 类有 $$\sigma(\cc)\supset m(\cc),\ \ \sigma(\cc)\supset \lambda(\cc).$$</p>
+
+
+
+<p class="wp-block-paragraph">问题：在什么情况下有 $\sigma(\cc)=m(\cc)$ 或者 $\sigma(\cc)$ 或者 $\lambda(\cc)$.</p>
+
+
+
+<div class="latex_lem"><span class="latex_lem_h">引理 12</span><span class="latex_lem_h">.</span> <ol> <li>若 $\cc$ 同时为代数和单调类, 则 $\cc$ 为 $\sigma$ 代数. </li><li>若 $\cc$ 同时为 $\pi$ 类和 $\lambda$ 类, 则 $\cc$ 为 $\sigma$ 代数. </li></ol> </div>
+
+
+
+<details class="wp-block-details is-layout-flow wp-block-details-is-layout-flow"><summary>证明</summary>
+ <div class="latex_proof"><span class="latex_proof_h">证明</span><span class="latex_proof_h">.</span> <ol> <li>因为 $\cc$ 为代数, 故只需说明 $\cc$ 对可列交封闭. 任取集列 $\{A_n\}_{n\ges1}\subset \cc$, 令 $B_n=\cap_{1\les k\les n} A_k$, 因为 $\cc$ 为代数, 故 $B_n\in\cc$ 且显然 $B_n$ 单减. 因为 $\cc$ 为单调类, 故 $$B_n\downarrow \bigcap_{k\ges1}A_k\in\cc.$$ </li><li>$\cc$ 为 $\lambda$ 类, 则 $\Omega,\varnothing\in\cc$ 且 $\cc$ 对取余运算封闭, 又 $\cc$ 为 $\pi$ 类, 只需证明 $\cc$ 对可列交封闭. 任取集列 $\{A_n\}_{n\ges1}\subset \cc$, 令 $B_n=\cap_{1\les k\les n} A_k$, 因为 $\cc$ 为 $\pi$ 类, 故 $B_n\in\cc$ 且显然 $B_n$ 单减. 因为 $\cc$ 为 $\lambda$ 类, 从而为单调类, 故 $$B_n\downarrow \bigcap_{k\ges1}A_k\in\cc.$$ </li></ol> </div>
+</details>
+
+
+
+<p class="wp-block-paragraph"></p><div class="latex_thm"><span class="latex_thm_h">定理 13</span> (<span class="latex_thm_name">单调类定理</span>)<span class="latex_thm_h">.</span> 设 $\cc$ 为一集类. <ol> <li>若 $\cc$ 为代数, 则 $m(\cc)=\sigma(\cc)$. </li><li>若 $\cc$ 为 $\pi$ 类, 则 $\lambda(\cc)=\sigma(\cc)$. </li></ol> </div> 
+
+
+
+<details class="wp-block-details is-layout-flow wp-block-details-is-layout-flow"><summary>证明</summary>
+<div class="latex_proof"><span class="latex_proof_h">证明</span><span class="latex_proof_h">.</span> 想证明构造的集合等于全集, 直接难以证明, 需要构造一个过渡集合. <ol> <li>只需证明 $m(\cc)\supset \sigma(\cc)$, 只需说明 $m(\cc)$ 包含 $\cc$ (这是显然的) 且 $m(\cc)$ 为 $\sigma$ 代数. 因为 $m(\cc)$ 本身是单调类, 故只需说明 $m(\cc)$ 为代数： <ol> <li>$\Omega, \varnothing\in m(\cc)$. </li><li>$A\in m(\cc)\ \Rightarrow\ A^c\in m(\cc)$. </li><li>$A,B\in m(\cc)\ \Rightarrow\ A\cap B\in m(\cc)$. </li></ol> 第一点是显然的, 因为 $\Omega,\varnothing\in\cc\subset m(\cc)$. 接下来说明第二点和第三点. <ol> <li>说明 $m(\cc)$ 对取余集运算封闭, 为此构造 $$\cg_1=\set{A\in m(\cc)}{A^c\in m(\cc), A\cap B\in m(\cc), \ff B\in\cc}.$$ 断言 $\cg_1=m(\cc)$, 只需证明 $m(\cc)\subset\cg_1$, 这只需说明 $\cg_1$ 包含 $\cc$ 且 $\cg_1$ 为单调类. Step1. 任取 $A\in\cc$, 因为 $\cc$ 为代数, 则 $$ A\in\cc\in m(\cc), \ A^c\in\cc\in m(\cc),\ A\cap B\in\cc\in m(\cc)\ ,\ff B\in \cc.$$ Step2. 任取单增集列 $\{A_n\}_{n\ges1}\subset\cg_1$, 即 $$ A_n\in m(\cc), \ A_n^c\in m(\cc), \ A_n\cap B\in m(\cc), \ff B\in \cc.$$ 因为 $m(\cc)$ 为单调类, 则 \begin{align*} &amp;A:=A_n\uparrow \in m(\cc), \ A^c=A_n^c\downarrow \in m(\cc),\\ &amp;A\cap B=(A_n\cap B)\uparrow \in m(\cc), \ff B\in \cc. \end{align*} 这说明 $A\in\cg_1$. 同理, 若 $A_n\in \cg, A_n\downarrow A$, 则 $A\in \cg_1$. </li><li>说明 $m(\cc)$ 对取交集运算封闭, 为此构造 $$\cg_2=\set{A\in m(\cc)}{A\cap B\in m(\cc),\ \ff B\in m(\cc)}.$$ 断言 $\cg_2=m(\cc)$, 只需证明 $\cg_2\supset m(\cc)$, 只需说明 $\cg_2\supset \cc$ 且 $\cg_2$ 为单调类. <br> Step1. 任取 $A\in\cc$, 往证 $A\in \cg_2$. 任取 $B\in m(\cc)$ , 因为 $B\in m(\cc)\in\cg_1$, 所以 $B\cap A\in m(\cc)$. <br>Step2. 任取单增集列 $\{A_n\}_{n\ges1}\subset\cg_1$, 即 $$ A_n\in m(\cc), \ A_n\cap B\in m(\cc), \ff B\in m(\cc).$$ 因为 $m(\cc)$ 为单调类, 则 \begin{align*} &amp;A:=A_n\uparrow \in m(\cc),\\ &amp;A\cap B=(A_n\cap B)\uparrow \in m(\cc), \ff B\in \cc. \end{align*} 这说明 $A\in\cg_2$. 同理, 若 $A_n\in \cg, A_n\downarrow A$, 则 $A\in \cg_2$. </li></ol> </li><li>由引理得, 只需证明 $\lambda(\cc)$ 为 $\pi$ 类.
+令
+$$\cg_1=\set{A\in\lambda(\cc)}{A\cap B\in\lambda(\cc),\ff B\in\cc}.$$
+要证明 $\lambda(\cc)=\cg_1$, 只需证 $\lambda(\cc)\sbs\cg_1$, 即 $\cc\in\cg_1$ 以及 $\cg_1$ 为 $\lambda$ 类.
+<ol>
+<li>任取 $A\in\cc\sbs\lambda(\cc)$, 任取 $B\in\cc$. 因为 $\cc$ 为 $\pi$ 类, 则 $A\cap B\in\cc\sbs\lambda(\cc)$.
+</li><li> <ol>
+<li>$\Omega\sbs\cg_1$ 是显然的.
+</li><li> </li>任取 $A\in\cg_1,B\in\cg_1,B\sbs A$, 往证 $A\backslash B\in\cg_1$. 因为
+$$A,B\in\lambda(\cc),\ A\cap C\in\lambda(\cc),B\cap C\in\lambda(\cc),\ff C\in\cc,$$
+所以
+$$A\backslash B\in\lambda(\cc),\ (A\backslash B)\cap C=(A\cap C)\backslash (B\cap C)\in\lambda(\cc).$$
+<li> </li>取 $A_n\in\cg_1, A_n\uparrow A$, 往证 $A\in\cg_1$. 因为
+$$A_n\in\lambda(\cc),\ A_n\cap B\in\lambda(\cc),\ \ff B\in\cc,$$
+所以
+$$ A\cap B=(A_n\cap B)\uparrow \in\lambda(\cc), \ff B\in\cc.$$
+</ol></li></ol>
+</li></ol>
+令
+$$\cg_2=\set{A\in\lambda(\cc)}{A\cap B\in\lambda(\cc),\ff B\in\lambda(\cc)},$$
+接下来的步骤和上面一样.<br>
+要证明 $\lambda(\cc)=\cg_2$, 只需证 $\lambda(\cc)\sbs\cg_2$, 即 $\cc\in\cg_2$ 以及 $\cg_2$ 为 $\lambda$ 类.
+<ol>
+<li>任取 $A\in\cc\sbs\lambda(\cc)$, 任取 $B\in\lambda(\cc)$. 由 1. 得 $A\cap B\in\lambda(\cc)$.
+</li><li> </li><ol>
+<li>$\Omega\sbs\cg_2$ 是显然的.</li><li> </li>任取 $A\in\cg_2,B\in\cg_2,B\sbs A$, 往证 $A\backslash B\in\cg_2$. 因为
+$$A,B\in\lambda(\cc),\ A\cap C\in\lambda(\cc),B\cap C\in\lambda(\cc),\ff C\in\lambda(\cc),$$
+所以
+$$A\backslash B\in\lambda(\cc),\ (A\backslash B)\cap C=(A\cap C)\backslash (B\cap C)\in\lambda(\cc).$$<li> </li>取 $A_n\in\cg_2, A_n\uparrow A$, 往证 $A\in\cg_2$. 因为
+$$A_n\in\lambda(\cc),\ A_n\cap B\in\lambda(\cc),\ \ff B\in\lambda(\cc),$$
+所以
+$$ A\cap B=(A_n\cap B)\uparrow \in\lambda(\cc), \ff B\in\lambda(\cc).$$
+</ol>
+</ol>
+  </div>
+</details>
+
+
+
+<p class="wp-block-paragraph"><span class="latex_section">4. 测度与非负集函数<a id="sec:4"></a></span>
+</p>
+
+
+
+<p class="wp-block-paragraph"><span class="latex_section">5. 外测度与测度的扩张<a id="sec:5"></a></span>
+</p>
+
+
+
+ <div class="latex_defn"><span class="latex_defn_h">定义 14</span> (<span class="latex_defn_name">完备性</span>)<span class="latex_defn_h">.</span> 称测度空间 $(\Omega,\mathcal{F},\mu)$ 是完备的, 若 $A\in\mathcal{F}$ 且 $\mu(A)=0$, 则对任意 $N\sbs A$ 有 $N\in\mathcal{F}$ 且 $\mu(N)=0$, 即零测集的子集是可测集.
+</div>
+
+<div class="latex_lem"><span class="latex_lem_h">引理 15</span> (<span class="latex_lem_name">完备化引理</span>)<span class="latex_lem_h">.</span> 设 $(\Omega,\mathcal{F},\mu)$ 为测度空间, $\cg$ 为 $\Omega$ 上的集类, 满足
+<ol>
+<li>对取子集封闭：若 $A\in\cg, B\sbs A$, 则 $B\in\cg$ $\quad (\Rightarrow \varnothing\in\cg)$;
+</li><li>对可数并封闭：$\cg_\sigma=\cg\quad $ ($\xrightarrow[]{\ \varnothing\in\cg\ }$ 对有限交封闭);
+</li><li>对任意 $\mathcal{F}\cap\cg$ 有 $\mu(A)=0$.
+</li></ol>
+定义
+\begin{align*}
+\bar{\mathcal{F}}&amp;=\set{A\sbs\Omega}{\ee B\in\mathcal{F}\ s.t.\ A\Delta B\in\cg} \ (\sps \mathcal{F})\\
+\bar{\mu}(A)&amp;=\mu(B),\ A\in\bar{\mathcal{F}},\ B\in \mathcal{F},\ A\Delta B\in\cg,
+\end{align*}
+则 $\bar{\mathcal{F}}$ 为 $\sigma$ 代数, $\bar{\mu}$ 为 $\bar{\mathcal{F}}$ 上的测度.
+</div> 
+
+
+
+<details class="wp-block-details is-layout-flow wp-block-details-is-layout-flow"><summary>证明</summary>
+<div class="latex_proof"><span class="latex_proof_h">证明</span><span class="latex_proof_h">.</span> <ol>
+<li><li><details class="wp-block-details"><summary>再证 $\bar{\mathcal{F}}$ 为 $\sigma$ 代数.</summary></details>
+</li><li></ol>
+</div> 
+</details>
+
+
+
+ <div class="latex_defn"><span class="latex_defn_h">定义 16</span> (<span class="latex_defn_name">完备化空间</span>)<span class="latex_defn_h">.</span> 设 $(\Omega,\cf,\mu)$ 为测度空间, 令
+\begin{align*}
+\cg&amp;=\set{A\sbs\Omega}{\ee B\in\cf,\mu(B)=0\ s.t.\ B\sps A}\\
+&amp;=\{\text{所有零测集的子集}\}.
+\end{align*}
+容易验证 $\cg$ 满足上述定理的条件. 于是 $(\Omega,\cf,\mu)$ 为测度空间, 称之为 $(\Omega,\cf,\mu)$的完备化, 它是包含 $(\Omega,\cf,\mu)$ 的最小完备测度空间. 此时有
+\begin{align*}
+\bar{\cf}&amp;=\set{A\cup N}{A\in\cf, N\in\cg},\\
+\bar{\mu}(A\cup N)&amp;=\mu(A), \ A\in\cf,\ N\in\cg.
+\end{align*}
+</div> 
+
+
+
+<p class="wp-block-paragraph"><span class="latex_section">6. 欧氏空间中的 Lebesgue-Stieltjes 测度<a id="sec:6"></a></span>
+</p>
+
+
+
+<p class="wp-block-paragraph">本节利用上节的结果来建立 $\mbr$ 上的 L-S 测度 ($\mbr^n,n\ges2$ 时方法类似). 令
+$$\cc =\set{(a,b]}{a\les b,a,b\in\mbr},$$
+约定 $a=b$ 时 $(a,a]=\varnothing.$ 容易验证 $\cc$ 为半环.  
+令 $F:\mbr\to[0,+\infty)$ 单增, 右连续. 定义
+$$\mu_F\big((a,b]\big)=F(b)-F(a),\quad  \ff (a,b]\in\cc,$$
+约定
+$$F(-\infty)=\lim_{b\to-\infty}F(b),\quad F(+\infty)=\lim_{a\to+\infty}F(a).$$</p>
+
+
+
+<p class="wp-block-paragraph"></p><div class="latex_lem"><span class="latex_lem_h">引理 17</span><span class="latex_lem_h">.</span> 上面定义的 $\cc$ 为 $\mbr$ 上的<b>半环</b>, 且 $\mu_F$ 作为 $\cc$ 上的非负集函数是<b> $\sigma$ 可加的</b>.
+</div>
+
+
+
+<details class="wp-block-details is-layout-flow wp-block-details-is-layout-flow"><summary>证明</summary>
+<p class="wp-block-paragraph"></p><div class="latex_proof"><span class="latex_proof_h">证明</span><span class="latex_proof_h">.</span> $\cc$ 是 $\mbr$ 上的半环是容易验证的. 要验证 $\mu_F$ 是 $\sigma$ 可加的, 只需验证 $\mu$ 有限可加且次 $\sigma$ 可加. 
+设 $A,A_i\in\cc,1\les i\les m$ 使 $A=\sum_{i=1}^m A_i$, 则只可能
+$$A=(a,b],\ A_i=(a_i,b_i]:\ \ a_1=a, b_m=b, b_i=a_{i+1}, 1\les i\les m-1.$$
+那么
+$$\mu_F(A)=F(b)-F(a)=\sum_{i=1}^m\big[ F(b_i)-F(a_i)\big]=\sum_{i=1}^m \mu_F(A_i).$$
+下证次 $\sigma$ 可加性. 设 $A\sbs\cup_{n=1}^\infty A_n$, 其中 $A=(a,b] ,A_n=(a_n,b_n]\in\cc.$ 任取 $\ve&gt;0$, 由 $F$ 的右连续性得存在 $\bar{a}\in(a,b), \bar{b}_n&gt;b_n$ 使得
+\begin{align*}
+\mu_F\big( (\bar{a},b]\big)&amp;\ges \mu_F\big( (a,b]\big)-\ve,\\
+\mu_F\big( (a_n,\bar{b}_n]\big)&amp;\les \mu_F\big( (a_n,b_n]\big)+\frac{\ve}{2^n}.
+\end{align*}
+那么
+$$ [\bar{a}, b]\sbs (a,b]\sbs\cup_{n=1}^\infty (a_n,b_n]\sbs \cup_{n=1}^\infty (a_n,\bar{b}_n),$$
+由有限覆盖定理得 $(\bar{a}, b]\sbs \cup_{n=1}^N (a_n,\bar{b}_n]$, 那么
+\begin{align*}
+F(b)-F(\bar{a})&amp;\les \sum_{n=1}^N\big[ F(\bar{b}_n)-F(a_n)\big]\les \sum_{n=1}^\infty\Big (\mu_F\big((a_n,b_n]\big)+\frac{\ve}{2^n}\Big)\\
+F(b)-F(\bar{a})&amp;\ges \mu_F\big((a,b]\big)-\ve,
+\end{align*}
+整理得
+$$\mu_F\big((a,b]\big)\les \sum_{n=1}^\infty\Big (\mu_F\big((a_n,b_n]\big)+2\ve.$$
+</div>
+</details>
+
+
+
+<p class="wp-block-paragraph"></p><div class="latex_rem"><span class="latex_rem_h">注记 3</span><span class="latex_rem_h">.</span> 为了让 $\mu_F$ 具有 $\sigma$ 可加性, 要求 $F$ 右连续是必要的: 令
+$$A:=(0,1]=\sum_{n=1}^\infty \Big(\frac{1}{n+1},\frac1n\Big]=:\sum_{n=1}^\infty A_n.$$
+则
+\begin{align*}
+ \mu_F(A)&amp;=F(1)-F(0),\\
+\sum_{n=1}^\infty\mu_F(A_n)&amp;=\sum_{n=1}^\infty \Big[ F\big(\tfrac1n\big)-F\big(\tfrac{1}{n+1}\big)\Big]=F(1)-\lim_nF\big(\tfrac{1}{n+1}\big),
+\end{align*}
+只有当 $F\big(\frac{1}{n+1}\big)\to F(0)$ 时才有 $\mu_F(A)=\sum_n \mu_F(A_n).$
+</div>
+<div class="latex_rem"><span class="latex_rem_h">注记 4</span><span class="latex_rem_h">.</span> 当 $F$ 是左连续单增函数时, 半环 $\cc$ 可选为
+$$\cc =\set{[a,b)}{a\les b,a,b\in\mbr}.$$
+</div>
+
+
+
+<p class="wp-block-paragraph">可以验证 $\sigma(\cc)=\mathcal{B}(\mbr^n)$, 于是由测度扩张定理得
+</p><div class="latex_thm"><span class="latex_thm_h">定理 18</span><span class="latex_thm_h">.</span> $(\mu_F,\cc)$ 可唯一延拓到 $\big(\bar{\mu}_F,\sigma(\cc)\big)$, 并且 $\bar{\mu}_F$ 是 $\sigma$ 有限的, 称之为 L-S 测度.
+</div>
+
+
+
+<p class="wp-block-paragraph"><span class="latex_section">7. 测度的逼近<a id="sec:7"></a></span>
+</p>
+</div>
+  </div>
+  <nav class="post-navigation" aria-label="文章前后导航"><a href="/922.html"><span>上一篇</span><strong>绪论——测度与概率</strong></a><a href="/994.html"><span>下一篇</span><strong>Schauder 基与 Hamel 基</strong></a></nav>
+</article>
+</main>
+  <footer class="site-footer">
+    <p>阿贝尔的数学之旅 · 数学笔记与思考</p>
+    <p><a href="/feed.xml">RSS</a><span aria-hidden="true"> · </span><a href="/sitemap.xml">站点地图</a></p>
+  </footer>
+  <script src="/assets/site.js"></script>
+  
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ["\\(","\\)"]],
+    displayMath: [['$$', '$$'], ["\\[", "\\]"]],
+    processEscapes: true
+  },
+  TeX: {
+    equationNumbers: {autoNumber: "AMS",
+    useLabelIds: true}
+  },
+});
+MathJax.Hub.Config({TeX: {Macros: {"mr": ["\\mathrm{#1}", 1], "mb": ["\\mathbb{#1}", 1], "ee": "\\exists\\,", "ff": "\\forall\\,", "les": "\\leqslant", "ges": "\\geqslant", "sse": "\\subset", "sbs": "\\subset", "sps": "\\supset", "ve": "\\varepsilon", "mbr": "\\mathbb{R}", "mbn": "\\mathbb{N}", "mbz": "\\mathbb{Z}", "mbq": "\\mathbb{Q}", "mbc": "\\mathbb{C}", "mbh": "\\mathbb{H}", "vp": "\\varphi", "nti": "n\\to\\infty", "md": "\\mathrm{d}", "mre": "\\mathrm{e}", "mri": "\\mathrm{i}", "lra": ["\\langle #1\\rangle", 1], "Ker": "\\mathrm{Ker}\\,", "Im": "\\mathrm{Im}\\,", "tl": "\\triangleleft", "set": ["\\left\\{#1\\,\\left|\\,#2\\right. \\right\\}", 2], "mod": ["\\ (\\mr{mod}\\ #1)", 1], "pp": "\\partial", "Gal": ["\\mathrm{Gal}\\left(#1\\right)", 1], "Inv": ["\\mathrm{Inv}\\left(#1\\right)", 1], "End": ["\\mathrm{End}_{#1}\\!\\left(#2\\right)", 2], "Hom": ["\\mathrm{Hom}_{#1}\\!\\left(#2\\right)", 2], "ca": "\\mathcal{A}", "cb": "\\mathcal{B}", "cc": "\\mathcal{C}", "cd": "\\mathcal{D}", "ce": "\\mathcal{E}", "cf": "\\mathcal{F}", "cg": "\\mathcal{G}", "cl": "\\mathcal{L}", "cs": "\\mathcal{S}", "Ext": "\\mathrm{Ext}", "Tor": "\\mathrm{Tor}", "mc": ["\\mathcal{#1}", 1], "ot": "\\otimes"}}});
+</script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_SVG.js"></script>
+</body>
+</html>

@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>域扩张, 伽罗瓦理论｜阿贝尔的数学之旅</title>
+  <meta name="description" content="目录 目录 1. 备忘录 … 继续阅读 →">
+  <link rel="canonical" href="https://www.abelmath.fun/612.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="阿贝尔的数学之旅">
+  <meta property="og:title" content="域扩张, 伽罗瓦理论｜阿贝尔的数学之旅">
+  <meta property="og:description" content="目录 目录 1. 备忘录 … 继续阅读 →">
+  <meta property="og:url" content="https://www.abelmath.fun/612.html">
+  <meta property="og:image" content="https://www.abelmath.fun/assets/og.png">
+  <meta property="og:image:width" content="1731">
+  <meta property="og:image:height" content="909">
+  <meta property="og:image:alt" content="阿贝尔的数学之旅：数学笔记与思考">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="域扩张, 伽罗瓦理论｜阿贝尔的数学之旅">
+  <meta name="twitter:description" content="目录 目录 1. 备忘录 … 继续阅读 →">
+  <meta name="twitter:image" content="https://www.abelmath.fun/assets/og.png">
+  <link rel="stylesheet" href="/assets/site.css">
+  <link rel="alternate" type="application/rss+xml" title="阿贝尔的数学之旅" href="/feed.xml">
+</head>
+<body class="article-page">
+  <a class="skip-link" href="#main">跳到正文</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="/" aria-label="阿贝尔的数学之旅首页">
+        <span class="brand-mark" aria-hidden="true">∫</span>
+        <span><strong>阿贝尔的数学之旅</strong><small>ABEL'S MATHEMATICAL JOURNEY</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">目录</button>
+      <nav id="site-nav" class="site-nav" aria-label="主要导航"><a href="/">首页</a><a href="/category/%e8%ae%ba%e6%96%87/">论文</a><a href="/category/ode/">ODE</a><a href="/category/pde/">PDE</a><a href="/category/analysis/">分析</a><a href="/category/analysis/%e6%b5%8b%e5%ba%a6/">测度</a><a href="/category/%e8%bf%91%e4%b8%96%e4%bb%a3%e6%95%b0/">抽代</a><a href="/category/%e5%9f%ba%e4%bb%a3/">基代</a><a href="/category/%e7%a7%91%e6%99%ae/">科普</a><a href="/category/manim/">manim</a><a href="/category/%e6%8e%a2%e8%ae%a8/">探讨</a><a href="/category/%e8%ae%b0%e5%bd%95/">记录</a></nav>
+    </div>
+  </header>
+  <main id="main">
+<article class="article-shell">
+  <header class="article-header">
+    <a class="back-link" href="/">← 返回首页</a>
+    <div class="post-meta"><time datetime="2024-09-07T11:18:02+00:00">2024-09-07</time><a class="chip" href="/category/%E8%BF%91%E4%B8%96%E4%BB%A3%E6%95%B0/">近世代数</a></div>
+    <h1>域扩张, 伽罗瓦理论</h1>
+    <p>目录 目录 1. 备忘录 … 继续阅读 →</p>
+  </header>
+  <div class="article-layout">
+    <aside class="article-rail"><p>NOTE 612</p><span></span><p>2024 · 09 · 07</p></aside>
+    <div class="article-content"><p><span id="contents" style="text-align:center; font-size:18px; font-variant:small-caps;display:block;">目录</span><br>
+          <span id="sec:content"><a href="#contents">目录</a></span><br><span> 1.  <a href="#sec:1">备忘录</a></span><br><span> 2.  <a href="#sec:2">域扩张的性质</a></span><br><span> 3.  <a href="#sec:3">分裂域, 正规扩张, 可分扩张</a></span><br><span> 4.  <a href="#sec:4">域扩张的自同构群, 伽罗瓦扩张</a></span><br><span> 5.  <a href="#sec:5">伽罗瓦理论</a></span><br><span> 6.  <a href="#sec:6">本原元素, 迹与范数</a></span><br></p>
+<p><span class="latex_section">1. 备忘录<a id="sec:1"></a></span>
+</p>
+<p>$F[x]$ 一般指环, $F(x)$ 一般指域.</p><div class="latex_excs"><span class="latex_excs_h">习题 1</span><span class="latex_excs_h">.</span> 证明：$\mbq(\sqrt{2},\sqrt{3},\sqrt{6})=\mbq(\sqrt{2},\sqrt{3})=\mbq(\sqrt{2}+\sqrt{3})$.<br>
+</div>一元高次方程可解 $\Leftrightarrow$ 可配方 $\Leftrightarrow$ Galois 群可解.
+<p><span class="latex_section">2. 域扩张的性质<a id="sec:2"></a></span>
+</p>
+<p>在第二章的§ 2.4 我们讲了构造域 $F$ 的扩域的两条途径. 第一条途径是找一个在域 $F$ 上不可约的首一多项式 $p(x)$ ，则商环 $F[x] /(p(x))$是一个域, 并且 $\sigma: a \mapsto a+(p(x))$ 是 $F$ 到 $F[x] /(p(x))$ 的一个单的环同态，从而可以把 $a$ 与 $a+(p(x))$ 等同. 把 $x+(p(x))$ 记做 $u$ ，则 $F[x] /(p(x))$ 的每一个元素可以唯一地表示成$$<br>
+c_0+c_1 u+\cdots+c_{r-1} u^{r-1}$$其中 $r=\operatorname{deg} p(x), c_i \in F, i=0,1, \cdots, r-1$ ；并且 $u$ 是 $p(x)$ 在 $F[x] /(p(x))$中的一个根.<br>
+第二条途径是设 $\widetilde{R}$ 是 $F$ 的一个扩环，且 $\widetilde{R}$ 是整环，取 $\widetilde{R}$ 的一个元素 $\tilde{\alpha}, \tilde{\alpha}$ 是 $F$ 上的代数元, 设 $\tilde{\alpha}$ 在 $F$ 上的极小多项式为<br>
+$$<br>
+m(x)=x^r+b_{r-1} x^{r-1}+\cdots+b_1 x+b_0,<br>
+$$<br>
+则 $F[\bar{\alpha}]$ 是一个域, 并且 $F[\bar{\alpha}]$ 的每一个元素可以唯一地表示成<br>
+$$<br>
+c_0+c_1 \tilde{\alpha}+\cdots+c_{r-1} \tilde{\alpha}^{r-1}<br>
+$$<br>
+其中 $c_i \in F, i=0,1, \cdots, r-1$.<br>
+构造域 $F$ 的扩域的两条途径是相互关联的： $\widetilde{R}$ 的代数元 $\bar{\alpha}$ 在 $F$ 上的极小多项式 $m(x)$ 在 $F$ 上一定不可约, 且<br>
+$$<br>
+F[\bar{\alpha}] \cong F[x] /(m(x))<br>
+$$<br>
+从 $F[x] /(m(x))$ 到 $F[\tilde{\alpha}]$ 的一个同构映射 $\varphi$ 为<br>
+$$<br>
+\varphi\left(c_0+c_1 u+\cdots+c_{r-1} u^{r-1}\right)=c_0+c_1 \tilde{\alpha}+\cdots+c_{r-1} \tilde{\alpha}^{r-1} .<br>
+$$<br>
+当 $F[\bar{\alpha}]$ 是域时, 我们把 $F[\bar{\alpha}]$ 记做 $F(\widetilde{\alpha})$.<br>
+从第二章的 \$ 2.4 的定理 3 和 $\$ 2.5$ 我们还可以得到构造域 $F$ 的扩域的第三条途径: 设 $\widetilde{R}$ 是域 $F$ 的一个扩环, 并且 $\widetilde{R}$ 是整环, 取 $\widetilde{R}$ 的一个元素 $t, t$ 是 $F$ 上的超越元, 则 $F[t] \cong F[x]$. 于是 $F[t]$ 是整环. 我们把 $F[t]$ 的分式域记做 $F(t)$. 容易看出, $F(t)$ 同构于 $F[x]$ 的分式域 $F(x)$.<br>
+这一章我们来研究域扩张的性质, 目标是讲述伽罗瓦理论.</p>
+<div class="latex_defn"><span class="latex_defn_h">定义 1</span> (<span class="latex_defn_name">单扩张</span>)<span class="latex_defn_h">.</span> 如果域扩张 $K/F$ 可以在 $F$ 上添加一个元素 $\alpha$ 得到, 即 $K=F(\alpha)$, 则称 $K$ 是 $F$ 上的一个单扩张.<br>
+</div>
+<p>历史上研究域扩张的推动力来自数域 $F$ 上一元高次方程 $f(x)=0$ 可用根式求解的条件. 为此需要把多项式 $f(x)$ 的所有复根与 $F$ 一起形成复数域 $\mbc$ 的一个子域, 而且使这个子域是包含 $F$ 和 $f(x)$ 所有复根的域中最小的一个. 从这个想法引出下述概念:</p>
+<div class="latex_defn"><span class="latex_defn_h">定义 2</span> (<span class="latex_defn_name">生成的子域</span>)<span class="latex_defn_h">.</span> 设 $K/F$ 是一个域扩张, $S$ 是 $K$ 的一个非空子集. 我们把 $K$ 中包含 $F\cup S$ 的一切子域的交称为 $F$ 添加 $S$ 得到的子域, 或 $S$ 在 $F$ 上生成的子域, 记作 $F(S)$. 若 $S=\{a_1,a_2,\cdots,a_n\}$, 则把 $F(S)$ 写出 $F(a_1,a_2,\cdots,a_n)$.<br>
+</div><br>
+<div class="latex_rem"><span class="latex_rem_h">注记 1</span><span class="latex_rem_h">.</span> 设 $\alpha\in K$, 则 $F[\alpha]$ 表示 $K$ 中包含 $F\cup \{\alpha\}$ 的所有<b>子环之交</b>, $F(\alpha)$ 表示$K$ 中包含 $F\cup \{\alpha\}$ 的所有<b>子域之交</b>. 容易看出, 当 $F[\alpha]$ 是子域时有 $F[\alpha]=F(\alpha)$.<br>
+我们在前面说过, 当 $F[\alpha]$ 是域时, 把它记作 $F(\alpha)$, 其道理就是这里所讲的.<br>
+</div>
+<p>类似于习题3.3的第2题所述, 域 $F$ 添加 $a_1,a_2,\cdots,a_n$ 得到的子域 $F(a_1,a_2,\cdots,a_n)$ 中的元素是 $a_1,a_2,\cdots,a_n$ 的多项式.</p>
+<p></p><div class="latex_prop"><span class="latex_prop_h">命题 3</span><span class="latex_prop_h">.</span> 设有域扩张 $K/F, a_1,a_2,\cdots,a_n\in K$, 则<br>
+$$F(a_1,a_2,\cdots,a_n)=F(\alpha_1)(\alpha_2)\cdots(\alpha_n).$$<br>
+从而若 $\beta_1,\cdots,\beta_m\in K$, 则<br>
+$$ F(a_1,\cdots,a_n,\beta_1,\cdots,\beta_m)=F(a_1,a_2,\cdots,a_n)(\beta_1,\cdots,\beta_m).$$<br>
+</div>
+<p>现在我们从另一个角度研究域扩张, 这可以帮助我们揭示域扩张的一些内在性质.<br>
+设 $K/F$ 是一个域扩张, 则 $K$ 可以看成是域 $F$ 上的一个线性空间, 其维数为 $K$ 在 $F$ 上的次数, 记作 $[K:F]$. 若 $[K:F]$ 是正整数, 则称 $K$ 是域 $F$ 上线性空间的一个基, 也叫做域扩张 $K/F$ 的一个基.<br>
+</p><div class="latex_examp"><span class="latex_examp_h">例子 1</span><span class="latex_examp_h">.</span> <ol><li>$\mbq(\sqrt{2})$ 是 $\mbq$ 上次数为 $2$ 的有限扩张, $\{1,\sqrt{2}\}$ 为域扩张 $\mbq(\sqrt{2})/\mbq$ 的一组基.</li><li>$\mbr/\mbq$ 是 $\mbq$ 上的无限域扩张.</li></ol></div>
+<p><span id="you_xian_kuo_zhang_wei_dai_shu_kuo_zhang"></span></p><div class="latex_thm"><span class="latex_thm_h">定理 4</span><span class="latex_thm_h">.</span> 若 $K/F$ 是有限扩张, 则 $K$ 的每个元素都是 $F$ 上的代数元.<br>
+</div><br>
+<div class="latex_proof"><span class="latex_proof_h">证明</span><span class="latex_proof_h">.</span> 设 $[K:F]=n$. 任取 $\beta\in K$, 则 $K$ 作为域 $F$ 上的 $n$ 维线性空间, 其中 $n+1$ 个元素 $1,\beta,\cdots,\beta^n$ 必线性相关, 即存在 $F$ 中不全为零的元素 $a_0,a_1,\cdots,a_n$ 使<br>
+$$a_0+a_1\beta+\cdots+a_n\beta^n=0,$$<br>
+即非零多项式 $f(x)=a_0+a_1x+\cdots+a_nx^n\in F[x]$ 满足 $f(\beta)=0$, 从而 $\beta$ 是 $F$ 上的代数元.<br>
+</div>
+<p></p><div class="latex_defn"><span class="latex_defn_h">定义 5</span> (<span class="latex_defn_name">代数扩张</span>)<span class="latex_defn_h">.</span> 对于域扩张 $K/F$, 如果 $K$ 的每一个元素都是 $F$ 上的代数元, 则称 $K/F$ 为代数扩张.<br>
+</div><br>
+从 <a class="latex_ref" href="#you_xian_kuo_zhang_wei_dai_shu_kuo_zhang">定理 4</a> 得有限扩张必为代数扩张.<br>
+<span id="yu_kuo_zhang_dai_shu_yuan_de_ji_xiao_duo_xiang_shi"></span><div class="latex_thm"><span class="latex_thm_h">定理 6</span><span class="latex_thm_h">.</span> 设 $K/F$ 是域扩张, $\alpha\in K$ 且 $\alpha$ 是 $F$ 上的代数元. 如果 $\alpha$ 在 $F$ 上的极小多项式 $m(x)$ 的次数为 $n$, 则<br>
+$$[F(\alpha):F]=n,$$<br>
+且 $1,\alpha,\cdots,\alpha^{n-1}$ 为 $F(\alpha)/F$ 的一组基.<br>
+</div><br>
+<div class="latex_proof"><span class="latex_proof_h">证明</span><span class="latex_proof_h">.</span> 若 $1,\alpha,\cdots,\alpha^{n-1}$ 为 $F(\alpha)/F$ 在 $F$ 上线性相关, 则 $F$ 中有不全为零的元素 $b_0,b_1,\cdots,b_{n-1}$ 使得<br>
+$$b_0+b_1\alpha+\cdots+b_{n-1}\alpha^{n-1}.$$<br>
+令 $g(x)=b_0+b_1x+\cdots+b_{n-1}x^{n-1}$, 则 $g(\alpha)=0$ 且 $g(x)\ne0$, 这与 $m(x)$ 是 $\alpha$ 在 $F$ 上的极小多项式矛盾. 因此, $1,\alpha,\cdots,\alpha^{n-1}$ 在 $F$ 上线性相关. 又<br>
+$$F(\alpha)=F[\alpha]=\set{c_0+c_1\alpha+c_{n-1}\alpha^{n-1}}{c_i\in F}.$$<br>
+因此 $1,\alpha,\cdots,\alpha^{n-1}$ 为 $F(\alpha)$ 的一组基, 从而 $[F(\alpha):F]=n$.<br>
+</div><br>
+<a class="latex_ref" href="#yu_kuo_zhang_dai_shu_yuan_de_ji_xiao_duo_xiang_shi">定理 6</a> 表明, 域 $F$ 添加 $F$ 上的一个代数元 $\alpha$ 得到的单扩张 $F(\alpha)$ 一定是有限扩张, 从而 $F(\alpha)/F$ 是代数扩张. 于是我们把 $F(\alpha)/F$ 称为单代数扩张.<br>
+域 $F$ 添加 $F$ 上的一个超越元 $t$ 得到的单扩张 $F(t)$ 称为单超越扩张. 在本章开头已指出, $F(t)$ 同构于 $F[x]$ 的分式域.
+<p></p><div class="latex_thm"><span class="latex_thm_h">定理 7</span><span class="latex_thm_h">.</span> 设有三个域: $F\subset L\subset K$, 则下述等价<br>
+<ol><li>$K/F$ 是有限扩张;</li><li>$K/L$ 和 $L/F$ 是有限扩张,</li></ol>此时有 $[K:F]=[K:L][L:F]$.<br>
+</div>
+<p><span class="latex_section">3. 分裂域, 正规扩张, 可分扩张<a id="sec:3"></a></span>
+</p>
+<p></p><div class="latex_defn"><span class="latex_defn_h">定义 8</span> (<span class="latex_defn_name">分裂域</span>)<span class="latex_defn_h">.</span> 设 $f(x)$ 是域 $F$ 上的 $n(n&gt;0)$ 次多项式, 如果有一个域扩张 $E/F$ 满足:<br>
+<ol><li>$f(x)$ 在 $E[x]$ 中能分解成一次因式的乘积, 即<br>
+$$f(x)=a(x-\alpha_1)(x-\alpha_2)\cdots (x-\alpha_n),\ \alpha_i\in E.$$</li><li>$E=F(\alpha_1,\alpha_2,\cdots,\alpha_n)$,</li></ol>则称 $E/F$ 为 $f(x)$ 在 $F$ 上的一个分裂域.<br>
+</div><br>
+条件1表明 $E$ 包含了 $f(x)$ 的所有复根, 条件2表明 $E$ 是 $\mbc$ 中包含 $F$ 和 $f(x)$ 的所有复根的最小子域.<br>
+任给一个域 $F$ 上的任一次数大于 0 的多项式 $f(x)$, 它在 $F$ 上的分裂域是否存在? 如果存在, 是否唯一? 首先回答存在性问题.<br>
+<div class="latex_thm"><span class="latex_thm_h">定理 9</span> (<span class="latex_thm_name">分裂域的存在性</span>)<span class="latex_thm_h">.</span> 任一域 $F$ 上每一个 $n(n&gt;0)$ 次多项式 $f(x)$ 在 $F$ 上有一个分裂域, 并且 $[E:F]\les n!$.<br>
+</div>
+<p></p><div class="latex_cor"><span class="latex_cor_h">推论 10</span> (<span class="latex_cor_name">分裂域的唯一性</span>)<span class="latex_cor_h">.</span> 设 $f(x)$ 是域 $F$ 上的 $n(n&gt;0)$ 次多项式, $E$ 和 $E^{\prime}$ 都是 $f(x)$ 在 $F$ 上的分裂域, 则 $E \cong E^{\prime}$, 并且存在 $E$ 到 $E^{\prime}$ 的一个同构 $\eta$, 使得 $\eta$ 在 $F$ 上的限制 $\eta \mid _F$ 为 $F$ 上的恒等变换.<br>
+</div>
+<p></p><div class="latex_defn"><span class="latex_defn_h">定义 11</span> (<span class="latex_defn_name">$F$-同态</span>)<span class="latex_defn_h">.</span> 设 $E / F$ 和 $E^{\prime} / F$ 是两个域扩张, 如果存在域 $E$ 到 $E^{\prime}$ 的一个同构 (或同态) $\eta$, 使得 $\eta \mid_ F=\mr{Id}_F$ , 那么称 $\eta$ 为一个 $F$-同构（或 $F$-同态）.<br>
+</div>
+<div class="latex_cor"><span class="latex_cor_h">推论 12</span><span class="latex_cor_h">.</span> 若域 $F$ 上的 $n(n&gt;0)$ 次多项式 $f(x)$ 在 $F$ 上的两个分裂域 $E$ 和 $E^{\prime}$ 是同一个域 $L$ 的两个子域, 则 $E=E^{\prime}$.<br>
+</div><br>
+<div class="latex_proof"><span class="latex_proof_h">证明</span><span class="latex_proof_h">.</span> 由题意得<br>
+\begin{align*}<br>
+f(x)&amp;=a(x-\alpha_1)(x-\alpha_2)\cdots(x-\alpha_n)\in E[x],\\<br>
+f(x)&amp;=a(x-\beta_1)(x-\beta_2)\cdots(x-\beta_n)\in E'[x],<br>
+\end{align*}<br>
+由于 $E\subset L, E'\subset L$, 因此上述两式都是 $f(x)$ 在 $L[x]$ 中的因式分解. 由唯一因式分解定理得 $\beta_1,\cdots,\beta_n$ 是 $\alpha_1,\cdots,\alpha_n$ 的一个排列, 从而<br>
+$$E=F(\alpha_1,\cdots,\alpha_n)=F(\beta_1,\cdots,\beta_n)=E'.$$<br>
+</div>
+<p></p><div class="latex_cor"><span class="latex_cor_h">推论 13</span><span class="latex_cor_h">.</span> 若域扩张 $L / F$ 的一个中间域 $E$ 是域 $F$ 上一个 $n(n&gt;0)$ 次多项式 $f(x)$ 在 $F$ 上的分裂域, 则对于域 $L$ 的任意一个 $F$-自同构 $\eta$, 都有 $\eta(E)=E$. 从而 $\eta \mid_ E$ 是 $E$ 的一个 $F$-自同构.<br>
+</div><br>
+<div class="latex_proof"><span class="latex_proof_h">证明</span><span class="latex_proof_h">.</span> 由上述推论, 只需说明 $\eta(E)$ 也是 $f(x)$ 在 $F$ 上的一个分裂域. 在 $E[x]$ 中有<br>
+\begin{align*}<br>
+f(x)&amp;=a(x-\alpha_1)(x-\alpha_2)\cdots(x-\alpha_n)\\<br>
+f(x)&amp;=a(x^n+b_{n-1}x^{n-1}+\cdots+b_1x+b_0), \ b_i\in F.<br>
+\end{align*}<br>
+由韦达定理得<br>
+\begin{align*}<br>
+b_{n-1}&amp;= (\alpha_1+\alpha_2+\cdots+\alpha_n)\\<br>
+b_{n-k}&amp;=(-1)^k\sum_{1\les i_1&lt; \cdots&lt; i_k\les n} \alpha_{i_1}\cdots\alpha_{i_k}\\ b_0&amp;=(-1)^n\alpha_1\alpha_2\cdots\alpha_n. \end{align*} 因为 $\eta$ 是 $L$ 的 $F$-自同构, 因此 \begin{align*} b_{n-1}=\eta(b_{n-1})&amp;= \big(\eta(\alpha_1)+\eta(\alpha_2)+\cdots+\eta(\alpha_n)\big)\\ b_{n-k}=\eta(b_{n-k})&amp;=(-1)^k\sum_{1\les i_1&lt; \cdots&lt; i_k\les n} \eta(\alpha_{i_1})\cdots\eta(\alpha_{i_k})\\ b_0=\eta(b_0)&amp;=(-1)^n\eta(\alpha_1)\eta(\alpha_2)\cdots\eta(\alpha_n). \end{align*} 从而 \begin{align*} &amp;a\big(x-\eta(\alpha_1)\big)\big(x-\eta(\alpha_2)\big)\cdots\big(x-\eta(\alpha_n)\big)\\ =&amp;a(x^n+b_{n-1}x^{n-1}+\cdots+b_1x+b_0)=f(x). \end{align*} 从上式看出, $f(x)$ 在 $\eta(E)[x]$ 中分解成了一次因式的乘积, 又 $E=F(\alpha_1,\alpha_2,\cdots,\alpha_n)$, 因此 $$\eta(E)=F\big(\eta(\alpha_1),\eta(\alpha_2),\cdots,\eta(\alpha_n)\big).$$ 从而 $\eta(E)$ 是 $f(x)$ 在 $F$ 上的一个分裂域. 由于 $E$ 和 $\eta(E)$ 都是 $L$ 的子域, 因此 $\eta(E)=E$. </div> 设 $E$ 是域 $F$ 上的 $n(n&gt;0)$ 次多项式 $f(x)$ 在 $F$ 上的一个分裂域,则 $f(x)$ 在 $E[x]$ 中能分解成一次因式的乘积. 于是 $f(x)$ 的每一个不可约因式在 $E[x]$ 中能分解成一次因式的乘积. 大胆地设想一下: 域 $F$上任意一个不可约多项式 $p(x)$ 如果在 $E$ 中有根, 那么 $p(x)$ 是否也能在 $E[x]$ 中分解成一次因式的乘积? 我们来探讨这个问题. 回答是肯定的, 即我们有下述结论:<br>
+<span id="zhang_gui_kuo_zhang_yu_bei"></span><div class="latex_prop"><span class="latex_prop_h">命题 14</span><span class="latex_prop_h">.</span> 设 $E$ 是域 $F$ 上的 $n(n&gt;0)$ 次多项式 $f(x)$ 在 $F$ 上的一个分裂域, 则 $F[x]$ 中任一在 $E$ 中有根的不可约多项式都可以在 $E[x]$ 中分解成一次因式的乘积.<br>
+</div><br>
+从此命题受到启发, 我们引出下述概念:<br>
+<div class="latex_defn"><span class="latex_defn_h">定义 15</span> (<span class="latex_defn_name">正规扩张</span>)<span class="latex_defn_h">.</span> 设 $E / F$ 是一个代数扩张, 如果 $F[x]$ 中任一在 $E$ 中有根的不可约多项式都可以在 $E[x]$ 中能分解成一次因式的乘积, 那么称 $E / F$ 是一个正规扩张.<br>
+</div>
+<p><a class="latex_ref" href="#zhang_gui_kuo_zhang_yu_bei">命题 14</a> 给出了正规扩张的一个充分条件, 可以证明这个条件也是有限正规扩张的必要条件. 我们有下述定理:</p>
+<p></p><div class="latex_thm"><span class="latex_thm_h">定理 16</span><span class="latex_thm_h">.</span> 有限扩张 $E / F$ 为正规扩张当且仅当 $E$ 是 $F[x]$ 中一个 $n(n&gt;0)$ 次多项式 $f(x)$ 在 $F$ 上的一个分裂域.<br>
+</div>
+<p><span class="latex_section">4. 域扩张的自同构群, 伽罗瓦扩张<a id="sec:4"></a></span>
+
+伽罗瓦是通过域扩张的自同构群来研究一元高次方程可用根式求解的问题, 因此引出下述概念:</p>
+<p></p><div class="latex_defn"><span class="latex_defn_h">定义 17</span> (<span class="latex_defn_name">伽罗瓦群</span>)<span class="latex_defn_h">.</span> 设 $E / F$ 为一个域扩张, 域 $E$ 的所有 $F$-自同构组成的集合对于映射的乘法成为一个群，称它为 $E$ 在 $F$ 上的伽罗瓦群，记做 $\operatorname{Gal}(E / F)$.<br>
+</div>
+<p></p><div class="latex_prop"><span class="latex_prop_h">命题 18</span><span class="latex_prop_h">.</span> 设 $f(x)\in F[x]$ 为可分多项式. $E$ 是 $f(x)$ 在 $F$ 上的分裂域, 则<br>
+$$|\Gal{E/F}|=[E:F].$$<br>
+</div>
+<p></p><div class="latex_defn"><span class="latex_defn_h">定义 19</span> (<span class="latex_defn_name">不动域</span>)<span class="latex_defn_h">.</span> 设 $E$ 是一个域, $G$ 是 $E$ 的一个自同构群. 令
+<p>$$<br>
+\operatorname{Inv}(G):=\{\alpha \in E \mid \eta(\alpha)=\alpha, \forall \eta \in G\}<br>
+$$<br>
+任取 $\alpha, \beta \in \operatorname{Inv}(G), \forall \eta \in G$, 有<br>
+$$<br>
+\begin{gathered}<br>
+\eta(\alpha-\beta)=\eta(\alpha)-\eta(\beta)=\alpha-\beta, \\<br>
+\eta(\alpha \beta)=\eta(\alpha) \eta(\beta)=\alpha \beta, \\<br>
+\eta\left(\beta^{-1}\right)=\eta(\beta)^{-1}=\beta^{-1}, \quad \beta \neq 0<br>
+\end{gathered}<br>
+$$<br>
+因此, $\alpha-\beta, \alpha \beta, \beta^{-1}(\beta \neq 0) \in \operatorname{Inv}(G)$. 从而 $\operatorname{Inv}(G)$ 是 $E$ 的一个子域. 我们把 $\operatorname{Inv}(G)$ 称为 $E$ 的 $G$ 不动域, 或者称 $\operatorname{Inv}(G)$ 是 $G$ 的不动域.<br>
+</p></div><br>
+设 $G$ 是 $E$ 的一个有限自同构群, $|G|$ 与 $[E: \operatorname{Inv}(G)]$ 有什么关系？<br>
+<div class="latex_lem"><span class="latex_lem_h">引理 20</span> (<span class="latex_lem_name">Artin引理</span>)<span class="latex_lem_h">.</span> 设 $G$ 是域 $E$ 的有限自同构群, $F=\operatorname{Inv}(G)$,则<br>
+$$<br>
+[E: F] \leqslant|G|<br>
+$$<br>
+</div><br>
+根据域扩张 $E / F$ 的伽罗瓦群 $\operatorname{Gal}(E / F)$ 的定义，一定有<br>
+$$<br>
+F \subseteq \operatorname{Inv}(\operatorname{Gal}(E / F))<br>
+$$<br>
+上式中的临界点, 即等号成立时的域扩张是特别重要的域扩张. 于是我们引出下述概念：<br>
+<div class="latex_defn"><span class="latex_defn_h">定义 21</span><span class="latex_defn_h">.</span> 如果域扩张 $E / F$ 的伽罗瓦群 $\operatorname{Gal}(E / F)$ 的不动域恰好等于 $F$, 那么称 $E / F$ 是一个伽罗瓦扩张.<br>
+</div>
+<p>有限伽罗瓦扩张具有什么性质？它与多项式的分裂域有什么联系? 下面的定理回答了这个问题.</p>
+<p></p><div class="latex_thm"><span class="latex_thm_h">定理 22</span><span class="latex_thm_h">.</span> 设 $E / F$ 是一个域扩张, 则下列命题等价:<br>
+<ol><li>$E / F$ 是有限可分正规扩张;</li><li>设 $f(x)\in F[x]$ 为可分多项式. $E$ 是 $f(x)$ 在 $F$ 上的分裂域;</li><li>$E / F$ 是有限伽罗瓦扩张.</li></ol></div>
+<p></p><div class="latex_cor"><span class="latex_cor_h">推论 23</span><span class="latex_cor_h">.</span> 如果 $E / F$ 是有限伽罗瓦扩张, 那么<br>
+$$<br>
+|\operatorname{Gal}(E / F)|=[E: F] \text {. }<br>
+$$<br>
+</div>
+<p></p><div class="latex_cor"><span class="latex_cor_h">推论 24</span><span class="latex_cor_h">.</span> 设 $E / F$ 是有限伽罗瓦扩张, 则 $E$ 的任一元素 $\alpha_1$ 在 $F$ 上的极小多项式 $p(x)$ 是可分的, 并且 $p(x)$ 在 $E$ 中的全部根组成的集合 $\Omega=\left\{\alpha_1, \alpha_2, \cdots, \alpha_m\right\}$ 恰好是 $\alpha_1$ 在 $\operatorname{Gal}(E / F)$ 的作用下得到的所有像集, 即<br>
+$$\Omega=\Gal{E/F}\alpha.$$<br>
+令 $E_1=F\left(\alpha_1, \alpha_2, \cdots, \alpha_m\right)$, 则 $E_1$ 是 $p(x)$ 在 $F$ 上的分裂域. 于是 $E_1 / F$ 是有限伽罗瓦扩张, 并且 $\operatorname{Gal}\left(E_1 / F\right)$ 同构于 $\Omega$ 上的一个置换群 (即 $S_{\Omega}$ 的一个子群).<br>
+</div><br>
+我们来探讨哪些域扩张是有限伽罗瓦扩张.<br>
+<div class="latex_prop"><span class="latex_prop_h">命题 25</span><span class="latex_prop_h">.</span> 设域 $E$ 有一个有限自同构群 $H$, 则 $E / \operatorname{Inv}(H)$ 是有限伽罗瓦扩张,且<br>
+$$<br>
+\operatorname{Gal}(E / \operatorname{Inv}(H))=H .<br>
+$$<br>
+</div>
+<div class="latex_prop"><span class="latex_prop_h">命题 26</span><span class="latex_prop_h">.</span> 设 $E / F$ 是有限伽罗瓦扩张, $K$ 为 $E / F$ 的任一中间域,则 $E / K$ 也是有限伽罗瓦扩张，并且 $\operatorname{Gal}(E / K)$ 是 $\operatorname{Gal}(E / F)$ 的一个子群，从而 $\operatorname{Inv}(\operatorname{Gal}(E / K))=K$.<br>
+</div>
+<p><span class="latex_section">5. 伽罗瓦理论<a id="sec:5"></a></span>
+</p>
+<p><span class="latex_section">6. 本原元素, 迹与范数<a id="sec:6"></a></span>
+</p>
+</div>
+  </div>
+  <nav class="post-navigation" aria-label="文章前后导航"><a href="/610.html"><span>上一篇</span><strong>整环的整除性</strong></a><a href="/626.html"><span>下一篇</span><strong>绪论</strong></a></nav>
+</article>
+</main>
+  <footer class="site-footer">
+    <p>阿贝尔的数学之旅 · 数学笔记与思考</p>
+    <p><a href="/feed.xml">RSS</a><span aria-hidden="true"> · </span><a href="/sitemap.xml">站点地图</a></p>
+  </footer>
+  <script src="/assets/site.js"></script>
+  
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ["\\(","\\)"]],
+    displayMath: [['$$', '$$'], ["\\[", "\\]"]],
+    processEscapes: true
+  },
+  TeX: {
+    equationNumbers: {autoNumber: "AMS",
+    useLabelIds: true}
+  },
+});
+MathJax.Hub.Config({TeX: {Macros: {"mr": ["\\mathrm{#1}", 1], "mb": ["\\mathbb{#1}", 1], "ee": "\\exists\\,", "ff": "\\forall\\,", "les": "\\leqslant", "ges": "\\geqslant", "sse": "\\subset", "sbs": "\\subset", "sps": "\\supset", "ve": "\\varepsilon", "mbr": "\\mathbb{R}", "mbn": "\\mathbb{N}", "mbz": "\\mathbb{Z}", "mbq": "\\mathbb{Q}", "mbc": "\\mathbb{C}", "mbh": "\\mathbb{H}", "vp": "\\varphi", "nti": "n\\to\\infty", "md": "\\mathrm{d}", "mre": "\\mathrm{e}", "mri": "\\mathrm{i}", "lra": ["\\langle #1\\rangle", 1], "Ker": "\\mathrm{Ker}\\,", "Im": "\\mathrm{Im}\\,", "tl": "\\triangleleft", "set": ["\\left\\{#1\\,\\left|\\,#2\\right. \\right\\}", 2], "mod": ["\\ (\\mr{mod}\\ #1)", 1], "pp": "\\partial", "Gal": ["\\mathrm{Gal}\\left(#1\\right)", 1], "Inv": ["\\mathrm{Inv}\\left(#1\\right)", 1], "End": ["\\mathrm{End}_{#1}\\!\\left(#2\\right)", 2], "Hom": ["\\mathrm{Hom}_{#1}\\!\\left(#2\\right)", 2], "ca": "\\mathcal{A}", "cb": "\\mathcal{B}", "cc": "\\mathcal{C}", "cd": "\\mathcal{D}", "ce": "\\mathcal{E}", "cf": "\\mathcal{F}", "cg": "\\mathcal{G}", "cl": "\\mathcal{L}", "cs": "\\mathcal{S}", "Ext": "\\mathrm{Ext}", "Tor": "\\mathrm{Tor}", "mc": ["\\mathcal{#1}", 1], "ot": "\\otimes"}}});
+</script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_SVG.js"></script>
+</body>
+</html>

@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>向量场的流｜阿贝尔的数学之旅</title>
+  <meta name="description" content="目录 目录 1. 动力系统中的流&amp;# … 继续阅读 →">
+  <link rel="canonical" href="https://www.abelmath.fun/1470.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="阿贝尔的数学之旅">
+  <meta property="og:title" content="向量场的流｜阿贝尔的数学之旅">
+  <meta property="og:description" content="目录 目录 1. 动力系统中的流&amp;# … 继续阅读 →">
+  <meta property="og:url" content="https://www.abelmath.fun/1470.html">
+  <meta property="og:image" content="https://www.abelmath.fun/assets/og.png">
+  <meta property="og:image:width" content="1731">
+  <meta property="og:image:height" content="909">
+  <meta property="og:image:alt" content="阿贝尔的数学之旅：数学笔记与思考">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="向量场的流｜阿贝尔的数学之旅">
+  <meta name="twitter:description" content="目录 目录 1. 动力系统中的流&amp;# … 继续阅读 →">
+  <meta name="twitter:image" content="https://www.abelmath.fun/assets/og.png">
+  <link rel="stylesheet" href="/assets/site.css">
+  <link rel="alternate" type="application/rss+xml" title="阿贝尔的数学之旅" href="/feed.xml">
+</head>
+<body class="article-page">
+  <a class="skip-link" href="#main">跳到正文</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="/" aria-label="阿贝尔的数学之旅首页">
+        <span class="brand-mark" aria-hidden="true">∫</span>
+        <span><strong>阿贝尔的数学之旅</strong><small>ABEL'S MATHEMATICAL JOURNEY</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">目录</button>
+      <nav id="site-nav" class="site-nav" aria-label="主要导航"><a href="/">首页</a><a href="/category/%e8%ae%ba%e6%96%87/">论文</a><a href="/category/ode/">ODE</a><a href="/category/pde/">PDE</a><a href="/category/analysis/">分析</a><a href="/category/analysis/%e6%b5%8b%e5%ba%a6/">测度</a><a href="/category/%e8%bf%91%e4%b8%96%e4%bb%a3%e6%95%b0/">抽代</a><a href="/category/%e5%9f%ba%e4%bb%a3/">基代</a><a href="/category/%e7%a7%91%e6%99%ae/">科普</a><a href="/category/manim/">manim</a><a href="/category/%e6%8e%a2%e8%ae%a8/">探讨</a><a href="/category/%e8%ae%b0%e5%bd%95/">记录</a></nav>
+    </div>
+  </header>
+  <main id="main">
+<article class="article-shell">
+  <header class="article-header">
+    <a class="back-link" href="/">← 返回首页</a>
+    <div class="post-meta"><time datetime="2025-08-15T13:10:26+00:00">2025-08-15</time><a class="chip" href="/category/ode/">ODE</a><a class="chip" href="/category/blog/">博客</a></div>
+    <h1>向量场的流</h1>
+    <p>目录 目录 1. 动力系统中的流&amp;# … 继续阅读 →</p>
+  </header>
+  <div class="article-layout">
+    <aside class="article-rail"><p>NOTE 1470</p><span></span><p>2025 · 08 · 15</p></aside>
+    <div class="article-content"><p><span id="contents" style="text-align:center; font-size:18px; font-variant:small-caps;display:block;">目录</span><br>
+          <span id="sec:content"><a href="#contents">目录</a></span><br><span> 1.  <a href="#sec:1">动力系统中的流</a></span><br><span> 2.  <a href="#sec:2">相曲线的性质</a></span><br></p>
+<p><span class="latex_section">1. 动力系统中的流<a id="sec:1"></a></span>
+</p>
+<p>对于自治动力系统 $ \dot{x}=f(x) $, 从 $ x_{0} $ 处出发的解曲线称为流 (flow), 它形成一个单参数变换群 $ \{\varphi_t\}_{t \in \mathbb{R}} $. 流的存在性和唯一性通常由解的存在性和唯一性定理保证.</p>
+<p>流 $ \varphi_t(x_{0}) $ 表示从初始状态 $ x_{0} $ 出发, 经过时间 $ t $ 后的状态, 它满足以下性质:<br>
+</p><ol>    <li>恒等映射: $ \varphi_0=\mathrm{Id} $<br>
+    </li><li>群性质: $ \varphi_{t+s}=\varphi_t \circ \varphi_s $<br>
+    </li><li>光滑性: $ \varphi_t $ 是光滑的</li></ol>
+<details class="wp-block-details">
+<summary>证明</summary>
+<p></p><div class="latex_proof"><span class="latex_proof_h">证明</span> (<span class="latex_proof_name">群性质的证明</span>)<span class="latex_proof_h">.</span> 往证 $ \varphi_{t+s}(x_{0})=\varphi_t(\varphi_s(x_{0})) $. 
+<p>后者是 $ \dot{x}=f(x) $, $ x(0)=\varphi_{s}(x_{0}) $ 的解. 对于前者, 考察<br>
+$$<br>
+\dot{x}=f(x),\quad x(0)=x_{0}<br>
+$$解为 $ x(t)=\varphi_t(x_{0}) $. 令 $ y(t)=x(t+s)=\varphi_{t+s}(x_{0}) $, 则<br>
+$$<br>
+\frac{\mathrm{d}y}{\mathrm{d}t}(t)=\frac{\mathrm{d}x}{\mathrm{d}t}(t+s)=\frac{\mathrm{d}x}{\mathrm{d}(t+s)}(t+s)=f(x(t+s))=f(y(t)),<br>
+$$又 $ y(0)=\varphi_{s}(x_{0}) $, 则两者皆为同一 IVP 的解, 由解的唯一性即得结论.<br>
+</p></div><br>
+</details>
+<p>对于非自治系统 $ \dot{x}=f(x,t) $, 解的存在性和唯一性同样可以在适当条件下(如 $ f $ 对 $ x $ 是 Lipschitz 连续的, 对 $ t $ 是连续的)得到保证.</p>
+<p>但非自治系统的解通常不具备流的群性质, 因为向量场通常不具备时间平移不变性. 非自治动力系统的解不能表示为单参数流 (flow), 而需要用一个双参数的"过程" (process) 或"演化算子"来描述.</p>
+<p><span class="latex_section">2. 相曲线的性质<a id="sec:2"></a></span>
+</p>
+<p>下面的内容来自科学出版社翻译的《常微分方程》(第一版, Arnold 著).</p>
+<p>相曲线, 作为相空间中的参数化曲线, 我们想得知它整体的拓扑性质, 自然会问出两个问题:<br>
+</p><ol>    <li>不同的相曲线是否相交<br>
+    </li><li>单条相曲线是否会自交</li></ol>
+<p>在某种自然的意义下, 两个问题都是否定的: 在 $ f $ 满足 Lipschitz 条件时, 我们有如下结论<br>
+</p><ol>    <li>在延拓的意义下, 不同的相曲线不会相交. 若两条相曲线相交, 则延拓后为同一相曲线.<br>
+    </li><li>单条相曲线不会自交, 除非为周期解.</li></ol>
+<div class="latex_thm"><span class="latex_thm_h">定理 1</span><span class="latex_thm_h">.</span> 对于自治系统 $ \dot{x}=f(x) $, 相空间的每一点有且仅有一条相曲线经过.<br>
+</div>
+<div class="latex_prop"><span class="latex_prop_h">命题 2</span><span class="latex_prop_h">.</span> 自治系统的相曲线只可能为: 平衡点、闭曲线以及非闭不自交的曲线.<br>
+</div>
+<div class="latex_thm"><span class="latex_thm_h">定理 3</span><span class="latex_thm_h">.</span> 对自治系统 $ \dot{x}=f(x) $ 而言, 从起点 $ x_{0}(\neq x^{*}) $ 出发, 经过有限时间无法走到平衡点 $ x^{*} $.<br>
+</div>
+
+<details class="wp-block-details">
+<summary>证明</summary>
+<p></p><div class="latex_proof"><span class="latex_proof_h">证明</span><span class="latex_proof_h">.</span> (1) 设相曲线 $ x(t) $ 经过有限时间 $ T $ 到达 $ x^{*} $. 即 $ x(T)=x^{*} $. 则反演时间, 从 $ x^{*} $ 出发得到两个不同的解, 即 $ x^{*} $ 与 $ x(T-t) $ 都是如下系统的解<br>
+$$<br>
+\dot{z}=-f(z),\quad z(0)=x^{*}<br>
+$$与解的唯一性矛盾!<br>
+(2) 积分方法(一维):<br>
+$$<br>
+T=\int_{0}^{T} \mathrm{d}t=\int_{x_{0}}^{x^{*}} \frac{\mathrm{d}x}{f(x)}=\infty<br>
+$$因为 $ f $ 在 $ x^{*} $ 处Lipschitz连续, 即<br>
+$$<br>
+|f(x)|=|f(x)-f(x^{*})| \leq L|x-x^{*}|<br>
+$$高维情形: 从 $ x_{0} $ 到 $ x^{*} $ 的路径上存在类似估计.<br>
+</div><br>
+</details>
+<div class="latex_rem"><span class="latex_rem_h">注记 1</span><span class="latex_rem_h">.</span> 同样地, 从周期轨外一点出发不可能在有限时间内到达周期轨. 还可以将平衡点、周期轨推广到闭的正变区域.<br>
+</div>
+<div class="latex_cor"><span class="latex_cor_h">推论 4</span><span class="latex_cor_h">.</span> 一维自治动力系统的动力学性质很简单, 随时间单增或单减.<br>
+</div>
+<div class="latex_examp"><span class="latex_examp_h">例子 1</span><span class="latex_examp_h">.</span> 当 $ f $ 不满足唯一性定理的条件时, 相曲线可能相交:<br>
+$$<br>
+\dot{x}=x^{\frac{1}{3}},\quad x(0)=0 \Rightarrow x=\pm \left(\frac{2}{3}t\right)^{\frac{3}{2}}<br>
+$$<br>
+两条相曲线相交于原点.<br>
+</div>
+</div>
+  </div>
+  <nav class="post-navigation" aria-label="文章前后导航"><a href="/1454.html"><span>上一篇</span><strong>为什么两点之间线段最短</strong></a><a href="/1482.html"><span>下一篇</span><strong>Hartman-Grobman定理</strong></a></nav>
+</article>
+</main>
+  <footer class="site-footer">
+    <p>阿贝尔的数学之旅 · 数学笔记与思考</p>
+    <p><a href="/feed.xml">RSS</a><span aria-hidden="true"> · </span><a href="/sitemap.xml">站点地图</a></p>
+  </footer>
+  <script src="/assets/site.js"></script>
+  
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ["\\(","\\)"]],
+    displayMath: [['$$', '$$'], ["\\[", "\\]"]],
+    processEscapes: true
+  },
+  TeX: {
+    equationNumbers: {autoNumber: "AMS",
+    useLabelIds: true}
+  },
+});
+MathJax.Hub.Config({TeX: {Macros: {"mr": ["\\mathrm{#1}", 1], "mb": ["\\mathbb{#1}", 1], "ee": "\\exists\\,", "ff": "\\forall\\,", "les": "\\leqslant", "ges": "\\geqslant", "sse": "\\subset", "sbs": "\\subset", "sps": "\\supset", "ve": "\\varepsilon", "mbr": "\\mathbb{R}", "mbn": "\\mathbb{N}", "mbz": "\\mathbb{Z}", "mbq": "\\mathbb{Q}", "mbc": "\\mathbb{C}", "mbh": "\\mathbb{H}", "vp": "\\varphi", "nti": "n\\to\\infty", "md": "\\mathrm{d}", "mre": "\\mathrm{e}", "mri": "\\mathrm{i}", "lra": ["\\langle #1\\rangle", 1], "Ker": "\\mathrm{Ker}\\,", "Im": "\\mathrm{Im}\\,", "tl": "\\triangleleft", "set": ["\\left\\{#1\\,\\left|\\,#2\\right. \\right\\}", 2], "mod": ["\\ (\\mr{mod}\\ #1)", 1], "pp": "\\partial", "Gal": ["\\mathrm{Gal}\\left(#1\\right)", 1], "Inv": ["\\mathrm{Inv}\\left(#1\\right)", 1], "End": ["\\mathrm{End}_{#1}\\!\\left(#2\\right)", 2], "Hom": ["\\mathrm{Hom}_{#1}\\!\\left(#2\\right)", 2], "ca": "\\mathcal{A}", "cb": "\\mathcal{B}", "cc": "\\mathcal{C}", "cd": "\\mathcal{D}", "ce": "\\mathcal{E}", "cf": "\\mathcal{F}", "cg": "\\mathcal{G}", "cl": "\\mathcal{L}", "cs": "\\mathcal{S}", "Ext": "\\mathrm{Ext}", "Tor": "\\mathrm{Tor}", "mc": ["\\mathcal{#1}", 1], "ot": "\\otimes"}}});
+</script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_SVG.js"></script>
+</body>
+</html>

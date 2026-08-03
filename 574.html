@@ -1,0 +1,528 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>环的理想, 域的构造｜阿贝尔的数学之旅</title>
+  <meta name="description" content="目录 目录 1. 备忘录 … 继续阅读 →">
+  <link rel="canonical" href="https://www.abelmath.fun/574.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="阿贝尔的数学之旅">
+  <meta property="og:title" content="环的理想, 域的构造｜阿贝尔的数学之旅">
+  <meta property="og:description" content="目录 目录 1. 备忘录 … 继续阅读 →">
+  <meta property="og:url" content="https://www.abelmath.fun/574.html">
+  <meta property="og:image" content="https://www.abelmath.fun/assets/og.png">
+  <meta property="og:image:width" content="1731">
+  <meta property="og:image:height" content="909">
+  <meta property="og:image:alt" content="阿贝尔的数学之旅：数学笔记与思考">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="环的理想, 域的构造｜阿贝尔的数学之旅">
+  <meta name="twitter:description" content="目录 目录 1. 备忘录 … 继续阅读 →">
+  <meta name="twitter:image" content="https://www.abelmath.fun/assets/og.png">
+  <link rel="stylesheet" href="/assets/site.css">
+  <link rel="alternate" type="application/rss+xml" title="阿贝尔的数学之旅" href="/feed.xml">
+</head>
+<body class="article-page">
+  <a class="skip-link" href="#main">跳到正文</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="/" aria-label="阿贝尔的数学之旅首页">
+        <span class="brand-mark" aria-hidden="true">∫</span>
+        <span><strong>阿贝尔的数学之旅</strong><small>ABEL'S MATHEMATICAL JOURNEY</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">目录</button>
+      <nav id="site-nav" class="site-nav" aria-label="主要导航"><a href="/">首页</a><a href="/category/%e8%ae%ba%e6%96%87/">论文</a><a href="/category/ode/">ODE</a><a href="/category/pde/">PDE</a><a href="/category/analysis/">分析</a><a href="/category/analysis/%e6%b5%8b%e5%ba%a6/">测度</a><a href="/category/%e8%bf%91%e4%b8%96%e4%bb%a3%e6%95%b0/">抽代</a><a href="/category/%e5%9f%ba%e4%bb%a3/">基代</a><a href="/category/%e7%a7%91%e6%99%ae/">科普</a><a href="/category/manim/">manim</a><a href="/category/%e6%8e%a2%e8%ae%a8/">探讨</a><a href="/category/%e8%ae%b0%e5%bd%95/">记录</a></nav>
+    </div>
+  </header>
+  <main id="main">
+<article class="article-shell">
+  <header class="article-header">
+    <a class="back-link" href="/">← 返回首页</a>
+    <div class="post-meta"><time datetime="2024-09-04T09:55:53+00:00">2024-09-04</time><a class="chip" href="/category/%E8%BF%91%E4%B8%96%E4%BB%A3%E6%95%B0/">近世代数</a></div>
+    <h1>环的理想, 域的构造</h1>
+    <p>目录 目录 1. 备忘录 … 继续阅读 →</p>
+  </header>
+  <div class="article-layout">
+    <aside class="article-rail"><p>NOTE 574</p><span></span><p>2024 · 09 · 04</p></aside>
+    <div class="article-content"><p><span id="contents" style="text-align:center; font-size:18px; font-variant:small-caps;display:block;">目录</span><br>
+          <span id="sec:content"><a href="#contents">目录</a></span><br><span> 1.  <a href="#sec:1">备忘录</a></span><br><span> 2.  <a href="#sec:2">环同态, 理想, 商环</a></span><br><span> 3.  <a href="#sec:3">理想的运算, 环的直和</a></span><br><span> 4.  <a href="#sec:4">素理想和极大理想</a></span><br><span> 5.  <a href="#sec:5">有限域的构造, 构造扩域的途径</a></span><br><span> 6.  <a href="#sec:6">分式域</a></span><br></p>
+<p><span class="latex_section">1. 备忘录<a id="sec:1"></a></span>
+</p>
+<p>域 $F$ 上关于代数数 $\alpha$ 的零化多项式组成的集合 $M$ 是 $F[x]$ 的素理想, 即<br>
+$$ M=\big(m(x)\big)\tl F[x],$$<br>
+其中 $m(x)$ 在 $F$ 上不可约.</p>
+<p><span class="latex_section">2. 环同态, 理想, 商环<a id="sec:2"></a></span>
+
+</p><div class="latex_defn"><span class="latex_defn_h">定义 1</span> (<span class="latex_defn_name">子环</span>)<span class="latex_defn_h">.</span> 环 $R$ 的一个非空子集 $R_1$, 如果对 $R$ 的加法和乘法也作成一个环, 则称 $R_1$ 为 $R$ 的一个子环.<br>
+</div><br>
+<div class="latex_prop"><span class="latex_prop_h">命题 2</span><span class="latex_prop_h">.</span> 环 $R$ 的非空子集 $R_1$ 是子环当仅当 $R_1$ 对 $R$ 的减法和乘法封闭：<br>
+$$ \ff a,b\in R_1,\ :\ a-b\in R_1, ab\in R_1.$$<br>
+</div><br>
+<div class="latex_defn"><span class="latex_defn_h">定义 3</span> (<span class="latex_defn_name">环同态</span>)<span class="latex_defn_h">.</span> 设 $R,\tilde{R}$ 为环. 映射 $\sigma:R\to\tilde{R}$ 称为环同态, 如果<br>
+$$ \sigma(a+b)=\sigma(a)+\sigma(b),\ \sigma(ab)=\sigma(a)\sigma(b),\ \ff a,b\in R,$$<br>
+且 $\sigma(1)=\tilde{1}.$ 其中 $1$ 和 $\tilde{1}$ 分别是 $R,\tilde{R}$ 的单位元.<br>
+</div><br>
+对没有单位元的环 $R$, 不要求"$\sigma(1)=\tilde{1}$".
+<div class="latex_defn"><span class="latex_defn_h">定义 4</span> (<span class="latex_defn_name">环同态的核</span>)<span class="latex_defn_h">.</span> 设 $\sigma$ 是环 $R$ 到 $\tilde{R}$ 的环同态, 则 $\sigma$ 保持加法, 从而 $\sigma$ 也是 $(R,+)$ 到 $(\tilde{R},+)$ 的一个群同态, 因此<br>
+$$\sigma(0)=\tilde{0},\ \sigma(-1)=-\sigma(a),\ \ff a\in R.$$<br>
+$\sigma$ 作为 $(R,+)$ 到 $(\tilde{R},+)$ 的群同态的核 $\Ker\sigma$ 称为 $R$ 到 $\tilde{R}$ 的环同态的核, 即<br>
+$$\Ker\sigma=\set{a\in R}{\sigma(a)=\tilde{0}}.$$<br>
+</div>
+<p>环 $\mbz$ 到 $\mbz_m$ 的环同态 $\sigma:k\to\bar{k}$ 的核为 $\Ker\sigma=m\mbz$. $(m\mbz,+)$ 是 $(\mbz,+)$ 的一个子群. 任给 $mk\in m\mbz,l\in\mbz$ 有<br>
+$$l(mk)=(mk)l=m(kl)\in m\mbz.$$<br>
+由此受到启发, 引出下述概念：<br>
+</p><div class="latex_defn"><span class="latex_defn_h">定义 5</span> (<span class="latex_defn_name">理想</span>)<span class="latex_defn_h">.</span> 如果环 $R$ 的一个非空子集 $I$ 对 $R$ 的减法封闭, 并且具有左、右吸收率, 即<br>
+$$\ff a\in I, r\in R\ :\ ra\in I,ar\in I,$$<br>
+则称 $I$ 是 $R$ 的一个理想或双边理想.<br>
+</div><br>
+<div class="latex_defn"><span class="latex_defn_h">定义 6</span> (<span class="latex_defn_name">单环</span>)<span class="latex_defn_h">.</span> 对任意环 $R$, $\{0\}$ 和 $R$ 都是 $R$ 的理想, 称它们为平凡的理想. 如果环 $R$ 只有平凡的理想, 则称 $R$ 是单环.<br>
+</div><br>
+<div class="latex_defn"><span class="latex_defn_h">定义 7</span> (<span class="latex_defn_name">单边理想</span>)<span class="latex_defn_h">.</span> 如果环 $R$ 的一个非空子集 $J$ 对 $R$ 的减法封闭, 并且具有左吸收率,  则称 $J$ 是 $R$ 的一个左理想. 类似地, 可以定义环 $R$ 的右理想.<br>
+</div><br>
+环 $\mathbb{Z}$ 到 $\mathbb{Z}_m$ 的环同态 $\sigma: k \mapsto \bar{k}$ 的核 $\operatorname{Ker} \sigma=m \mathbb{Z}, m \mathbb{Z}$ 是 $\mathbb{Z}$ 的一个理想。从而 $(m \mathbb{Z},+)$ 是 $(\mathbb{Z},+)$ 的一个子群, 于是有商群<br>
+\begin{equation}\label{z_quotient_group}<br>
+(\mathbb{Z},+) /(m \mathbb{Z},+)=\{k+m \mathbb{Z} \mid k \in \mathbb{Z}\}<br>
+\end{equation}<br>
+我们对于 \eqref{z_quotient_group} 式右端的集合规定乘法运算如下：<br>
+\begin{equation}\label{multiplication_in_z_quotient_group}<br>
+(k+m \mathbb{Z})(l+m \mathbb{Z}):=k l+m \mathbb{Z}<br>
+\end{equation}<br>
+需要验证 \eqref{multiplication_in_z_quotient_group} 式的合理性：设 $k+m \mathbb{Z}=s+m \mathbb{Z}, l+m \mathbb{Z}=t+m \mathbb{Z}$ ，则 $k-s \in m \mathbb{Z}$, 且 $l-t \in m \mathbb{Z}$, 于是 $k \equiv s(\bmod m), l \equiv t(\bmod m)$ ，从而有 $k l \equiv s t(\bmod m) ，$ 因此 $k l-s t \in m \mathbb{Z}$ ，从而 $k l+m \mathbb{Z}=s t+m \mathbb{Z}$ 。这表明 \eqref{multiplication_in_z_quotient_group} 式的规定与陪集代表的选择无关，因此 \eqref{multiplication_in_z_quotient_group} 式的规定是合理的。于是 \eqref{z_quotient_group} 式右端的集合有了乘法运算。容易验证，此乘法满足结合律和交换律以及左、右分配律, 且 $1+m \mathbb{Z}$ 是单位元, 因此 \eqref{z_quotient_group} 式右端的集合成为一个有单位元的交换环，把它记做 $\mathbb{Z} / m \mathbb{Z}$ ，即<br>
+$$<br>
+\mathbb{Z} / m \mathbb{Z}=\{k+m \mathbb{Z} \mid k \in \mathbb{Z}\}<br>
+$$<br>
+由此受到启发, 猜测下述结论成立<br>
+<div class="latex_prop"><span class="latex_prop_h">命题 8</span><span class="latex_prop_h">.</span> 设 $I$ 是环 $R$ 的一个理想, 令<br>
+$$R/I:=\{r+I\,|\,r\in R\}.$$<br>
+在 $R/I$ 中定义<br>
+$$ (r_1+I)(r_2+I):=r_1r_2+I,$$<br>
+则  $R/I$ 成为一个环, 称它为环 $R$ 对理想 $I$ 的商环, 它的元素 $r+I$ 称为模 $I$ 同余类.<br>
+</div><br>
+容易验证, 若环 $R$ 有单位元 $1$, 则 $1+I$ 是商环  $R/I$ 的单位元. 若 $R$ 是交换环, 则商环  $R/I$ 也是交换环.
+<div class="latex_prop"><span class="latex_prop_h">命题 9</span><span class="latex_prop_h">.</span> 设 $I$ 是环 $R$ 的一个理想，令<br>
+$$<br>
+\begin{aligned}<br>
+\pi: R &amp; \rightarrow R / I \\<br>
+r &amp; \mapsto r+I,<br>
+\end{aligned}<br>
+$$<br>
+则 $\pi$ 是环 $R$ 到 $R / I$ 的一个环同态, 且是满同态, $\operatorname{Ker} \pi=I$ 。我们把 $\pi$ 称为 $R$ 到 $R / I$ 的自然环同态。<br>
+</div>
+<div class="latex_thm"><span class="latex_thm_h">定理 10</span><span class="latex_thm_h">.</span> <ol><li><b>环同态基本定理</b>：设 $\sigma$ 是环 $R$ 到 $\widetilde{R}$ 的一个环同态, 则<br>
+$\operatorname{Ker} \sigma$ 是 $R$ 的一个理想, 且 $\operatorname{Im} \sigma$ 同构于商环 $R / \operatorname{Ker} \sigma$, 即 $R / \operatorname{Ker} \sigma \cong \operatorname{Im} \sigma$.</li><li><b>第一环同构定理</b>：设 $R$ 是一个环, $I$ 是 $R$ 的一个理想, $H$是 $R$ 的一个子环, 则<ol><li>$H+I$ 是 $R$ 的一个子环;</li><li>$H \cap I$ 是 $H$ 的一个理想, 且 $H / H \cap I \cong H+I / I$.</li></ol></li><li><b>第二环同构定理</b>：设 $I, J$ 是环 $R$ 的理想, 且 $J \supseteq I$, 则 $J / I$是 $R / I$ 的一个理想, 且有环同构:<br>
+$$<br>
+(R / I) /(J / I) \cong R / J<br>
+$$</li></ol></div>
+<p><span class="latex_section">3. 理想的运算, 环的直和<a id="sec:3"></a></span>
+</p>
+<p>设 $R$ 是一个有单位元的交换环, 任给 $a\in R$, 则 $Ra$ 是 $R$ 的一个理想.<br>
+若 $R$ 是非交换环, 则 $Ra$ 只是 $R$ 的左理想.<br>
+直接验证得, 若 $\{I_j\}_{j\in J}$ 是环 $R$ 的一族理想, 则 $\cap_{j\in J} I_j$ 也是 $R$ 的理想.</p>
+<p></p><div class="latex_defn"><span class="latex_defn_h">定义 11</span> (<span class="latex_defn_name">生成的理想</span>)<span class="latex_defn_h">.</span> 设 $S$ 是环 $R$ 的一个非空子集, 我们把 $R$ 的包含 $S$ 的所有理想之交称为由 $S$ 生成的理想, 记作 $(S)$. 如果 $S$ 是有限集, 那么称 $(S)$ 是有限生成的. 若 $S=\{a_1,a_2,\cdots,a_n\}$, 则把 $(S)$ 记成 $(a_1,a_2,\cdots,a_n)$.<br>
+</div><br>
+<div class="latex_defn"><span class="latex_defn_h">定义 12</span> (<span class="latex_defn_name">主理想</span>)<span class="latex_defn_h">.</span> 环 $R$ 中由一个元素 $a$ 生成的理想称为主理想, 记作 $(a)$.<br>
+</div><br>
+<div class="latex_prop"><span class="latex_prop_h">命题 13</span><span class="latex_prop_h">.</span> 设 $R$ 是一个有单位元的交换环, 则 $Ra$ 是由 $a$ 生成的理想.<br>
+</div><br>
+<div class="latex_prop"><span class="latex_prop_h">命题 14</span><span class="latex_prop_h">.</span> <ol><li>设 $R$ 为环, 则一个元素 $(a)$ 生成的理想为<br>
+$$ (a)=\set{r_1a+ar_2+ma+\sum_{i=1}^n x_iay_i}{r_1,r_2,x_i,y_i\in R, m\in \mbz}.$$</li><li>设 $R$ 是一个有单位元的交换环, $a_1,a_2,\cdots,a_n\in R$, 则<br>
+$$ (a_1,a_2,\cdots,a_n)=\set{r_1a_1+r_2a_2+\cdots+r_na_n}{r_i\in R}.$$</li></ol></div><br>
+设 $A,B$ 是环 $R$ 的两个非空子集, 定义<br>
+\begin{align*}<br>
+A+B:=&amp; \set{a+b}{a\in A, b\in B}\\<br>
+AB:=&amp; \set{a_1b_1+a_2b_2+\cdots+a_nb_n}{a_i\in A, b_i\in B}<br>
+\end{align*}<br>
+<div class="latex_prop"><span class="latex_prop_h">命题 15</span><span class="latex_prop_h">.</span> 若 $I,J$ 是环 $R$ 的理想, 则 $I+J,IJ$ 都是 $R$ 的理想, 分别称为理想 $I$ 与 $J$ 的和、积且<br>
+$$ IJ\subset I\cap J\subset I+J.$$<br>
+</div><br>
+理想的和、积、交都是理想的运算, 容易证明它们满足以下法则：<br>
+设 $I, J, K$ 都是环 $R$ 的理想, 则<br>
+\begin{align*}<br>
+I+J&amp;= J+I\\<br>
+(I+J)+K&amp;=I+(J+K)\\<br>
+(IJ)K&amp;=I(JK)\\<br>
+I(J+K)&amp;=IJ+IK\\<br>
+(J+K)I&amp;=JI+KI<br>
+\end{align*}<br>
+在整数环 $\mbz$ 中,<br>
+\begin{align*}<br>
+(n)(m)&amp;=(nm)\\<br>
+(n)\cap (m)&amp;=([n,m])\\<br>
+(n)+(m)&amp;=\big((n,m)\big)<br>
+\end{align*}<br>
+由 $(n)+(m)=\big((n,m)\big)$ 得<br>
+$$ (n,m)=1\ \Leftrightarrow\ (n)+(m)=(1)=\mbz.$$<br>
+由此启发, 引出下述定义<br>
+<div class="latex_defn"><span class="latex_defn_h">定义 16</span><span class="latex_defn_h">.</span> 设 $R$ 是一个有单位元的环, $I,J$ 是 $R$ 得理想. 若 $I+J=R$, 则称 $I$ 与 $J$ 互素.<br>
+</div><br>
+在整数环 $\mbz$ 中, $(n)$ 与 $(m)$ 互素当仅当 $n$ 与 $m$ 互素. 由于<br>
+$$(n_1,m)=1\ \text{且}\ (n_2,m)=1\ \Leftrightarrow\ (n_1n_2,m)=1.$$<br>
+即 $(n_1)$ 与 $(m)$ 互素,  $(n_2)$ 与 $(m)$ 互素, 则  $(n_1n_2)$ 与 $(m)$ 互素.<br>
+由此受到启发, 猜测下述结论成立<br>
+<div class="latex_prop"><span class="latex_prop_h">命题 17</span><span class="latex_prop_h">.</span> 设 $R$ 是一个有单位元的环, $I,J,K$ 都是 $R$ 的理想. 如果 $I$ 和 $J$ 都互素, 那么 $IJ$ 与 $K$ 互素.<br>
+</div><br>
+在整数环 $\mbz$ 中, 若 $(n,m)=1$, 则 $[n,m]=nm$, 从而<br>
+$$ (n)\ \text{与}\ (m)\ \text{互素}\ \Leftrightarrow\ ([n,m])=(nm)\ \Leftrightarrow\ (n)\cap (m)=(n)(m).$$<br>
+由此受到启发, 猜测下述结论成立<br>
+<div class="latex_prop"><span class="latex_prop_h">命题 18</span><span class="latex_prop_h">.</span> 设 $R$ 是一个有单位元的环, $I,J$ 都是 $R$ 的理想. 若 $I$ 与 $J$ 互素, 则 $IJ=I\cap J$.<br>
+</div><br>
+我们已经知道了 $\mbz_{m_1}$ 与 $\mbz_{m_2}$ 的直和 $\mbz_{m_1}\oplus \mbz_{m_2}$. 一般地, 有下述概念<br>
+<div class="latex_defn"><span class="latex_defn_h">定义 19</span> (<span class="latex_defn_name">环的直和</span>)<span class="latex_defn_h">.</span> 设 $R_1,R_2,\cdots,R_s$ 都是环, 在笛卡尔积 $R_1\times R_2\times \cdots\times R_s$ 中定义<br>
+\begin{align*}<br>
+(a_1,a_2,\cdots,a_s)+(b_1,b_2,\cdots,b_s):=&amp;(a_1+b_1,a_2+b_2,\cdots,a_s+b_s)\\<br>
+(a_1,a_2,\cdots,a_s)(b_1,b_2,\cdots,b_s):=&amp;(a_1b_1,a_2b_2,\cdots,a_sb_s)<br>
+\end{align*}<br>
+容易验证 $R_1\times R_2\times \cdots\times R_s$ 对上述加法和乘法作成一个环, 称它为环  $R_1,R_2,\cdots,R_s$ 的直和, 记作  $R_1\oplus R_2\oplus \cdots\oplus R_s$ . 它的零元是 $(0_1,0_2,\cdots,0_s)$, 其中 $0_i$ 是 $R_i$ 的零元.<br>
+</div><br>
+<div class="latex_rem"><span class="latex_rem_h">注记 1</span><span class="latex_rem_h">.</span> <ol><li>如果每个 $R_i$ 都有单位元, 那么 $R_1\oplus R_2\oplus \cdots\oplus R_s$ 有单位元 $(1_1,1_2,\cdots,1_s)$;</li><li>如果每个 $R_i$ 都是交换环, 那么 $R_1\oplus R_2\oplus \cdots\oplus R_s$ 也是交换环.</li></ol></div><br>
+在整数环 $\mbz$ 中, $a$ 与 $b$ 模 $m$ 同余当仅当 $a-b\in (m)$.<br>
+<div class="latex_defn"><span class="latex_defn_h">定义 20</span> (<span class="latex_defn_name">模理想同余</span>)<span class="latex_defn_h">.</span> 设 $I$ 是环 $R$ 的理想, $a,b\in R$. 若 $a-b\in I$, 则称 $a$ 与 $b$ 模 $I$ 同余, 记作 $a\equiv b\mod{I}$.<br>
+</div><br>
+容易验证, 环 $R$ 中, 若 $a\equiv b\mod{I}, c\equiv d\mod{I}$, 则<br>
+\begin{align*}<br>
+a+c&amp;= b+d\mod{I}\\<br>
+ac&amp;=bd\mod{I}\<br>
+ca&amp;=db\mod{I}.<br>
+\end{align*}<br>
+还可以验证, 模 $I$ 同余具有反身性、对称性和传递性, 因此模 $I$ 同余是 $R$ 上的一个等价关系. 任给 $r\in R$, $r$ 的等价类为<br>
+$$\bar{I}=r+I.$$<br>
+在整数环 $\mbz$ 中, 设 $m=m_1m_2$ 且 $(m_1,m_2)=1$, 则有环同构<br>
+$$\mbz_m\cong \mbz_{m_1}\oplus\mbz_{m_2}.$$<br>
+由于 $\mbz_m\cong \mbz/(m)$, 则<br>
+$$\mbz/(m)\cong \mbz/(m_1)\oplus\mbz/(m_2).$$<br>
+由于 $(m_1,m_2)=1$, 因此 $(m_1)$ 与 $(m_2)$ 互素, 则<br>
+$$ (m)=(m_1m_2)=(m_1)(m_2)=(m_1)\cap(m_2).$$<br>
+于是有环同构<br>
+$$\mbz/\big((m_1)\cap(m_2)\big)\cong \mbz/(m_1)\oplus\mbz/(m_2).$$<br>
+由此启发, 猜测下述结论成立：<br>
+<div class="latex_thm"><span class="latex_thm_h">定理 21</span><span class="latex_thm_h">.</span> 设 $R$ 是有单位元的环, 若它的理想 $I_1,I_2,\cdots,I_s$ 两两互素, 则有环同构<br>
+$$ R/\big(I_1\cap I_2\cap \cdots \cap I_s\big)\cong<br>
+R/I_1 \oplus R/I2_ \oplus \cdots \oplus R/I_s.$$<br>
+</div><br>
+上述定理在证明环同态为满射是就证明了下述定理<br>
+<div class="latex_thm"><span class="latex_thm_h">定理 22</span> (<span class="latex_thm_name">中国剩余定理</span>)<span class="latex_thm_h">.</span> 定理 2 (中国剩余定理) 设 $m_1, m_2, \cdots, m_s$ 是两两互素的大于 1 的整数，任给整数 $b_1, b_2, \cdots, b_s$ ，则一次同余方程组<br>
+$$<br>
+\left\{\begin{aligned}<br>
+x &amp; \equiv b_1\left(\bmod m_1\right) \\<br>
+x &amp; \equiv b_2\left(\bmod m_2\right) \\<br>
+&amp; \cdots \cdots \\<br>
+x &amp; \equiv b_s\left(\bmod m_s\right)<br>
+\end{aligned}\right.<br>
+$$<br>
+在 $\mathbb{Z}$ 中有解，它的一个解是<br>
+$$<br>
+a=\sum_{j=1}^s b_j v_j \prod_{l \neq j} m_l,<br>
+$$<br>
+其中 $v_j$ 满足 $u_j m_j+v_j \prod_{l \neq j} m_l=1, j=1,2, \cdots, s$. 它的全部解是 $a+k m_1 m_2 \cdots m_s, \quad k \in \mathbb{Z}$.<br>
+</div>
+<p><span class="latex_section">4. 素理想和极大理想<a id="sec:4"></a></span>
+
+</p><div class="latex_defn"><span class="latex_defn_h">定义 23</span> (<span class="latex_defn_name">整环</span>)<span class="latex_defn_h">.</span> 设 $R$ 是有单位元 $1(\ne0)$ 的交换环, 且 $R$ 没有非零零因子, 则称 $R$  为整环.<br>
+</div><br>
+在整数环 $\mbz$ 中, 设 $p&gt;1$ 为整数, 则 $p$ 为素数当仅当<br>
+$$ p\mid ab\ \Leftrightarrow\ p\mid a\ \text{或}\ p\mid b.$$<br>
+即<br>
+$$ab\in (P)\ \Leftrightarrow\ a\in (P) \ \text{或}\ b\in (P).$$<br>
+<div class="latex_defn"><span class="latex_defn_h">定义 24</span> (<span class="latex_defn_name">素理想</span>)<span class="latex_defn_h">.</span> 设 $R$ 是有单位元 $1(\ne0)$ 的交换环, $P\tl R$ 且 $P\ne R$. 若 $ab\in P$ 意味着 $a\in P$ 或 $b\in P$, 则称 $P$ 是 $R$ 的素理想.<br>
+</div><br>
+<div class="latex_examp"><span class="latex_examp_h">例子 1</span><span class="latex_examp_h">.</span> <ol><li>在整数环 $\mbz$ 中, 设 $p&gt;1$ 为整数,则 $p$ 为素数当仅当 $(P)$ 是 $\mbz$ 的素理想;</li><li>在域 $F$ 上的一元多项式环 $F[x]$ 中, 次数大于 $0$ 的多项式 $p(x)$ 是不可约多项式当仅当从 $p(x)\mid f(x)g(x)$ 能推出 $p(x)\mid f(x)$ 或 $p(x)\mid g(x)$, 即 $p(x)$ 是不可约多项式当仅当 $\big(p(x)\big)$ 是 $F[x]$ 的素理想.</li></ol></div><br>
+设 $R$ 是有单位元 $1(\ne0)$ 的交换环, 则<br>
+\begin{align*}<br>
+    &amp;(0) \text{ 是 } R \text{ 的一个素理想} \\<br>
+    \Leftrightarrow &amp;\text{ 从 } ab \in (0) \text{ 可以推出 } a \in (0) \text{ 或 } b \in (0) \\<br>
+    \Leftrightarrow&amp;\text{ 从 } ab = 0 \text{ 可以推出 } a = 0 \text{ 或 } b = 0 \\<br>
+    \Leftrightarrow&amp;\ R \text{ 没有非零的零因子} \\<br>
+    \Leftrightarrow&amp;\ R \text{ 是整环}.<br>
+\end{align*}<br>
+在整数环 $\mbz$ 中, $(0)$ 和 $(p)$ 都是 $\mbz$ 的素理想, 其中 $p&gt;1$ 为素数. $\mbz$ 还有其他素理想吗? 先证一个结论.<br>
+<div class="latex_prop"><span class="latex_prop_h">命题 25</span><span class="latex_prop_h">.</span> 整数环 $\mbz$ 的每个理想都是由一个非负整数生成的主理想.<br>
+</div><br>
+<div class="latex_proof"><span class="latex_proof_h">证明</span><span class="latex_proof_h">.</span> 设 $I\tl \mbz$, 若 $I=(0)$, 则 $I$ 为主理想. 下设 $I\ne(0)$, 则存在非零元 $a\in I$. 若 $a$ 为负整数, 则 $-a=(-1)a\in I$, 因此 $I$ 中必含正整数. 令 $m$ 为 $I$ 中最小的正整数, 下证 $I=(m)$. 任取 $b\in I$, 由带余除法得<br>
+$$ b=qm+r, \ \ 0\les r&lt; m.$$
+那么 $r=b-qm\in I$. 若 $r\ne0$, 又 $r&lt; m$, 则与 $m$ 的定义矛盾, 故 $r=0$, 从而 $b=qm\in(m), I\subset (m), I=(m).$
+</div>
+
+由此命题得 $\mbz$ 的全部素理想为 $(0), (p)$, 其中 $p$ 为素数.
+在研究环的结构中, 素理想起着什么作用呢？
+<div class="latex_thm"><span class="latex_thm_h">定理 26</span><span class="latex_thm_h">.</span> 设 设 $R$ 是有单位元 $1(\ne0)$ 的交换环, $P\tl R$, 则商环 $R/P$ 为整环当仅当 $P$ 是 $R$ 的素理想.
+</div>
+<div class="latex_proof"><span class="latex_proof_h">证明</span><span class="latex_proof_h">.</span> 由于 $R$ 是有单位元 $1(\neq 0)$ 的交换环,因此商环 $R / P$ 是有单位元 $1+P$ 的交换环. 从而
+\begin{align*}
+    &amp;R/P \text{ 是整环} \\
+    \iff&amp;\ 1 + P \neq P\ \text{且}\ (a + P)(b + P) = P \ \Rightarrow \ a + P = P \text{ 或 } b + P = P \\
+    \iff&amp;\  1 \notin P\ \text{且}\ ab + P = P \ \Rightarrow \ a + P = P \text{ 或 } b + P = P \\
+    \iff&amp;\  P \neq R\ \text{且}\ ab \in P \ \Rightarrow \ a \in P \text{ 或 } b \in P \\
+    \iff&amp;\  P \text{ 是 } R \text{ 的素理想}.
+\end{align*}
+</div>
+下面探索 $R$ 的什么理想 $I$ 能使商环 $R/I$ 为一个域？
+从习题 2.1 的第 3 题、第 4 题得: 设 $F$ 是有单位元 $1(\neq 0)$ 的交换环，则 $F$ 是域当且仅当 $F$ 的理想只有 $(0)$ 和 $F$ 。
+从 $\S 2.1$ 的命题 4 知道, 设 $I$ 是环 $R$ 的一个理想, 则商环 $R / I$ 的所有理想组成的集合为
+$$\{K / I \mid K\text{ 是 } R\text{ 的包含 } I \text{ 的理想} \}.$$
+设 $R$ 是有单位元 $1(\neq 0)$ 的交换环, $I$ 是 $R$ 的一个理想,则
+\begin{align*}
+    R/I \text{ 是域} \iff&amp; R/I \text{ 的理想只有 } (0) \, (\text{即 } I/I) \text{ 和 } R/I, \text{ 且 } 1 + I \neq I \\
+    \iff&amp; R \text{ 的包含 } I \text{ 的理想只有 } I \text{ 和 } R, \text{ 且 } I \neq R.
+\end{align*}
+由此引出下面得概念和定理：
+<div class="latex_defn"><span class="latex_defn_h">定义 27</span> (<span class="latex_defn_name">极大理想</span>)<span class="latex_defn_h">.</span> 设 $R$ 为环, $M\tl R$ 且 $M\ne R$. 若 $R$ 中包含 $M$ 的理想只有 $M$ 和 $R$, 则称 $M$ 是 $R$ 的极大理想.
+</div>
+
+<div class="latex_thm"><span class="latex_thm_h">定理 28</span><span class="latex_thm_h">.</span> 设 $R$ 是有单位元 $1(\neq 0)$ 的交换环, $I$ 是 $R$ 的一个理想, 则商环 $R / I$ 是域当仅当 $I$ 是 $R$ 的极大理想.
+</div>
+此定理揭示了构造域的方向.
+域 $F$ 上一元多项式环 $F[x]$ 的极大理想有哪些？首先探索 $F[x]$ 的每个理想长什么样子.
+<div class="latex_prop"><span class="latex_prop_h">命题 29</span><span class="latex_prop_h">.</span> 域 $F$ 上一元多项式环 $F[x]$ 的每个理想都是主理想, 其中非 $(0)$ 主理想可由首 $1$ 多项式生成.
+</div>
+<div class="latex_proof"><span class="latex_proof_h">证明</span><span class="latex_proof_h">.</span> 利用多项式的带余除法即可证明.
+</div>
+<div class="latex_prop"><span class="latex_prop_h">命题 30</span><span class="latex_prop_h">.</span> 设 $p(x)\in F[x]$ 且 $\deg p(x) &gt;  0$, 则 $p(x)$ 不可约当仅当 $\big(p(x)\big)$ 是 $F[x]$ 的极大理想.<br>
+</div><br>
+<span id="yu_bu_ke_yue"></span><div class="latex_cor"><span class="latex_cor_h">推论 31</span><span class="latex_cor_h">.</span> 若 $M\tl F[x]$, 则 $F[x]/M$ 是域当仅当 $M=\big(p(x)\big)$, 其中 $p(x)$ 为不可约多项式.<br>
+</div><br>
+设 $R$ 是有单位元 $1(\neq 0)$ 的交换环, 是否存在极大理想？探索这个问题要用偏序集的概念和 Zorn 引理.<br>
+<div class="latex_thm"><span class="latex_thm_h">定理 32</span><span class="latex_thm_h">.</span> 在有单位元 $1(\neq 0)$ 的环 $R$ 中必存在极大理想.<br>
+</div><br>
+<div class="latex_proof"><span class="latex_proof_h">证明</span><span class="latex_proof_h">.</span> 令 $S=\set{I}{I\tl R, 1\notin R}$. 显然 $(0)\in S$ 且 $S$ 按照集合的包含关系成为一个偏序集.<br>
+任取 $S$ 的一条链 $T=\set{I_s\in S}{a\in J}$, 令 $A=\cup_{a\in J} I_a$. 任取 $x,y\in A$, 则 $x\in I_a,y\in I_b$. 不妨设 $I_a\subset I_b$, 则 $x,y\in I_b$, 从而 $x-y\in I_b\subset A$. 任给 $r\in R$ 有<br>
+$$  rx\in I_a\subset A,\ xr\in I_a\subset A.$$<br>
+因此 $A$ 是 $R$ 的一个理想且 $1\notin A$ (否则 $1$ 属于某个 $I_a$, 矛盾). 于是 $A\in S$. 由于 $I_a\subset A, \ff a\in J$, 因此 $A$ 是 $T$ 的一个上界, 根据 Zorn 引理, $S$ 有一个极大元素 $M$, 那么 $M\tl R$ 且 $1\notin M$, 从而 $M\ne R$. 根据极大元素的定义, 任取 $H\in S$, 若 $M\subset H$, 则 $M=H$, 即 $M$ 是 $R$ 的极大理想.<br>
+</div>
+<p><span class="latex_section">5. 有限域的构造, 构造扩域的途径<a id="sec:5"></a></span>
+</p>
+<p>根据上一节的 <a class="latex_ref" href="#yu_bu_ke_yue">推论 31</a>, 若 $p(x)$ 是域 $F$ 上一元多项式环 $F[x]$ 的一个不可约多项式, 则 $F[x]/\big(p(x)\big)$ 是一个域, 这给出了构造域的具体途径.<br>
+</p><div class="latex_examp"><span class="latex_examp_h">例子 2</span><span class="latex_examp_h">.</span> 构造含 $4$ 个元素的域.<br>
+</div><br>
+<div class="latex_proof"><span class="latex_proof_h">证明</span><span class="latex_proof_h">.</span> 我们已经知道 $\mathbb{Z}_2$ 是含 $2$ 个元素的域. 为了构造含 $4$ 个元素的域，我们在 $\mathbb{Z}_2[x]$ 中取一个 $2$  次不可约多项式 $x^2+x+\overline{1}$ （由于 $\overline{0}, \overline{1}$都不是它的根，因此它没有一次因式，从而它在 $\mathbb{Z}_2$ 上不可约）。于是 $\mathbb{Z}_2[x] /\left(x^2+x+\overline{1}\right)$ 是一个域, 它的元素形如 $f(x)+\left(x^2+x+\overline{1}\right)$ ，其中 $f(x) \in \mathbb{Z}_2[x]$. 在 $\mathbb{Z}_2[x]$ 中做带余除法:<br>
+$$<br>
+f(x)=h(x)\left(x^2+x+\overline{1}\right)+r(x), \quad \operatorname{deg} r(x)&lt;2
+$$
+于是可设 $r(x)=\bar{c}_0+\bar{c}_1 x$, 其中 $\bar{c}_0, \bar{c}_1 \in \mathbb{Z}_2$, 从而
+$$
+\begin{aligned}
+&amp;f(x)+\left(x^2+x+\overline{1}\right)\\ =&amp;\left[h(x)\left(x^2+x+\overline{1}\right)+r(x)\right]+\left(x^2+x+\overline{1}\right) \\
+=&amp;\left(\bar{c}_0+\bar{c}_1 x\right)+\left(x^2+x+\overline{1}\right) \\
+=&amp;\left[\bar{c}_0+\left(x^2+x+\overline{1}\right)\right]+\left[\bar{c}_1 x+\left(x^2+x+\overline{1}\right)\right] \\
+=&amp;\left[\bar{c}_0+\left(x^2+x+\overline{1}\right)\right]+\left[\bar{c}_1+\left(x^2+x+\overline{1}\right)\right]\left[x+\left(x^2+x+\overline{1}\right)\right] .
+\end{aligned}
+$$
+因此 $\mathbb{Z}_2[x] /\left(x^2+x+\overline{1}\right)$ 含有 4 个元素:
+$$
+\overline{0}+\left(x^2+x+\overline{1}\right), \overline{1}+\left(x^2+x+\overline{1}\right), x+\left(x^2+x+\overline{1}\right),(\overline{1}+x)+\left(x^2+x+\overline{1}\right),
+$$
+其中 $\overline{0}+\left(x^2+x+\overline{1}\right)$ 是零元, 记做 $0 ; \overline{1}+\left(x^2+x+\overline{1}\right)$ 是单位元, 记做 $1$ ;把 $x+\left(x^2+x+\overline{1}\right)$ 记做 $u$ ，则
+$$
+\mathbb{Z}_2[x] /\left(x^2+x+\overline{1}\right)=\{0,1, u, 1+u\} .
+$$
+由于
+$$
+2\left[\overline{1}+\left(x^2+x+\overline{1}\right)\right]=(\overline{1}+\overline{1})+\left(x^2+x+\overline{1}\right)=\overline{0}+\left(x^2+x+\overline{1}\right),
+$$
+因此 $\mathbb{Z}_2[x] /\left(x^2+x+\overline{1}\right)$ 的特征为 $2$. 还容易验证
+$$
+u^2+u+1=0.
+$$
+</div>
+<div class="latex_examp"><span class="latex_examp_h">例子 3</span><span class="latex_examp_h">.</span> 在 4 元域 $\mathbb{Z}_2[x] /\left(x^2+x+\overline{1}\right)$ 中, 计算 $u+(1+u), u(1+u)$.
+</div>
+<div class="latex_proof"><span class="latex_proof_h">证明</span><span class="latex_proof_h">.</span> $u+(1+u)=1+2 u=1+0=1 ; u(1+u)=u+u^2=-1=1$.
+</div>
+我们知道, 有限域 $F$ 的元素个数是素数 $p$ 的方幂, 其中 $p$ 是域 $F$ 的特征.
+<span id="you_xian_yi_de_gou_zao"></span><div class="latex_thm"><span class="latex_thm_h">定理 33</span><span class="latex_thm_h">.</span> 设 $F_q$ 是含  $q$ 个元素的有限域, 其中 $q=p^r$, $p$ 为素数, $r\ges1$. 如果 $m(x)=a_0+a_1x+\cdots+a_nx^n$ 为 $F_q[x]$ 中的 $n$ 次不可约多项式, 那么 $F_q[x]/\big(m(x)\big)$ 为含 $q^n$ 个元素的域, 并且其中的每个元素可以唯一表示成
+ $$
+c_0+c_1 u+\cdots+c_{n-1} u^{n-1} \text {, }
+$$
+其中 $c_i \in F_q, i=0,1, \cdots, n-1 ; u=x+(m(x)), u$ 满足 $m(u)=0$.
+</div>
+
+从 <a class="latex_ref" href="#you_xian_yi_de_gou_zao">定理 33</a> 看到, 当 $n&gt;1$ 时, 由于 $m(x)=a_0+a_1 x+\cdots+a_n x^n$ 是域 $F_q$ 上的 $n$ 次不可约多项式, 因此 $m(x)$ 在 $F_q$ 中没有根。但是由于 $m(u)=a_0+a_1 u+\cdots+a_n u^n=0$ ，因此 $m(x)$ 在域 $F_q[x] /(m(x))$ 中有一个根 $u$, 其中 $u=x+(m(x))$.<br>
+从上面一段话受到启发，实数域 $\mathbb{R}$ 上的二次多项式 $x^2+1$ 没有实根，但是我们可以构造一个较大的域，使得 $x^2+1$ 在这个较大的域中有根。类比定理1中从域 $F_q$ 出发构造出较大的域 $F_q[x] /(m(x))$ 的方法，由于 $x^2+1$ 在 $\mathbb{R}[x]$ 中不可约，因此 $\mathbb{R}[x] /\left(x^2+1\right)$ 是一个域，它的元素形如 $f(x)+\left(x^2+1\right)$. 在 $\mathbb{R}[x]$ 中做带余除法：<br>
+$$<br>
+f(x)=h(x)\left(x^2+1\right)+r(x), \quad \operatorname{deg} r(x)&lt;2
+$$
+于是可以设 $r(x)=c_0+c_1 x$, 其中 $c_0, c_1 \in \mathbb{R}$. 从而
+$$
+\begin{aligned}
+f(x)+\left(x^2+1\right) &amp; =\left[h(x)\left(x^2+1\right)+r(x)\right]+\left(x^2+1\right) \\
+&amp; =\left[c_0+\left(x^2+1\right)\right]+\left[c_1+\left(x^2+1\right)\right]\left[x+\left(x^2+1\right)\right]
+\end{aligned}
+$$
+考虑 $\mathbb{R}$ 到 $\mathbb{R}[x] /\left(x^2+1\right)$ 的一个对应法则
+$$
+\tau: a \mapsto a+\left(x^2+1\right),
+$$
+则 $\tau$ 是一个映射, 并且容易验证 $\tau$ 是单射, 且保持加法和乘法运算, $\tau(1) \mapsto$ $1+\left(x^2+1\right)$, 因此 $\tau$ 是 $\mathbb{R}$ 到 $\mathbb{R}[x] /\left(x^2+1\right)$ 的一个环同态，且 $\tau$ 是单同态. 于是可以把 $a$ 与 $a+\left(x^2+1\right)$ 等同. 把 $x+\left(x^2+1\right)$ 记做 $u$ ，则 $\mathbb{R}[x] /$ $\left(x^2+1\right)$ 中的元素可以表示成 $c_0+c_1 u$.
+如果 $c_0+c_1 u=d_0+d_1 u$, 那么 $\left(c_0-d_0\right)+\left(c_1-d_1\right) u=0$ 。从而
+$$
+\begin{aligned}
+0 &amp; =\left[\left(c_0-d_0\right)+\left(x^2+1\right)\right]+\left[\left(c_1-d_1\right)+\left(x^2+1\right)\right]\left[x+\left(x^2+1\right)\right] \\
+&amp; =\left\lceil\left(c_0-d_0\right)+\left(c_1-d_1\right) x\right\rceil+\left(x^2+1\right) .
+\end{aligned}
+$$
+于是 $\left(c_0-d_0\right)+\left(c_1-d_1\right) x \in\left(x^2+1\right)$. 由此推出, $c_0-d_0=0, c_1-d_1=0$,即 $c_0=d_0, c_1=d_1$ 。因此 $\mathbb{R}[x] /\left(x^2+1\right)$ 中的每一个元素表示成 $c_0+c_1 u$的表示法唯一. 于是
+$$
+\begin{gathered}
+\mathbb{R}[x] /\left(x^2+1\right)=\left\{c_0+c_1 u \mid c_0, c_1 \in \mathbb{R}\right\} \\
+u^2+1=\left[x+\left(x^2+1\right)\right]^2+\left[1+\left(x^2+1\right)\right]=x^2+1+\left(x^2+1\right)=\left(x^2+1\right)=0
+\end{gathered}
+$$
+因此 $u$ 满足 $u^2+1=0$. 从而 $u$ 是 $x^2+1$ 在 $\mathbb{R}[x] /\left(x^2+1\right)$ 中的一个根. 令
+$$
+\begin{aligned}
+\sigma: \mathbb{R}[x] /\left(x^2+1\right) &amp; \rightarrow \mathbb{C} \\
+c_0+c_1 u &amp; \mapsto c_0+c_1 \mathrm{i},
+\end{aligned}
+$$
+由于 $\mathbb{R}[x] /\left(x^2+1\right)$ 中的每一个元素表示成 $c_0+c_1 u$ 的表示法唯一, 因此 $\sigma$ 是一个映射。容易验证， $\sigma$ 是单射、满射，并且 $\sigma$ 保持加法和乘法运算，因此 $\sigma$ 是 $\mathbb{R}[x] /\left(x^2+1\right)$ 到 $\mathbb{C}$ 的一个环同构。从而
+$$
+\mathbb{R}[x] /\left(x^2+1\right) \cong \mathbb{C},
+$$
+并且同构映射 $\sigma$ 把 $u$ 对应到 $\mri$ .
+从  <a class="latex_ref" href="#you_xian_yi_de_gou_zao">定理 33</a>  和 $\mathbb{R}[x] /\left(x^2+1\right)$ 的构造方法看到, 类似于  <a class="latex_ref" href="#you_xian_yi_de_gou_zao">定理 33</a> 的证明方法可以证明下述一般的结论:
+
+<span id="kuo_yu_de_gou_zao"></span><div class="latex_thm"><span class="latex_thm_h">定理 34</span><span class="latex_thm_h">.</span> 设 $F$ 是一个域, 如果 $p(x)=x^r+b_{r-1} x^{r-1}+\cdots+b_1 x+b_0$是域 $F$ 上的一个不可约多项式, 那么 $F[x] /(p(x))$ 是一个域, 并且 $\sigma: a \mapsto a+(p(x))$ 是 $F$ 到 $F[x] /(p(x))$ 的一个单的环同态, 从而可以把 $a$ 与 $a+(p(x))$ 等同。把 $x+(p(x))$ 记做 $u$, 则 $F[x] /(p(x))$ 的每一个元素可以唯一地表示成
+$$
+c_0+c_1 u+\cdots+c_{r-1} u^{r-1}
+$$
+其中 $c_i \in F, i=0,1, \cdots, r-1$, 并且 $u$ 是 $(p(x))$ 在 $F[x] /(p(x))$ 中的一个根。
+</div>
+在 <a class="latex_ref" href="#kuo_yu_de_gou_zao">定理 34</a>  中，由于 $\sigma: a \mapsto a+(p(x))$ 是 $F$ 到 $F[x] /(p(x))$ 的一个单的环同态，因此 $F$ 与 $F[x] /(p(x))$ 的子环 $\{a+(p(x)) \mid a \in F\}$ 同构. 从而可以把 $F[x] /(p(x))$ 看成是 $F$ 的一个扩域。由此引出下述概念：
+<div class="latex_defn"><span class="latex_defn_h">定义 35</span> (<span class="latex_defn_name">扩环</span>)<span class="latex_defn_h">.</span> 设 $R$ 和 $\widetilde{R}$ 都是有单位元的环, 如果 $\widetilde{R}$ 有一个子环 $\widetilde{R}_1$, 它与 $\widetilde{R}$ 有相同的单位元，并且 $\widetilde{R}_1$ 与 $R$ 环同构，那么把 $\widetilde{R}$ 称为 $R$ 的一个扩环，此时可以把 $R$ 看成是 $\widetilde{R}$ 的一个子环。
+</div>
+<div class="latex_defn"><span class="latex_defn_h">定义 36</span> (<span class="latex_defn_name">扩域</span>)<span class="latex_defn_h">.</span> 设 $F$ 和 $K$ 都是域, 如果 $F$ 与 $K$ 的一个子环 $K_1$ 环同构, 那么称 $K$ 是 $F$ 的一个扩域, 或者称 $K$ 是 $F$ 上的一个域扩张, 记做 $K / F$,此时可以把 $F$ 看成是 $K$ 的一个子域。
+</div>
+<a class="latex_ref" href="#kuo_yu_de_gou_zao">定理 34</a> 给出了构造域 $F$ 的扩域的一条途径。还有没有其他的途径？
+构造域 $F$ 的扩域？先看一个例子：
+$$
+\mathbb{Q}(\sqrt{2}) := \{a + b\sqrt{2} \mid a, b \in \mathbb{Q}\},
+$$
+$\mathbb{Q}(\sqrt{2})$ 是一个域，它可以看成是 $\mathbb{Q}$ 添加 $\mathbb{R}$ 中的元素 $\sqrt{2}$ 得到的。由此引出下述概念：
+<span id="sheng_cheng_de_zi_huan"></span><div class="latex_defn"><span class="latex_defn_h">定义 37</span> (<span class="latex_defn_name">生成的子环</span>)<span class="latex_defn_h">.</span> 设 $R$ 是有单位元 $1(\neq 0)$ 的交换环, $\widetilde{R}$ 是 $R$ 的一个扩环, 且 $\widetilde{R}$ 是交换环。任意取定 $\widetilde{\alpha} \in \widetilde{R}$ ，我们把 $\widetilde{R}$ 中包含 $R \cup\{\widetilde{\alpha}\}$ 的所有子环的交称为 $R$ 添加 $\tilde{\alpha}$ 得到的子环，或者 $\tilde{\alpha}$ 在 $R$ 上生成的子环，记做 $R[\tilde{\alpha}]$ 。
+</div>
+$R[\tilde{\alpha}]$ 的元素是什么样子的？由于子环 $R[\tilde{\alpha}]$ 对 $\widetilde{R}$ 的加法和乘法封闭，因此对于任意 $a_0, a_1, \cdots, a_n \in R$ ，有
+$$
+a_0+a_1 \tilde{\alpha}+\cdots+a_n \tilde{\alpha}^n \in R[\tilde{\alpha}] .
+$$
+于是集合 $S=\left\{a_0+a_1 \tilde{\alpha}+\cdots+a_n \tilde{\alpha}^n \mid a_0, a_1, \cdots, a_n \in R, n \in \mathbb{N}\right\} \subseteq R[\tilde{\alpha}]$ 。容易验证 $S$ 对 $\widetilde{R}$ 的减法和乘法封闭，因此 $S$ 是 $\widetilde{R}$ 的一个子环，且 $S \supseteq R U$ $\{\tilde{\alpha}\}$, 从而 $S \supseteq R[\tilde{\alpha}]$ 。于是 $S=R[\tilde{\alpha}]$, 即
+$$
+R[\tilde{\alpha}]=\left\{a_0+a_1 \tilde{\alpha}+\cdots+a_n \tilde{\alpha}^n \mid a_0, a_1, \cdots, a_n \in R, n \in \mathbb{N}\right\},
+$$
+其中 $a_0+a_1 \tilde{\alpha}+\cdots+a_n \tilde{\alpha}^n$ 称为 $\tilde{\alpha}$ 在 $R$ 上的一个多项式。
+在 <a class="latex_ref" href="#sheng_cheng_de_zi_huan">定义 37</a> 中把 $R$ 取成一个域 $F$ ，我们来探索在什么条件下 $F[\tilde{\alpha}]$ 是一个域。由于域中非零元都不是零因子，因此要求 $\widetilde{R}$ 是整环。如果有 $F[x]$ 中的一个不可约多项式 $m(x)$, 使得 $F[x] /(m(x)) \cong F[\tilde{\alpha}]$, 那么 $F[\tilde{\alpha}]$ 是一个域。为此考虑下述对应法则：
+$$
+\sigma_{\tilde{\alpha}}: F[x]\ni f(x)\mapsto f(\tilde{\alpha})\in \tilde{R},
+$$
+其中 $f(x)=\sum_{i=0}^n a_i x^i$. 根据域 $F$ 上一元多项式环 $F[x]$ 的通用性质, $\sigma_{\bar{\alpha}}$ 是 $F[x]$ 到 $\widetilde{R}$ 的一个环同态, 并且有 $\operatorname{Im} \sigma_{\tilde{\alpha}}=F[\tilde{\alpha}]$.于是根据环同态基本定理得
+$$
+F[x] / \operatorname{Ker} \sigma_{\tilde{\alpha}} \cong F[\tilde{\alpha}]
+$$
+由于
+$$
+\begin{aligned}
+f(x) \in \operatorname{Ker} \sigma_{\tilde{\alpha}} &amp; \Leftrightarrow f(\tilde{\alpha})=0 \\
+&amp; \Leftrightarrow \tilde{\alpha} \text { 是 } f(x) \text { 在 } \widetilde{R} \text { 中的一个根, }
+\end{aligned}
+$$
+因此
+$$
+\operatorname{Ker}_{\sigma_{\tilde{\alpha}}}=\{f(x) \in F[x] \mid \tilde{\alpha} \text { 是 } f(x) \text { 的一个根 }\} .
+$$
+由于 $\operatorname{Ker}_{\sigma_i}$ 是 $F[x]$ 的一个理想, 且 $F[x]$ 的理想都是主理想, 因此 $\operatorname{Ker} \sigma_\alpha=(0)$,或者 $\operatorname{Ker}_{\sigma_\alpha^\alpha}=(m(x))$, 其中 $m(x)$ 是首 $1$ 多项式. 下面分两种情况讨论.
+<ol>
+<li>$ \operatorname{Ker}_{\tilde{\alpha}}=(0)$ ，则 $\tilde{\alpha}$ 不是 $F[x]$ 中任何非零多项式的根，此时称 $\tilde{\alpha}$ 是 $F$ 上的<b>超越元</b>. 在这种情形有<br>
+$$<br>
+F[\tilde{\alpha}] \cong F[x] /(0) \cong F[x]<br>
+$$<br>
+即 $F[\tilde{\alpha}]$ 同构于 $F[x]$, 从而 $F[\tilde{\alpha}]$ 不是域.</li><li>$ \operatorname{Ker}_{\sigma_{\tilde{\alpha}}}=(m(x))$, 则 $\tilde{\alpha}$ 是 $F[x]$ 中非零多项式 $m(x)$ 的一个根，此时称 $\tilde{\alpha}$ 是 $F$ 上的<b>代数元</b>，且 $F[x]$ 中以 $\tilde{\alpha}$ 为根的多项式都是 $m(x)$的倍式。因此 $m(x)$ 是 $F[x]$ 里以 $\tilde{\alpha}$ 为根的所有非零多项式中次数最低的首 $1$ 多项式，称它为 <b>$\tilde{\alpha}$ 在 $F$ 上的极小多项式</b>。我们断言： $\tilde{\alpha}$ 在 $F$ 上的极小多项式 $m(x)$ 在 $F$ 上是不可约的。理由如下：由于 $\sigma_{\dot{\alpha}}(x)=\tilde{\alpha}, \sigma_{\tilde{\alpha}}(1+x)=1+\tilde{\alpha}$, 因此 $\operatorname{Ker}_{\tilde{\alpha}} \neq F[x]$ 。从而 $m(x)$ 的次数大于 $0$ . 假如 $m(x)$ 在 $F$ 上可约, 则<br>
+$$<br>
+m(x)=m_1(x) m_2(x), \quad \operatorname{deg} m_i(x)&lt;\operatorname{deg} m(x), \quad i=1,2 .
+$$
+在上式中, $x$ 用 $\tilde{\alpha}$ 代人, 可得, $0=m(\tilde{\alpha})=m_1(\tilde{\alpha}) m_2(\tilde{\alpha})$. 由于 $\widetilde{R}$ 是整环,因此 $m_1(\tilde{\alpha})=0$ 或 $m_2(\tilde{\alpha})=0$ ，从而 $m_1(x)$ 或 $m_2(x)$ 以 $\tilde{\alpha}$ 为根。这与 $m(x)$是 $\tilde{\alpha}$ 的极小多项式矛盾。这证明了 $\tilde{\alpha}$ 在 $F$ 上的极小多项式 $m(x)$ 在 $F$ 上是不可约的。因此 $F[x] /(m(x))$ 是一个域。由于
+$$
+F[x] /(m(x)) \cong F[\tilde{\alpha}]
+$$
+因此 $F[\bar{\alpha}]$ 是一个域. 设
+$$
+m(x)=x^r+b_{r-1} x^{r-1}+\cdots+b_1 x+b_0
+$$
+则根据 <a class="latex_ref" href="#kuo_yu_de_gou_zao">定理 34</a> 得， $F[x] /(m(x))$ 的每一个元素可唯一地表示成
+$$
+c_0+c_1 u+\cdots+c_{r-1} u^{r-1}
+$$
+其中 $c_i \in F, i=0,1, \cdots, r-1$, 并且 $u$ 是 $m(x)$ 在 $F[x] /(m(x))$ 中的一个根。根据环同态基本定理的证明过程和 $\sigma_{\tilde{\alpha}}$ 的定义得, $F[x] /(m(x))$ 到 $F[\bar{\alpha}]$的一个环同态映射 $\psi$ 为
+$$
+\psi(f(x)+m(x))=\sigma_{\tilde{\alpha}}(f(x))=f(\tilde{\alpha}) .
+$$
+从而 
+\begin{align*}
+\psi\left(c_0+c_1 u+\cdots+c_{r-1} u^{r-1}\right)&amp;=\psi\left(c_0+c_1 x+\cdots+c_{r-1} x^{r-1}+(m(x))\right)\\
+&amp;=c_0+c_1 \tilde{\alpha}+\cdots+c_{r-1} \tilde{\alpha}^{r-1} \text {, }
+\end{align*}
+特别地, 有
+$$
+\psi(u)=\tilde{\alpha} .
+$$
+因此 $F[\tilde{\alpha}]$ 的每一个元素可以唯一地表示成
+$$
+c_0+c_1 \tilde{\alpha}+\cdots+c_{r-1} \tilde{\alpha}^{r-1}
+$$
+其中 $c_i \in F, i=0,1, \cdots, r-1$.
+</li></ol>
+综上所述, 我们证明了下述结论:
+<span id="kuo_yu_de_gou_zao2"></span><div class="latex_thm"><span class="latex_thm_h">定理 38</span><span class="latex_thm_h">.</span> 设 $F$ 是一个域, $\widetilde{R}$ 是 $F$ 的一个扩环, 且 $\widetilde{R}$ 是整环. 任取 $\tilde{\alpha} \in \widetilde{R}$.
+<ol>
+<li>若 $\tilde{\alpha}$ 是 $F$ 上的超越元, 则 $F[\tilde{\alpha}]$ 同构于 $F[x]$ ，从而 $F[\bar{\alpha}]$ 不是域；
+</li><li>若 $\bar{\alpha}$ 是 $F$ 上的代数元，且 $\bar{\alpha}$ 在 $F$ 上的极小多项式为
+$$
+m(x)=x^r+b_{r-1} x^{r-1}+\cdots+b_1 x+b_0,
+$$
+则 $m(x)$ 在 $F$ 上不可约, 且 $F[\tilde{\alpha}]$ 是与 $F[x] /(m(x))$ 同构的域, 从 $F[x] /(m(x))$ 到 $F[\tilde{\alpha}]$ 的一个同构映射 $\psi$ 为
+$$
+\psi\left(c_0+c_1 u+\cdots+c_{r-1} u^{r-1}\right)=c_0+c_1 \tilde{\alpha}+\cdots+c_{r-1} \tilde{\alpha}^{r-1},
+$$
+于是 $F[\tilde{\alpha}]$ 的每一个元素可以唯一地表示成
+$$
+c_0+c_1 \tilde{\alpha}+\cdots+c_{r-1} \tilde{\alpha}^{r-1},
+$$
+其中 $c_i \in F, i=0,1, \cdots, r-1$.
+</li></ol>
+</div>
+<a class="latex_ref" href="#kuo_yu_de_gou_zao2">定理 38</a> 给出了构造域 $F$ 的扩域的第二条途径, 并且指出了它与第一条途径的关系：在 $F$ 的一个扩环 $\widetilde{R}(\widetilde{R}$ 是整环）中取一个在 $F$ 上的代数元 $\bar{\alpha}$, 则 $F$ 添加 $\tilde{\alpha}$ 得到的子环 $F[\tilde{\alpha}]$ 是一个域; 并且若 $\tilde{\alpha}$ 在 $F$ 上的极小多项式为 $m(x)=x^r+b_{r-1} x^{r-1}+\cdots+b_1 x+b_0$, 则
+$$
+F[x] /(m(x)) \cong F[\tilde{\alpha}]
+$$
+当 $F[\tilde{\alpha}]$ 是域时, 我们把 $F[\bar{\alpha}]$ 记成 $F(\widetilde{\alpha})$.
+
+
+
+
+<span class="latex_section">6. 分式域<a id="sec:6"></a></span>
+
+</div>
+  </div>
+  <nav class="post-navigation" aria-label="文章前后导航"><a href="/563.html"><span>上一篇</span><strong>模论1</strong></a><a href="/610.html"><span>下一篇</span><strong>整环的整除性</strong></a></nav>
+</article>
+</main>
+  <footer class="site-footer">
+    <p>阿贝尔的数学之旅 · 数学笔记与思考</p>
+    <p><a href="/feed.xml">RSS</a><span aria-hidden="true"> · </span><a href="/sitemap.xml">站点地图</a></p>
+  </footer>
+  <script src="/assets/site.js"></script>
+  
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ["\\(","\\)"]],
+    displayMath: [['$$', '$$'], ["\\[", "\\]"]],
+    processEscapes: true
+  },
+  TeX: {
+    equationNumbers: {autoNumber: "AMS",
+    useLabelIds: true}
+  },
+});
+MathJax.Hub.Config({TeX: {Macros: {"mr": ["\\mathrm{#1}", 1], "mb": ["\\mathbb{#1}", 1], "ee": "\\exists\\,", "ff": "\\forall\\,", "les": "\\leqslant", "ges": "\\geqslant", "sse": "\\subset", "sbs": "\\subset", "sps": "\\supset", "ve": "\\varepsilon", "mbr": "\\mathbb{R}", "mbn": "\\mathbb{N}", "mbz": "\\mathbb{Z}", "mbq": "\\mathbb{Q}", "mbc": "\\mathbb{C}", "mbh": "\\mathbb{H}", "vp": "\\varphi", "nti": "n\\to\\infty", "md": "\\mathrm{d}", "mre": "\\mathrm{e}", "mri": "\\mathrm{i}", "lra": ["\\langle #1\\rangle", 1], "Ker": "\\mathrm{Ker}\\,", "Im": "\\mathrm{Im}\\,", "tl": "\\triangleleft", "set": ["\\left\\{#1\\,\\left|\\,#2\\right. \\right\\}", 2], "mod": ["\\ (\\mr{mod}\\ #1)", 1], "pp": "\\partial", "Gal": ["\\mathrm{Gal}\\left(#1\\right)", 1], "Inv": ["\\mathrm{Inv}\\left(#1\\right)", 1], "End": ["\\mathrm{End}_{#1}\\!\\left(#2\\right)", 2], "Hom": ["\\mathrm{Hom}_{#1}\\!\\left(#2\\right)", 2], "ca": "\\mathcal{A}", "cb": "\\mathcal{B}", "cc": "\\mathcal{C}", "cd": "\\mathcal{D}", "ce": "\\mathcal{E}", "cf": "\\mathcal{F}", "cg": "\\mathcal{G}", "cl": "\\mathcal{L}", "cs": "\\mathcal{S}", "Ext": "\\mathrm{Ext}", "Tor": "\\mathrm{Tor}", "mc": ["\\mathcal{#1}", 1], "ot": "\\otimes"}}});
+</script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_SVG.js"></script>
+</body>
+</html>

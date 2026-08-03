@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>用 Fourier 变换证明 Leibniz 法则｜阿贝尔的数学之旅</title>
+  <meta name="description" content="目录 目录 1. 用Fourier变 … 继续阅读 →">
+  <link rel="canonical" href="https://www.abelmath.fun/1523.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="阿贝尔的数学之旅">
+  <meta property="og:title" content="用 Fourier 变换证明 Leibniz 法则｜阿贝尔的数学之旅">
+  <meta property="og:description" content="目录 目录 1. 用Fourier变 … 继续阅读 →">
+  <meta property="og:url" content="https://www.abelmath.fun/1523.html">
+  <meta property="og:image" content="https://www.abelmath.fun/assets/og.png">
+  <meta property="og:image:width" content="1731">
+  <meta property="og:image:height" content="909">
+  <meta property="og:image:alt" content="阿贝尔的数学之旅：数学笔记与思考">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="用 Fourier 变换证明 Leibniz 法则｜阿贝尔的数学之旅">
+  <meta name="twitter:description" content="目录 目录 1. 用Fourier变 … 继续阅读 →">
+  <meta name="twitter:image" content="https://www.abelmath.fun/assets/og.png">
+  <link rel="stylesheet" href="/assets/site.css">
+  <link rel="alternate" type="application/rss+xml" title="阿贝尔的数学之旅" href="/feed.xml">
+</head>
+<body class="article-page">
+  <a class="skip-link" href="#main">跳到正文</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="/" aria-label="阿贝尔的数学之旅首页">
+        <span class="brand-mark" aria-hidden="true">∫</span>
+        <span><strong>阿贝尔的数学之旅</strong><small>ABEL'S MATHEMATICAL JOURNEY</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">目录</button>
+      <nav id="site-nav" class="site-nav" aria-label="主要导航"><a href="/">首页</a><a href="/category/%e8%ae%ba%e6%96%87/">论文</a><a href="/category/ode/">ODE</a><a href="/category/pde/">PDE</a><a href="/category/analysis/">分析</a><a href="/category/analysis/%e6%b5%8b%e5%ba%a6/">测度</a><a href="/category/%e8%bf%91%e4%b8%96%e4%bb%a3%e6%95%b0/">抽代</a><a href="/category/%e5%9f%ba%e4%bb%a3/">基代</a><a href="/category/%e7%a7%91%e6%99%ae/">科普</a><a href="/category/manim/">manim</a><a href="/category/%e6%8e%a2%e8%ae%a8/">探讨</a><a href="/category/%e8%ae%b0%e5%bd%95/">记录</a></nav>
+    </div>
+  </header>
+  <main id="main">
+<article class="article-shell">
+  <header class="article-header">
+    <a class="back-link" href="/">← 返回首页</a>
+    <div class="post-meta"><time datetime="2025-08-28T12:37:52+00:00">2025-08-28</time><a class="chip" href="/category/blog/">博客</a><a class="chip" href="/category/%E6%8E%A2%E8%AE%A8/">探讨</a></div>
+    <h1>用 Fourier 变换证明 Leibniz 法则</h1>
+    <p>目录 目录 1. 用Fourier变 … 继续阅读 →</p>
+  </header>
+  <div class="article-layout">
+    <aside class="article-rail"><p>NOTE 1523</p><span></span><p>2025 · 08 · 28</p></aside>
+    <div class="article-content"><p><span id="contents" style="text-align:center; font-size:18px; font-variant:small-caps;display:block;">目录</span><br>
+          <span id="sec:content"><a href="#contents">目录</a></span><br><span> 1.  <a href="#sec:1">用Fourier变换证明Leibniz法则</a></span><br><br>
+<span class="latex_section">1. 用Fourier变换证明Leibniz法则<a id="sec:1"></a></span>
+
+</p><div class="latex_thm"><span class="latex_thm_h">定理 1</span><span class="latex_thm_h">.</span> 设 $f$ 和 $g$ 为适当光滑的函数,则<br>
+$$<br>
+\mathcal{D}^{n}(fg) = \sum_{k=0}^{n} \binom{n}{k} \mathcal{D}^{n-k}f \cdot \mathcal{D}^{k}g.<br>
+$$<br>
+</div>
+
+<details class="wp-block-details">
+<summary>证明</summary>
+<p></p><div class="latex_proof"><span class="latex_proof_h">证明</span><span class="latex_proof_h">.</span> 利用傅里叶变换的性质,记傅里叶变换算子为 $\mathcal{F}$ ,且注意到:<br>
+$$<br>
+\mathcal{F}\{f \cdot g\} = \frac{1}{2\pi} \mathcal{F}\{f\} * \mathcal{F}\{g\}, \quad (j\omega)^{n} =\sum_{k=0}^{n} \binom{n}{k} (j\eta)^{n-k} (j(\omega - \eta))^{k}.<br>
+$$
+<p>首先,对 $\mathcal{D}^{n}(fg)$ 进行傅里叶变换:<br>
+$$<br>
+\mathcal{F}\{\mathcal{D}^{n}(fg)\} = (j\omega)^{n} \mathcal{F}\{fg\}.<br>
+$$</p>
+<p>代入卷积公式:<br>
+$$<br>
+= \frac{1}{2\pi} (j\omega)^{n} \left( \mathcal{F}\{f\} * \mathcal{F}\{g\} \right)<br>
+= \frac{1}{2\pi} (j\omega)^{n} \int_{\mathbb{R}} \mathcal{F}\{f\}(\eta) \mathcal{F}\{g\}(\omega - \eta) \, \mathrm{d}\eta.<br>
+$$</p>
+<p>将 $(j\omega)^{n}$ 展开:<br>
+$$<br>
+= \frac{1}{2\pi} \sum_{k=0}^{n} \binom{n}{k} \int_{\mathbb{R}} (j\eta)^{n-k} \mathcal{F}\{f\}(\eta) \cdot [j(\omega - \eta)]^{k} \mathcal{F}\{g\}(\omega - \eta) \, \mathrm{d}\eta.<br>
+$$</p>
+<p>注意到:<br>
+$$<br>
+(j\eta)^{n-k} \mathcal{F}\{f\}(\eta) = \mathcal{F}\{\mathcal{D}^{n-k}f\}(\eta), \quad [j(\omega - \eta)]^{k} \mathcal{F}\{g\}(\omega - \eta) = \mathcal{F}\{\mathcal{D}^{k}g\}(\omega - \eta),<br>
+$$<br>
+因此:<br>
+$$<br>
+= \frac{1}{2\pi} \sum_{k=0}^{n} \binom{n}{k} \int_{\mathbb{R}} \mathcal{F}\{\mathcal{D}^{n-k}f\}(\eta) \cdot \mathcal{F}\{\mathcal{D}^{k}g\}(\omega - \eta) \, \mathrm{d}\eta<br>
+= \sum_{k=0}^{n} \binom{n}{k} \mathcal{F}\left\{ \mathcal{D}^{n-k}f \cdot \mathcal{D}^{k}g \right\}.<br>
+$$</p>
+<p>两边同时进行傅里叶逆变换,即得:<br>
+$$<br>
+\mathcal{D}^{n}(fg) = \sum_{k=0}^{n} \binom{n}{k} \mathcal{D}^{n-k}f \cdot \mathcal{D}^{k}g.<br>
+$$<br>
+</p></div><br>
+</details>
+</div>
+  </div>
+  <nav class="post-navigation" aria-label="文章前后导航"><a href="/1516.html"><span>上一篇</span><strong>一些ODE模型</strong></a><a href="/1526.html"><span>下一篇</span><strong>判断周期解存在性的方法</strong></a></nav>
+</article>
+</main>
+  <footer class="site-footer">
+    <p>阿贝尔的数学之旅 · 数学笔记与思考</p>
+    <p><a href="/feed.xml">RSS</a><span aria-hidden="true"> · </span><a href="/sitemap.xml">站点地图</a></p>
+  </footer>
+  <script src="/assets/site.js"></script>
+  
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ["\\(","\\)"]],
+    displayMath: [['$$', '$$'], ["\\[", "\\]"]],
+    processEscapes: true
+  },
+  TeX: {
+    equationNumbers: {autoNumber: "AMS",
+    useLabelIds: true}
+  },
+});
+MathJax.Hub.Config({TeX: {Macros: {"mr": ["\\mathrm{#1}", 1], "mb": ["\\mathbb{#1}", 1], "ee": "\\exists\\,", "ff": "\\forall\\,", "les": "\\leqslant", "ges": "\\geqslant", "sse": "\\subset", "sbs": "\\subset", "sps": "\\supset", "ve": "\\varepsilon", "mbr": "\\mathbb{R}", "mbn": "\\mathbb{N}", "mbz": "\\mathbb{Z}", "mbq": "\\mathbb{Q}", "mbc": "\\mathbb{C}", "mbh": "\\mathbb{H}", "vp": "\\varphi", "nti": "n\\to\\infty", "md": "\\mathrm{d}", "mre": "\\mathrm{e}", "mri": "\\mathrm{i}", "lra": ["\\langle #1\\rangle", 1], "Ker": "\\mathrm{Ker}\\,", "Im": "\\mathrm{Im}\\,", "tl": "\\triangleleft", "set": ["\\left\\{#1\\,\\left|\\,#2\\right. \\right\\}", 2], "mod": ["\\ (\\mr{mod}\\ #1)", 1], "pp": "\\partial", "Gal": ["\\mathrm{Gal}\\left(#1\\right)", 1], "Inv": ["\\mathrm{Inv}\\left(#1\\right)", 1], "End": ["\\mathrm{End}_{#1}\\!\\left(#2\\right)", 2], "Hom": ["\\mathrm{Hom}_{#1}\\!\\left(#2\\right)", 2], "ca": "\\mathcal{A}", "cb": "\\mathcal{B}", "cc": "\\mathcal{C}", "cd": "\\mathcal{D}", "ce": "\\mathcal{E}", "cf": "\\mathcal{F}", "cg": "\\mathcal{G}", "cl": "\\mathcal{L}", "cs": "\\mathcal{S}", "Ext": "\\mathrm{Ext}", "Tor": "\\mathrm{Tor}", "mc": ["\\mathcal{#1}", 1], "ot": "\\otimes"}}});
+</script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_SVG.js"></script>
+</body>
+</html>
