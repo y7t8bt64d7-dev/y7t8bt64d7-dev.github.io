@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://www.abelmath.fun/sitemap.xml
+Sitemap: https://abelmath.fun/sitemap.xml
